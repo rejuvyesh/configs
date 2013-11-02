@@ -1,0 +1,159 @@
+instrumental post-rock band, which formed in Austin, Texas in 1999. Munaf Rayani, Mark Smith, and Michael James had just moved to Austin from Midland, Texas, and drummer Chris Hrasky had just moved to Austin from Rockford, Illinois.  The band quickly gained a reputation for their live shows even amongst other established local bands such as Lift to Experience.  They also garnered a small amount of media attention as a result of their second album Those Who Tell The Truth Shall Die...
+
+        Read more about Explosions in the Sky on Last.fm.
+    
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.]]>
+
+Similar artists:
+
+ * Munaf Rayani (http://www.last.fm/music/This+Will+Destroy+You)
+ * Mark Smith (http://www.last.fm/music/Mogwai)
+ * Michael James (http://www.last.fm/music/Mono)
+ * Chris Hrasky (http://www.last.fm/music/Caspian)
+ * This Will Destroy You (http://www.last.fm/music/God+Is+an+Astronaut)
+ * Mogwai (http://www.last.fm/tag/post-rock)
+ * Mono (http://www.last.fm/tag/instrumental)
+ * Caspian (http://www.last.fm/tag/ambient)
+ * God Is an Astronaut (http://www.last.fm/tag/experimental)
+ * post-rock (http://www.last.fm/tag/post%20rock)
+ * instrumental (l version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+<artist>
+  <name>Explosions in the Sky</name>
+          <mbid>1c4b9280-7bee-4fdd-8886-daa627d471a0</mbid>
+            <bandmembers>
+                    <member>
+                <name>Munaf Rayani</name>
+                                            </member>
+                    <member>
+                <name>Mark Smith</name>
+                                            </member>
+                    <member>
+                <name>Michael James</name>
+                                            </member>
+                    <member>
+                <name>Chris Hrasky</name>
+                                            </member>
+            </bandmembers>
+        <url>http://www.last.fm/music/Explosions+in+the+Sky</url>
+  <image size="small">http://userserve-ak.last.fm/serve/34/17954969.jpg</image>
+  <image size="medium">http://userserve-ak.last.fm/serve/64/17954969.jpg</image>
+  <image size="large">http://userserve-ak.last.fm/serve/126/17954969.jpg</image>
+  <image size="extralarge">http://userserve-ak.last.fm/serve/252/17954969.jpg</image>
+  <image size="mega">http://userserve-ak.last.fm/serve/500/17954969/Explosions+in+the+Sky+explosions+2.jpg</image>
+  <streamable>1</streamable>
+  <ontour>1</ontour>
+  <stats>
+    <listeners>921739</listeners>
+    <playcount>46214363</playcount>
+      </stats>
+
+  <similar>
+	    <artist>
+	  <name>This Will Destroy You</name>
+	  <url>http://www.last.fm/music/This+Will+Destroy+You</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/59269209.png</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/59269209.png</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/59269209.png</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/59269209.png</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/59269209/This+Will+Destroy+You+TWDY.png</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Mogwai</name>
+	  <url>http://www.last.fm/music/Mogwai</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/214430.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/214430.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/214430.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/214430.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/214430/Mogwai.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Mono</name>
+	  <url>http://www.last.fm/music/Mono</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/45526001.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/45526001.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/45526001.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/45526001.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/45526001/Mono.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Caspian</name>
+	  <url>http://www.last.fm/music/Caspian</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/46995237.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/46995237.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/46995237.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/46995237.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/46995237/Caspian+_Concert_Chicago9blog.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>God Is an Astronaut</name>
+	  <url>http://www.last.fm/music/God+Is+an+Astronaut</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/15095285.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/15095285.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/15095285.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/15095285.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/15095285/God+Is+an+Astronaut+W2++s+Hertogenbosch.jpg</image>
+	  
+	        	</artist>
+  </similar>
+    <tags>
+        <tag>
+	  <name>post-rock</name>
+	  <url>http://www.last.fm/tag/post-rock</url>
+	</tag>
+        <tag>
+	  <name>instrumental</name>
+	  <url>http://www.last.fm/tag/instrumental</url>
+	</tag>
+        <tag>
+	  <name>ambient</name>
+	  <url>http://www.last.fm/tag/ambient</url>
+	</tag>
+        <tag>
+	  <name>experimental</name>
+	  <url>http://www.last.fm/tag/experimental</url>
+	</tag>
+        <tag>
+	  <name>post rock</name>
+	  <url>http://www.last.fm/tag/post%20rock</url>
+	</tag>
+      </tags>
+      <bio>
+        <links>
+        <link rel="original" href="http://www.last.fm/music/Explosions+in+the+Sky/+wiki" />
+    </links>
+                                    <published>Mon, 12 Sep 2011 16:44:02 +0000</published>
+    <summary>
+        <![CDATA[        Explosions In The Sky is an American <a href="http://www.last.fm/tag/instrumental" class="bbcode_tag" rel="tag">instrumental</a> <a href="http://www.last.fm/tag/post-rock" class="bbcode_tag" rel="tag">post-rock</a> band, which formed in <a href="http://www.last.fm/tag/austin">Austin</a>, <a href="http://www.last.fm/tag/texas">Texas</a> in 1999. Munaf Rayani, Mark Smith, and Michael James had just moved to Austin from Midland, Texas, and drummer Chris Hrasky had just moved to Austin from Rockford, <a href="http://www.last.fm/tag/illinois">Illinois</a>.  The band quickly gained a reputation for their live shows even amongst other established local bands such as <a href="http://www.last.fm/music/Lift+to+Experience" class="bbcode_artist">Lift to Experience</a>.  They also garnered a small amount of media attention as a result of their second album <a title="Explosions in the Sky - Those Who Tell The Truth Shall Die" href="http://www.last.fm/music/Explosions+in+the+Sky/Those+Who+Tell+The+Truth+Shall+Die" class="bbcode_album">Those Who Tell The Truth Shall Die</a>...
+
+        <a href="http://www.last.fm/music/Explosions+in+the+Sky">Read more about Explosions in the Sky on Last.fm</a>.
+    ]]>
+    </summary>
+    <content>
+            <![CDATA[        Explosions In The Sky is an American <a href="http://www.last.fm/tag/instrumental" class="bbcode_tag" rel="tag">instrumental</a> <a href="http://www.last.fm/tag/post-rock" class="bbcode_tag" rel="tag">post-rock</a> band, which formed in <a href="http://www.last.fm/tag/austin">Austin</a>, <a href="http://www.last.fm/tag/texas">Texas</a> in 1999. Munaf Rayani, Mark Smith, and Michael James had just moved to Austin from Midland, Texas, and drummer Chris Hrasky had just moved to Austin from Rockford, <a href="http://www.last.fm/tag/illinois">Illinois</a>.  The band quickly gained a reputation for their live shows even amongst other established local bands such as <a href="http://www.last.fm/music/Lift+to+Experience" class="bbcode_artist">Lift to Experience</a>.  They also garnered a small amount of media attention as a result of their second album <a title="Explosions in the Sky - Those Who Tell The Truth Shall Die" href="http://www.last.fm/music/Explosions+in+the+Sky/Those+Who+Tell+The+Truth+Shall+Die" class="bbcode_album">Those Who Tell The Truth Shall Die</a>...
+
+        <a href="http://www.last.fm/music/Explosions+in+the+Sky">Read more about Explosions in the Sky on Last.fm</a>.
+    
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.]]>
+    </content>
+            <placeformed>Austin, Texas</placeformed>                        <yearformed>1999</yearformed>
+            <formationlist>
+                    <formation>
+                <yearfrom>1999</yearfrom>
+                <yearto></yearto>
+            </formation>
+            </formationlist>
+      </bio>
+  </artist></lfm>
+)
+ * ambient (http://www.last.fm/music/Explosions+in+the+Sky)
+ * experimental (http://www.last.fm/music/This+Will+Destroy+You)
+ * post rock (http://www.last.fm/music/Mogwai)
+
+http://www.last.fm/music/Explosions+in+the+Sky

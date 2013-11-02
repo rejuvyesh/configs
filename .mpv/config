@@ -1,0 +1,32 @@
+# Write your default config options here!
+
+# default configuration that applies to every file
+[default]
+
+# multithreaded decoding of H264/MPEG-1/2 (valid: 0-16)
+vd-lavc-threads=2
+
+# add black borders so the movies have the same aspect ratio of the monitor
+# for wide screen monitors
+#vf=expand=::::1:16/9:16
+
+# correct pitch when speed is faster or slower than 1.0
+af=scaletempo
+
+# allow to seek in a file which is still downloading whilst watching it
+idx=yes
+
+# allow to increase the maximal volume to 600%
+#softvol-max=600
+
+# skip displaying some frames to maintain A/V sync on slow systems
+framedrop=yes
+
+# Use 80MB input cache for everything, even local files.
+cache = 81920
+#
+# Prefill 50% of the cache before starting playback.
+cache-min = 20.0
+#
+# Prefill 50% of the cache before restarting playback after the cache emptied.
+#cache-seek-min = 50

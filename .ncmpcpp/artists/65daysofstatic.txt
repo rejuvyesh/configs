@@ -1,0 +1,179 @@
+Read more about 65daysofstatic on Last.fm.
+    
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.]]>
+
+Similar artists:
+
+ * Iain Armstrong (http://www.last.fm/music/Maybeshewill)
+ * Paul Wolinski (http://www.last.fm/music/And+So+I+Watch+You+From+Afar)
+ * Joe Shrewsbury (http://www.last.fm/music/Collapse+Under+the+Empire)
+ * Feedle (Graham Clarke) (http://www.last.fm/music/Gifts+From+Enola)
+ * Rob Jones (http://www.last.fm/music/If+These+Trees+Could+Talk)
+ * Gareth Hughes (http://www.last.fm/tag/post-rock)
+ * Simon Wright (http://www.last.fm/tag/instrumental)
+ * Maybeshewill (http://www.last.fm/tag/experimental)
+ * And So I Watch You From Afar (http://www.last.fm/tag/math%20rock)
+ * Collapse Under the Empire (http://www.last.fm/tag/electronic)
+ * Gifts From Enola (l version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+<artist>
+  <name>65daysofstatic</name>
+          <mbid>0cd12ab3-9628-45ef-a97b-ff18624f14a0</mbid>
+            <bandmembers>
+                    <member>
+                <name>Iain Armstrong</name>
+                                    <yearfrom>2001</yearfrom>
+                                                    <yearto>2003</yearto>
+                            </member>
+                    <member>
+                <name>Paul Wolinski</name>
+                                    <yearfrom>2001</yearfrom>
+                                            </member>
+                    <member>
+                <name>Joe Shrewsbury</name>
+                                    <yearfrom>2001</yearfrom>
+                                            </member>
+                    <member>
+                <name>Feedle (Graham Clarke)</name>
+                                    <yearfrom>2003</yearfrom>
+                                                    <yearto>2003</yearto>
+                            </member>
+                    <member>
+                <name>Rob Jones</name>
+                                    <yearfrom>2003</yearfrom>
+                                            </member>
+                    <member>
+                <name>Gareth Hughes</name>
+                                    <yearfrom>2003</yearfrom>
+                                                    <yearto>2004</yearto>
+                            </member>
+                    <member>
+                <name>Simon Wright</name>
+                                    <yearfrom>2004</yearfrom>
+                                            </member>
+            </bandmembers>
+        <url>http://www.last.fm/music/65daysofstatic</url>
+  <image size="small">http://userserve-ak.last.fm/serve/34/46404655.jpg</image>
+  <image size="medium">http://userserve-ak.last.fm/serve/64/46404655.jpg</image>
+  <image size="large">http://userserve-ak.last.fm/serve/126/46404655.jpg</image>
+  <image size="extralarge">http://userserve-ak.last.fm/serve/252/46404655.jpg</image>
+  <image size="mega">http://userserve-ak.last.fm/serve/_/46404655/65daysofstatic+3513685265_5826a2f618.jpg</image>
+  <streamable>1</streamable>
+  <ontour>1</ontour>
+  <stats>
+    <listeners>412549</listeners>
+    <playcount>22076799</playcount>
+      </stats>
+
+  <similar>
+	    <artist>
+	  <name>Maybeshewill</name>
+	  <url>http://www.last.fm/music/Maybeshewill</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/54764683.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/54764683.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/54764683.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/54764683.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/54764683/Maybeshewill+MSW.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>And So I Watch You From Afar</name>
+	  <url>http://www.last.fm/music/And+So+I+Watch+You+From+Afar</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/73697022.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/73697022.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/73697022.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/73697022.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/73697022/And+So+I+Watch+You+From+Afar+_.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Collapse Under the Empire</name>
+	  <url>http://www.last.fm/music/Collapse+Under+the+Empire</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/38757017.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/38757017.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/38757017.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/38757017.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/38757017/Collapse+Under+the+Empire+collapseundertheempire.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Gifts From Enola</name>
+	  <url>http://www.last.fm/music/Gifts+From+Enola</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/84347165.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/84347165.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/84347165.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/84347165.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/84347165/Gifts+From+Enola+gifts_0046.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>If These Trees Could Talk</name>
+	  <url>http://www.last.fm/music/If+These+Trees+Could+Talk</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/34617959.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/34617959.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/34617959.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/34617959.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/34617959/If+These+Trees+Could+Talk+IfTheseTreesCouldTalk.jpg</image>
+	  
+	        	</artist>
+  </similar>
+    <tags>
+        <tag>
+	  <name>post-rock</name>
+	  <url>http://www.last.fm/tag/post-rock</url>
+	</tag>
+        <tag>
+	  <name>instrumental</name>
+	  <url>http://www.last.fm/tag/instrumental</url>
+	</tag>
+        <tag>
+	  <name>experimental</name>
+	  <url>http://www.last.fm/tag/experimental</url>
+	</tag>
+        <tag>
+	  <name>math rock</name>
+	  <url>http://www.last.fm/tag/math%20rock</url>
+	</tag>
+        <tag>
+	  <name>electronic</name>
+	  <url>http://www.last.fm/tag/electronic</url>
+	</tag>
+      </tags>
+      <bio>
+        <links>
+        <link rel="original" href="http://www.last.fm/music/65daysofstatic/+wiki" />
+    </links>
+                                    <published>Wed, 29 Jun 2011 00:51:24 +0000</published>
+    <summary>
+        <![CDATA[        65daysofstatic began in Sheffield, United Kingdom in 2001 as Iain Armstrong, Paul Wolinski and Joe Shrewsbury. Contrary to popular belief, they did not originally form to try to write music to fit the unreleased and little known John Carpenter film, 'Stealth Bomber' (starring Kurt Russell).  Instead, they took their name from the 1954 CIA-backed coup d'etat in Guatemala. There, the CIA disabled Guatemalan communication systems while spreading propaganda, leading to the overthrow of the government.  
+
+        <a href="http://www.last.fm/music/65daysofstatic">Read more about 65daysofstatic on Last.fm</a>.
+    ]]>
+    </summary>
+    <content>
+            <![CDATA[        65daysofstatic began in Sheffield, United Kingdom in 2001 as Iain Armstrong, Paul Wolinski and Joe Shrewsbury. Contrary to popular belief, they did not originally form to try to write music to fit the unreleased and little known John Carpenter film, 'Stealth Bomber' (starring Kurt Russell).  Instead, they took their name from the 1954 CIA-backed coup d'etat in Guatemala. There, the CIA disabled Guatemalan communication systems while spreading propaganda, leading to the overthrow of the government.  
+
+        <a href="http://www.last.fm/music/65daysofstatic">Read more about 65daysofstatic on Last.fm</a>.
+    
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.]]>
+    </content>
+            <placeformed>Sheffield, United Kingdom</placeformed>                        <yearformed>2001</yearformed>
+            <formationlist>
+                    <formation>
+                <yearfrom>2001</yearfrom>
+                <yearto></yearto>
+            </formation>
+            </formationlist>
+      </bio>
+  </artist></lfm>
+)
+ * If These Trees Could Talk (http://www.last.fm/music/65daysofstatic)
+ * post-rock (http://www.last.fm/music/Maybeshewill)
+ * instrumental (http://www.last.fm/music/And+So+I+Watch+You+From+Afar)
+ * experimental (http://www.last.fm/music/Collapse+Under+the+Empire)
+ * math rock (http://www.last.fm/music/Gifts+From+Enola)
+ * electronic (http://www.last.fm/music/If+These+Trees+Could+Talk)
+
+http://www.last.fm/music/65daysofstatic

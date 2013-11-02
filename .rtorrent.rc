@@ -1,0 +1,60 @@
+# ~/.rtorrentrc
+#
+
+# Global upload and download rate in KiB. "0" for unlimited.
+download_rate = 0
+upload_rate = 0
+
+min_peers = 50 ; look for more peers if limit doesn't reach 50
+max_peers = 500 ; if there are 500 peers, don't allow any more
+
+# Same as above but for seeding completed torrents (-1 = same as downloading)
+min_peers_seed = 10
+max_peers_seed = 100
+
+# Maximum number of simultanious uploads per torrent.
+max_uploads = 25
+
+port_range = 65200-65299 ; ports to use for listening
+
+# Start opening ports at a random position within the port range.
+port_random = yes
+
+check_hash = yes ; check hash on finished torrents
+
+# encryption settings
+encryption = allow_incoming,enable_retry,prefer_plaintext
+
+use_udp_trackers = yes ; setup client to use udp (stateless) trackers
+
+# DHT clientless tracker
+dht = auto
+dht_port = 6881
+peer_exchange = yes
+
+# Session tmp file (relative dir is good, absolute is bad)
+session = ./torrents/.session
+
+# Default directory to save the downloaded torrents.
+directory = ./
+
+# Close torrents when diskspace is low.
+schedule = low_diskspace,5,60,close_low_diskspace=512M
+
+# Watch a directory for new torrents, and stop those that have been deleted (^d)
+schedule = watch_directory,5,5,"load_start=./torrents*.torrent"
+schedule = watch_directory_2,5,5,"load_start=~/torrents/music/*.torrent,d.set_directory=~/Music/"
+schedule = watch_directory_3,5,5,"load_start=~/torrents/tv/*.torrent,d.set_directory=~/TV/"
+schedule = watch_directory_4,5,5,"load_start=~/torrents/books/books/*.torrent,d.set_directory=~/books/"
+schedule = untied_directory,5,5,stop_untied= ; stop torrents once removed from the client
+
+# Colors # only in rtorrent extended
+# Colors: 0 = black 1 = red 2 = green 3 = yellow 4 = blue 5 = magenta 6 = cyan 7 = white
+
+done_fg_color = 6
+#done_bg_color
+active_fg_color = 7
+#active_bg_color
+
+# Notify
+system.method.set_key = event.download.finished,notify_me,"execute=/home/rejuvyesh/Scripts/rtor-notify,$d.get_name="

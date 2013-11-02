@@ -1,0 +1,169 @@
+Metallica is an American metal band formed in 1981 in Los Angeles, California, United States when drummer Lars Ulrich posted an advertisement in The Recycler. Metallica’s line-up originally consisted of Ulrich, rhythm guitarist and vocalist James Hetfield, and lead guitarist Dave Mustaine. Mustaine was later fired due to problems with alcoholism and drug addiction - he went on to form the band Megadeth. Exodus guitarist Kirk Hammett took his place. Metallica has been through several bassists, including Ron McGovney, Cliff Burton (who died in a bus crash while the band was on tour), and Jason Newsted. The current bassist is Robert Trujillo, who joined in 2003.
+
+Metallica’s early releases included fast tempos, instrumentals, and aggressive musicianship that placed them as one of the “big four” of the thrash metal sub-genre alongside Slayer, Megadeth, and Anthrax. The band earned a growing fan base in the underground music community and critical acclaim, with the 1986 release Master of Puppets described as one of the most influential and “heavy” metal albums. The band achieved substantial commercial success with Metallica (1991), which debuted at number one on the Billboard 200. With this release the band expanded its musical direction resulting in an album that appealed to a more mainstream audience.
+
+In 2000, Metallica was among several artists who filed a lawsuit against Napster for sharing the band’s copyright-protected material for free without the band members’ consent. A settlement was reached, and Napster became a pay-to-use service. Despite reaching number one on the Billboard 200, the release of St. Anger alienated many fans with the exclusion of guitar solos and the “steel-sounding” snare drum. A film titled Some Kind of Monster documented the recording process of St. Anger.
+
+Metallica has released nine studio albums, two live albums, two EPs, twenty-two music videos, and forty-four singles. The band has won nine Grammy Awards, and has had five consecutive albums debut at number one on the Billboard 200, making Metallica the only band ever to do so. The band’s 1991 album, Metallica, has sold over 15 million copies in the United States, and 22 million copies worldwide, which makes it the 25th-highest-selling album in the country. The band has sold an estimated 100 million records worldwide as of the release of their latest album Death Magnetic. As of September 2008, Metallica is the fourth highest-selling music artist since the SoundScan era began tracking sales on May 25, 1991, selling a total of 51,136,000 albums in the United States alone.
+
+Metallica was inducted into the Rock and Roll Hall of Fame in 2009. Metallica organised a brand new festival. They called it Sonishpere. Several cities in Europe were chosen by the band.
+
+Current members:
+
+James Hetfield – lead vocals, rhythm guitar (1981–present)
+Lars Ulrich  – drums, percussion (1981–present)
+Kirk Hammett  – lead guitar, backing vocals (1983–present)
+Robert Trujillo – bass, backing vocals (2003–present).
+
+Former members:
+
+Ron McGovney– bass (1982)
+Dave Mustaine – lead guitar, backing vocals (1982–1983)
+Cliff Burton – bass, backing vocals (1982–1986)
+Jason Newsted – bass, backing vocals (1986–2001).
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.
+
+Similar artists:
+
+ * James Hetfield (http://www.last.fm/music/Megadeth)
+ * Lars Ulrich (http://www.last.fm/music/Slayer)
+ * Kirk Hammett (http://www.last.fm/music/Iron+Maiden)
+ * Robert Trujillo (http://www.last.fm/music/Anthrax)
+ * Megadeth (http://www.last.fm/music/AC%2FDC)
+ * Slayer (http://www.last.fm/tag/thrash%20metal)
+ * Iron Maiden (http://www.last.fm/tag/metal)
+ * Anthrax (http://www.last.fm/tag/heavy%20metal)
+ * AC/DC (http://www.last.fm/tag/hard%20rock)
+ * thrash metal (http://www.last.fm/tag/rock)
+ * metal (l version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+<artist>
+  <name>Metallica</name>
+          <mbid>65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab</mbid>
+            <bandmembers>
+                    <member>
+                <name>James Hetfield</name>
+                                    <yearfrom>1981</yearfrom>
+                                            </member>
+                    <member>
+                <name>Lars Ulrich</name>
+                                    <yearfrom>1981</yearfrom>
+                                            </member>
+                    <member>
+                <name>Kirk Hammett</name>
+                                    <yearfrom>1983</yearfrom>
+                                            </member>
+                    <member>
+                <name>Robert Trujillo</name>
+                                    <yearfrom>2003</yearfrom>
+                                            </member>
+            </bandmembers>
+        <url>http://www.last.fm/music/Metallica</url>
+  <image size="small">http://userserve-ak.last.fm/serve/34/313628.jpg</image>
+  <image size="medium">http://userserve-ak.last.fm/serve/64/313628.jpg</image>
+  <image size="large">http://userserve-ak.last.fm/serve/126/313628.jpg</image>
+  <image size="extralarge">http://userserve-ak.last.fm/serve/252/313628.jpg</image>
+  <image size="mega">http://userserve-ak.last.fm/serve/_/313628/Metallica.jpg</image>
+  <streamable>0</streamable>
+  <ontour>1</ontour>
+  <stats>
+    <listeners>2253074</listeners>
+    <playcount>203648768</playcount>
+      </stats>
+
+  <similar>
+	    <artist>
+	  <name>Megadeth</name>
+	  <url>http://www.last.fm/music/Megadeth</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/29238659.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/29238659.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/29238659.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/29238659.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/29238659/Megadeth+lineup_1.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Slayer</name>
+	  <url>http://www.last.fm/music/Slayer</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/26432183.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/26432183.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/26432183.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/26432183.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/26432183/Slayer.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Iron Maiden</name>
+	  <url>http://www.last.fm/music/Iron+Maiden</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/23008365.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/23008365.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/23008365.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/23008365.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/23008365/Iron+Maiden+sbit.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Anthrax</name>
+	  <url>http://www.last.fm/music/Anthrax</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/36016675.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/36016675.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/36016675.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/36016675.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/36016675/Anthrax+_photo.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>AC/DC</name>
+	  <url>http://www.last.fm/music/AC%2FDC</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/35683175.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/35683175.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/35683175.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/35683175.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/35683175/ACDC.jpg</image>
+	  
+	        	</artist>
+  </similar>
+    <tags>
+        <tag>
+	  <name>thrash metal</name>
+	  <url>http://www.last.fm/tag/thrash%20metal</url>
+	</tag>
+        <tag>
+	  <name>metal</name>
+	  <url>http://www.last.fm/tag/metal</url>
+	</tag>
+        <tag>
+	  <name>heavy metal</name>
+	  <url>http://www.last.fm/tag/heavy%20metal</url>
+	</tag>
+        <tag>
+	  <name>hard rock</name>
+	  <url>http://www.last.fm/tag/hard%20rock</url>
+	</tag>
+        <tag>
+	  <name>rock</name>
+	  <url>http://www.last.fm/tag/rock</url>
+	</tag>
+      </tags>
+      <bio>
+            <published>Sat, 21 Aug 2010 09:46:32 +0000</published>
+    <summary><![CDATA[Metallica is an American metal band formed in 1981 in Los Angeles, California, United States when drummer Lars Ulrich posted an advertisement in The Recycler. Metallica’s line-up originally consisted of Ulrich, rhythm guitarist and vocalist James Hetfield, and lead guitarist Dave Mustaine. Mustaine was later fired due to problems with alcoholism and drug addiction - he went on to form the band Megadeth. Exodus guitarist Kirk Hammett took his place.]]></summary>
+    <content><![CDATA[Metallica is an American metal band formed in 1981 in Los Angeles, California, United States when drummer Lars Ulrich posted an advertisement in The Recycler. Metallica’s line-up originally consisted of Ulrich, rhythm guitarist and vocalist James Hetfield, and lead guitarist Dave Mustaine. Mustaine was later fired due to problems with alcoholism and drug addiction - he went on to form the band Megadeth. Exodus guitarist Kirk Hammett took his place. Metallica has been through several bassists, including Ron McGovney, Cliff Burton (who died in a bus crash while the band was on tour), and Jason Newsted. The current bassist is Robert Trujillo, who joined in 2003.  Metallica’s early releases included fast tempos, instrumentals, and aggressive musicianship that placed them as one of the “big four” of the thrash metal sub-genre alongside Slayer, Megadeth, and Anthrax. The band earned a growing fan base in the underground music community and critical acclaim, with the 1986 release Master of Puppets described as one of the most influential and “heavy” metal albums. The band achieved substantial commercial success with Metallica (1991), which debuted at number one on the Billboard 200. With this release the band expanded its musical direction resulting in an album that appealed to a more mainstream audience.  In 2000, Metallica was among several artists who filed a lawsuit against Napster for sharing the band’s copyright-protected material for free without the band members’ consent. A settlement was reached, and Napster became a pay-to-use service. Despite reaching number one on the Billboard 200, the release of St. Anger alienated many fans with the exclusion of guitar solos and the “steel-sounding” snare drum. A film titled Some Kind of Monster documented the recording process of St. Anger.  Metallica has released nine studio albums, two live albums, two EPs, twenty-two music videos, and forty-four singles. The band has won nine Grammy Awards, and has had five consecutive albums debut at number one on the Billboard 200, making Metallica the only band ever to do so. The band’s 1991 album, Metallica, has sold over 15 million copies in the United States, and 22 million copies worldwide, which makes it the 25th-highest-selling album in the country. The band has sold an estimated 100 million records worldwide as of the release of their latest album Death Magnetic. As of September 2008, Metallica is the fourth highest-selling music artist since the SoundScan era began tracking sales on May 25, 1991, selling a total of 51,136,000 albums in the United States alone.  Metallica was inducted into the Rock and Roll Hall of Fame in 2009. Metallica organised a brand new festival. They called it Sonishpere. Several cities in Europe were chosen by the band.  <strong>Current members:</strong>  <a href="http://www.last.fm/music/James+Hetfield" class="bbcode_artist">James Hetfield</a> – lead vocals, rhythm guitar (1981–present) <a href="http://www.last.fm/music/Lars+Ulrich" class="bbcode_artist">Lars Ulrich</a>  – drums, percussion (1981–present) <a href="http://www.last.fm/music/Kirk+Hammett" class="bbcode_artist">Kirk Hammett</a>  – lead guitar, backing vocals (1983–present) <a href="http://www.last.fm/music/Robert+Trujillo" class="bbcode_artist">Robert Trujillo</a> – bass, backing vocals (2003–present).  <strong>Former members:</strong>  <a href="http://www.last.fm/music/Ron+McGovney" class="bbcode_artist">Ron McGovney</a>– bass (1982) <a href="http://www.last.fm/music/Dave+Mustaine" class="bbcode_artist">Dave Mustaine</a> – lead guitar, backing vocals (1982–1983) <a href="http://www.last.fm/music/Cliff+Burton" class="bbcode_artist">Cliff Burton</a> – bass, backing vocals (1982–1986) <a href="http://www.last.fm/music/Jason+Newsted" class="bbcode_artist">Jason Newsted</a> – bass, backing vocals (1986–2001).
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.]]></content>
+        <placeformed>Los Angeles, California, United States</placeformed>                        <yearformed>1981</yearformed>
+            <formationlist>
+                    <formation>
+                <yearfrom>1981</yearfrom>
+                <yearto></yearto>
+            </formation>
+            </formationlist>
+      </bio>
+  </artist></lfm>
+)
+ * heavy metal (http://www.last.fm/music/Metallica)
+ * hard rock (http://www.last.fm/music/Megadeth)
+ * rock (http://www.last.fm/music/Slayer)
+
+http://www.last.fm/music/Metallica

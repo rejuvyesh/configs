@@ -1,0 +1,119 @@
+set history=5000
+set guioptions=bCrs
+colorscheme lightgrey
+highlight -a Hint     font-size:10pt !important;
+loadplugins '\.(js|penta)$'
+group user
+" `mapleader` setting/option is removed!
+map , <Leader>
+set urlseparator='\|'
+set hintkeys=HJKLASDFGYUIOPQWERTNMZXCVB
+
+" Don't let the dastardly `d` key delete the last tab (and close the window)
+set! browser.tabs.closeWindowWithLastTab=false
+
+set editor='emacsclient -c --alternate-editor="" +%l %f'
+
+" clip to evernote
+
+command! clip open javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title);}})();
+nmap -builtin ,c :clip<CR>
+"{{{ Navigation
+nmap -builtin j 5j
+nmap -builtin k 5k
+"}}}
+
+"add user command
+command! archive open javascript:location.href='http://web.archive.org/web/*/'+document.location.href;
+nmap -builtin ,p :emenu Bookmarks.pocket<CR>
+
+" save file to zotero
+" :map -js z Zotero_Browser.scrapeThisPage()
+
+" speed read with eyercize
+command! read open javascript:(function(){_eyercize_action%20=%20'www.eyercize.com';%20__action%20=%20'www.eyercize.com';%20_eyercize_script%20=%20document.createElement('SCRIPT');_eyercize_script.type%20=%20'text/javascript';_eyercize_script.src%20=%20'http://www.eyercize.com/javascripts/bookmarklet.js';document.getElementsByTagName('head')[0].appendChild(_eyercize_script);})();
+
+"" smart reload
+command smartReload -js <<EOF
+if (buffer.URL.spec.indexOf('#') >= 0) {
+dactyl.execute("reload");
+} else {
+dactyl.open(buffer.URL.spec);
+}
+EOF
+nmap -builtin r :smartReload<CR>
+
+"" google translate
+command trans -js <<EOF
+let getParameterByName = function(url, name) {
+let name = name.replace(/[\[]/, '\\\[').replace(/[\]]/, '\\\]');
+let regexS = '[\\?&]' + name + '=([^&#]*)';
+let regex = new RegExp(regexS);
+let results = regex.exec(url);
+if (results == null)
+return '';
+else
+return decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+if (buffer.URL.spec.indexOf('http://translate.google.com/') !== 0) {
+dactyl.open('http://translate.google.com/translate?hl=en&sl=auto&tl=en&u=' + encodeURIComponent(buffer.URL.spec));
+} else {
+dactyl.open(getParameterByName(buffer.URL.spec, 'u'));
+}
+EOF
+nmap -builtin ,t :trans<CR>
+
+"" use google to get lwn subscription link
+autocmd -javascript PageLoad 'https://lwn.net/Articles/*' <<EOF
+if (doc.title.match(/subscription/i)) {
+let title = doc.getElementsByClassName("ArticleText")[0].getElementsByTagName("a")[0].innerHTML;
+dactyl.open('google site:lwn.net/SubscriberLink "' + title + '"');
+}
+EOF
+
+
+"" {{{ Bookmarklet
+nmap -builtin ,b :bml-pocket
+command bml-pocket -description "Bookmarklet: Save to pocket" open javascript:(function(){var e=function(t,n,r,i,s){var o=[4541134,3353721,7563115,4049022,5855715,4120500,9451427,5127656,5580543,5231663];var i=i||0,u=0,n=n||[],r=r||0,s=s||0;var a={'a':97,'b':98,'c':99,'d':100,'e':101,'f':102,'g':103,'h':104,'i':105,'j':106,'k':107,'l':108,'m':109,'n':110,'o':111,'p':112,'q':113,'r':114,'s':115,'t':116,'u':117,'v':118,'w':119,'x':120,'y':121,'z':122,'A':65,'B':66,'C':67,'D':68,'E':69,'F':70,'G':71,'H':72,'I':73,'J':74,'K':75,'L':76,'M':77,'N':78,'O':79,'P':80,'Q':81,'R':82,'S':83,'T':84,'U':85,'V':86,'W':87,'X':88,'Y':89,'Z':90,'0':48,'1':49,'2':50,'3':51,'4':52,'5':53,'6':54,'7':55,'8':56,'9':57,'\/':47,':':58,'?':63,'=':61,'-':45,'_':95,'&':38,'$':36,'!':33,'.':46};if(!s||s==0){t=o[0]+t}for(var f=0;f<t.length;f++){var l=function(e,t){return a[e[t]]?a[e[t]]:e.charCodeAt(t)}(t,f);if(!l*1)l=3;var c=l*(o[i]+l*o[u%o.length]);n[r]=(n[r]?n[r]+c:c)+s+u;var p=c%(50*1);if(n[p]){var d=n[r];n[r]=n[p];n[p]=d}u+=c;r=r==50?0:r+1;i=i==o.length-1?0:i+1}if(s==197){var v='';for(var f=0;f<n.length;f++){v+=String.fromCharCode(n[f]%(25*1)+97)}o=function(){};return v+'0c594ab9f8'}else{return e(u+'',n,r,i,s+1)}};var t=document,n=t.location.href,r=t.title;var i=e(n);var s=t.createElement('script');s.type='text/javascript';s.src='https://getpocket.com/b/r4.js?h='+i+'&u='+encodeURIComponent(n)+'&t='+encodeURIComponent(r);e=i=function(){};var o=t.getElementsByTagName('head')[0]||t.documentElement;o.appendChild(s)})();
+
+nmap -builtin ,w :bml-whyd
+command bml-whyd -description "Bookmarklet: Save to whyd" open javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://whyd.com/js/bookmarklet.js?'+(new%20Date()).getTime();;})();
+
+" passkeys
+set passkeys+=reddit.com:JKasecCwWq<CR>
+set passkeys+=github.com:<Return>
+set passkeys+=inoreader.com:jkmsvbrpdw/<CR>
+set passkeys+='plus\.google\.com':jk
+set passkeys+=twitter.com:jkrn<CR>\.\?,gh,gr
+set passkeys+=yoleoreader.com:jknp<CR>
+
+" Go to specific # tab, to keep in line with my tiling WM.
+map -modes=n -builtin <C-1> :buffer 1<CR>
+map -modes=n -builtin <C-2> :buffer 2<CR>
+map -modes=n -builtin <C-3> :buffer 3<CR>
+map -modes=n -builtin <C-4> :buffer 4<CR>
+map -modes=n -builtin <C-5> :buffer 5<CR>
+map -modes=n -builtin <C-6> :buffer 6<CR>
+map -modes=n -builtin <C-7> :buffer 7<CR>
+map -modes=n -builtin <C-8> :buffer 8<CR>
+map -modes=n -builtin <C-9> :buffer 9<CR>
+
+" Tab Groups.
+map -modes=n -builtin ,a t http://myanimelist.net/animelist/rejuvyesh&show=0&order=4 | myanimelist.net <CR>gT
+map -modes=n -builtin ,n t https://news.ycombinator.com | http://reddit.com | https://www.inoreader.com<CR>gT
+map -modes=n -builtin ,m t https://plus.google.com/ | https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>gT
+map -modes=n -builtin ,f t https://www.facebook.com | https://twitter.com<CR>gT
+map -modes=n -builtin ,e t https://www.evernote.com/Home.action | https://www.evernote.com/pub/gwern/gwern/<CR>gT
+
+"" google docs viewer
+js <<EOF
+hints.addMode("d", "Open link using google docs", function (elem) dactyl.open("https://docs.google.com/viewer?url=" + encodeURIComponent(elem.href), dactyl.NEW_TAB), null, ["a[href*='.pdf']", "a[href*='.doc']", "a[href*='.docx']", "a[href*='.ppt']", "a[href*='.pptx']", "a[href*='.odp']"]);
+EOF
+
+
+" completion options to emulate the firefox 3 location bar
+set wildmode=list:full
+
+autocmd PageLoad youtube.com/watch* :silent !mpc pause
+
+" vim: set ft=pentadactyl:

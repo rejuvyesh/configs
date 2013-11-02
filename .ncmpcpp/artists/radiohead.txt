@@ -1,0 +1,156 @@
+Radiohead are an English alternative rock band from Abingdon, Oxfordshire. The band is composed of Thom Yorke (lead vocals, rhythm guitar, piano, beats), Jonny Greenwood (lead guitar, keyboard, other instruments), Ed O'Brien (guitar, backing vocals), Colin Greenwood (bass guitar) and Phil Selway (drums, percussion).
+
+Radiohead released their first single, "Creep," in 1992. The song was initially unsuccessful, but it became a worldwide hit several months after the release of their debut album, Pablo Honey (1993). Radiohead's popularity rose in the United Kingdom with the release of their second album, The Bends (1995). The band's textured guitar parts and Yorke's falsetto singing were warmly received by critics and fans. Radiohead's third album, OK Computer (1997), propelled them to greater international fame. Featuring an expansive sound and themes of modern alienation, OK Computer has often been acclaimed as a landmark record of the 1990s.
+
+Kid A (2000) and Amnesiac (2001) marked a change in the band's musical style. Radiohead incorporated experimental electronic music, Krautrock, post-punk and jazz influences into their songs, dividing fans and critics, but they remained popular. Hail to the Thief (2003), a mix of guitar-driven rock, electronics and lyrics inspired by headlines, was the band's final album for their major record label, EMI. Radiohead independently released their seventh album, In Rainbows (2007), originally as a digital download for which each customer could set their own price, later in stores, to critical and chart success. Radiohead have sold approximately 30 million albums as of 2008.[1][2]
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.
+
+Similar artists:
+
+ * Thom Yorke (http://www.last.fm/music/Thom+Yorke)
+ * Phil Selway (http://www.last.fm/music/Jonny+Greenwood)
+ * Ed O'Brien (http://www.last.fm/music/Sigur+R%C3%B3s)
+ * Colin Greenwood (http://www.last.fm/music/Blur)
+ * Jonny Greenwood (http://www.last.fm/music/Muse)
+ * Thom Yorke (http://www.last.fm/tag/alternative)
+ * Jonny Greenwood (http://www.last.fm/tag/alternative%20rock)
+ * Sigur Rós (http://www.last.fm/tag/rock)
+ * Blur (http://www.last.fm/tag/indie)
+ * Muse (http://www.last.fm/tag/electronic)
+ * alternative (l version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+<artist>
+  <name>Radiohead</name>
+          <mbid>a74b1b7f-71a5-4011-9441-d0b5e4122711</mbid>
+            <bandmembers>
+                    <member>
+                <name>Thom Yorke</name>
+                                    <yearfrom>1986</yearfrom>
+                                            </member>
+                    <member>
+                <name>Phil Selway</name>
+                                    <yearfrom>1986</yearfrom>
+                                            </member>
+                    <member>
+                <name>Ed O'Brien</name>
+                                    <yearfrom>1986</yearfrom>
+                                            </member>
+                    <member>
+                <name>Colin Greenwood</name>
+                                    <yearfrom>1986</yearfrom>
+                                            </member>
+                    <member>
+                <name>Jonny Greenwood</name>
+                                    <yearfrom>1986</yearfrom>
+                                            </member>
+            </bandmembers>
+        <url>http://www.last.fm/music/Radiohead</url>
+  <image size="small">http://userserve-ak.last.fm/serve/34/169665.gif</image>
+  <image size="medium">http://userserve-ak.last.fm/serve/64/169665.gif</image>
+  <image size="large">http://userserve-ak.last.fm/serve/126/169665.gif</image>
+  <image size="extralarge">http://userserve-ak.last.fm/serve/252/169665.gif</image>
+  <image size="mega">http://userserve-ak.last.fm/serve/500/169665/Radiohead.gif</image>
+  <streamable>1</streamable>
+  <ontour>1</ontour>
+  <stats>
+    <listeners>3945868</listeners>
+    <playcount>357895602</playcount>
+      </stats>
+
+  <similar>
+	    <artist>
+	  <name>Thom Yorke</name>
+	  <url>http://www.last.fm/music/Thom+Yorke</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/4556396.gif</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/4556396.gif</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/4556396.gif</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/4556396.gif</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/4556396/Thom+Yorke.gif</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Jonny Greenwood</name>
+	  <url>http://www.last.fm/music/Jonny+Greenwood</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/47070.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/47070.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/47070.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/47070.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/47070/Jonny+Greenwood.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Sigur Rós</name>
+	  <url>http://www.last.fm/music/Sigur+R%C3%B3s</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/382318.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/382318.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/382318.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/382318.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/382318/Sigur+Rs.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Blur</name>
+	  <url>http://www.last.fm/music/Blur</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/35509015.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/35509015.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/35509015.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/35509015.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/35509015/Blur.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Muse</name>
+	  <url>http://www.last.fm/music/Muse</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/18540.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/18540.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/18540.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/18540.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/18540/Muse.jpg</image>
+	  
+	        	</artist>
+  </similar>
+    <tags>
+        <tag>
+	  <name>alternative</name>
+	  <url>http://www.last.fm/tag/alternative</url>
+	</tag>
+        <tag>
+	  <name>alternative rock</name>
+	  <url>http://www.last.fm/tag/alternative%20rock</url>
+	</tag>
+        <tag>
+	  <name>rock</name>
+	  <url>http://www.last.fm/tag/rock</url>
+	</tag>
+        <tag>
+	  <name>indie</name>
+	  <url>http://www.last.fm/tag/indie</url>
+	</tag>
+        <tag>
+	  <name>electronic</name>
+	  <url>http://www.last.fm/tag/electronic</url>
+	</tag>
+      </tags>
+      <bio>
+            <published>Fri, 30 Jan 2009 20:18:28 +0000</published>
+    <summary><![CDATA[Radiohead are an English alternative rock band from Abingdon, Oxfordshire. The band is composed of Thom Yorke (lead vocals, rhythm guitar, piano, beats), Jonny Greenwood (lead guitar, keyboard, other instruments), Ed O'Brien (guitar, backing vocals), Colin Greenwood (bass guitar) and Phil Selway (drums, percussion).  Radiohead released their first single, &quot;Creep,&quot; in 1992. The song was initially unsuccessful, but it became a worldwide hit several months after the release of their debut album, Pablo Honey (1993).]]></summary>
+    <content><![CDATA[Radiohead are an English alternative rock band from Abingdon, Oxfordshire. The band is composed of Thom Yorke (lead vocals, rhythm guitar, piano, beats), Jonny Greenwood (lead guitar, keyboard, other instruments), Ed O'Brien (guitar, backing vocals), Colin Greenwood (bass guitar) and Phil Selway (drums, percussion).  Radiohead released their first single, &quot;Creep,&quot; in 1992. The song was initially unsuccessful, but it became a worldwide hit several months after the release of their debut album, Pablo Honey (1993). Radiohead's popularity rose in the United Kingdom with the release of their second album, The Bends (1995). The band's textured guitar parts and Yorke's falsetto singing were warmly received by critics and fans. Radiohead's third album, OK Computer (1997), propelled them to greater international fame. Featuring an expansive sound and themes of modern alienation, OK Computer has often been acclaimed as a landmark record of the 1990s.  Kid A (2000) and Amnesiac (2001) marked a change in the band's musical style. Radiohead incorporated experimental electronic music, Krautrock, post-punk and jazz influences into their songs, dividing fans and critics, but they remained popular. Hail to the Thief (2003), a mix of guitar-driven rock, electronics and lyrics inspired by headlines, was the band's final album for their major record label, EMI. Radiohead independently released their seventh album, In Rainbows (2007), originally as a digital download for which each customer could set their own price, later in stores, to critical and chart success. Radiohead have sold approximately 30 million albums as of 2008.[1][2]
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.]]></content>
+        <placeformed>Abingdon, Oxfordshire, United Kingdom</placeformed>                        <yearformed>1986</yearformed>
+            <formationlist>
+                    <formation>
+                <yearfrom>1986</yearfrom>
+                <yearto></yearto>
+            </formation>
+            </formationlist>
+      </bio>
+  </artist></lfm>
+)
+ * alternative rock (http://www.last.fm/music/Radiohead)
+ * rock (http://www.last.fm/music/Thom+Yorke)
+ * indie (http://www.last.fm/music/Jonny+Greenwood)
+ * electronic (http://www.last.fm/music/Sigur+R%C3%B3s)
+
+http://www.last.fm/music/Radiohead

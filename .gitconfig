@@ -1,0 +1,29 @@
+[user]
+	email = rejuvyesh@gmail.com
+	name = rejuvyesh
+[credential]
+	helper = cache --timeout=7200
+[github]
+	user = rejuvyesh
+	oauth-token = e0f0e86a04f6859a1457f06d5c4c312c600ad30c
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	d = difftool
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[merge]
+	tool = meld3
+	conflictsytle = diff3
+[mergetool "meld3"]
+	cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $MERGED $REMOTE
+[push]
+	default = matching
+[core]
+	autocrlf = input
+	safecrlf = true

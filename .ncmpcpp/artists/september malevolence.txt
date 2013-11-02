@@ -1,0 +1,155 @@
+www.facebook.com/septembermalevolence
+www.septembermalevolence.com   September Malevolence made it's first rehearsal in February 2004. Six months later we had a few songs that we really liked and over the course of two weeks we put nine of them to tape, eight of which became our debut album “Tomorrow We’ll Wonder Where This Generation Get’s It’s Priorities From”. The Silent Ballet (.com) thought the album was worth the nr 4 spot on their list of the 50 best instrumental albums of 2005.  
+
+        Read more about September Malevolence on Last.fm.
+    
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.]]>
+
+Similar artists:
+
+ * Martin Lundmark (http://www.last.fm/music/Scraps+Of+Tape)
+ * Tobias Netshagen (http://www.last.fm/music/Followed+by+Ghosts)
+ * Daniel Pettersson (http://www.last.fm/music/EF)
+ * Scraps Of Tape (http://www.last.fm/music/This+Is+Your+Captain+Speaking)
+ * Followed by Ghosts (http://www.last.fm/music/Final+Days+Society)
+ * EF (http://www.last.fm/tag/post-rock)
+ * This Is Your Captain Speaking (http://www.last.fm/tag/instrumental)
+ * Final Days Society (http://www.last.fm/tag/swedish)
+ * post-rock (http://www.last.fm/tag/experimental)
+ * instrumental (http://www.last.fm/tag/post%20rock)
+ * swedish (l version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+<artist>
+  <name>September Malevolence</name>
+          <mbid>4ec7ec91-0aad-4887-90d7-c9599c0a2f1a</mbid>
+            <bandmembers>
+                    <member>
+                <name>Martin Lundmark</name>
+                                            </member>
+                    <member>
+                <name>Tobias Netshagen</name>
+                                            </member>
+                    <member>
+                <name>Daniel Pettersson</name>
+                                            </member>
+            </bandmembers>
+        <url>http://www.last.fm/music/September+Malevolence</url>
+  <image size="small">http://userserve-ak.last.fm/serve/34/68042726.jpg</image>
+  <image size="medium">http://userserve-ak.last.fm/serve/64/68042726.jpg</image>
+  <image size="large">http://userserve-ak.last.fm/serve/126/68042726.jpg</image>
+  <image size="extralarge">http://userserve-ak.last.fm/serve/252/68042726.jpg</image>
+  <image size="mega">http://userserve-ak.last.fm/serve/_/68042726/September+Malevolence+SM_01_web.jpg</image>
+  <streamable>1</streamable>
+  <ontour>0</ontour>
+  <stats>
+    <listeners>59615</listeners>
+    <playcount>675077</playcount>
+      </stats>
+
+  <similar>
+	    <artist>
+	  <name>Scraps Of Tape</name>
+	  <url>http://www.last.fm/music/Scraps+Of+Tape</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/67582954.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/67582954.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/67582954.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/67582954.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/67582954/Scraps+Of+Tape+sot_fotojensnordstrom.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Followed by Ghosts</name>
+	  <url>http://www.last.fm/music/Followed+by+Ghosts</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/44132491.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/44132491.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/44132491.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/44132491.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/44132491/Followed+by+Ghosts+l_6f5af3302f170c2ed664fa886b5f.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>EF</name>
+	  <url>http://www.last.fm/music/EF</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/21933299.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/21933299.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/21933299.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/21933299.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/21933299/EF+group.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>This Is Your Captain Speaking</name>
+	  <url>http://www.last.fm/music/This+Is+Your+Captain+Speaking</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/80583.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/80583.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/80583.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/80583.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/80583/This+Is+Your+Captain+Speaking.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Final Days Society</name>
+	  <url>http://www.last.fm/music/Final+Days+Society</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/27589521.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/27589521.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/27589521.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/27589521.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/27589521/Final+Days+Society+fds.jpg</image>
+	  
+	        	</artist>
+  </similar>
+    <tags>
+        <tag>
+	  <name>post-rock</name>
+	  <url>http://www.last.fm/tag/post-rock</url>
+	</tag>
+        <tag>
+	  <name>instrumental</name>
+	  <url>http://www.last.fm/tag/instrumental</url>
+	</tag>
+        <tag>
+	  <name>swedish</name>
+	  <url>http://www.last.fm/tag/swedish</url>
+	</tag>
+        <tag>
+	  <name>experimental</name>
+	  <url>http://www.last.fm/tag/experimental</url>
+	</tag>
+        <tag>
+	  <name>post rock</name>
+	  <url>http://www.last.fm/tag/post%20rock</url>
+	</tag>
+      </tags>
+      <bio>
+        <links>
+        <link rel="original" href="http://www.last.fm/music/September+Malevolence/+wiki" />
+    </links>
+                                    <published>Sat, 22 Oct 2011 20:56:36 +0000</published>
+    <summary>
+        <![CDATA[        <a href="http://www.facebook.com/septembermalevolence" rel="nofollow">www.facebook.com/septembermalevolence</a> <a href="http://www.septembermalevolence.com" rel="nofollow">www.septembermalevolence.com</a>   September Malevolence made it's first rehearsal in February 2004. Six months later we had a few songs that we really liked and over the course of two weeks we put nine of them to tape, eight of which became our debut album “Tomorrow We’ll Wonder Where This Generation Get’s It’s Priorities From”. The Silent Ballet (.com) thought the album was worth the nr 4 spot on their list of the 50 best instrumental albums of 2005.  
+
+        <a href="http://www.last.fm/music/September+Malevolence">Read more about September Malevolence on Last.fm</a>.
+    ]]>
+    </summary>
+    <content>
+            <![CDATA[        <a href="http://www.facebook.com/septembermalevolence" rel="nofollow">www.facebook.com/septembermalevolence</a> <a href="http://www.septembermalevolence.com" rel="nofollow">www.septembermalevolence.com</a>   September Malevolence made it's first rehearsal in February 2004. Six months later we had a few songs that we really liked and over the course of two weeks we put nine of them to tape, eight of which became our debut album “Tomorrow We’ll Wonder Where This Generation Get’s It’s Priorities From”. The Silent Ballet (.com) thought the album was worth the nr 4 spot on their list of the 50 best instrumental albums of 2005.  
+
+        <a href="http://www.last.fm/music/September+Malevolence">Read more about September Malevolence on Last.fm</a>.
+    
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.]]>
+    </content>
+                            <formationlist>
+                    <formation>
+                <yearfrom></yearfrom>
+                <yearto></yearto>
+            </formation>
+            </formationlist>
+      </bio>
+  </artist></lfm>
+)
+ * experimental (http://www.last.fm/music/September+Malevolence)
+ * post rock (http://www.last.fm/music/Scraps+Of+Tape)
+
+http://www.last.fm/music/September+Malevolence

@@ -1,0 +1,172 @@
+Avial (അവിയല്‍ ) is a Malayali Rock Band formed in 2003. Its members are professional musicians who have played in various bands in India and have done tours around the world independently.
+
+The name of the band is taken from a South Indian dish Aviyal, which is traditionally a part of the Sadya, and made with a mixture of contrasting vegetables. The band has mixed to perfection folk music from Kerala and alternative rock, making the band name very suitable.
+
+While it’s true that the lyrics of many songs featured in the band’s debut album 'AVIAL' reflects on a deep sense of eternal timeless awareness, there is a good chance that the global listener relates to the album simply because its musically sound. With elements of Indie rock and folk, embedded in each of the eight songs featured in the first album, Avial has managed to mix to perfection and share with its listeners an altogether unique sound, what the band members calls "alternative Malayali rock".
+
+Rex Vijayan (Lead guitar and Synthesizer)
+Tony John (Vocals, Turntables and Synthesizer)
+Mithun Puthenveetil (Drums)
+Binny Isaac (Bass)
+
+PREVIOUS MEMBERS:
+Anand Raj Benjamin Paul (Lead Vocals)
+Naresh Kamat (Bass Guitar)
+
+Rex Vijayan
+Rex Vijayan is an Ernakulam-based guitarist who began his musical career by mastering cover versions. He has some renowned performances in India and abroad to his name. He was part of a popular band Motherjane in the early ‘90s. He was also part of a novice German hip-hop band "Intensive Erfrischung(Intensive Refreshment)[2]
+ " based in Munich and is also actively involved with Daksha Seth’s Dance Company, concerned with performing on stage contemporary dance. Gibson Guitar Corporation, USA offered him to be their endorsee for the latest high end series guitar.
+
+Mithun Puthenveetil
+Mithun is the drummer of Avial who hails from Trivandrum the capital district of Kerala. Versatile on the tabla and a wide range of percussion, Mithun dabbled with pop music before finding his true calling in funk and rock. He has distinguished himself through a Heavy Metal band named Rage based in Trivandrum. Lesser known, he is the son of veteran politician and presently Cabinet Minister in Kerala government, Mr. Kadannappally Ramachandran.
+
+Tony John
+Tony is the band's current vocalist. He is also a gifted percussionist who mainly works his magic on turntables. His rise to fame came in the 90's while working for a band called Kariszma. He has worked with the Daksha dance company.
+
+Binny Isaac
+Binny has currently replaced the former bass guitarist Naresh Kamath who was the only non-Malayali member of the band from Mumbai. His home town is Ernakulam. But he is a Trivandrum based guitarist.
+
+Anand Raj Benjamin Paul *no longer with Avial
+Anand is from Thrissur and was the lead singer who brought the special touch in the band's self-titled album, blending Malayalam so smoothly with Rock. The singer was also an English teacher until he quit the profession to dedicate his time to music. He has many stage shows in India and abroad to his credit and interestingly, he sang jingles to unwind. However, due to personal issues, he decided not to continue any longer with the band.
+
+Naresh Kamat *no longer with Avial
+Naresh Kamat was the only non-malayali in the band. He's no longer a band member of Avial. He is now working with Kailash Kher's band.
+
+http://www.myspace.com/avialmusic
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.
+
+Similar artists:
+
+ * Anand Raj Benjamin Paul (http://www.last.fm/music/Advaita)
+ * Naresh Kamat (http://www.last.fm/music/Indus+Creed)
+ * Advaita (http://www.last.fm/music/Dream+Out+Loud)
+ * Indus Creed (http://www.last.fm/music/Sifar)
+ * Dream Out Loud (http://www.last.fm/music/Menwhopause)
+ * Sifar (http://www.last.fm/tag/indian%20rock)
+ * Menwhopause (http://www.last.fm/tag/alternative%20rock)
+ * indian rock (http://www.last.fm/tag/folk%20rock)
+ * alternative rock (http://www.last.fm/tag/rock)
+ * folk rock (http://www.last.fm/tag/avial)
+ * rock (l version="1.0" encoding="utf-8"?>
+<lfm status="ok">
+<artist>
+  <name>Avial</name>
+          <mbid></mbid>
+            <bandmembers>
+                    <member>
+                <name>Anand Raj Benjamin Paul</name>
+                                    <yearfrom>2003</yearfrom>
+                                                    <yearto>2009</yearto>
+                            </member>
+                    <member>
+                <name>Naresh Kamat</name>
+                                    <yearfrom>2003</yearfrom>
+                                                    <yearto>2009</yearto>
+                            </member>
+            </bandmembers>
+        <url>http://www.last.fm/music/Avial</url>
+  <image size="small">http://userserve-ak.last.fm/serve/34/141970.jpg</image>
+  <image size="medium">http://userserve-ak.last.fm/serve/64/141970.jpg</image>
+  <image size="large">http://userserve-ak.last.fm/serve/126/141970.jpg</image>
+  <image size="extralarge">http://userserve-ak.last.fm/serve/252/141970.jpg</image>
+  <image size="mega">http://userserve-ak.last.fm/serve/_/141970/Avial.jpg</image>
+  <streamable>0</streamable>
+  <ontour>0</ontour>
+  <stats>
+    <listeners>2596</listeners>
+    <playcount>52385</playcount>
+      </stats>
+
+  <similar>
+	    <artist>
+	  <name>Advaita</name>
+	  <url>http://www.last.fm/music/Advaita</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/75861444.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/75861444.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/75861444.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/75861444.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/75861444/Advaita+coverspread.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Indus Creed</name>
+	  <url>http://www.last.fm/music/Indus+Creed</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/133280.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/133280.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/133280.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/133280.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/_/133280/Indus+Creed.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Dream Out Loud</name>
+	  <url>http://www.last.fm/music/Dream+Out+Loud</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/4846812.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/4846812.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/4846812.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/4846812.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/4846812/Dream+Out+Loud+DOL8.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Sifar</name>
+	  <url>http://www.last.fm/music/Sifar</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/64816189.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/64816189.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/64816189.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/64816189.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/64816189/Sifar+_photo.jpg</image>
+	  
+	        	</artist>
+    <artist>
+	  <name>Menwhopause</name>
+	  <url>http://www.last.fm/music/Menwhopause</url>
+	  <image size="small">http://userserve-ak.last.fm/serve/34/3399730.jpg</image>
+	  <image size="medium">http://userserve-ak.last.fm/serve/64/3399730.jpg</image>
+	  <image size="large">http://userserve-ak.last.fm/serve/126/3399730.jpg</image>
+	  <image size="extralarge">http://userserve-ak.last.fm/serve/252/3399730.jpg</image>
+	  <image size="mega">http://userserve-ak.last.fm/serve/500/3399730/Menwhopause.jpg</image>
+	  
+	        	</artist>
+  </similar>
+    <tags>
+        <tag>
+	  <name>indian rock</name>
+	  <url>http://www.last.fm/tag/indian%20rock</url>
+	</tag>
+        <tag>
+	  <name>alternative rock</name>
+	  <url>http://www.last.fm/tag/alternative%20rock</url>
+	</tag>
+        <tag>
+	  <name>folk rock</name>
+	  <url>http://www.last.fm/tag/folk%20rock</url>
+	</tag>
+        <tag>
+	  <name>rock</name>
+	  <url>http://www.last.fm/tag/rock</url>
+	</tag>
+        <tag>
+	  <name>avial</name>
+	  <url>http://www.last.fm/tag/avial</url>
+	</tag>
+      </tags>
+      <bio>
+            <published>Tue, 3 Jan 2012 02:22:23 +0000</published>
+    <summary><![CDATA[Avial (അവിയല്‍ ) is a Malayali Rock Band formed in 2003. Its members are professional musicians who have played in various bands in India and have done tours around the world independently.  The name of the band is taken from a South Indian dish Aviyal, which is traditionally a part of the Sadya, and made with a mixture of contrasting vegetables. The band has mixed to perfection folk music from Kerala and alternative rock, making the band name very suitable.  ]]></summary>
+    <content><![CDATA[Avial (അവിയല്‍ ) is a Malayali Rock Band formed in 2003. Its members are professional musicians who have played in various bands in India and have done tours around the world independently.  The name of the band is taken from a South Indian dish Aviyal, which is traditionally a part of the Sadya, and made with a mixture of contrasting vegetables. The band has mixed to perfection folk music from Kerala and alternative rock, making the band name very suitable.  While it’s true that the lyrics of many songs featured in the band’s debut album 'AVIAL' reflects on a deep sense of eternal timeless awareness, there is a good chance that the global listener relates to the album simply because its musically sound. With elements of Indie rock and folk, embedded in each of the eight songs featured in the first album, Avial has managed to mix to perfection and share with its listeners an altogether unique sound, what the band members calls &quot;alternative Malayali rock&quot;.  Rex Vijayan (Lead guitar and Synthesizer) Tony John (Vocals, Turntables and Synthesizer) Mithun Puthenveetil (Drums) Binny Isaac (Bass)  <strong>PREVIOUS MEMBERS:</strong> <span title="Unknown artist" class="bbcode_unknown">Anand Raj Benjamin Paul</span> (Lead Vocals) <a href="http://www.last.fm/music/Naresh+Kamat" class="bbcode_artist">Naresh Kamat</a> (Bass Guitar)  <strong>Rex Vijayan</strong> Rex Vijayan is an Ernakulam-based guitarist who began his musical career by mastering cover versions. He has some renowned performances in India and abroad to his name. He was part of a popular band Motherjane in the early ‘90s. He was also part of a novice German hip-hop band &quot;Intensive Erfrischung(Intensive Refreshment)[2]  &quot; based in Munich and is also actively involved with Daksha Seth’s Dance Company, concerned with performing on stage contemporary dance. Gibson Guitar Corporation, USA offered him to be their endorsee for the latest high end series guitar.  <strong>Mithun Puthenveetil</strong> Mithun is the drummer of Avial who hails from Trivandrum the capital district of Kerala. Versatile on the tabla and a wide range of percussion, Mithun dabbled with pop music before finding his true calling in funk and rock. He has distinguished himself through a Heavy Metal band named Rage based in Trivandrum. Lesser known, he is the son of veteran politician and presently Cabinet Minister in Kerala government, Mr. Kadannappally Ramachandran.  <strong>Tony John</strong> Tony is the band's current vocalist. He is also a gifted percussionist who mainly works his magic on turntables. His rise to fame came in the 90's while working for a band called Kariszma. He has worked with the Daksha dance company.  <strong>Binny Isaac</strong> Binny has currently replaced the former bass guitarist Naresh Kamath who was the only non-Malayali member of the band from Mumbai. His home town is Ernakulam. But he is a Trivandrum based guitarist.  <strong>Anand Raj Benjamin Paul</strong> <em>*no longer with Avial</em> Anand is from Thrissur and was the lead singer who brought the special touch in the band's self-titled album, blending Malayalam so smoothly with Rock. The singer was also an English teacher until he quit the profession to dedicate his time to music. He has many stage shows in India and abroad to his credit and interestingly, he sang jingles to unwind. However, due to personal issues, he decided not to continue any longer with the band.  <strong>Naresh Kamat</strong> <em>*no longer with Avial</em> Naresh Kamat was the only non-malayali in the band. He's no longer a band member of Avial. He is now working with <a href="http://www.last.fm/music/Kailash+Kher" class="bbcode_artist">Kailash Kher</a>'s band.  <a href="http://www.myspace.com/avialmusic" rel="nofollow">http://www.myspace.com/avialmusic</a>
+    
+User-contributed text is available under the Creative Commons By-SA License and may also be available under the GNU FDL.]]></content>
+                        <formationlist>
+                    <formation>
+                <yearfrom></yearfrom>
+                <yearto></yearto>
+            </formation>
+            </formationlist>
+      </bio>
+  </artist></lfm>
+)
+ * avial (http://www.last.fm/music/Avial)
+
+http://www.last.fm/music/Avial

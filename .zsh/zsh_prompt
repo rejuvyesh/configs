@@ -1,0 +1,68 @@
+#color make everything prettier
+autoload -U colors
+colors
+
+# customize prompts
+autoload -U promptnl
+autoload -Uz vcs_info
+setopt prompt_subst #allow function calls in prompt
+
+# brackets
+local op="%{$fg_bold[black]%}[%{$reset_color%}"
+local cp="%{$fg_bold[black]%}]%{$reset_color%}"
+
+# current user, with warning if root
+if [ $(whoami) = "root" ]; then
+local user="%{$fg[red]%}%n%{$reset_color%}%{$fg[cyan]%}@%{$reset_color%}"
+elif [ $(whoami) = "rejuvyesh" ]; then
+local user="" # save some space
+else
+local user="%{$fg[cyan]%}%n@%{$reset_color%}"
+fi
+
+# vcs config
+zstyle ':vcs_info:*' enable git
+local vcs_action="(%a)" # e.g. (rebase-i)
+local vcs_branch="%b%u%c" # e.g. master(*)(s)
+zstyle ':vcs_info:*:prompt:*' check-for-changes true
+zstyle ':vcs_info:*:prompt:*' unstagedstr '(*)' # display this if there are unstaged changes
+zstyle ':vcs_info:*:prompt:*' stagedstr '(s)' # display this if there are staged changes
+zstyle ':vcs_info:*:prompt:*' actionformats " ${op}%{$fg[cyan]%}${vcs_branch}${vcs_action}%{$reset_color%}${cp}"
+zstyle ':vcs_info:*:prompt:*' formats "${op}%{$fg[cyan]%}${vcs_branch}%{$reset_color%}${cp}"
+zstyle ':vcs_info:*:prompt:*' nvcsformats ""
+
+# current date
+local date="${op}%{$fg[cyan]%}%*%{$reset_color%}${cp}"
+# current path
+local path_p="${op}%{$fg[cyan]%}%~%{$reset_color%}${cp}"
+
+# alarm after successful command if in scratchpad
+if [[ $STY =~ "^\d+\.scratchpad$" ]]; then
+    local bell=""
+fi
+
+# ssh
+if [ -z $SSH_CONNECTION ]; then
+local host="%{$fg[green]%}%m%{$reset_color%}"
+else
+local host="%{$fg[red]%}%m%{$reset_color%}"
+fi
+
+local user_host="${op}${user}${host}${cp}"
+
+# are we in an mc shell?
+if [[ $MC_SID != "" ]]; then
+local mc=" ${op}%{$fg[cyan]%}°_°%{$reset_color%}${cp}"
+fi
+
+# smiley based on return status
+local smiley="%(?,%{$fg[red]%}<3%{$reset_color%},%{$fg_bold[red]%}>3%{$reset_color%})"
+# last command, used in PS2
+local cur_cmd="${op}%_${cp}"
+ 
+# current VCS status
+local vcs='$vcs_info_msg_0_'
+# basic prompt on the left
+PROMPT="${date}${path_p}${vcs}${user_host}${arch}${bell}
+${smiley}${mc} "
+PROMPT2="${cur_cmd}> "
