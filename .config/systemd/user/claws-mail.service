@@ -1,0 +1,9 @@
+[Unit]
+Description=Claws-mail: mail-mail
+
+[Service]
+Environment=DISPLAY=:0 BROWSER=/usr/bin/firefox
+ExecStart=/usr/bin/claws-mail
+
+[Install]
+WantedBy=default.target

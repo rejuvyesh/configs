@@ -1,0 +1,19 @@
+directory: ~/Music
+import:
+    copy: no
+    move: no
+    write: yes
+    resume: yes
+plugins: fetchart lyrics lastgenre chroma smartplaylist duplicates
+smartplaylist:
+    relative_to: ~/Music
+    playlist_dir: ~/.mpd/playlists
+    playlists:
+    - query: ''
+      name: all.m3u
+    - query: 'artist:Beatles'
+      name: beatles.m3u
+    - query: 'artist:world'
+      name: worldgirlfriend.m3u
+lyrics:
+    google_API_key: AIzaSyCg1-26PajIG2RW-YCot9iLLSmHsy_v_5o

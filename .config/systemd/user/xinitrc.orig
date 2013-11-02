@@ -1,0 +1,43 @@
+# set the cursor
+xsetroot -cursor_name left_ptr &
+
+#run systemd as user instance
+systemd --user &
+
+# load for terminal
+xrdb -merge ~/.Xresources &
+
+# add terminus font
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
+#launch redshift
+redshift -l 26.4583:80.3173 -t 5500:4000 -m randr &
+
+# wallpaper
+wallpaper.sh &
+
+# mpd-scribble Last-FM
+pidof mpdscribble >& /dev/null
+if [ $? -ne 0 ]; then
+    mpdscribble &
+fi
+
+# mpd notify
+mpdzen_loop &
+
+# unclutter
+unclutter -root -idle 1f &
+
+## qt + gtk
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
+# urxvt
+urxvtd -q -o -f
+
+# urxvt
+urxvtc -e tmux &
+
+#start xmonad
+WM="start_xmonad.sh"
+exec $WM

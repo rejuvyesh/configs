@@ -1,0 +1,12 @@
+[Unit]
+Description=Set random wallpaper
+Requires=xorg.target
+After=xorg.target
+
+[Service]
+Type=simple
+ExecStart=/home/rejuvyesh/Scripts/wallpaper.sh
+Restart=always
+
+[Install]
+WantedBy=default.target

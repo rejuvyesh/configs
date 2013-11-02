@@ -1,0 +1,11 @@
+[Unit]
+Description=redshift - Save your eyes
+
+[Service]
+Environment=DISPLAY=:0 
+Type=simple
+ExecStart=/usr/bin/redshift -l 26.4583:80.3173 -t 6500:4500 -m randr
+Restart=always
+
+[Install]
+WantedBy=default.target

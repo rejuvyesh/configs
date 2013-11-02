@@ -1,0 +1,12 @@
+[Unit]
+Description=xrdb
+Requires=xorg.target
+After=xorg.target
+
+[Service]
+Type=oneshot
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/xrdb %h/.Xresources
+
+[Install]
+WantedBy=default.target

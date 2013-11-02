@@ -1,0 +1,9 @@
+[Unit]
+Description = MPDZen - Display current sond
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart = /home/rejuvyesh/Scripts/mpdzen/mpdzen_loop
+
+[Install]
+WantedBy = default.target

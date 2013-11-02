@@ -1,0 +1,18 @@
+[Unit]
+Description=tmux client, session name: %I
+After=mpd.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+#ExecStart=/usr/bin/tmux new-session -d -s %I -n 'weechat' 'weechat-curses --upgrade -d %h/.weechat'
+#ExecStart=/usr/bin/tmux new-session -d -s %I
+#ExecStart=/usr/bin/tmux new-window -t %I:2 'mutt'
+#ExecStart=/usr/bin/tmux new-window -t %I:3 'calcurse'
+#ExecStart=/usr/bin/tmux new-window -t %I:3 'ncmpcpp'
+ExecStart=/usr/bin/tmux new-window -d -s %I 'zsh'
+
+ExecStop=/usr/bin/tmux kill-session -t %I
+
+[Install]
+WantedBy=mystuff.target

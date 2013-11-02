@@ -1,0 +1,14 @@
+[Unit]
+Description=Xmonad with Dzen2
+Requires=xorg.target
+Before=mystuff.target
+After=xorg.target
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/home/rejuvyesh/Scripts/start_xmonad.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=xmonad.target
