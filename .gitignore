@@ -1,0 +1,124 @@
+# ignore all "normal" files/dirs, but manage all dotfiles
+/*
+!/.*
+*.pyc
+*.sw[a-z]
+.*~
+
+# ignore host-specific files
+.config/mc/filepos
+.config/mc/history
+.config/mc/panels.ini
+
+# ignore secure
+.dropbox*
+.gem
+.git-local
+.gnupg
+.ssh
+.evernote-mode
+.emacs.d
+.wmal
+.irssi
+.mutt
+.password-store
+.mpdscribble
+.lastpass
+.geeknote
+.Skype
+.copy
+.todo
+*.gpg
+.offline*
+.pki
+
+# ignore caches and histories
+*history
+*hist*
+*cache*
+.adobe
+.bup
+.cache
+.dbus
+.dmenu_cache
+.dvdcss
+.gconf
+.gconfd
+.gnuplot-wxt
+.gtk-bookmarks
+.icedtea
+.icedteaplugin
+.lesshst
+.local/share
+.lyrics
+.macromedia
+.xmonad/xmonad.errors
+.xmonad/xmonad.hi
+.xmonad/xmonad.o
+.zcomp*
+.texlive*
+.swt
+.recent*
+.aspell*
+.ispell*
+.ido*
+.ecb*
+.mailcap
+.*lock*
+
+# ignore logs
+*log
+.xsession-errors
+
+# ignore stupid confs no one loves :)
+.android
+.ardour*
+.audacity*
+.config/Trolltech
+.config/calibre
+.config/enchant
+.config/google-googletalkplugin
+.config/gtk-2.0
+.config/hexchat
+.config/htop/
+.config/inkscape
+.config/kde.org/
+.config/libreoffice
+.config/mcomix
+.config/meld
+.eclipse
+.gervill
+.gimp*
+.gitk
+.gnome2
+.java
+.kchmviewer
+.kde4
+.libreoffice
+.links
+.mono
+.mozc
+.FontForge
+.wicd
+.rnd
+.pyload
+
+# ignore mail, firefox and ims, oh my!
+.mozilla
+.purple
+
+# ignore wine
+.wine*
+
+
+# ignore rbenv
+.rbenv
+
+# ignore virtualenv
+.virtualenvs
+
+# ignore cabal
+.cabal
+
+# ignore cpan
+.cpan
