@@ -9,6 +9,7 @@
 .config/mc/filepos
 .config/mc/history
 .config/mc/panels.ini
+.local
 
 # ignore secure
 .dropbox*
@@ -65,6 +66,7 @@
 .ecb*
 .mailcap
 .*lock*
+.covers
 
 # ignore logs
 *log
