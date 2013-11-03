@@ -35,6 +35,9 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # # urxvt
 urxvt -e tmux &
 
+# wifi
+wicd-client --tray & >/dev/null
+
 # fancy window fading
 compton -f -I 0.10 -O 0.10 -D 5 -b
 
