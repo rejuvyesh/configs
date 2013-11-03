@@ -126,3 +126,9 @@ alias uu='udevil umount'
 # shortcuts
 alias my="sudo chown amon:amon"
 alias x="chmod +x"
+
+# Still many do use
+alias mplayer=mpv
+
+# Wine
+alias microcap="wine ~/.wine/drive_c/MicroCap\ v10.04/mc10.exe"
