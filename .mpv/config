@@ -3,6 +3,9 @@
 # default configuration that applies to every file
 [default]
 
+# vdpau is unstable, don't use it
+vo=opengl-hq
+
 # multithreaded decoding of H264/MPEG-1/2 (valid: 0-16)
 vd-lavc-threads=2
 
