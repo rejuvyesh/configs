@@ -17,10 +17,10 @@ alias l="ls -CF"
 alias -g L="| less"
 alias -g ...='../..'
 alias -g ....='../../..'
+alias -g G='| grep'
 
 # power of zsh realized :D
 alias -s pdf=zathura
-alias -s djvu=zathura
 alias -s mkv=mpv
 alias -s avi=mpv
 
@@ -76,13 +76,22 @@ function y() {
   echo "Paste links, ^D start to download."
   youtube-dl --ignore-errors --continue --rate-limit 2.5m -o "$HOME/youtube/%(title)s-%(id)s.%(ext)s" -a-
 }
+function yw() {
+  echo "Paste link, ^D start to watch."
+  youtube-play.sh -a-
+}
+
+# move target to location and create symbolic link
+function mvln() {
+      mv $1 $2/ && ln -s $2/$1 $1
+}
 
 # tor-browser
 alias tor="tor-browser-en"
 
 ################################################################################
-alias cp="cp -i"
-alias mv="mv -i"
+alias cp="cp -iv"
+alias mv="mv -iv"
 
 ################################################################################# System related
 alias abschaltung="systemctl poweroff"
@@ -114,4 +123,6 @@ alias ua='devmon --unmount-all --no-gui'
 alias um='udevil mount'
 alias uu='udevil umount'
 
-
+# shortcuts
+alias my="sudo chown amon:amon"
+alias x="chmod +x"
