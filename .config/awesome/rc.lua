@@ -618,6 +618,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- menu / launcher
 awesome_menu = awful.menu({items = {
                             { "open terminal", terminal },
+                            { "spacefm", function() awful.util.spawn("spacefm") end },
                             { "edit config", editor .. " " .. awesome.conffile },
                             { "restart", awesome.restart }}})
 
