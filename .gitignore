@@ -32,6 +32,7 @@
 *.gpg
 .offline*
 .pki
+.pentadactyl/info
 
 # ignore caches and histories
 *history
@@ -67,6 +68,8 @@
 .mailcap
 .*lock*
 .covers
+.thumbnails
+.matlab
 
 # ignore logs
 *log
@@ -104,6 +107,13 @@
 .wicd
 .rnd
 .pyload
+.config/chromium
+.config/Amphetype
+.config/MusicBrainz
+.config/Skype
+.config/eiskaltdc++
+.config/mpd_sima
+.config/qBittorrent
 
 # ignore mail, firefox and ims, oh my!
 .mozilla
