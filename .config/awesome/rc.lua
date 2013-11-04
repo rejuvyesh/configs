@@ -101,7 +101,7 @@ end
 terminal = "urxvt"
 editor   = "emacs-gui"
 browser  = "firefox"
-mail     = terminal .. " -e mutt-iitk "
+mail     = "LOCAL_CONFIG=iitk urxvt -e /usr/bin/mutt"
 fume     = terminal .. "-name 'fume_term' -e fume"
 music    = terminal .. "-name music -e start_ncmpcpp.sh"
 
@@ -636,7 +636,7 @@ clock_timer("clock", 0.9, function()
               local us_t  = chomp_read('TZ="America/Los_Angeles" date "+u:%H"')
               clock:set_markup(
                 -- date
-                markup("#7788af", os.date("%d(%a) "))
+                markup("#63c7a9", os.date("%d(%a) "))
 
                 -- other time
                   ..markup("#343639", "[")
@@ -649,6 +649,26 @@ clock_timer("clock", 0.9, function()
                   ..markup("#de5e1e", os.date("%H:%M:%S")))
 end)
 lain.widgets.calendar:attach(clock, {font_size = 10, position= "bottom_right"})
+
+--Mail IMAP check
+mailicon = wibox.widget.imagebox()
+mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
+mailwidget = lain.widgets.imap({
+    timeout = 180,
+    server = "newmailhost.cc.iitk.ac.in",
+    mail = "jayeshkg",
+    password = "pass webmail.iitk.ac.in",
+    settings = function()
+        if mailcount > 0 then
+            mailicon:set_image(beautiful.widget_mail)
+            widget:set_markup(markup("#7f8c8d", mailcount .. " "))
+        else
+            widget:set_text("")
+            mailicon:set_image(nil)
+        end
+    end
+})
+
 
 -- CPU
 cpuicon   = wibox.widget.imagebox()
@@ -665,7 +685,7 @@ local local_battery = "BAT0"
 
 bat = lain.widgets.bat({ battery = local_battery,
                          settings = function()
-                           if bat_now.perc == "N/A" then
+                           if bat_now.status == "Unknown" then
                              bat_now.perc = "AC "
                            else
                              bat_now.perc = bat_now.perc .. "% "
@@ -693,7 +713,6 @@ volume = lain.widgets.alsa({
                              end
 })
 -- Net
--- TODO ip address display
 netdownicon = wibox.widget.imagebox(beautiful.widget_netdown)
 --netdownicon.align = "middle"
 netdowninfo = wibox.widget.textbox()
@@ -715,6 +734,7 @@ mem = lain.widgets.mem({
 -- / fs
 fsicon = wibox.widget.imagebox(beautiful.widget_fs)
 fswidget = lain.widgets.fs({
+                             partition = "/home",
                               settings = function()
                                  widget:set_markup(markup("#80d9d8", fs_now.used .. "% "))
                               end
@@ -814,6 +834,8 @@ for s = 1, screen.count() do
   -- aligned to the right
   local right_layout = wibox.layout.fixed.horizontal()
   -- right_layout:add(fume) -- TODO
+  right_layout:add(mailicon)
+  right_layout:add(mailwidget)
   right_layout:add(wibox.widget.systray())
   right_layout:add(spacer)
   right_layout:add(baticon)
