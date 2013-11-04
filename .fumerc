@@ -1,3 +1,4 @@
 ---
 fume_dir: /home/rejuvyesh/.todo/fume
-
+player: mpv --really-quiet
+notification: notify-send 'Done! 😀'
