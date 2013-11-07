@@ -81,6 +81,10 @@ function yw() {
   echo "Paste link, ^D start to watch."
   youtube-play.sh -a-
 }
+function ya() {
+  echo "Paste link, ^D start downloading with aria2"
+  youtube-dl-aria -a-
+}
 
 # move target to location and create symbolic link
 function mvln() {
