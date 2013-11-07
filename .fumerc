@@ -1,4 +1,4 @@
 ---
 fume_dir: /home/rejuvyesh/.todo/fume
-player: mpv --really-quiet
-notification: notify-send 'Done! 😀'
+player: mpv --really-quiet --volume=100
+notification: notify-send fume 'Done! <span color="#ffff00">😀</span>' 
