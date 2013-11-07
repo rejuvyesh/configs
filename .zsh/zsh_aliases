@@ -24,12 +24,13 @@ alias -s pdf=zathura
 alias -s mkv=mpv
 alias -s avi=mpv
 
+alias reload!='. ~/.zshrc'
 alias startx='startx &> ~/.xlog'
 
 function li() { libreoffice $* >/dev/null 2>/dev/null &! }
 function ff() { firefox $* >/dev/null 2>/dev/null &! }
 
-alias matlab="matlab >/dev/null 2>/dev/null &!"
+alias mat="matlab >/dev/null 2>/dev/null &!"
 ################################################################################# arch-linux aliases 
 
 # Look for yaourt, and add some useful functions if we have it.
