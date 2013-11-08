@@ -341,7 +341,7 @@ globalkeys = awful.util.table.join(
      awful.prompt.run({ prompt = "<span foreground='#7f9f7f'>Scholar Search:</span> "},
                       promptbox[mouse.screen].widget,
                       function(input)
-                         awful.util.spawn_with_shell("searchScholar.sh " .. input)
+                         awful.util.spawn_with_shell("searchscholar.sh " .. input)
                       end, nil
      )
   end),
@@ -350,14 +350,14 @@ globalkeys = awful.util.table.join(
                                 local input = f:read("*a")
                                 f:close()
                                 
-                                awful.util.spawn_with_shell("searchGoogle.sh " .. input)
+                                awful.util.spawn_with_shell("searchgoogle.sh " .. input)
   end),
-  awful.key({modkey, "Shift" }, "y", function()
+  awful.key({modkey, "shift" }, "y", function()
                                 local f = io.popen("xsel -o")
                                 local input = f:read("*a")
                                 f:close()
                                 
-                                awful.util.spawn_with_shell("searchScholar.sh " .. input)
+                                awful.util.spawn_with_shell("searchscholar.sh " .. input)
   end),
   
   -- sdcv dict
