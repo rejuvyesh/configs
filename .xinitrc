@@ -43,7 +43,8 @@ compton -f -I 0.10 -O 0.10 -D 5 -b
 
 eval "$(gpg-agent --daemon)" &
 
-python2 /home/rejuvyesh/firewall-auth.pyc >& /dev/null
+# clipboard synchronization
+parcellite &
 
 # #start xmonad
 # WM="start_xmonad.sh"
