@@ -1,0 +1,6 @@
+[dev/misc/gitignore]
+checkout = git clone 'https://github.com/github/gitignore.git' 'gitignore'
+
+[dev/backup/git-annex-utils]
+checkout = git clone 'http://git.mysteryvortex.com/repositories/git-annex-utils.git' 'git-annex-utils'
+

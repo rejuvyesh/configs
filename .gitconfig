@@ -27,3 +27,4 @@
 [core]
 	autocrlf = input
 	safecrlf = true
+	excludesfile = /home/rejuvyesh/.global-gitignore
