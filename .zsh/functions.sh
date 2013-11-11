@@ -189,3 +189,22 @@ function pack-tar() {
     done
 }
 alias pack="pack-7z"
+
+function j () {
+    if [[ ${@} = -* ]]
+    then
+        autojump ${@}
+        return
+    fi
+    local new_path="$(autojump ${@})"
+    if [ -d "${new_path}" ]
+    then
+        echo -e "\\033[31m${new_path}\\033[0m"
+        cd "${new_path}"
+    else
+        echo "autojump: directory '${@}' not found"
+        echo "Try \`autojump --help\` for more information."
+        false
+    fi
+}
+
