@@ -4,3 +4,5 @@ checkout = git clone 'https://github.com/github/gitignore.git' 'gitignore'
 [dev/backup/git-annex-utils]
 checkout = git clone 'http://git.mysteryvortex.com/repositories/git-annex-utils.git' 'git-annex-utils'
 
+[Scripts/get-shit-done]
+checkout = git clone 'https://github.com/leftnode/get-shit-done.git' 'get-shit-done'

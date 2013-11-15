@@ -1,0 +1,10 @@
+text/x-diff              ; cat %s | colordiff ; copiousoutput
+text/x-patch             ; cat %s | colordiff ; copiousoutput
+text/html                ; elinks -dump %s ; copiousoutput;
+
+application/pdf          ; /usr/bin/zathura %s; copiousoutput
+application/octet-stream ; echo %s "can be anything..."; copiousoutput
+
+image/*                  ; /usr/bin/feh %s ; copiousoutput
+audio/*                  ; /usr/bin/mpv %s ; copiousoutput
+video/*                  ; /usr/bin/mpv %s ; copiousoutput
