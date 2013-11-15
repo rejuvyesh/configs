@@ -26,6 +26,8 @@ source ~/.zsh/syntax.sh
 source ~/.zsh/completions.sh
 source ~/.zsh/gtd.sh
 
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
 # Extended Options
 setopt nobanghist
 setopt hist_reduce_blanks
