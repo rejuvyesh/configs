@@ -15,7 +15,7 @@ set default-fg "#ebebff"
 set inputbar-fg "#ebebff"
 #set statusbar-bg "#333333"
 set statusbar-fg "#ebebff"
-set highlight-color "#FFFF00"
+set highlight-color "#98c1d1"
 set completion-bg "#242323"
 
 map <F1> set "pages-per-row 1"
@@ -24,10 +24,10 @@ map <F3> adjust_window best-fit
 
 map \< goto top
 map \> goto bottom
-map b navigate previous
-map e follow
-map f navigate next
-map p goto top
+# map b navigate previous
+# map e follow
+# map f navigate next
+# map p goto top
 
 map <C-+> zoom in
 map <C--> zoom out
