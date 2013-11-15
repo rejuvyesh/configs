@@ -325,15 +325,15 @@ globalkeys = awful.util.table.join(
               awful.util.spawn_with_shell("light -sq 20") end),
   awful.key({                   }, "XF86MonBrightnessUp", function ()
               awful.util.spawn_with_shell("light -aq 20") end),
-  -- prompt
-  awful.key({ modkey }, "r", function () promptbox[mouse.screen]:run() end),
+  -- -- prompt
+  -- awful.key({ modkey }, "r", function () promptbox[mouse.screen]:run() end),
 
   -- search
   awful.key({modkey }, "g", function()
                awful.prompt.run({ prompt = "<span foreground='#7f9f7f'>Google Search:</span> "},
                                 promptbox[mouse.screen].widget,
                                 function(input)
-                                   awful.util.spawn_with_shell("searchGoogle.sh " .. input)
+                                   awful.util.spawn_with_shell("searchgoogle.sh " .. input)
                                 end, nil
                )
   end),
@@ -352,7 +352,7 @@ globalkeys = awful.util.table.join(
                                 
                                 awful.util.spawn_with_shell("searchgoogle.sh " .. input)
   end),
-  awful.key({modkey, "shift" }, "y", function()
+  awful.key({modkey, "Shift" }, "s", function()
                                 local f = io.popen("xsel -o")
                                 local input = f:read("*a")
                                 f:close()
