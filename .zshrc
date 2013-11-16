@@ -1,14 +1,14 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
-HISTSIZE=5000
-SAVEHIST=10000
+HISTSIZE=50000
+SAVEHIST=100000
 setopt appendhistory autocd extendedglob nomatch hist_ignore_space
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/rejuvyesh/.zshrc'
 
-autoload -Uz compinit
+autoload -Uz compinit zmv
 compinit
 # End of lines added by compinstall
 
@@ -36,11 +36,25 @@ setopt hist_verify
 setopt share_history
 setopt extended_history
 setopt interactivecomments
+setopt nohup
+setopt no_bg_nice
 
+setopt no_chase_links
+setopt no_chase_dots
+
+setopt list_packed
+setopt correct
+setopt hash_list_all
+
+setopt autopushd
+setopt pushdminus
+setopt pushdsilent
+setopt pushdtohome
 
 # startx
 # if [[ $(tty) = /dev/tty1 ]] && [[ -z "$DISPLAY" ]]; then
 #     exec startx
 # fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# make spaces saner
+export IFS=$'\t'$'\n'$'\0'

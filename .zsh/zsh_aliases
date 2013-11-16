@@ -8,6 +8,8 @@ alias less="less -iF"
 alias ls="ls --color=always --group-directories-first -v"
 alias mkdir="mkdir -p" 
 alias untar='tar -xvvf'
+alias mmv='noglob zmv -W'
+alias mc="mc -x"
 
 # some ls aliases
 alias ll="ls -l"
@@ -137,3 +139,7 @@ alias mplayer=mpv
 
 # Wine
 alias microcap="wine ~/.wine/drive_c/MicroCap\ v10.04/mc10.exe"
+
+# repo
+alias mup="mr -j5 update"
+
