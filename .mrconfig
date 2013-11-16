@@ -6,3 +6,6 @@ checkout = git clone 'http://git.mysteryvortex.com/repositories/git-annex-utils.
 
 [Scripts/get-shit-done]
 checkout = git clone 'https://github.com/leftnode/get-shit-done.git' 'get-shit-done'
+
+[dev/misc/starterkit]
+checkout = git clone 'https://github.com/kjhealy/emacs-starter-kit.git' 'starterkit'
