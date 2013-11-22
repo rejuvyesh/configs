@@ -109,8 +109,8 @@ alias g="git"
 alias gst="git status"
 alias gpom="git push origin master"
 ################################################################################
-alias e="emacsclient -nw"
-alias ee="emacsclient -c"
+alias e="emacs"
+alias ee="emacs-gui"
 alias play='mpv --vo=opengl-hq'
 
 alias http='python -m http.server'
