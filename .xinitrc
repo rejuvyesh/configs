@@ -20,7 +20,7 @@ setxkbmap -option ctrl:nocaps
 /usr/bin/emacs --daemon 
 # # wallpaper
 wallpaper.sh &
-eval "$(gpg-agent --daemon)" &
+
 # mpd-scribble Last-FM
 pidof mpdscribble >& /dev/null
 if [ $? -ne 0 ]; then
