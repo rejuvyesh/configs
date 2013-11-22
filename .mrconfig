@@ -9,3 +9,6 @@ checkout = git clone 'https://github.com/leftnode/get-shit-done.git' 'get-shit-d
 
 [dev/misc/starterkit]
 checkout = git clone 'https://github.com/kjhealy/emacs-starter-kit.git' 'starterkit'
+
+[dev/julia/julia]
+checkout = git clone 'https://github.com/JuliaLang/julia.git' 'julia'
