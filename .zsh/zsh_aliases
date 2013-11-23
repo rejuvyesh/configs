@@ -143,3 +143,6 @@ alias microcap="wine ~/.wine/drive_c/MicroCap\ v10.04/mc10.exe"
 # repo
 alias mup="mr -j5 update"
 
+# beeminder
+alias bot="beeminder_org_todo.rb"
+alias bota="beeminder_org_todo.rb -a"
