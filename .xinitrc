@@ -1,24 +1,30 @@
-# # set the cursor
+#!/bin/sh
+
+# set the cursor
  xsetroot -cursor_name left_ptr &
 
-#run systemd as user instance
-#/usr/lib/systemd/systemd --usfr &
-
-# # load for terminal
+# load for terminal
 xrdb merge /home/rejuvyesh/.Xresources
 
 setxkbmap -option ctrl:nocaps
 
-# # add terminus font
- xset +fp /usr/share/fonts/local
- xset fp rehash
- xset b 100 5000 50
-# #launch redshift
-#redshift -l 26.4583:80.3173 -t 5500:4000 -m randr &
+# add terminus font
+xset +fp /usr/share/fonts/local
+xset fp rehash
+xset b 100 5000 50
+
+# D-bus
+if which dbus-launch >/dev/null 2>&1 && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
+    eval `dbus-launch --sh-syntax --exit-with-session`
+fi
+
+# mpd 
 /usr/bin/mpd --no-daemon &
 
+# emacs
 /usr/bin/emacs --daemon 
-# # wallpaper
+
+# wallpaper
 wallpaper.sh &
 
 # mpd-scribble Last-FM
@@ -46,7 +52,5 @@ eval "$(gpg-agent --daemon)" &
 # clipboard synchronization
 parcellite &
 
-# #start xmonad
-# WM="start_xmonad.sh"
- WM="awesome"
- exec $WM
+WM="awesome"
+exec $WM
