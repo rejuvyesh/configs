@@ -109,6 +109,12 @@ alias g="git"
 alias gst="git status"
 alias gpom="git push origin master"
 ################################################################################
+
+# git-annex
+alias ga="git-annex"
+alias gas="git-annex sync"
+
+
 alias e="emacs"
 alias ee="emacs-gui"
 alias play='mpv --vo=opengl-hq'
