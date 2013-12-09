@@ -72,7 +72,7 @@ paclist() {
 }
 
 #################################################################################IITK Firewall
-alias f="~/Scripts/firewall-auth.py jayeshkg"
+alias f="python2 Scripts/firewall-auth.pyc"
 
 # youtube download
 function y() {
