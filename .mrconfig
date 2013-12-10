@@ -12,3 +12,12 @@ checkout = git clone 'https://github.com/kjhealy/emacs-starter-kit.git' 'starter
 
 [dev/julia/julia]
 checkout = git clone 'https://github.com/JuliaLang/julia.git' 'julia'
+
+[/home/rejuvyesh]
+checkout = git clone 'https://rejuvyesh@github.com/rejuvyesh/configs.git' 'rejuvyesh'
+
+[Scripts]
+checkout = git clone 'https://rejuvyesh@github.com/rejuvyesh/Scripts.git' 'Scripts'
+
+[dev/backup/git-annex]
+checkout = git clone 'https://github.com/joeyh/git-annex.git' 'git-annex'
