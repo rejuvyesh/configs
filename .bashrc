@@ -9,3 +9,6 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# added by travis gem
+[ -f /home/rejuvyesh/.travis/travis.sh ] && source /home/rejuvyesh/.travis/travis.sh

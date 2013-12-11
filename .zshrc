@@ -58,3 +58,6 @@ setopt pushdtohome
 
 # make spaces saner
 export IFS=$'\t'$'\n'$'\0'
+
+# added by travis gem
+[ -f /home/rejuvyesh/.travis/travis.sh ] && source /home/rejuvyesh/.travis/travis.sh
