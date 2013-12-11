@@ -113,7 +113,30 @@ alias gpom="git push origin master"
 # git-annex
 alias ga="git-annex"
 alias gas="git-annex sync"
+alias gass="git_annex_sync.sh"
+alias gai="git-annex info"
+alias gast="git-annex status"
+alias gaw="git-annex whereis"
+alias gac="git commit -m 'update'"
+alias gaa="git-annex add"
+alias get="git-annex get"
+alias drop="git-annex drop"
 
+function ga-new-direct() {
+  echo "Label?" && read $label
+  git init
+  git-annex init "$label"
+  echo "defaulting to direct mode, semitrust, 2 copies (see .gitattributes) and 100m reserve..."
+  git-annex direct
+  git config add annex.diskreserve "100m"
+  echo "* annex.numcopies=2" > .gitattributes
+  git add .gitattributes
+  git commit -m "init repo"
+}
+
+# repo update
+alias mrr="mr register"
+alias mup="mr -j5 update"
 
 alias e="emacs"
 alias ee="emacs-gui"
@@ -137,7 +160,7 @@ alias um='udevil mount'
 alias uu='udevil umount'
 
 # shortcuts
-alias my="sudo chown amon:amon"
+alias my="sudo chown rejuvyesh:rejuvyesh"
 alias x="chmod +x"
 
 # Still many do use
