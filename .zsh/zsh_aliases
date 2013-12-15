@@ -76,7 +76,7 @@ paclist() {
 }
 
 #################################################################################IITK Firewall
-alias f="python2 Scripts/firewall-auth.pyc"
+alias f="python2 ~/dev/scripts/firewall-auth.pyc"
 
 # youtube download
 function y() {
@@ -117,7 +117,7 @@ alias gpom="git push origin master"
 # git-annex
 alias ga="git-annex"
 alias gas="git-annex sync"
-alias gass="git_annex_sync.sh"
+alias gass="git-annex-syncer"
 alias gai="git-annex info"
 alias gast="git-annex status"
 alias gaw="git-annex whereis"
@@ -142,7 +142,7 @@ function ga-new-direct() {
 alias mrr="mr register"
 alias mup="mr -j5 update"
 
-alias e="emacs"
+alias e="emacsclient -nw"
 alias ee="emacs-gui"
 alias play='mpv --vo=opengl-hq'
 
@@ -154,9 +154,11 @@ alias mg='mutt-gmail'
 alias mutt-iitk='LOCAL_CONFIG=iitk /usr/bin/mutt'
 alias mk='mutt-iitk'
 
+# c
+alias co="./configure"
+alias cop="./configure --prefix=$HOME/local"
+alias tagify-c="ctags -eR ."
 alias make="colormake"
-
-alias fu="urxvt -name 'fume_term' -e fume"
 
 # udevil
 alias ua='devmon --unmount-all --no-gui'
@@ -179,3 +181,8 @@ alias mup="mr -j5 update"
 # beeminder
 alias bot="beeminder_org_todo.rb"
 alias bota="beeminder_org_todo.rb -a"
+
+# ros
+alias catkin_make='catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so'
+alias catkin_make_isolated='catkin_make_isolated -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so'
+

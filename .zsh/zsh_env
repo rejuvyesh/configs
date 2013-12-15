@@ -19,10 +19,16 @@ export PAGER="less -R"
 
 ## browser
 export BROWSER=/usr/bin/firefox
+
 # python
 export PYTHONSTARTUP="$HOME/.config/pythonrc"
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
+
+# ~/local dir
+export PATH="$HOME/local/bin:$PATH"
+export MANPATH="$HOME/local/share/man:$MANPATH"
+export LD_LIBRARY_PATH="$HOME/local/lib:$LD_LIBRARY_PATH"
 
 ## Latex
 PATH="/home/rejuvyesh/opt/texlive/2013/bin/x86_64-linux/":${PATH}
@@ -34,12 +40,14 @@ RIPPER_TAGS_EMACS=1
 # cabal
 PATH="$HOME/.cabal/bin":${PATH}
 
-SCRIPTS="$HOME/Scripts"
+SCRIPTS="$HOME/dev/scripts"
 # adding scripts and all subdirs to PATH
 for dir in $(find $SCRIPTS -type d -not -path "*/.git*"); do
 PATH="$dir:$PATH"
 done
 
+# R
+export R_LIBS="$HOME/local/R"
 
 ## Set Java Fonts
 export JAVA_FONTS=/usr/share/fonts/TTF
