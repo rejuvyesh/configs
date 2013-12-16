@@ -71,6 +71,8 @@ local layouts = {
   awful.layout.suit.fair.horizontal,
   awful.layout.suit.max.fullscreen,
   awful.layout.suit.magnifier,
+  lain.layout.centerfair,
+  lain.layout.centerwork,
 }
 
 function toggleLayouts(a, b) -- a is preferred default
@@ -492,7 +494,7 @@ local default_ncol    = 1
 tags = {}
 tag_names = {
   "1",  
-  "2",  
+  "📚",  
   "code",  
   "4",  
   "5",  
@@ -587,10 +589,8 @@ awful.rules.rules = {
     properties = { tag = tags[1][10] }},
   { rule_any = { class = { "Anki"}},
     properties = { tag = tags[1][9] }},
-  { rule_any = {name = {"com-mathworks-util-PostVMInit"}},
+  { rule_any = {class = {"com-mathworks-util-PostVMInit"}},
     properties = { tag = tags[1][3] }},
-  { rule  = { name = "fume_term" },
-    properties = { tag = tags[1][6] }},
 }
 
 -- signals
@@ -651,23 +651,23 @@ end)
 lain.widgets.calendar:attach(clock, {font_size = 10, position= "bottom_right"})
 
 --Mail IMAP check
-mailicon = wibox.widget.imagebox()
-mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
-mailwidget = lain.widgets.imap({
-    timeout = 180,
-    server = "newmailhost.cc.iitk.ac.in",
-    mail = "jayeshkg",
-    password = "pass webmail.iitk.ac.in",
-    settings = function()
-        if mailcount > 0 then
-            mailicon:set_image(beautiful.widget_mail)
-            widget:set_markup(markup("#7f8c8d", mailcount .. " "))
-        else
-            widget:set_text("")
-            mailicon:set_image(nil)
-        end
-    end
-})
+-- mailicon = wibox.widget.imagebox()
+-- mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
+-- mailwidget = lain.widgets.imap({
+--     timeout = 180,
+--     server = "newmailhost.cc.iitk.ac.in",
+--     mail = "jayeshkg",
+--     password = "pass webmail.iitk.ac.in",
+--     settings = function()
+--         if mailcount > 0 then
+--             mailicon:set_image(beautiful.widget_mail)
+--             widget:set_markup(markup("#7f8c8d", mailcount .. " "))
+--         else
+--             widget:set_text("")
+--             mailicon:set_image(nil)
+--         end
+--     end
+-- })
 
 
 -- CPU
