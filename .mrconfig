@@ -4,7 +4,7 @@ checkout = git clone 'https://github.com/github/gitignore.git' 'gitignore'
 [dev/backup/git-annex-utils]
 checkout = git clone 'http://git.mysteryvortex.com/repositories/git-annex-utils.git' 'git-annex-utils'
 
-[Scripts/get-shit-done]
+[dev/scripts/get-shit-done]
 checkout = git clone 'https://github.com/leftnode/get-shit-done.git' 'get-shit-done'
 
 [dev/misc/starterkit]
@@ -16,7 +16,7 @@ checkout = git clone 'https://github.com/JuliaLang/julia.git' 'julia'
 [/home/rejuvyesh]
 checkout = git clone 'https://rejuvyesh@github.com/rejuvyesh/configs.git' 'rejuvyesh'
 
-[Scripts]
+[dev/scripts]
 checkout = git clone 'https://rejuvyesh@github.com/rejuvyesh/Scripts.git' 'Scripts'
 
 [dev/backup/git-annex]
