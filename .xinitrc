@@ -1,7 +1,15 @@
 #!/bin/sh
 
+
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+    for f in /etc/X11/xinit/xinitrc.d/*; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
+
 # set the cursor
- xsetroot -cursor_name left_ptr &
+xsetroot -cursor_name left_ptr &
 
 # load for terminal
 xrdb merge /home/rejuvyesh/.Xresources
@@ -13,16 +21,11 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 xset b 100 5000 50
 
-# D-bus
-if which dbus-launch >/dev/null 2>&1 && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
-    eval `dbus-launch --sh-syntax --exit-with-session`
-fi
-
-# mpd 
+# mpd
 /usr/bin/mpd --no-daemon &
 
 # emacs
-/usr/bin/emacs --daemon 
+/usr/bin/emacs --daemon
 
 # wallpaper
 wallpaper.sh &
@@ -50,7 +53,7 @@ compton -f -I 0.10 -O 0.10 -D 5 -b
 eval "$(gpg-agent --daemon)" &
 
 # clipboard synchronization
-parcellite &
+# parcellite &
 
 WM="awesome"
 exec $WM
