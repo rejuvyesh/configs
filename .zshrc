@@ -25,6 +25,7 @@ source ~/.zsh/title.sh
 source ~/.zsh/syntax.sh
 source ~/.zsh/completions.sh
 source ~/.zsh/gtd.sh
+source ~/.zsh/dirs.sh
 
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
