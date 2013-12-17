@@ -834,8 +834,8 @@ for s = 1, screen.count() do
   -- aligned to the right
   local right_layout = wibox.layout.fixed.horizontal()
   -- right_layout:add(fume) -- TODO
-  right_layout:add(mailicon)
-  right_layout:add(mailwidget)
+  -- right_layout:add(mailicon)
+  -- right_layout:add(mailwidget)
   right_layout:add(wibox.widget.systray())
   right_layout:add(spacer)
   right_layout:add(baticon)

@@ -9,6 +9,7 @@
 theme                               = {}
 
 theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
+theme.lain_icons                    = os.getenv("HOME") .. "/.config/awesome/lain/icons/layout/zenburn/"
 theme.wallpaper                     = theme.confdir .. "/wall.png"
 
 theme.font                          = "Terminus 8"
@@ -80,6 +81,7 @@ theme.layout_max                    = theme.confdir .. "/icons/max.png"
 theme.layout_fullscreen             = theme.confdir .. "/icons/fullscreen.png"
 theme.layout_magnifier              = theme.confdir .. "/icons/magnifier.png"
 theme.layout_floating               = theme.confdir .. "/icons/floating.png"
-
+theme.layout_centerfair             = theme.lain_icons .. "centerfair.png"
+theme.layout_centerwork             = theme.lain_icons .. "centerwork.png"
 
 return theme
