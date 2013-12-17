@@ -1,1 +1,1 @@
-gem: --no-ri --no-rdoc --source=http://rubygems.org --user-install
+install: --document=rdoc,ri
