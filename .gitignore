@@ -134,3 +134,6 @@
 
 # ignore cpan
 .cpan
+
+# ignore lol
+.lolcommits
