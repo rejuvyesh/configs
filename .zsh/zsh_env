@@ -40,6 +40,9 @@ RIPPER_TAGS_EMACS=1
 # cabal
 PATH="$HOME/.cabal/bin":${PATH}
 
+# go
+export GOPATH=$HOME/dev/go
+
 SCRIPTS="$HOME/dev/scripts"
 # adding scripts and all subdirs to PATH
 for dir in $(find $SCRIPTS -type d -not -path "*/.git*"); do
