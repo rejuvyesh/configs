@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
     for f in /etc/X11/xinit/xinitrc.d/*; do
         [ -x "$f" ] && . "$f"
@@ -50,10 +49,10 @@ wicd-client --tray & >/dev/null
 # fancy window fading
 compton -f -I 0.10 -O 0.10 -D 5 -b
 
-eval "$(gpg-agent --daemon)" &
+#eval "$(gpg-agent --daemon)" &
 
 # clipboard synchronization
 # parcellite &
 
 WM="awesome"
-exec $WM
+exec dbus-launch --auto-syntax --exit-with-session $WM
