@@ -1,1 +1,10 @@
 gtk-key-theme-name = "Emacs-Lite"
+
+style "user-font" {
+  font_name = "Droid Sans 9"
+}
+
+widget_class "*" style "user-font"
+
+gtk-font-name="Droid Sans 9"
+
