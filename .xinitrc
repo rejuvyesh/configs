@@ -13,7 +13,7 @@ xsetroot -cursor_name left_ptr &
 # load for terminal
 xrdb merge /home/rejuvyesh/.Xresources
 
-setxkbmap -option ctrl:nocaps compose:ralt
+setxkbmap -option ctrl:nocaps
 
 # add terminus font
 xset +fp /usr/share/fonts/local
