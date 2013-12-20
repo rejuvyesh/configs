@@ -37,6 +37,9 @@ PATH="/home/rejuvyesh/opt/texlive/2013/bin/x86_64-linux/":${PATH}
 PATH="$HOME/.gem/ruby/2.0.0/bin":${PATH}
 RIPPER_TAGS_EMACS=1
 
+## prefer bundler
+export PATH="$HOME/.bundle/ruby/2.0.0/bin:$PATH"
+
 # cabal
 PATH="$HOME/.cabal/bin":${PATH}
 
