@@ -515,32 +515,15 @@ end
 
 -- rules for automatic focus switching
 function full_focus_filter(client)
-  local sibling_focus = false -- if there are other windows of the same process,
-                              -- only give focus if one of them is focused
-  local has_siblings  = false -- clients with the same pid
+  local default_focus = true  -- whether to give a client focus by default
   local stupid_client = false -- is the client stupid?
-
-  -- check all other clients with the same id
-  -- FIXME later
-  -- for c in awful.client.iterate(function (c)
-  --                                 return (not c == client and c.pid == client.pid)
-  --                               end, nil, nil) do
-  --   has_siblings = true
-
-  --   if c.focus then
-  --     sibling_focus = true
-  --     break
-  --   end
-  -- end
 
   -- pidgin is annoying, so prevent its conversations from stealing focus
   if client.class == "Pidgin" and client.role == "conversation" then
     stupid_client = true
   end
-  
-  return (awful.client.focus.filter
-            and not (has_siblings and not sibling_focus)
-            and not stupid_client)
+
+  return (default_focus and not stupid_client and awful.client.focus.filter)
 end
 
 -- client rules
