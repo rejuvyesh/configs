@@ -9,31 +9,33 @@ Xft.hintstyle:  hintfull
 Xft.lcdfilter:  lcddefault
 Xft.rgba:       rgb
 
+Emacs.FontBackend: xft
 
-URxvt.urgentOnBell:      true
+URxvt.urgentOnBell      : true
 
-URxvt*scrollBar: true
-URxvt*scrollstyle: plain
-URxvt*scrollBar_right: true
-URxvt*scrollTtyKeypress: true
-URxvt*scrollWithBuffer: true
-URxvt*scrollTtyOutput: false
-URxvt.jumpScroll: true
-URxvt.skipScroll: true 
+URxvt*scrollBar         : true
+URxvt*scrollstyle       : plain
+URxvt*scrollBar_right   : true
+URxvt*scrollTtyKeypress : true
+URxvt*scrollWithBuffer  : true
+URxvt*scrollTtyOutput   : false
+URxvt.jumpScroll        : true
+URxvt.skipScroll        : true 
 
 
-URxvt*transparent: true
-URxvt*fading: 30
-URxvt*shading: 20
+! URxvt*transparent: true
+! URxvt*fading: 30
+! URxvt*shading: 20
 
-URxvt.perl-lib:         /usr/lib/urxvt/perl/
-URxvt.perl-ext-common: default,matcher,clipboard
-URxvt.url-launcher: /usr/bin/firefox
-URxvt.matcher.button: 1
-URxvt.saveLines: 100000
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.perl-lib        : /usr/lib/urxvt/perl/
+URxvt.perl-ext-common : default,matcher,clipboard
+URxvt.url-launcher    : /usr/bin/firefox
+URxvt.matcher.button  : 1
+URxvt.saveLines       : 100000
+URxvt.keysym.M-c      : perl:clipboard:copy
+URxvt.keysym.M-v      : perl:clipboard:paste
+URxvt.keysym.M-C-v    : perl:clipboard:paste_escaped
+URxvt.depth           :             32
 
 !*color4: rgb:36/73/b5
 !*color12: rgb:1b/85/d6
@@ -108,5 +110,5 @@ URxvt.colorUL: #87afd7
 *color7: #DCDCCC
 *color15: #FFFFFF
 
-*background: #101010
-*foreground: #d4d4d4
+URxvt*background : [85]#000000
+URxvt*foreground : #d4d4d4
