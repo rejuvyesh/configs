@@ -134,7 +134,7 @@ cp_p()
 # tmux
 alias scratchpad="tm scratchpad"
 function tm() {
-    if [[ $# -ge 1 ]] then
+    if [[ $# -ge 1 ]]; then
         tmux attach -t $1 || tmux new-session -s $1 \; set default-path "$(pwd)" \; set -g -a update-environment ' PWD'
     else
         tmux new-session \; set default-path "$(pwd)" \; set -g -a update-environment ' PWD'
@@ -208,3 +208,6 @@ function j () {
     fi
 }
 
+function ppt2pdf() {
+    loimpress --headless --convert-to pdf "$@"
+}

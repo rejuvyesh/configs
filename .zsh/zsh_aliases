@@ -34,7 +34,10 @@ alias startx='startx &> ~/.xlog'
 function li() { libreoffice $* >/dev/null 2>/dev/null &! }
 function ff() { firefox $* >/dev/null 2>/dev/null &! }
 function za() { zathura $* >/dev/null 2>/dev/null &! }
-funcion mat() { wmname LG3D; matlab -nosplash >/dev/null 2>/dev/null &! }
+
+function mat() {
+    matlab -hgVersion 2 -nosplash >/dev/null 2>/dev/null &!
+}
 ################################################################################# arch-linux aliases 
 
 # Look for yaourt, and add some useful functions if we have it.
