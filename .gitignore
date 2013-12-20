@@ -139,3 +139,9 @@
 .lolcommits.traktrc
 .vim/undo
 .gstreamer-0.10
+.mpv/watch_later
+.julia
+.octave_hist
+.octave_packages
+.pulse*
+.elinks/cookies*
