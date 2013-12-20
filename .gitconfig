@@ -2,7 +2,7 @@
 	email = mail@rejuvyesh.com
 	name = rejuvyesh
 [credential]
-	helper = cache --timeout=7200
+	helper = cache --timeout=360000
 [github]
 	user = rejuvyesh
 	oauth-token = e0f0e86a04f6859a1457f06d5c4c312c600ad30c
