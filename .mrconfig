@@ -24,3 +24,6 @@ checkout = git clone 'https://rejuvyesh@github.com/rejuvyesh/configs.git' 'rejuv
 
 [dev/misc/st]
 checkout = git clone 'http://git.suckless.org/st' 'st'
+
+[.zsh/zsh-syntax-highlighting]
+checkout = git clone 'git://github.com/zsh-users/zsh-syntax-highlighting.git' 'zsh-syntax-highlighting'
