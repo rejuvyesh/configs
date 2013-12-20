@@ -136,4 +136,6 @@
 .cpan
 
 # ignore lol
-.lolcommits
+.lolcommits.traktrc
+.vim/undo
+.gstreamer-0.10
