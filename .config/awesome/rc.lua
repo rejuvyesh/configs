@@ -104,8 +104,6 @@ terminal = "urxvt"
 editor   = "emacs-gui"
 browser  = "firefox"
 mail     = "LOCAL_CONFIG=iitk urxvt -e /usr/bin/mutt"
-fume     = terminal .. "-name 'fume_term' -e fume"
-music    = terminal .. "-name music -e start_ncmpcpp.sh"
 
 dmenu_font  = "-xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*"
 dmenu_opts  = "-b -i -fn '"..dmenu_font.."' -nb '#000000' -nf '#FFFFFF' -sb '"..beautiful.border_normal.."'"
@@ -650,26 +648,6 @@ clock_timer("clock", 0.9, function()
 end)
 lain.widgets.calendar:attach(clock, {font_size = 10, position= "bottom_right"})
 
---Mail IMAP check
--- mailicon = wibox.widget.imagebox()
--- mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
--- mailwidget = lain.widgets.imap({
---     timeout = 180,
---     server = "newmailhost.cc.iitk.ac.in",
---     mail = "jayeshkg",
---     password = "pass webmail.iitk.ac.in",
---     settings = function()
---         if mailcount > 0 then
---             mailicon:set_image(beautiful.widget_mail)
---             widget:set_markup(markup("#7f8c8d", mailcount .. " "))
---         else
---             widget:set_text("")
---             mailicon:set_image(nil)
---         end
---     end
--- })
-
-
 -- CPU
 cpuicon   = wibox.widget.imagebox()
 cpuicon:set_image(beautiful.widget_cpu)
@@ -834,8 +812,6 @@ for s = 1, screen.count() do
   -- aligned to the right
   local right_layout = wibox.layout.fixed.horizontal()
   -- right_layout:add(fume) -- TODO
-  -- right_layout:add(mailicon)
-  -- right_layout:add(mailwidget)
   right_layout:add(wibox.widget.systray())
   right_layout:add(spacer)
   right_layout:add(baticon)
