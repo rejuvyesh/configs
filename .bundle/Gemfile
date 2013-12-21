@@ -32,4 +32,4 @@ gem "activesupport"
 
 # my own stuff
 gem "rmpv", :path => File.expand_path("~/dev/ruby/rmpv")
-gem "lolcommits-mpv", :path => File.expand_path("~/dev/ruby/lolcommits")
+gem "lolcommits-mpv"

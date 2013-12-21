@@ -1,8 +1,19 @@
 text/x-diff              ; cat %s | colordiff ; copiousoutput
 text/x-patch             ; cat %s | colordiff ; copiousoutput
-text/html                ; elinks -dump %s ; copiousoutput;
+text/html                ; elinks -dump %s    ; copiousoutput;
 
 application/pdf          ; /usr/bin/zathura %s; copiousoutput
+application/msword; libreoffice %s; copiousoutput
+application/vnd.msword; libreoffice %s copiousoutput
+application/excel; libreoffice %s; copiousoutput
+application/msexcel; libreoffice %s; copiousoutput
+application/vnd.ms-excel; libreoffice %s; copiousoutput
+application/x-excel; libreoffice %s; copiousoutput
+application/x-msexcel; libreoffice %s; copiousoutput
+application/vnd.ms-powerpoint; libreoffice %s; copiousoutput
+application/x-mspowerpoint; libreoffice %s; copiousoutput
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; libreoffice '%s'; description="Office Open XML Spreadsheet"; nametemplate=%s.xlsx
+application/ppt; libreoffice %s; copiousoutput
 application/octet-stream ; echo %s "can be anything..."; copiousoutput
 
 image/*                  ; /usr/bin/feh %s ; copiousoutput
