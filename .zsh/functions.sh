@@ -211,3 +211,7 @@ function j () {
 function ppt2pdf() {
     loimpress --headless --convert-to pdf "$@"
 }
+
+function bu() {
+    (cd ~/.bundle; bundle update; bundle clean --force)
+}

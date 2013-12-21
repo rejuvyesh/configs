@@ -1,0 +1,35 @@
+source 'https://rubygems.org'
+
+# pry
+gem "pry"
+gem "pry-byebug"
+gem "pry-doc"
+gem "pry-docmore"
+gem "pry-nav"
+gem "pry-rails"
+gem "pry-rescue"
+gem "pry-stack_explorer"
+gem "pry-theme"
+gem "pry-vterm_aliases"
+
+# TAGS
+gem "ripper-tags"
+gem "gem-ripper-tags"
+
+# rspec
+gem "autotest"
+gem "rspec"
+
+# some generically useful stuff
+gem "kramdown"
+gem "nokogiri"
+gem "org-ruby"
+gem "highline"
+gem "awesome_print"
+gem "trollop"
+gem "chronic"
+gem "activesupport"
+
+# my own stuff
+gem "rmpv", :path => File.expand_path("~/dev/ruby/rmpv")
+gem "lolcommits-mpv", :path => File.expand_path("~/dev/ruby/lolcommits")

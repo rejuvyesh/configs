@@ -147,7 +147,6 @@ alias mup="mr -j5 update"
 
 alias e="emacsclient -nw"
 alias ee="emacs-gui"
-alias play='mpv --vo=opengl-hq'
 
 alias http='python -m http.server'
 alias tmuxl='tmux list-sessions'
@@ -192,3 +191,6 @@ alias catkin_make_isolated='catkin_make_isolated -DPYTHON_EXECUTABLE=/usr/bin/py
 # mpv
 alias mt="rmpv -t"
 alias mb="mp -b"
+
+# ruby
+alias i="pry"
