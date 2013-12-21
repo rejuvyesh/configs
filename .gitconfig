@@ -5,7 +5,6 @@
 	helper = cache --timeout=360000
 [github]
 	user = rejuvyesh
-	oauth-token = e0f0e86a04f6859a1457f06d5c4c312c600ad30c
 [color]
 	ui = auto
 [alias]
@@ -13,6 +12,9 @@
 	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	d = difftool
+	ci = commit
+	unt = ls-files --other --exclude-standard
+	pum = pull origin master
 [diff]
 	tool = meld
 [difftool]
