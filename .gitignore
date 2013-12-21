@@ -145,3 +145,7 @@
 .octave_packages
 .pulse*
 .elinks/cookies*
+.config/beets/
+.bundler
+.github_token
+.gitconfig
