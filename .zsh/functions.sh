@@ -213,5 +213,5 @@ function ppt2pdf() {
 }
 
 function bu() {
-    (cd ~/.bundle; bundle update; bundle clean --force)
+    (cd ~/.bundle; sc-stop dnsmasq; bundle update; bundle clean --force; sc-start dnsmasq)
 }
