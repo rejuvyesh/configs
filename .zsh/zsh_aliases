@@ -147,10 +147,12 @@ alias mup="mr -j5 update"
 
 alias e="emacsclient -nw"
 alias ee="emacs-gui"
+alias se="sudo emacs -nw"
 
 alias http='python -m http.server'
 alias tmuxl='tmux list-sessions'
 
+# mutt
 alias mutt-gmail='LOCAL_CONFIG=gmail /usr/bin/mutt'
 alias mg='mutt-gmail'
 alias mutt-iitk='LOCAL_CONFIG=iitk /usr/bin/mutt'
