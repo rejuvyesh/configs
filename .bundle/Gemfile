@@ -31,5 +31,6 @@ gem "chronic"
 gem "activesupport"
 
 # my own stuff
+gem "traktr", :path => File.expand_path("~/dev/ruby/traktr")
 gem "rmpv", :path => File.expand_path("~/dev/ruby/rmpv")
 gem "lolcommits-mpv"
