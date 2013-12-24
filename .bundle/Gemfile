@@ -30,6 +30,7 @@ gem "awesome_print"
 gem "trollop"
 gem "chronic"
 gem "activesupport"
+gem "gem-relaese"
 
 # bins
 gem "future_me"
