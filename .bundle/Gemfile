@@ -30,7 +30,9 @@ gem "awesome_print"
 gem "trollop"
 gem "chronic"
 gem "activesupport"
-gem "fume"
+
+# bins
+gem "future_me"
 
 # my own stuff
 gem "traktr", :path => File.expand_path("~/dev/ruby/traktr")
