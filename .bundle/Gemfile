@@ -30,7 +30,7 @@ gem "awesome_print"
 gem "trollop"
 gem "chronic"
 gem "activesupport"
-gem "gem-relaese"
+gem "gem-release"
 
 # bins
 gem "future_me"
@@ -38,4 +38,4 @@ gem "future_me"
 # my own stuff
 gem "traktr", :path => File.expand_path("~/dev/ruby/traktr")
 gem "rmpv", :path => File.expand_path("~/dev/ruby/rmpv")
-gem "lolcommits-mpv"
+gem "lolcommits-mpv", :path => File.expand_path("~/dev/ruby/lolcommits")
