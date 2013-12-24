@@ -11,6 +11,7 @@ gem "pry-rescue"
 gem "pry-stack_explorer"
 gem "pry-theme"
 gem "pry-vterm_aliases"
+gem "pry-coolline"
 
 # TAGS
 gem "ripper-tags"
@@ -29,6 +30,7 @@ gem "awesome_print"
 gem "trollop"
 gem "chronic"
 gem "activesupport"
+gem "fume"
 
 # my own stuff
 gem "traktr", :path => File.expand_path("~/dev/ruby/traktr")
