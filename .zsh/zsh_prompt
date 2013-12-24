@@ -55,6 +55,17 @@ if [[ $MC_SID != "" ]]; then
 local mc=" ${op}%{$fg[cyan]%}°_°%{$reset_color%}${cp}"
 fi
 
+# show current rbenv version if different from rbenv global
+function _rbenv_version_status() {
+    typeset -g rbver=''
+    if which rbenv &> /dev/null; then
+       if [ "$(rbenv global)" != "$(rbenv version-name)" ]; then
+           rbver="${op}%{$fg[yellow]%}$(rbenv version-name)%{$reset_color%}${cp}"
+       fi
+    fi 
+}
+chpwd_functions+=(_rbenv_version_status)
+
 # smiley based on return status
 local smiley="%(?,%{$fg[red]%}<3%{$reset_color%},%{$fg_bold[red]%}>3%{$reset_color%})"
 # last command, used in PS2
@@ -63,6 +74,6 @@ local cur_cmd="${op}%_${cp}"
 # current VCS status
 local vcs='$vcs_info_msg_0_'
 # basic prompt on the left
-PROMPT="${date}${path_p}${vcs}${user_host}${arch}${bell}
+PROMPT="${date}${path_p}${vcs}${user_host}${arch}${rbver}${bell}
 ${smiley}${mc} "
 PROMPT2="${cur_cmd}> "
