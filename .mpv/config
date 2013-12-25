@@ -21,8 +21,6 @@ idx=yes
 
 joystick=no
 
-ar=no
-
 lirc=no
 # allow to increase the maximal volume to 600%
 #softvol-max=600
