@@ -12,6 +12,7 @@ alias mkdir="mkdir -p"
 alias untar='tar -xvvf'
 alias mmv='noglob zmv -W'
 alias mc="mc -x"
+alias watch="watch -c"
 
 # some ls aliases
 alias ll="ls -l"
@@ -191,7 +192,7 @@ alias catkin_make='catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INC
 alias catkin_make_isolated='catkin_make_isolated -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so'
 
 # mpv
-alias mt="rmpv -c trakt"
+alias ms="rmpv -c show"
 alias mb="rmpv -b"
 
 # ruby
