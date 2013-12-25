@@ -11,7 +11,6 @@ gem "pry-rescue"
 gem "pry-stack_explorer"
 gem "pry-theme"
 gem "pry-vterm_aliases"
-gem "pry-coolline"
 
 # TAGS
 gem "ripper-tags"
@@ -38,4 +37,4 @@ gem "future_me"
 # my own stuff
 gem "traktr", :path => File.expand_path("~/dev/ruby/traktr")
 gem "rmpv", :path => File.expand_path("~/dev/ruby/rmpv")
-gem "lolcommits-mpv", :path => File.expand_path("~/dev/ruby/lolcommits")
+gem "lolcommits-mpv"
