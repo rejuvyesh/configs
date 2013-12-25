@@ -147,5 +147,7 @@
 .elinks/cookies*
 .config/beets/
 .bundler
-.github_token
-.gitconfig
+/home/rejuvyesh/.authinfo
+.lolcommits
+.bundle/bin
+.authinfo*
