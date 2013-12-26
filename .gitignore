@@ -136,7 +136,8 @@
 .cpan
 
 # ignore lol
-.lolcommits.traktrc
+.lolcommits
+.rmpvrc
 .vim/undo
 .gstreamer-0.10
 .mpv/watch_later
@@ -147,7 +148,6 @@
 .elinks/cookies*
 .config/beets/
 .bundler
-/home/rejuvyesh/.authinfo
 .lolcommits
 .bundle/bin
 .authinfo*
