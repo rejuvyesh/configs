@@ -193,7 +193,7 @@ alias catkin_make_isolated='catkin_make_isolated -DPYTHON_EXECUTABLE=/usr/bin/py
 
 # mpv
 alias ms="rmpv -c show"
-alias mb="rmpv -b"
+alias mb="rmpv -b -s 200x100"
 
 # ruby
 alias i="pry"
