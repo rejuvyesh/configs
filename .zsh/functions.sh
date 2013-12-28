@@ -215,3 +215,7 @@ function ppt2pdf() {
 function bu() {
     (cd ~/.bundle; sc-stop dnsmasq; bundle update; bundle clean --force; sc-start dnsmasq)
 }
+
+function usage() {
+    du -h --summarize "$@"
+}
