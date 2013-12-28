@@ -18,7 +18,12 @@ fi
 export PAGER="less -R"
 
 ## browser
-export BROWSER=/usr/bin/firefox
+# If I'm not in X, use the `elinks` browser.
+if [[ -z "$DISPLAY" ]]; then
+  export BROWSER=/usr/bin/elinks
+else
+  export BROWSER=/usr/bin/firefox
+fi
 
 # python
 export PYTHONSTARTUP="$HOME/.config/pythonrc"
