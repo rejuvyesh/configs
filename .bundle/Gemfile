@@ -20,6 +20,10 @@ gem "gem-ripper-tags"
 gem "autotest"
 gem "rspec"
 
+# lint
+gem "ruby-lint"
+gem "rubocop"
+
 # some generically useful stuff
 gem "kramdown"
 gem "nokogiri"
@@ -30,8 +34,11 @@ gem "trollop"
 gem "chronic"
 gem "activesupport"
 gem "gem-release"
+gem "sqlite3"
+gem "mime-types"
 
-# bins
+# muflax
+gem "muflax"
 gem "future_me"
 
 # my own stuff
