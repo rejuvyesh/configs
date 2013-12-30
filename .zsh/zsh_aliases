@@ -196,3 +196,6 @@ alias mb="rmpv -b -s 200x100"
 
 # ruby
 alias i="pry"
+
+# subs
+subs() { subliminal --languages=en -f -s $* }
