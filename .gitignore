@@ -151,3 +151,4 @@
 .lolcommits
 .bundle/bin
 .authinfo*
+.arbtt/capture.log
