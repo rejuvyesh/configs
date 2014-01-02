@@ -118,8 +118,8 @@ redshift.init(1)
 -- scratchpads
 local scratchpad_term = scratchpad({ command = terminal.." -name scratchpad -e zsh -i -c 'scratchpad'",
                                      name    = "scratchpad",
-			                               height  = 0.5,
-                                     width   = 0.5})
+			                               height  = 0.7,
+                                     width   = 0.6})
 local scratchpad_anking = scratchpad({ command = "anking",
                                        name    = "anking",
                                        height  = 0.7,
