@@ -1,22 +1,19 @@
 set adjust-open width
 
 # color theme 
-# set completion-bg "#232323"
-# set completion-fg "#DDDDDD"
-# set completion-highlight-bg "#2d5565"
-# set inputbar-bg "#131313"
-# set inputbar-fg "#2d5565"
-
-# set recolor-darkcolor "#EEEEEE"
-# set recolor-lightcolor "#121212"
 set default-bg "#242424"
 set default-fg "#ebebff"
-#set inputbar-bg "#333333"
-set inputbar-fg "#ebebff"
+set inputbar-bg "#fdf6e3"
+set inputbar-fg "#839496"
 #set statusbar-bg "#333333"
-set statusbar-fg "#ebebff"
+set statusbar-bg "#fdf6e3"
+# set statusbar-fg "#ebebff"
+set statusbar-fg "#839496"
 set highlight-color "#98c1d1"
 set completion-bg "#242323"
+
+# basename titles
+set window-title-basename
 
 map <F1> set "pages-per-row 1"
 map <F2> set "pages-per-row 2"
@@ -24,10 +21,6 @@ map <F3> adjust_window best-fit
 
 map \< goto top
 map \> goto bottom
-# map b navigate previous
-# map e follow
-# map f navigate next
-# map p goto top
 
 map <C-+> zoom in
 map <C--> zoom out
