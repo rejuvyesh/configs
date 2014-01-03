@@ -210,3 +210,7 @@ alias rsync-move="${_rsync_cmd} --remove-source-files"
 alias rsync-update="${_rsync_cmd} --update"
 alias rsync-synchronize="${_rsync_cmd} --update --delete"
 unset _rsync_cmd
+
+# Resource Usage
+alias df='df -kh'
+alias du='du -kh'
