@@ -1,5 +1,4 @@
 Xcursor.theme: Neutral
-!Xcursor.size: 16
 
 Xft.antialias:  1
 Xft.autohint:   0
@@ -23,10 +22,6 @@ URxvt.jumpScroll        : true
 URxvt.skipScroll        : true 
 
 
-! URxvt*transparent: true
-! URxvt*fading: 30
-! URxvt*shading: 20
-
 URxvt.perl-lib        : /usr/lib/urxvt/perl/
 URxvt.perl-ext-common : default,matcher,clipboard
 URxvt.url-launcher    : /usr/bin/firefox
@@ -36,44 +31,17 @@ URxvt.keysym.M-c      : perl:clipboard:copy
 URxvt.keysym.M-v      : perl:clipboard:paste
 URxvt.keysym.M-C-v    : perl:clipboard:paste_escaped
 URxvt.depth           :             32
-
-!*color4: rgb:36/73/b5
-!*color12: rgb:1b/85/d6
+URxvt*keysym.Control-Down : perl:fontsize:d
+URxvt*keysym.Control-Up   : perl:fontsize:i
 
 URxvt*font:           -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*,xft:DejaVu Sans Mono:pixelsize=14,xft:Sazanami Gothic:pixelsize=14
 URxvt*boldFont:       -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-*-*
 URxvt*italicFont:
 URxvt*boldItalicFont:
 
-!URxvt*foreground: #FFFFFF
-!URxvt*background: #303030
-
 URxvt.colorIT: #87af5f
 URxvt.colorBD: #d7d7d7
 URxvt.colorUL: #87afd7
-
-! !================================
-! ! tango theme
-! !================================
-
-! *background:              #404040
-! *foreground:              #babdb6
-! *color0:                  #2e3436
-! *color1:                  #cc0000
-! *color2:                  #4e9a06
-! *color3:                  #c4a000
-! *color4:                  #3465a4
-! *color5:                  #75507b
-! *color6:                  #06989a
-! *color7:                  #d3d7cf
-! *color8:                  #555753
-! *color9:                  #ef2929
-! *color10:                 #8ae234
-! *color11:                 #fce94f
-! *color12:                 #729fcf
-! *color13:                 #ad7fa8
-! *color14:                 #34e2e2
-! *color15:                 #eeeeec
 
 !=================================
 ! Multicolor
