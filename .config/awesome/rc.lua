@@ -95,6 +95,10 @@ function toggleGridTiling()
   toggleLayouts(awful.layout.suit.fair, awful.layout.suit.tile.fair.horizontal)
 end
 
+function toggleCenterFair()
+  toggleLayouts(awful.layout.suit.fair, lain.layout.centerwork)
+end
+
 function toggleFullScreenTiling()
   toggleLayouts(awful.layout.suit.max.fullscreen, awful.layout.suit.magnifier)
 end
@@ -246,8 +250,9 @@ globalkeys = awful.util.table.join(
   -- fast toggling of layouts
   awful.key({ modkey,           }, "m", toggleVerticalTiling), 
   awful.key({ modkey, "Shift"   }, "m", toggleHorizontalTiling), 
-  awful.key({ modkey, "Control" }, "m", toggleGridTiling), 
-  awful.key({ modkey,           }, "f", toggleFullScreenTiling), 
+  awful.key({ modkey, "Control" }, "m", toggleGridTiling),
+  awful.key({ modkey,           }, "f", toggleFullScreenTiling),
+  awful.key({ modkey, "Shift"   }, "f", toggleCenterFair), 
 
   -- resize winodws
   awful.key({ modkey,           }, "d", function () awful.tag.incnmaster( 1) end),
