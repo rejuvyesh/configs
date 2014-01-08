@@ -8,7 +8,7 @@ claws-mail
 geequi
 gimp
 libreoffice
-spacefm
+dolphin
 pidgin
 mcomix
 zathura
@@ -21,3 +21,4 @@ eiskaltdcpp-qt
 FBReader
 mpd-random
 ncmpcpp_
+okular
