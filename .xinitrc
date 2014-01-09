@@ -39,6 +39,9 @@ unclutter -root -idle 1f &
 
 ## qt + gtk
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+# compose key
+export $GTK_IM_MODULE="xim"
+export $QT_IM_MODULE="xim"
 
 # # urxvt
 urxvt -e tmux &
