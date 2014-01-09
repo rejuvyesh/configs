@@ -35,7 +35,7 @@ alias startx='startx &> ~/.xlog'
 function li() { libreoffice $* >/dev/null 2>/dev/null &! }
 function ff() { firefox $* >/dev/null 2>/dev/null &! }
 function za() { zathura $* >/dev/null 2>/dev/null &! }
-
+function ok() { okular $* >/dev/null 2>/dev/null &! }
 function mat() {
     matlab -nosplash >/dev/null 2>/dev/null &!
 }
