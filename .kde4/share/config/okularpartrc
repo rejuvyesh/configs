@@ -1,0 +1,30 @@
+[$Version]
+update_info=okular.upd:sep_settings
+
+[Core General]
+ExternalEditor=Emacsclient
+ObeyDRM=false
+
+[Core Performance]
+MemoryLevel=Aggressive
+TextHinting=Enabled
+
+[General]
+UseKTTSD=false
+
+[Identity]
+IdentityAuthor=rejuvyesh
+
+[Main View]
+ShowLeftPanel=false
+SplitterSizes=290,944
+
+[Nav Panel]
+SidebarIconSize=22
+SidebarShowText=false
+
+[PageView]
+CenterFirstPageInRow=true
+
+[Zoom]
+ZoomMode=2

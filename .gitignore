@@ -152,3 +152,8 @@
 .bundle/bin
 .authinfo*
 .arbtt/capture.log
+
+# kde
+!.kde4/share/apps/dolphin
+!.kde4/share/apps/okular
+!.kde4/share/config/okularpartrc
