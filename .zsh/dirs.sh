@@ -14,6 +14,7 @@ NAMED_DIRS=(
     scripts   ~/dev/scripts
     mtba      ~/dev/matlab/mtba
     com       ~/dev/www/rejuvyesh.com
+    acad      ~/Documents/Academics/sem6
 )
 
 for key in ${(k)NAMED_DIRS}
