@@ -1,90 +1,132 @@
 [Midnight-Commander]
+show_backups=1
+show_dot_files=0
 verbose=1
+mark_moves_down=1
 pause_after_run=1
 shell_patterns=1
 auto_save_setup=1
-preallocate_space=0
 auto_menu=0
 use_internal_view=1
 use_internal_edit=1
 clear_before_exec=1
+mix_all_files=0
+fast_reload=0
+fast_reload_msg_shown=0
 confirm_delete=1
 confirm_overwrite=1
 confirm_execute=0
-confirm_history_cleanup=1
-confirm_exit=1
-confirm_directory_hotlist_delete=1
+confirm_exit=0
 safe_delete=0
 mouse_repeat_rate=100
 double_click_speed=250
 use_8th_bit_as_meta=0
 confirm_view_dir=0
+mouse_move_pages=1
 mouse_move_pages_viewer=1
-mouse_close_dialog=0
 fast_refresh=0
-drop_menus=1
+navigate_with_arrows=0
+drop_menus=0
 wrap_mode=1
 old_esc_mode=0
-old_esc_mode_timeout=1000000
 cd_symlinks=1
 show_all_if_ambiguous=0
+have_fast_cpu=0
 max_dirt_limit=10
+torben_fj_mode=0
 use_file_to_guess_type=1
 alternate_plus_minus=0
 only_leading_plus_minus=1
 show_output_starts_shell=0
+panel_scroll_pages=1
 xtree_mode=0
 num_history_items_recorded=60
 file_op_compute_totals=1
-classic_progressbar=1
 vfs_timeout=60
 ftpfs_directory_timeout=900
 use_netrc=1
 ftpfs_retry_seconds=30
 ftpfs_always_use_proxy=0
 ftpfs_use_passive_connections=1
-ftpfs_use_passive_connections_over_proxy=0
 ftpfs_use_unix_list_options=1
-ftpfs_first_cd_then_ls=1
-fish_directory_timeout=900
-editor_tab_spacing=8
+ftpfs_first_cd_then_ls=0
 editor_word_wrap_line_length=72
+editor_key_emulation=0
+editor_tab_spacing=8
 editor_fill_tabs_with_spaces=0
 editor_return_does_auto_indent=1
 editor_backspace_through_tabs=0
 editor_fake_half_tabs=1
 editor_option_save_mode=0
 editor_option_save_position=1
+editor_option_backup_ext_int=-1
 editor_option_auto_para_formatting=0
 editor_option_typewriter_wrap=0
 editor_edit_confirm_save=1
 editor_syntax_highlighting=1
+nice_rotating_dash=1
+eight_bit_clean=1
+full_eight_bits=0
+align_extensions=1
+view_save_line=1
+beep_when_finished=0
+clock_type=1
+advanced_chown=0
+iconify_on_exec=1
+allow_subshell_chdir=1
+subshell_blocks_ctrlo=1
+tar_gzipped_memlimit=1048576
+vfs_use_targz_memlimit=1
+editor_edit_save_position=1
+
+kilobyte_si=0
+confirm_directory_hotlist_delete=1
+mouse_close_dialog=0
+skip_check_codeset=0
+fish_directory_timeout=900
 editor_persistent_selections=1
-editor_cursor_beyond_eol=0
+editor_cursor_beyond_eol=1
 editor_visible_tabs=1
 editor_visible_spaces=1
 editor_line_state=0
 editor_simple_statusbar=0
-editor_check_new_line=0
-editor_show_right_margin=0
-editor_group_undo=0
-nice_rotating_dash=1
 mcview_remember_file_position=0
 auto_fill_mkdir_name=1
-copymove_persistent_attr=1
-select_flags=6
+reverse_files_only=1
 editor_backup_extension=~
-mcview_eof=
-ignore_ftp_chattr_errors=true
-keymap=
-skin=darkcourses
 
-editor_cursor_after_inserted_block=0
+keymap=mc.keymap
+
+editor_check_new_line=0
+copymove_persistent_attr=1
+
+skin=default
+
+ftpfs_use_passive_connections_over_proxy=0
+select_flags=6
+auto_save_setup_panels=1
+
+confirm_history_cleanup=1
+editor_show_right_margin=0
+mcview_eof=
+
+quick_search_case_sensitive=2
+
+old_esc_mode_timeout=1000000
+classic_progressbar=1
+scroll_pages=1
+filetype_mode=1
+permission_mode=0
 
 filepos_max_saved_entries=1024
 
-editor_ask_filename_before_edit=0
+ignore_ftp_chattr_errors=true
 
+editor_group_undo=0
+
+preallocate_space=0
+editor_cursor_after_inserted_block=0
+editor_ask_filename_before_edit=0
 editor_filesize_threshold=64M
 
 [Layout]
@@ -94,79 +136,138 @@ xterm_title=1
 output_lines=0
 command_prompt=1
 menubar_visible=1
+show_mini_info=1
+permission_mode=0
+filetype_mode=1
+show_mountpoint_info=1
+clock_in_editor=0
+command_prompt_type=2
+enable_sort_indicator=1
+allow_reversed_sort_modes=1
+double_frames=0
+panel_scrollbar=1
+mc_cd_mountpoint_and_dir=0
+
 free_space=1
+
+classic_progressbar=true
+
 horizontal_split=0
 vertical_equal=1
-left_panel_size=112
+left_panel_size=67
 horizontal_equal=1
-top_panel_size=1
+top_panel_size=68
+
+[Dirs]
+other_dir=/home/amon/
+current_is_left=0
 
 [Misc]
-timeformat_recent=%b %e %H:%M
-timeformat_old=%b %e  %Y
-ftp_proxy_host=gate
 ftpfs_password=anonymous@
+ftp_proxy_host=gate
 display_codepage=UTF-8
-source_codepage=Other_8_bit
+
+source_codepage=UTF-8
+
+timeformat_recent=%b %e %H:%M
+timeformat_old=%b %e %Y
 autodetect_codeset=
+
 clipboard_store=
 clipboard_paste=
 
+[New Left Panel]
+display=listing
+reverse=0
+case_sensitive=0
+sort_order=name
+list_mode=user
+user_format=full type name
+user_status0=half type name | size | perm
+user_status1=half type name | size | perm
+user_status2=half type name | size | perm
+user_status3=half type name | size | perm
+user_mini_status=1
+exe_first=1
+user_status4=half type,name,|,size,|,perm
+
+[New Right Panel]
+display=listing
+reverse=0
+case_sensitive=0
+sort_order=name
+list_mode=user
+user_format=half type name
+user_status0=half type name | size | perm
+user_status1=half type name | size | perm
+user_status2=half type name | size | perm
+user_status3=half type name | size | perm
+user_mini_status=0
+exe_first=1
+user_status4=half type,name,|,size,|,perm
+
+[File Types]
+colorize_executables=1
+temp=tmp,$$$,~,bak
+doc=txt,doc,rtf,diz,ctl,me,ps,pdf,xml,xsd,xslt,dtd,html,shtml,htm,mail,msg,lsm,po,nroff,man,tex,sgml,css,text,letter
+archive=gz,bz2,tar,tgz,rpm,Z,rar,zip,arj,cab,lzh,lha,zoo,arc,ark
+source=c,h,cc,hh,cpp,hpp,asm,py,pl,pm,inc,cgi,php,phps,js,java,jav,jasm,sh,bash,diff,patch,pas,tcl,tk,awk,m4,st,mak,sl,ada,caml,ml,mli
+media=mp2,mp3,mpg,ogg,mpeg,wav,avi,asf,mov,mol,mpl,xm,mod,it,med,mid,midi,s3m,umx
+graphics=jpg,jpeg,gif,png,tif,pcx,bmp,xpm,xbm,eps,pic,rle,ico,wmf,omf,ai,cdr
+database=dbf,mdn,db,mdb,dat,fox,dbx,mdx,sql,mssql,msql,ssql,pgsql,xls,cdx,dbi
+
 [Colors]
 base_color=
-rxvt-unicode-256color=
+rxvt-256color=
 color_terminals=
+
+rxvt-unicode=
+
+rxvt-unicode256=
 
 screen-256color=
 
-xterm=
+rxvt-unicode-256color=
 
-[terminal:rxvt-unicode-256color]
-f5=\\e[32\;84\;24M\\e[35\;84\;24M
-f13=^f
-f14=^w
-kpplus=\\eOk
-kpminus=\\eOm
-kpasterisk=\\eOj
-
-[Panels]
-show_mini_info=true
-kilobyte_si=false
-mix_all_files=false
-show_backups=true
-show_dot_files=true
-fast_reload=false
-fast_reload_msg_shown=false
-mark_moves_down=true
-reverse_files_only=true
-auto_save_setup_panels=false
-navigate_with_arrows=true
-panel_scroll_pages=true
-mouse_move_pages=true
-filetype_mode=true
-permission_mode=false
-torben_fj_mode=false
-quick_search_mode=2
-
-simple_swap=false
+[HotlistConfig]
+expanded_view_of_groups=0
 
 [FindFile]
+ignore_dirs=
 file_case_sens=true
 file_shell_pattern=true
 file_find_recurs=true
 file_skip_hidden=false
 file_all_charsets=false
-content_use=true
 content_case_sens=true
 content_regexp=false
 content_first_hit=false
 content_whole_words=false
 content_all_charsets=false
-ignore_dirs_enable=true
-ignore_dirs=
+
+[Panels]
+kilobyte_si=false
+mix_all_files=false
+show_backups=true
+show_dot_files=false
+fast_reload=false
+fast_reload_msg_shown=false
+mark_moves_down=true
+reverse_files_only=true
+auto_save_setup_panels=true
+navigate_with_arrows=false
+panel_scroll_pages=true
+mouse_move_pages=true
+filetype_mode=true
+permission_mode=false
+quick_search_mode=2
+
+simple_swap=false
+
+show_mini_info=true
+torben_fj_mode=false
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print
 Find SUID and SGID programs=find . \\( \\( -perm -04000 -a -perm +011 \\) -o \\( -perm -02000 -a -perm +01 \\) \\) -print
 Find rejects after patching=find . -name \\*.rej -print
-Modified git files=git ls-files --modified

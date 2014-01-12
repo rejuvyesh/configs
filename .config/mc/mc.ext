@@ -513,7 +513,7 @@ View=%view{ascii} ps2ascii %f
 
 # PDF
 type/^PDF
-Open=(zathura %f >/dev/null 2>/dev/null &)
+Open=(zathura &)
 #Open=(acroread %f &)
 #Open=(ghostview %f &)
 View=%view{ascii} pdftotext %f -

@@ -1,0 +1,69 @@
+shell_patterns=0
++ ! t t
+e Do something on the current file
+        CMD=%{Enter command}
+        zsh -l -c "$CMD '%f'"
+
++ t t
+e Do something on the tagged files
+        set %t; CMD=%{Enter command}
+        while [ -n "$1" ]; do
+         zsh -l -c "$CMD '$1'
+         shift
+        done
+
++ ! t t
+r Mark current file as read
+        zsh -l -c "rr \"%f\""
+
++ t t
+r Mark tagged files as read
+        set %t
+        while [ -n "$1" ]; do
+          zsh -l -c "rr \"$1\""
+         shift
+        done
+
++ ! t t
+u Mark current file as unread
+        zsh -l -c "ur %f"
+
++ t t
+u Mark tagged files as unread
+        set %t
+        while [ -n "$1" ]; do
+          zsh -l -c "ur $1"
+         shift
+        done
+
+= t d
+c Compress the current subdirectory (tar.gz)
+        Pwd=`basename %d /`
+        echo -n "Name of the compressed file (without extension) [$Pwd]: "
+        read tar
+        if [ "$tar"x = x ]; then tar="$Pwd"; fi
+        cd .. && \
+        tar cf - "$Pwd" | gzip -f9 > "$tar.tar.gz" && \
+        echo "../$tar.tar.gz created."
+
+= t r
++ ! t t
+y Gzip or gunzip current file
+        unset DECOMP
+        case %f in
+         *.gz) DECOMP=-d;;
+         *.[zZ]) DECOMP=-d;;
+        esac
+        gzip $DECOMP -v %f
+
++ t t
+Y Gzip or gunzip tagged files
+        for i in %t
+        do
+          unset DECOMP
+         case "$i" in
+         *.gz) DECOMP=-d;;
+         *.[zZ]) DECOMP=-d;;
+         esac
+          gzip $DECOMP -v "$i"
+        done
