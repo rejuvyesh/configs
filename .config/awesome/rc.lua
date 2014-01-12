@@ -550,7 +550,7 @@ awful.rules.rules = {
   { rule_any = { class = {
                    "mpv",
                    "pinentry",
-                   "Wine",
+                   -- "Wine",
                    "Gxmessage",
                    "anking",
                    "Plugin-container",
