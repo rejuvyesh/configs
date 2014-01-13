@@ -2,37 +2,37 @@ shell_patterns=0
 + ! t t
 e Do something on the current file
         CMD=%{Enter command}
-        zsh -l -c "$CMD '%f'"
+        zsh -i -c "$CMD '%f'"
 
 + t t
 e Do something on the tagged files
         set %t; CMD=%{Enter command}
         while [ -n "$1" ]; do
-         zsh -l -c "$CMD '$1'
+         zsh -i -c "$CMD '$1'
          shift
         done
 
 + ! t t
 r Mark current file as read
-        zsh -l -c "rr \"%f\""
+        zsh -i -c "rr \"%f\""
 
 + t t
 r Mark tagged files as read
         set %t
         while [ -n "$1" ]; do
-          zsh -l -c "rr \"$1\""
+          zsh -i -c "rr \"$1\""
          shift
         done
 
 + ! t t
 u Mark current file as unread
-        zsh -l -c "ur %f"
+        zsh -i -c "ur %f"
 
 + t t
 u Mark tagged files as unread
         set %t
         while [ -n "$1" ]; do
-          zsh -l -c "ur $1"
+          zsh -i -c "ur $1"
          shift
         done
 
