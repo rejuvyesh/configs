@@ -9,7 +9,7 @@ bindkey -e
 zstyle :compinstall filename '/home/rejuvyesh/.zshrc'
 
 autoload -Uz compinit zmv
-compinit
+compinit -u -d ~/.zcompdump-$ZSH_VERSION
 # End of lines added by compinstall
 
 ##########################
