@@ -214,3 +214,9 @@ unset _rsync_cmd
 # Resource Usage
 alias df='df -kh'
 alias du='du -kh'
+
+# file tagging
+alias rr="tag_filename -t read"
+alias ur="tag_filename -t !read"
+alias ut="tag_filename -t !"
+
