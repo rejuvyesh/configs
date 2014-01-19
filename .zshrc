@@ -27,7 +27,8 @@ source ~/.zsh/completions.sh
 source ~/.zsh/gtd.sh
 source ~/.zsh/dirs.sh
 
-source /usr/share/doc/pkgfile/command-not-found.zsh
+[[ -s ~/.zsh/local.sh ]] && source ~/.zsh/local.sh
+
 
 # Extended Options
 setopt nobanghist
