@@ -52,11 +52,5 @@ wicd-client --tray & >/dev/null
 # fancy window fading
 compton -f -I 0.10 -O 0.10 -D 5 -b
 
-# track
-pidof arbtt-capture >& /dev/null
-if [ $? -ne 0 ]; then
-    arbtt-capture &
-fi
-
 WM="awesome"
 exec dbus-launch --auto-syntax --exit-with-session $WM
