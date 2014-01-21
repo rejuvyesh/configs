@@ -11,7 +11,7 @@ local scratchpad = require("scratchpad")
 local lain       = require("lain")
 local helpers    = require("lain.helpers")
 local markup     = lain.util.markup
-local redshift = require("redshift")
+local redshift   = require("redshift")
 
 io.stderr:write("======================================\n")
 io.stderr:write("This gonna be - wait for it - LEGEN...\n")
@@ -92,7 +92,7 @@ function toggleVerticalTiling()
 end
 
 function toggleGridTiling()
-  toggleLayouts(awful.layout.suit.fair, awful.layout.suit.tile.fair.horizontal)
+  toggleLayouts(awful.layout.suit.fair, awful.layout.suit.fair.horizontal)
 end
 
 function toggleCenterFair()
@@ -107,7 +107,6 @@ end
 terminal = "urxvt"
 editor   = "emacs-gui"
 browser  = "firefox"
-mail     = "LOCAL_CONFIG=iitk urxvt -e /usr/bin/mutt"
 
 dmenu_font  = "-xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*"
 dmenu_opts  = "-b -i -fn '"..dmenu_font.."' -nb '#000000' -nf '#FFFFFF' -sb '"..beautiful.border_normal.."'"
@@ -840,6 +839,7 @@ function run_once(prg, args)
 end
 
 run_once("urxvt -name scratchpad -e zsh -i -c 'scratchpad")
+run_once("arbtt-capture")
 
 -- disable startup-notification globally
 -- http://awesome.naquadah.org/wiki/Disable_startup-notification_globally
