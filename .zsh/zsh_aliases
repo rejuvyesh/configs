@@ -161,6 +161,9 @@ alias mg='mutt-gmail'
 alias mutt-iitk='LOCAL_CONFIG=iitk /usr/bin/mutt'
 alias mk='mutt-iitk'
 
+# ssh
+alias cse="ssh cselabs"
+
 # c
 alias co="./configure"
 alias cop="./configure --prefix=$HOME/local"
@@ -220,3 +223,9 @@ alias rr="tag_filename -t read"
 alias ur="tag_filename -t !read"
 alias ut="tag_filename -t !"
 
+# watch
+alias watch="watch -c"
+alias w="watch.rb"
+function wi() {
+    watch.rb --changes . $*
+}
