@@ -56,6 +56,7 @@ import XMonad.Util.Run
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Scratchpad
 import XMonad.Util.XSelection
+import XMonad.Util.NamedWindows
 
 -- extra
 import Graphics.X11.ExtraTypes.XF86
@@ -434,11 +435,18 @@ logHook' :: X()
 logHook' = dynamicLogWithPP customPP
 
 -- Urgency
-urgencyHook' = withUrgencyHookC NoUrgencyHook urgencyConfig {
-                 suppressWhen = OnScreen
-               , remindWhen = Dont
-               }
+data LibNotifyUrgencyHook = LibNotifyUrgencyHook deriving (Read, Show)
 
+instance UrgencyHook LibNotifyUrgencyHook where
+  urgencyHook LibNotifyUrgencyHook w = do
+    nam     <- getName w
+    Just idx <- fmap (W.findTag w) $ gets windowset
+
+    safeSpawn "notify-send" [show nam, "workspace " ++ idx]
+
+urgencyHook' = withUrgencyHookC LibNotifyUrgencyHook 
+               $ urgencyConfig { suppressWhen = Focused }
+               
 eventHook' :: Event -> X All
 eventHook' = minimizeEventHook
 -----------------------------------------------------
