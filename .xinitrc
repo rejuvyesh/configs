@@ -47,10 +47,10 @@ export $QT_IM_MODULE="xim"
 urxvt -e tmux &
 
 # wifi
-wicd-client --tray & >/dev/null
+#wicd-client --tray & >/dev/null
 
 # fancy window fading
 compton -f -I 0.10 -O 0.10 -D 5 -b
 
-WM="awesome"
+WM="start_xmonad.sh"
 exec dbus-launch --auto-syntax --exit-with-session $WM

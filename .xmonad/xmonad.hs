@@ -11,6 +11,7 @@ import XMonad
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 import System.Exit
+
 -- actions
 import XMonad.Actions.CycleWS
 import XMonad.Actions.NoBorders
@@ -18,8 +19,7 @@ import qualified XMonad.Actions.ConstrainedResize as Sqr
 import qualified XMonad.Actions.FlexibleResize as FlexMouse
 import XMonad.Actions.Search (google, scholar, youtube, wayback, wikipedia, wiktionary, selectSearch, promptSearch)
 import XMonad.Actions.WindowGo (raiseMaybe, raiseBrowser, raiseEditor, runOrRaise)
-import XMonad.Actions.Volume
-
+  
 -- hooks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -27,7 +27,8 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.SetWMName -- matlab shit
 import XMonad.Hooks.EwmhDesktops -- chromium fix
-    
+import XMonad.Hooks.Minimize
+
 -- layouts
 import XMonad.Layout.Cross
 import XMonad.Layout.GridVariants hiding (L, R)
@@ -43,6 +44,9 @@ import XMonad.Layout.Reflect
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.StackTile
 import XMonad.Layout.WindowNavigation
+import XMonad.Layout.Tabbed
+import XMonad.Layout.Minimize
+import XMonad.Layout.Decoration
 
 -- prompt
 import XMonad.Prompt
@@ -50,8 +54,6 @@ import XMonad.Prompt.Input
 import XMonad.Prompt.Shell
 import XMonad.Prompt.Theme
 import XMonad.Prompt.AppendFile        
-import XMonad.Prompt.MPD
-import qualified Network.MPD as MPD
 
 -- utils
 import XMonad.Util.WorkspaceCompare (getSortByIndex)
@@ -69,20 +71,20 @@ import System.Posix.Process (createSession, executeFile, forkProcess)
 ------------------
 
 -- The preferred terminal program.
-terminal' = "urxvtc"
+terminal' = "urxvt"
 
 -- Whether focus follows the mouse pointer.
 focusFollowsMouse' = True
 
 -- Width of the window border in pixels.
-borderWidth' = 3
+borderWidth' = 1
 
 -- modMask lets you specify which modkey you want to use.
 modMask' = mod4Mask
 
 -- Pre-defined workspaces.
 workspaces' = [ "1"
-              , "2"
+              , "doc"
               , "3"
               , "4"
               , "5"
@@ -90,7 +92,7 @@ workspaces' = [ "1"
               , "video" -- dummy ws
               , "music" -- 
               , "study" -- anki
-              , "toile" 
+              , "www" 
               ] 
 
 -- Pretty stuff
@@ -117,7 +119,13 @@ defaultXPConfig' = defaultXPConfig
                    , historySize       = 20
                    , defaultText       = []
                    }
-                                      
+                   
+defaultTheme' = defaultTheme
+                { fontName    = font'
+                , activeColor = "#fdf6e3"
+                , activeBorderColor = "#586e75"
+                , decoHeight  = 12
+                }
 -------------------
 -- Key bindings. --
 -------------------
@@ -131,7 +139,6 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_p ), namedScratchpadAction scratchpads "pidgin")
     , ((modm .|. controlMask, xK_d ), namedScratchpadAction scratchpads "rtorrent")
       -- , ((modm, xK_m), namedScratchpadAction scratchpads "ncmpcpp_")
-    , ((modm, xK_m)), addMatching MPD.withMPD defaultXPConfig' [MPD.sgArtist, MPD.sgAlbum] >> return ()  
     -- anki
     , ((modm, xK_a ), runOrRaise "anki" (className =? "Anki"))
     -- launch dmenu
@@ -180,8 +187,10 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Restart xmonad
     , ((modm .|. shiftMask, xK_q ), spawn "xmonad --recompile && xmonad --restart")
 
+    , ((modm,               xK_v ), withFocused minimizeWindow)
+    , ((modm .|. shiftMask, xK_v ), sendMessage RestoreNextMinimizedWin)
     -- lock xmonad screen
-    , ((modm .|. shiftMask,xK_l), spawn "slock")
+    , ((modm .|. shiftMask,xK_Escape), spawn "slock")
 
     -- Search Engines Yay!
     , ((modm,              xK_g), promptSearch defaultXPConfig' google)
@@ -195,6 +204,11 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_s),      getPromptInput ?+ sdcv)
     -- xclip saner clipboard
     , ((modm, xK_c), spawn  "xclip -selection primary -o | xclip -selection clipboard -i")
+
+      -- swap screens
+    , ((modm, xK_j ), spawn "rotate_screen normal")
+    , ((modm .|. shiftMask, xK_j ), spawn "rotate_screen left")
+    , ((modm .|. controlMask, xK_j ), spawn "rotate_screen right")
 
     -- making my favorites playlist
     , ((modm .|. shiftMask, xK_m), spawn "songrating.sh 5")
@@ -216,10 +230,10 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioMute ), spawn "amixer -q set Master toggle")
     
    -- ncmpcpp (mpd) controls
-   , ((0, xF86XK_AudioPlay), spawn "ncmpcpp toggle")
-   , ((0, xF86XK_AudioNext), spawn "ncmpcpp next")
-   , ((0, xF86XK_AudioPrev), spawn "ncmpcpp prev")
-   , ((modm, xK_x), spawn ("date>>"++lg) >> appendFilePrompt defaultXPConfig' lg)
+    , ((0, xF86XK_AudioPlay), spawn "ncmpcpp toggle")
+    , ((0, xF86XK_AudioNext), spawn "ncmpcpp next")
+    , ((0, xF86XK_AudioPrev), spawn "ncmpcpp prev")
+    , ((modm, xK_x), spawn ("date>>"++lg) >> appendFilePrompt defaultXPConfig' lg)
     ] 
     ++
     -- mod-[1..9], Switch to workspace N
@@ -238,7 +252,7 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
          getSortByIndexNoSP =
                 fmap (.scratchpadFilterOutWorkspace) getSortByIndex
          altMask = mod1Mask
-         lg = "/home/rejuvyesh/Documents/2013/log.txt"
+         lg = "/home/rejuvyesh/Documents/2014/log.txt"
 -----------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events --
 -----------------------------------------------------------
@@ -261,7 +275,7 @@ mouseBindings' (XConfig {XMonad.modMask = modm}) = M.fromList $
 layout' =
     -- global modifiers
     avoidStruts $ -- don't overlap docks
-    
+    minimize $
     mkToggle1 NBFULL $ -- toggles
     mkToggle1 REFLECTX $
     mkToggle1 REFLECTY $
@@ -269,7 +283,8 @@ layout' =
     mkToggle1 MIRROR $
 
     -- workspace specific preferences
-    onWorkspace "toile" (tiled ||| grid) $
+    onWorkspace "doc" tabLayout   $
+    onWorkspace "www" (tiled ||| grid ||| tabLayout) $
     onWorkspace "video" full $
     (tiled ||| grid ||| cross ||| full)
     where
@@ -292,7 +307,8 @@ layout' =
          full = named "fullscreen" $
                       smartBorders $
                       Full
-
+         -- tab
+         tabLayout = tabbed shrinkText defaultTheme
          -- treat buddy list dock-like
          pidgin l = withIM (1%8) (Role "buddy_list") l
          -- take care of terminal size
@@ -337,7 +353,7 @@ manageHook' = composeAll $
 
 -- Scratchpad terminal
 manageTerminal = scratchpadManageHook (W.RationalRect 0.25 0.225 0.5 0.55)
-scratchpad = scratchpadSpawnActionCustom "urxvtc -name scratchpad -e zsh -i -c 'scratchpad'"
+scratchpad = scratchpadSpawnActionCustom "urxvt -name scratchpad -e zsh -i -c 'scratchpad'"
 
 spDefaultRect = W.RationalRect 0.1 0.2 0.6 0.6
 -- Other Scratchpads
@@ -346,14 +362,13 @@ scratchpads = [ NS "pidgin"
                        (role =? "buddy_list")
                        defaultFloating
               , NS "rtorrent"
-                       "urxvtc -name rtorrent -e zsh -c 'tmux attach -t rt'"
+                       "urxvt -name rtorrent -e zsh -c 'tmux attach -t rt'"
                        (title =? "rtorrent")
                        (customFloating spDefaultRect)
-              , NS "ncmpcpp_"
-                       "urxvtc -name ncmpcpp -e zsh -i -c 'start_ncmpcpp.sh'"
-                       (title =? "ncmpcpp")
-              --defaultFloating
-                       (customFloating spDefaultRect)
+              , NS "anking"
+                       "anking -m 'Basic' >/dev/null"
+                       (title =? "Anking Off")
+                       defaultFloating
               ]
               where role = stringProperty "WM_WINDOW_ROLE"
     
@@ -380,11 +395,8 @@ urgencyHook' = withUrgencyHookC NoUrgencyHook urgencyConfig {
                , remindWhen = Dont
                }
 
--- Event hook to ignore mouse focus on certain layouts
-eventHook' = followOnlyIf (fmap not isCross)
-    where isCross = fmap (isSuffixOf "十") $
-                    gets (description . W.layout . W.workspace . W.current . windowset)
 
+eventHook' = minimizeEventHook
 -----------------------------------------------------
 -- Now run xmonad with all the defaults we set up. --
 -----------------------------------------------------
