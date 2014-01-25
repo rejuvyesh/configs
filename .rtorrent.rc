@@ -33,7 +33,7 @@ dht.port.set = 6881
 protocol.pex.set = yes
 
 # Session tmp file (relative dir is good, absolute is bad)
-session.path.set = ./torrents/.session
+session.path.set = /home/rejuvyesh/torrents/.session
 
 # Default directory to save the downloaded torrents.
 directory.default.set = ./
