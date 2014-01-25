@@ -36,10 +36,17 @@ gem "activesupport"
 gem "gem-release"
 gem "sqlite3"
 gem "mime-types"
+gem "rake"
+gem "rb-inotify"
+gem "httpclient"
+gem "cri"
+gem "mechanize"
+gem "epitools"
 
 # muflax
 gem "muflax"
 gem "future_me"
+gem "t"
 
 # my own stuff
 gem "traktr", :path => File.expand_path("~/dev/ruby/traktr")
