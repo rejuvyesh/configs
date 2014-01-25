@@ -10,16 +10,14 @@ import Data.Ratio ((%))
 import XMonad
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
-import System.Exit
 
 -- actions
 import XMonad.Actions.CycleWS
-import XMonad.Actions.NoBorders
 import qualified XMonad.Actions.ConstrainedResize as Sqr
 import qualified XMonad.Actions.FlexibleResize as FlexMouse
-import XMonad.Actions.Search (google, scholar, youtube, wayback, wikipedia, wiktionary, selectSearch, promptSearch)
-import XMonad.Actions.WindowGo (raiseMaybe, raiseBrowser, raiseEditor, runOrRaise)
-  
+import XMonad.Actions.Search (google, scholar, wiktionary, selectSearch, promptSearch)
+import XMonad.Actions.WindowGo (runOrRaise)
+
 -- hooks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -34,7 +32,7 @@ import XMonad.Layout.Cross
 import XMonad.Layout.GridVariants hiding (L, R)
 import XMonad.Layout.IM
 import XMonad.Layout.LayoutHints
-import XMonad.Layout.MagicFocus
+--import XMonad.Layout.MagicFocus
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.Named
@@ -42,18 +40,15 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect
 import XMonad.Layout.ResizableTile
-import XMonad.Layout.StackTile
+--import XMonad.Layout.StackTile
 import XMonad.Layout.WindowNavigation
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Minimize
-import XMonad.Layout.Decoration
 
 -- prompt
 import XMonad.Prompt
 import XMonad.Prompt.Input
-import XMonad.Prompt.Shell
-import XMonad.Prompt.Theme
-import XMonad.Prompt.AppendFile        
+import XMonad.Prompt.AppendFile
 
 -- utils
 import XMonad.Util.WorkspaceCompare (getSortByIndex)
@@ -61,52 +56,73 @@ import XMonad.Util.Run
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Scratchpad
 import XMonad.Util.XSelection
-        
+
 -- extra
 import Graphics.X11.ExtraTypes.XF86
 import System.Posix.Process (createSession, executeFile, forkProcess)
-        
+
 ------------------
 -- Basic Config --
 ------------------
 
 -- The preferred terminal program.
+terminal' :: String
 terminal' = "urxvt"
 
 -- Whether focus follows the mouse pointer.
+focusFollowsMouse' :: Bool
 focusFollowsMouse' = True
 
 -- Width of the window border in pixels.
+borderWidth' :: Dimension
 borderWidth' = 1
 
 -- modMask lets you specify which modkey you want to use.
+modMask' :: KeyMask
 modMask' = mod4Mask
 
 -- Pre-defined workspaces.
-workspaces' = [ "1"
-              , "doc"
-              , "3"
-              , "4"
-              , "5"
-              , "6"   
-              , "video" -- dummy ws
-              , "music" -- 
-              , "study" -- anki
-              , "www" 
-              ] 
+workspaces' :: [String]
+workspaces' = map (\(n,w) -> mconcat [show n,":",w])
+              [ (1, "root" )
+              , (2, "doc")
+              , (3, "work")
+              , (4, "mail")
+              , (5, "irc")
+              , (6, "???")
+              , (7, "video") -- dummy ws
+              , (8, "music") --
+              , (9, "study") -- anki
+              , (0, "www")
+              ]
+
+findWS :: String -> String
+findWS = maybe "NSP" id . flip find workspaces' . isSuffixOf              
 
 -- Pretty stuff
-font'		    = "-xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*"
+font' :: String
+font'               = "-xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*"
+
+normalBorderColor'  :: String
 normalBorderColor'  = "#000000"
+
+focusedBorderColor'  :: String
 focusedBorderColor' = "#2d5565"
 
 -- dmenu
+dmenuOpts' :: String
 dmenuOpts' = "-b -i -fn '"++font'++"' -nb '#000000' -nf '#FFFFFF' -sb '"++focusedBorderColor'++"'"
+
+dmenu' :: String
 dmenu' = "dmenu "++dmenuOpts'
+
+dmenuPath' :: String
 dmenuPath' = "dmenu_run "++dmenuOpts'
+dmenuQuick' :: String
 dmenuQuick' = "exe= `cat $HOME/.programs | "++dmenu'++"` && eval \"exec $exe\""
 
 -- prompt
+defaultXPConfig' :: XPConfig
 defaultXPConfig' = defaultXPConfig
                    { font              = font'
                    , bgColor           = "#101010"
@@ -119,7 +135,8 @@ defaultXPConfig' = defaultXPConfig
                    , historySize       = 20
                    , defaultText       = []
                    }
-                   
+
+defaultTheme' :: Theme
 defaultTheme' = defaultTheme
                 { fontName    = font'
                 , activeColor = "#fdf6e3"
@@ -134,7 +151,7 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm, xK_u ), spawn $ XMonad.terminal conf)
 
-    -- launch scratchpad 
+    -- launch scratchpad
     , ((modm, xK_i ), scratchpad)
     , ((modm, xK_p ), namedScratchpadAction scratchpads "pidgin")
     , ((modm .|. controlMask, xK_d ), namedScratchpadAction scratchpads "rtorrent")
@@ -159,7 +176,7 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- tile again
     , ((modm .|. controlMask, xK_space ), withFocused $ windows . W.sink)
-    
+
     -- focus movement
     , ((modm, xK_n ), windows W.focusUp )
     , ((modm, xK_r ), windows W.focusDown )
@@ -173,8 +190,8 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_t ), sendMessage $ Swap R )
 
     -- resize
-    , ((modm, xK_d ), sendMessage (IncMasterN 1) )
-    , ((modm .|. shiftMask, xK_d ), sendMessage (IncMasterN (-1)) )
+    , ((modm,               xK_d   ), sendMessage (IncMasterN 1) )
+    , ((modm .|. shiftMask, xK_d   ), sendMessage (IncMasterN (-1)) )
     , ((modm .|. controlMask, xK_r ), sendMessage Expand )
     , ((modm .|. controlMask, xK_n ), sendMessage Shrink )
     , ((modm .|. controlMask, xK_t ), sendMessage MirrorExpand )
@@ -225,16 +242,16 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Volume control
     , ((0, xF86XK_AudioLowerVolume), -- XF86AudioLowerVolume
         safeSpawn "amixer" ["set", "Master", "-q", "5-"])
-    , ((0, xF86XK_AudioRaiseVolume), 
+    , ((0, xF86XK_AudioRaiseVolume),
         safeSpawn "amixer" ["set", "Master", "-q", "5+"])
     , ((0, xF86XK_AudioMute ), spawn "amixer -q set Master toggle")
-    
+
    -- ncmpcpp (mpd) controls
     , ((0, xF86XK_AudioPlay), spawn "ncmpcpp toggle")
     , ((0, xF86XK_AudioNext), spawn "ncmpcpp next")
     , ((0, xF86XK_AudioPrev), spawn "ncmpcpp prev")
     , ((modm, xK_x), spawn ("date>>"++lg) >> appendFilePrompt defaultXPConfig' lg)
-    ] 
+    ]
     ++
     -- mod-[1..9], Switch to workspace N
     -- mod-shift-[1..9], Move client to workspace N
@@ -247,7 +264,7 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
      | (key, sc) <- zip [xK_w, xK_b] [0..]
     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
-    
+
     where
          getSortByIndexNoSP =
                 fmap (.scratchpadFilterOutWorkspace) getSortByIndex
@@ -283,9 +300,9 @@ layout' =
     mkToggle1 MIRROR $
 
     -- workspace specific preferences
-    onWorkspace "doc" tabLayout   $
-    onWorkspace "www" (tiled ||| grid ||| tabLayout) $
-    onWorkspace "video" full $
+    onWorkspace (findWS "doc") tabLayout   $
+    onWorkspace (findWS "www") (tiled ||| grid ||| tabLayout) $
+    onWorkspace (findWS "video") full $
     (tiled ||| grid ||| cross ||| full)
     where
          -- normal tiling
@@ -294,32 +311,29 @@ layout' =
                  windowNavigation $
                  pidgin $
                  ResizableTall nmaster delta ratio slaves
-	 -- grid for terminals or chats
+         -- grid for terminals or chats
          grid = named "circle" $
                       hinted $
                       windowNavigation $
                       pidgin $
-                      Grid (1/1) 
-	 -- cross to center one app, mostly anki
+                      Grid (1/1)
+         -- cross to center one app, mostly anki
          cross = named "十" $
                       Cross (2/3) (1/100)
-	 -- fullscreen
+         -- fullscreen
          full = named "fullscreen" $
-                      smartBorders $
-                      Full
+                smartBorders Full
          -- tab
-         tabLayout = tabbed shrinkText defaultTheme
+         tabLayout = tabbed shrinkText defaultTheme'
          -- treat buddy list dock-like
          pidgin l = withIM (1%8) (Role "buddy_list") l
          -- take care of terminal size
-         hinted l = layoutHintsWithPlacement( 0.5, 0.5) l
+         hinted l= layoutHintsWithPlacement( 0.5, 0.5) l
 
-	 -- The default number of windows in the master pane
+         -- The default number of windows in the master pane
          nmaster = 1
          -- Default proportion of screen occupied by master pane
          ratio = 1/2
-         -- dito when stacked
-         stackRatio = 3/4
          -- Percent of screen to increment by when resizing panes
          delta = 3/100
          -- fraction to multiply the window height that would be given when
@@ -331,62 +345,83 @@ layout' =
 -- Hooks --
 -----------
 -- Window handling
-manageHook' = composeAll $
-	[ className =? "Pidgin" --> doShift "4"
-        , className =? "Firefox" --> doShift "toile"
-        , className =? "Chromium" --> doShift "6"
-        , className =? "Claws-mail" --> doShift "4"
-        , className =? "Anki" --> doShift "study"
-        , className =? "Amphetype" --> doShift "study"               
+manageHook' :: Query (Endo WindowSet)
+manageHook' = composeAll (
+        [ className =? "Pidgin"     --> doShift (findWS "irc")
+        , className =? "Firefox"    --> doShift (findWS "www")
+        , className =? "Chromium"   --> doShift (findWS "www")
+        , className =? "Anki"       --> doShift (findWS "study")
+        , className =? "Amphetype"  --> doShift (findWS "study")
+        , className =? "Okular"     --> doShift (findWS "doc")
+        , className =? "Zathura"    --> doShift (findWS "doc")
+        , className =? "FBReader"   --> doShift (findWS "doc")
+        , className =? "Xmessage"   --> doResizeFloat
         ]
         ++
-	[ className =? "mplayer2" --> doFloat -- FIXME:
-        , className =? "mpv" --> doFloat      -- good enough
-                                                                                        ]
+        [ appName   =? "mutt"       --> doShift (findWS "mail")
+        , appName   =? "music"      --> doShift (findWS "music")
+        , appName   =? "irssi"      --> doShift (findWS "irc")
+        ]
         ++
-        [ className =? "com-mathworks-util-PostVMInit" --> doShift "3"
+        [ className =? "mpv" --> doFloat ]
+        ++
+        [ className =? "com-mathworks-util-PostVMInit" --> doShift (findWS "work")
                        -- java is shit
         ]
         ++
-    	[ isFullscreen --> doFullFloat ]
-            
+        [ isFullscreen --> doFullFloat
+        , isDialog     --> doCenterFloat
+        ]) <+> manageScratchpads <+> manageDocks
+
+doResizeFloat :: ManageHook
+doResizeFloat = customFloating $ W.RationalRect left top width height
+  where height = 2/4
+        width = 2/3
+        left = (/2) $ (1-) width
+        top = (/2) $ (1-) height
 
 -- Scratchpad terminal
+manageTerminal :: ManageHook
 manageTerminal = scratchpadManageHook (W.RationalRect 0.25 0.225 0.5 0.55)
+
+scratchpad :: X()
 scratchpad = scratchpadSpawnActionCustom "urxvt -name scratchpad -e zsh -i -c 'scratchpad'"
 
-spDefaultRect = W.RationalRect 0.1 0.2 0.6 0.6
 -- Other Scratchpads
+scratchpads :: [NamedScratchpad]
 scratchpads = [ NS "pidgin"
                        "pidgin"
                        (role =? "buddy_list")
                        defaultFloating
               , NS "rtorrent"
                        "urxvt -name rtorrent -e zsh -c 'tmux attach -t rt'"
-                       (title =? "rtorrent")
-                       (customFloating spDefaultRect)
+                       (appName =? "rtorrent")
+                       doResizeFloat
               , NS "anking"
                        "anking -m 'Basic' >/dev/null"
                        (title =? "Anking Off")
                        defaultFloating
               ]
               where role = stringProperty "WM_WINDOW_ROLE"
-    
+
+manageScratchpads :: ManageHook
 manageScratchpads = manageTerminal <+> namedScratchpadManageHook scratchpads
 
 -- Status bars and logging
+customPP :: PP
 customPP = defaultPP {
-              ppHidden  = \n -> wrap (" ^ca(1, xdotool key super+" ++ n ++ ")")"^ca()" n
-            , ppCurrent = dzenColor "" focusedBorderColor' . wrap " " " "
+--              ppHidden  = \n -> wrap (" ^ca(1, xdotool key super+" ++ n ++ ")")"^ca()" n
+              ppCurrent = dzenColor "" focusedBorderColor' . wrap " " " "
             , ppVisible = dzenColor "" "" . wrap "(" ")"
             , ppUrgent = dzenColor "" "#ff0000" . wrap "*" "*" . dzenStrip
-            , ppLayout  = wrap "^ca(1, xdotool key super+space)" "^ca()"            
+            , ppLayout  = wrap "^ca(1, xdotool key super+space)" "^ca()"
             , ppWsSep = dzenColor "" "" " "
             , ppTitle = shorten 80
             , ppOrder = \(ws:l:t:_) -> [ws,l,t] -- show workspaces and layout
             , ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
           }
 
+logHook' :: X()
 logHook' = dynamicLogWithPP customPP
 
 -- Urgency
@@ -395,55 +430,58 @@ urgencyHook' = withUrgencyHookC NoUrgencyHook urgencyConfig {
                , remindWhen = Dont
                }
 
-
+eventHook' :: Event -> X All
 eventHook' = minimizeEventHook
 -----------------------------------------------------
 -- Now run xmonad with all the defaults we set up. --
 -----------------------------------------------------
-main = do
-        xmonad $ urgencyHook' $ defaultConfig {
+main :: IO()
+main = xmonad $ urgencyHook' $ defaultConfig {
             -- simple stuff
-            terminal = terminal',
-            focusFollowsMouse = focusFollowsMouse',
-            borderWidth = borderWidth',
-            modMask = modMask',
-            workspaces = workspaces',
-            normalBorderColor = normalBorderColor',
+            terminal           = terminal',
+            focusFollowsMouse  = focusFollowsMouse',
+            borderWidth        = borderWidth',
+            modMask            = modMask',
+            workspaces         = workspaces',
+            normalBorderColor  = normalBorderColor',
             focusedBorderColor = focusedBorderColor',
 
             -- key bindings
-            keys = keys',
-            mouseBindings = mouseBindings',
+            keys               = keys',
+            mouseBindings      = mouseBindings',
 
             -- hooks, layouts
-            layoutHook = layout',
-            manageHook = manageHook' <+> manageScratchpads <+> manageDocks,
-            handleEventHook = eventHook' <+> fullscreenEventHook,
-            startupHook = setWMName "LG3D", --matlab hack hope it works
-            logHook = logHook'
-                   }
+            layoutHook         = layout',
+            manageHook         = manageHook',
+            handleEventHook    = eventHook' <+> fullscreenEventHook,
+            startupHook        = setWMName "LG3D", --matlab hack hope it works
+            logHook            = logHook'
+            }
 
 ------------------------
 --- Custom Functions ---
 ------------------------
+getPromptInput :: X (Maybe String)
 getPromptInput = inputPrompt defaultXPConfig' "Dict: "
-                 
+
 sdcv word = do
     output <- runProcessWithInput "sdcv" ["-n", word] ""
     mySafeSpawn "notify-send" [word, trString output]
 
+trString :: String -> String
 trString = foldl (\s c -> s ++ trChar c) ""
 
-trChar c 
+trChar :: Char -> String
+trChar c
     | c == '<' = "&lt;"
     | c == '>' = "&gt;"
     | c == '&' = "&amp;"
-    | otherwise = [c]                
-                
---  mySafeSpawn is from XMonad.Util.Run inside copied; just removed encodeString call                
+    | otherwise = [c]
+
+--  mySafeSpawn is from XMonad.Util.Run inside copied; just removed encodeString call
 mySafeSpawn :: MonadIO m => FilePath -> [String] -> m ()
-mySafeSpawn prog args = io $ void_ $ forkProcess $ do
+mySafeSpawn prog arg = io $ void_ $ forkProcess $ do
     uninstallSignalHandlers
     _ <- createSession
-    executeFile prog True args Nothing
+    executeFile prog True arg Nothing
         where void_ = (>> return ())
