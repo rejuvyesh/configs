@@ -183,7 +183,9 @@ alias x="chmod +x"
 alias mplayer=mpv
 
 # Wine
-alias microcap="wine ~/.wine/drive_c/MicroCap\ v10.04/mc10.exe"
+alias ewine="wine explorer /desktop=foo${RANDOM},1024x768"
+alias newine="nice wine explorer /desktop=foo${RANDOM},1024x768"
+alias microcap="ewine ~/.wine/drive_c/MicroCap\ v10.04/mc10.exe"
 
 # repo
 alias mup="mr -j5 update"
