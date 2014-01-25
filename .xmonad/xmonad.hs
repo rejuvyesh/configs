@@ -107,7 +107,7 @@ normalBorderColor'  :: String
 normalBorderColor'  = "#000000"
 
 focusedBorderColor'  :: String
-focusedBorderColor' = "#2d5565"
+focusedBorderColor' = "#185D8B"
 
 -- dmenu
 dmenuOpts' :: String
@@ -420,14 +420,14 @@ manageScratchpads = manageTerminal <+> namedScratchpadManageHook scratchpads
 customPP :: PP
 customPP = defaultPP {
 --              ppHidden  = \n -> wrap (" ^ca(1, xdotool key super+" ++ n ++ ")")"^ca()" n
-              ppCurrent = dzenColor "" focusedBorderColor' . wrap " " " "
-            , ppVisible = dzenColor "" "" . wrap "(" ")"
-            , ppUrgent = dzenColor "" "#ff0000" . wrap "*" "*" . dzenStrip
-            , ppLayout  = wrap "^ca(1, xdotool key super+space)" "^ca()"
-            , ppWsSep = dzenColor "" "" " "
-            , ppTitle = shorten 80
-            , ppOrder = \(ws:l:t:_) -> [ws,l,t] -- show workspaces and layout
-            , ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
+              ppCurrent  = dzenColor "" focusedBorderColor' . wrap " " " "
+            , ppVisible  = dzenColor "" "" . wrap "(" ")"
+            , ppUrgent   = dzenColor "" "#ff0000" . wrap "*" "*" . dzenStrip
+--            , ppLayout = wrap "^ca(1, xdotool key super+space)" "^ca()"
+            , ppWsSep    = dzenColor "" "" " "
+            , ppTitle    = shorten 80
+            , ppOrder    = \(ws:l:t:_) -> [ws,l,t] -- show workspaces and layout
+            , ppSort     = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
           }
 
 logHook' :: X()
