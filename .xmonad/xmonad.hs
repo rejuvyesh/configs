@@ -32,18 +32,18 @@ import XMonad.Layout.Cross
 import XMonad.Layout.GridVariants hiding (L, R)
 import XMonad.Layout.IM
 import XMonad.Layout.LayoutHints
---import XMonad.Layout.MagicFocus
+import XMonad.Layout.Reflect
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.Named
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
-import XMonad.Layout.Reflect
 import XMonad.Layout.ResizableTile
---import XMonad.Layout.StackTile
 import XMonad.Layout.WindowNavigation
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Minimize
+import XMonad.Layout.ThreeColumns
+
 
 -- prompt
 import XMonad.Prompt
@@ -300,7 +300,7 @@ layout' =
     mkToggle1 MIRROR $
 
     -- workspace specific preferences
-    onWorkspace (findWS "doc") tabLayout   $
+    onWorkspace (findWS "doc") (tabLayout ||| book)   $
     onWorkspace (findWS "www") (tiled ||| grid ||| tabLayout) $
     onWorkspace (findWS "video") full $
     (tiled ||| grid ||| cross ||| full)
@@ -320,6 +320,15 @@ layout' =
          -- cross to center one app, mostly anki
          cross = named "十" $
                       Cross (2/3) (1/100)
+         -- book with notes
+         book = ThreeColMid nmaster delta ratio
+              where
+                -- default number of windows in the master pane
+                nmaster = 1
+                -- Percent of screen to increment by when resizing panes
+                delta   = 3/100
+                -- proportion of screen occupied by master pane
+                ratio   = 2/3
          -- fullscreen
          full = named "fullscreen" $
                 smartBorders Full
