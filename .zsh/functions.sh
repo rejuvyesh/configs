@@ -188,6 +188,12 @@ function pack-tar() {
         tar -vczf $dir.tar.gz $dir && rm -rf $dir
     done
 }
+function pack-large() {
+    for dir in "$*"; do
+        echo "packing $dir..."
+        lrztar -z $dir && rm -rf $dir
+    done
+}
 alias pack="pack-7z"
 
 function j () {
