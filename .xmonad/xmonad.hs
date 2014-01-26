@@ -140,11 +140,11 @@ defaultXPConfig' = defaultXPConfig
 defaultTheme' :: Theme
 defaultTheme' = defaultTheme
                 { fontName            = font'
-                , activeColor         = "#fdf6e3"
-                , activeBorderColor   = focusedBorderColor'
-                , inactiveBorderColor = normalBorderColor'
-                , activeTextColor     = "#657b83"
-                , inactiveTextColor   = "#586e75"
+                -- , activeColor         = "#fdf6e3"
+                -- , activeBorderColor   = focusedBorderColor'
+                -- , inactiveBorderColor = normalBorderColor'
+                -- , activeTextColor     = "#657b83"
+                -- , inactiveTextColor   = "#586e75"
                 , decoHeight          = 12
                 }
 -------------------
@@ -457,7 +457,7 @@ eventHook' = minimizeEventHook
 -- Now run xmonad with all the defaults we set up. --
 -----------------------------------------------------
 main :: IO()
-main = xmonad $ urgencyHook' $ defaultConfig {
+main = xmonad $ ewmh $ urgencyHook' $ defaultConfig {
             -- simple stuff
             terminal           = terminal',
             focusFollowsMouse  = focusFollowsMouse',
