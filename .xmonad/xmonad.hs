@@ -1,5 +1,5 @@
------------ rejuvyesh's xmonad.hs -----------
-
+----------- rejuvyesh's xmonad.hs, 2014 -----------
+{-# LANGUAGE FlexibleContexts #-}
 ------------
 -- Import --
 ------------
@@ -444,6 +444,7 @@ instance UrgencyHook LibNotifyUrgencyHook where
 
     safeSpawn "notify-send" [show nam, "workspace " ++ idx]
 
+urgencyHook' :: LayoutClass l Window => XConfig l -> XConfig l
 urgencyHook' = withUrgencyHookC LibNotifyUrgencyHook 
                $ urgencyConfig { suppressWhen = Focused }
                
