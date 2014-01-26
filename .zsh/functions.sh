@@ -225,3 +225,6 @@ function bu() {
 function usage() {
     du -h --summarize "$@"
 }
+
+# scan dir for thumbs
+function sx() { sxiv -trq "$@" 2>/dev/null ;}

@@ -65,4 +65,4 @@ export IFS=$'\t'$'\n'$'\0'
 [ -f /home/rejuvyesh/.travis/travis.sh ] && source /home/rejuvyesh/.travis/travis.sh
 
 # keychain
-eval $(keychain --eval -Q --agents ssh --quiet id_rsa cse)
+eval $(keychain --eval -Q --agents ssh --quiet id_rsa)
