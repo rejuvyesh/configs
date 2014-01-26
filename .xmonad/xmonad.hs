@@ -139,10 +139,13 @@ defaultXPConfig' = defaultXPConfig
 
 defaultTheme' :: Theme
 defaultTheme' = defaultTheme
-                { fontName    = font'
-                , activeColor = "#fdf6e3"
-                , activeBorderColor = "#586e75"
-                , decoHeight  = 12
+                { fontName            = font'
+                , activeColor         = "#fdf6e3"
+                , activeBorderColor   = focusedBorderColor'
+                , inactiveBorderColor = normalBorderColor'
+                , activeTextColor     = "#657b83"
+                , inactiveTextColor   = "#586e75"
+                , decoHeight          = 12
                 }
 -------------------
 -- Key bindings. --
@@ -208,7 +211,7 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_v ), withFocused minimizeWindow)
     , ((modm .|. shiftMask, xK_v ), sendMessage RestoreNextMinimizedWin)
     -- lock xmonad screen
-    , ((modm .|. shiftMask,xK_Escape), spawn "slock")
+    , ((modm,           xK_Escape), spawn "slock")
 
     -- Search Engines Yay!
     , ((modm,              xK_g), promptSearch defaultXPConfig' google)
