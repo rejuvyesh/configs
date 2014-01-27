@@ -16,7 +16,7 @@ import XMonad.Actions.CycleWS
 import qualified XMonad.Actions.ConstrainedResize as Sqr
 import qualified XMonad.Actions.FlexibleResize as FlexMouse
 import XMonad.Actions.Search (google, scholar, wiktionary, selectSearch, promptSearch)
-import XMonad.Actions.WindowGo (runOrRaise)
+import XMonad.Actions.WindowGo (runOrRaise, ifWindow)
 
 -- hooks
 import XMonad.Hooks.DynamicLog
@@ -57,6 +57,7 @@ import XMonad.Util.NamedScratchpad
 import XMonad.Util.Scratchpad
 import XMonad.Util.XSelection
 import XMonad.Util.NamedWindows
+import XMonad.Util.Cursor
 
 -- extra
 import Graphics.X11.ExtraTypes.XF86
@@ -453,6 +454,18 @@ urgencyHook' = withUrgencyHookC LibNotifyUrgencyHook
                
 eventHook' :: Event -> X All
 eventHook' = minimizeEventHook
+
+startupHook' :: X()
+startupHook' = do
+  spawn "killall ruby; mpd_notify -d"
+  spawn "killall arbtt-capture; arbtt-capture"
+  "firefox" `runIfNot` (className =? "Firefox")
+  setWMName "LG3D"
+  setDefaultCursor xC_left_ptr
+  
+runIfNot :: String -> Query Bool -> X ()
+runIfNot command qry = ifWindow qry idHook $ spawn command
+  
 -----------------------------------------------------
 -- Now run xmonad with all the defaults we set up. --
 -----------------------------------------------------
@@ -475,7 +488,7 @@ main = xmonad $ ewmh $ urgencyHook' $ defaultConfig {
             layoutHook         = layout',
             manageHook         = manageHook',
             handleEventHook    = eventHook' <+> fullscreenEventHook,
-            startupHook        = setWMName "LG3D", --matlab hack hope it works
+            startupHook        = startupHook', --matlab hack hope it works
             logHook            = logHook'
             }
 
