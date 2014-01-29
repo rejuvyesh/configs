@@ -238,9 +238,9 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_f), spawn "downloadcovers.sh")
     -- screenshot
     -- screenshot screen
-    , ((0, xK_Print), spawn "screenshot.sh scr")
+    , ((modm .|. controlMask, xK_o), spawn "$HOME/dev/scripts/screenshot.sh scr")
     -- screenshot window or area
-    , ((modm, xK_Print), spawn "screenshot.sh win")
+    , ((modm .|. shiftMask, xK_o), spawn "$HOME/dev/scripts/selection")
 
     -- Brightness Control
     , ((0, xF86XK_MonBrightnessUp), spawn "light -aq 20")
@@ -471,6 +471,7 @@ startupHook' = do
   "net-wait && firefox" `runIfNot` (className =? "Firefox")
   setWMName "LG3D"
   setDefaultCursor xC_left_ptr
+  
   
 runIfNot :: String -> Query Bool -> X ()
 runIfNot command qry = ifWindow qry idHook $ spawn command
