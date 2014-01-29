@@ -43,6 +43,7 @@ import XMonad.Layout.WindowNavigation
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Minimize
 import XMonad.Layout.ThreeColumns
+import XMonad.Layout.Renamed
 
 
 -- prompt
@@ -84,7 +85,7 @@ modMask' :: KeyMask
 modMask' = mod4Mask
 
 -- Pre-defined workspaces.
-workspaces' :: [String]
+workspaces' :: [WorkspaceId]
 workspaces' = map (\(n,w) -> mconcat [show n,":",w])
               [ (1, "root" )
               , (2, "doc")
@@ -140,13 +141,18 @@ defaultXPConfig' = defaultXPConfig
 
 defaultTheme' :: Theme
 defaultTheme' = defaultTheme
-                { fontName            = font'
-                -- , activeColor         = "#fdf6e3"
-                -- , activeBorderColor   = focusedBorderColor'
-                -- , inactiveBorderColor = normalBorderColor'
-                -- , activeTextColor     = "#657b83"
-                -- , inactiveTextColor   = "#586e75"
-                , decoHeight          = 12
+                { activeColor         = focusedBorderColor'
+                , inactiveColor       = "#196D9C"
+                , urgentColor         = focusedBorderColor'
+                , activeBorderColor   = focusedBorderColor'
+                , inactiveBorderColor = "#BBBBBB"
+                , urgentBorderColor   = "#00FF00"
+                , activeTextColor     = "#FFFFFF"
+                , inactiveTextColor   = "#BFBFBF"
+                , urgentTextColor     = "#FF0000"
+                , fontName            = font'
+                , decoWidth           = 200
+                , decoHeight          = 13
                 }
 -------------------
 -- Key bindings. --
@@ -209,7 +215,7 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Restart xmonad
     , ((modm .|. shiftMask, xK_q ), spawn "xmonad --recompile && xmonad --restart")
-
+    , ((modm .|. controlMask, xK_q), spawn "endsession")
     , ((modm,               xK_v ), withFocused minimizeWindow)
     , ((modm .|. shiftMask, xK_v ), sendMessage RestoreNextMinimizedWin)
     -- lock xmonad screen
@@ -298,7 +304,7 @@ mouseBindings' (XConfig {XMonad.modMask = modm}) = M.fromList $
 layout' =
     -- global modifiers
     avoidStruts $ -- don't overlap docks
-    minimize $
+    renamed [CutWordsLeft 1] $ minimize $
     mkToggle1 NBFULL $ -- toggles
     mkToggle1 REFLECTX $
     mkToggle1 REFLECTY $
@@ -341,7 +347,7 @@ layout' =
          full = named "fullscreen" $
                 smartBorders Full
          -- tab
-         tabLayout = named "tab" $ tabbed shrinkText defaultTheme'
+         tabLayout = named "^i(~/dev/scripts/xmonad/icons/tabbed.xbm)" $ tabbed shrinkText defaultTheme'
          
          -- treat buddy list dock-like
          pidgin l = withIM (1%8) (Role "buddy_list") l
@@ -374,6 +380,7 @@ manageHook' = composeAll (
         , className =? "Zathura"    --> doShift (findWS "doc")
         , className =? "FBReader"   --> doShift (findWS "doc")
         , className =? "Xmessage"   --> doResizeFloat
+        , className =? "Gxmessage"  --> doFloat
         ]
         ++
         [ appName   =? "mutt"       --> doShift (findWS "mail")
