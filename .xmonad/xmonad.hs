@@ -160,9 +160,10 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_i ), scratchpad)
     , ((modm, xK_p ), namedScratchpadAction scratchpads "pidgin")
     , ((modm .|. controlMask, xK_d ), namedScratchpadAction scratchpads "rtorrent")
+    , ((modm, xK_a ), namedScratchpadAction scratchpads "anking")
       -- , ((modm, xK_m), namedScratchpadAction scratchpads "ncmpcpp_")
     -- anki
-    , ((modm, xK_a ), runOrRaise "anki" (className =? "Anki"))
+    , ((modm .|. shiftMask, xK_a ), runOrRaise "anki" (className =? "Anki"))
     -- launch dmenu
     , ((modm, xK_e ), spawn dmenuQuick')
     , ((modm, xK_o ), spawn dmenuPath')
@@ -303,11 +304,12 @@ layout' =
     mkToggle1 REFLECTY $
     mkToggle1 NOBORDERS $
     mkToggle1 MIRROR $
-
+    
     -- workspace specific preferences
     onWorkspace (findWS "doc") (tabLayout ||| book)   $
     onWorkspace (findWS "www") (tiled ||| grid ||| tabLayout) $
     onWorkspace (findWS "video") full $
+    onWorkspace (findWS "study") (cross ||| tiled ||| grid) $
     (tiled ||| grid ||| cross ||| full ||| tabLayout ||| book)
     where
          -- normal tiling
@@ -403,7 +405,7 @@ manageTerminal :: ManageHook
 manageTerminal = scratchpadManageHook (W.RationalRect 0.25 0.225 0.5 0.55)
 
 scratchpad :: X()
-scratchpad = scratchpadSpawnActionCustom "urxvt -name scratchpad -e zsh -i -c 'scratchpad'"
+scratchpad = scratchpadSpawnActionCustom "urxvt -name scratchpad -e zsh -l -c 'scratchpad'"
 
 -- Other Scratchpads
 scratchpads :: [NamedScratchpad]
@@ -417,7 +419,7 @@ scratchpads = [ NS "pidgin"
                        doResizeFloat
               , NS "anking"
                        "anking -m 'Basic' >/dev/null"
-                       (title =? "Anking Off")
+                       (title =? "Anking")
                        defaultFloating
               ]
               where role = stringProperty "WM_WINDOW_ROLE"
