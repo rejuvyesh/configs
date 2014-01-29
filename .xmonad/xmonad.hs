@@ -308,7 +308,7 @@ layout' =
     onWorkspace (findWS "doc") (tabLayout ||| book)   $
     onWorkspace (findWS "www") (tiled ||| grid ||| tabLayout) $
     onWorkspace (findWS "video") full $
-    (tiled ||| grid ||| cross ||| full)
+    (tiled ||| grid ||| cross ||| full ||| tabLayout ||| book)
     where
          -- normal tiling
          tiled = named "tiling" $
@@ -323,11 +323,12 @@ layout' =
                       pidgin $
                       Grid (1/1)
          -- cross to center one app, mostly anki
-         cross = named "十" $
+         cross = named "cross" $
                       Cross (2/3) (1/100)
          -- book with notes
-         book = ThreeColMid nmaster delta ratio
-              where
+         book = named "book" $
+                ThreeColMid nmaster delta ratio
+           where
                 -- default number of windows in the master pane
                 nmaster = 1
                 -- Percent of screen to increment by when resizing panes
@@ -338,7 +339,8 @@ layout' =
          full = named "fullscreen" $
                 smartBorders Full
          -- tab
-         tabLayout = tabbed shrinkText defaultTheme'
+         tabLayout = named "tab" $ tabbed shrinkText defaultTheme'
+         
          -- treat buddy list dock-like
          pidgin l = withIM (1%8) (Role "buddy_list") l
          -- take care of terminal size
@@ -430,9 +432,9 @@ customPP = defaultPP {
               ppCurrent  = dzenColor "" focusedBorderColor' . wrap " " " "
             , ppVisible  = dzenColor "" "" . wrap "(" ")"
             , ppUrgent   = dzenColor "" "#ff0000" . wrap "*" "*" . dzenStrip
-            , ppLayout   = (\x -> case x of
-                               "Minimize" -> "min"
-                               _               -> " " ++ x ++ " ")
+            -- , ppLayout   = (\x -> case x of
+            --                    "Minimize" -> "min"
+            --                    _               -> " " ++ x ++ " ")
             , ppWsSep    = dzenColor "" "" " "
             , ppTitle    = shorten 80
             , ppOrder    = \(ws:l:t:_) -> [ws,l,t] -- show workspaces and layout
