@@ -377,7 +377,9 @@ manageHook' = composeAll (
         , appName   =? "irssi"      --> doShift (findWS "irc")
         ]
         ++
-        [ className =? "mpv" --> doFloat ]
+        [ className =? "mpv" --> doFloat
+        , className =? "Wicd-client.py" --> doFloat
+        ]
         ++
         [ className =? "com-mathworks-util-PostVMInit" --> doShift (findWS "work")
                        -- java is shit
@@ -428,7 +430,9 @@ customPP = defaultPP {
               ppCurrent  = dzenColor "" focusedBorderColor' . wrap " " " "
             , ppVisible  = dzenColor "" "" . wrap "(" ")"
             , ppUrgent   = dzenColor "" "#ff0000" . wrap "*" "*" . dzenStrip
---            , ppLayout = wrap "^ca(1, xdotool key super+space)" "^ca()"
+            , ppLayout   = (\x -> case x of
+                               "Minimize" -> "min"
+                               _               -> " " ++ x ++ " ")
             , ppWsSep    = dzenColor "" "" " "
             , ppTitle    = shorten 80
             , ppOrder    = \(ws:l:t:_) -> [ws,l,t] -- show workspaces and layout
@@ -457,9 +461,10 @@ eventHook' = minimizeEventHook
 
 startupHook' :: X()
 startupHook' = do
+  spawn "killall firewall; net-wait && firewall"
   spawn "killall ruby; mpd_notify -d"
   spawn "killall arbtt-capture; arbtt-capture"
-  "firefox" `runIfNot` (className =? "Firefox")
+  "net-wait && firefox" `runIfNot` (className =? "Firefox")
   setWMName "LG3D"
   setDefaultCursor xC_left_ptr
   
