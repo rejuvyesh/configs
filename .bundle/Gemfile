@@ -42,6 +42,8 @@ gem "httpclient"
 gem "cri"
 gem "mechanize"
 gem "epitools"
+gem "ruby-mpd"
+gem "libnotify"
 
 # muflax
 gem "muflax"
