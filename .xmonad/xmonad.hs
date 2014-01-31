@@ -1,70 +1,74 @@
 ----------- rejuvyesh's xmonad.hs, 2014 -----------
-{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleContexts      #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 ------------
 -- Import --
 ------------
 -- Basic imports
-import Data.List
-import Data.Monoid
-import Data.Ratio ((%))
-import XMonad
-import qualified Data.Map as M
-import qualified XMonad.StackSet as W
-import qualified Network.MPD as MPD
-import qualified Network.MPD.Commands.Extensions as MPD
+import           Data.List
+import qualified Data.Map                            as M
+import           Data.Monoid
+import           Data.Ratio                          ((%))
+import qualified Network.MPD                         as MPD
+import qualified Network.MPD.Commands.Extensions     as MPD
+import           XMonad
+import qualified XMonad.StackSet                     as W
 -- actions
-import XMonad.Actions.CycleWS
-import qualified XMonad.Actions.ConstrainedResize as Sqr
-import qualified XMonad.Actions.FlexibleResize as FlexMouse
-import XMonad.Actions.Search (google, scholar, wiktionary, selectSearch, promptSearch)
-import XMonad.Actions.WindowGo (runOrRaise, ifWindow)
+import qualified XMonad.Actions.ConstrainedResize    as Sqr
+import           XMonad.Actions.CycleWS
+import qualified XMonad.Actions.FlexibleResize       as FlexMouse
+import           XMonad.Actions.Search               (google, promptSearch,
+                                                      scholar, selectSearch,
+                                                      wiktionary)
+import           XMonad.Actions.WindowGo             (ifWindow, runOrRaise)
 
 -- hooks
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.UrgencyHook
-import XMonad.Hooks.SetWMName -- matlab shit
-import XMonad.Hooks.EwmhDesktops -- chromium fix
-import XMonad.Hooks.Minimize
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.EwmhDesktops
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.ManageHelpers
+import           XMonad.Hooks.Minimize
+import           XMonad.Hooks.SetWMName
+import           XMonad.Hooks.UrgencyHook
 
 -- layouts
-import XMonad.Layout.Cross
-import XMonad.Layout.GridVariants hiding (L, R)
-import XMonad.Layout.IM
-import XMonad.Layout.LayoutHints
-import XMonad.Layout.Reflect
-import XMonad.Layout.MultiToggle
-import XMonad.Layout.MultiToggle.Instances
-import XMonad.Layout.Named
-import XMonad.Layout.NoBorders
-import XMonad.Layout.PerWorkspace
-import XMonad.Layout.ResizableTile
-import XMonad.Layout.WindowNavigation
-import XMonad.Layout.Tabbed
-import XMonad.Layout.Minimize
-import XMonad.Layout.ThreeColumns
-import XMonad.Layout.Renamed
+import           XMonad.Layout.Cross
+import           XMonad.Layout.GridVariants          hiding (L, R)
+import           XMonad.Layout.IM
+import           XMonad.Layout.LayoutHints
+import           XMonad.Layout.Minimize
+import           XMonad.Layout.MultiToggle
+import           XMonad.Layout.MultiToggle.Instances
+import           XMonad.Layout.Named
+import           XMonad.Layout.NoBorders
+import           XMonad.Layout.PerWorkspace
+import           XMonad.Layout.Reflect
+import           XMonad.Layout.Renamed
+import           XMonad.Layout.ResizableTile
+import           XMonad.Layout.Tabbed
+import           XMonad.Layout.ThreeColumns
+import           XMonad.Layout.WindowNavigation
 
 
 -- prompt
-import XMonad.Prompt
-import XMonad.Prompt.Input
-import XMonad.Prompt.AppendFile
+import           XMonad.Prompt
+import           XMonad.Prompt.AppendFile
+import           XMonad.Prompt.Input
 
 -- utils
-import XMonad.Util.WorkspaceCompare (getSortByIndex)
-import XMonad.Util.Run
-import XMonad.Util.NamedScratchpad
-import XMonad.Util.Scratchpad
-import XMonad.Util.XSelection
-import XMonad.Util.NamedWindows
-import XMonad.Util.Cursor
-import XMonad.Util.MPD
+import           XMonad.Util.Cursor
+import           XMonad.Util.MPD
+import           XMonad.Util.NamedScratchpad
+import           XMonad.Util.NamedWindows
+import           XMonad.Util.Run
+import           XMonad.Util.Scratchpad
+import           XMonad.Util.WorkspaceCompare        (getSortByIndex)
+import           XMonad.Util.XSelection
 
 -- extra
-import Graphics.X11.ExtraTypes.XF86
-import System.Posix.Process (createSession, executeFile, forkProcess)
+import           Graphics.X11.ExtraTypes.XF86
+import           System.Posix.Process                (createSession,
+                                                      executeFile, forkProcess)
 
 ------------------
 -- Basic Config --
@@ -102,7 +106,7 @@ workspaces' = map (\(n,w) -> mconcat [show n,":",w])
               ]
 
 findWS :: String -> String
-findWS = maybe "NSP" id . flip find workspaces' . isSuffixOf              
+findWS = maybe "NSP" id . flip find workspaces' . isSuffixOf
 
 -- Pretty stuff
 font' :: String
@@ -310,7 +314,7 @@ layout' =
     mkToggle1 REFLECTY $
     mkToggle1 NOBORDERS $
     mkToggle1 MIRROR $
-    
+
     -- workspace specific preferences
     onWorkspace (findWS "doc") (tabLayout ||| book)   $
     onWorkspace (findWS "www") (tiled ||| grid ||| tabLayout) $
@@ -347,8 +351,8 @@ layout' =
          full = named "fullscreen" $
                 smartBorders Full
          -- tab
-         tabLayout = named "^i(~/dev/scripts/xmonad/icons/tabbed.xbm)" $ tabbed shrinkText defaultTheme'
-         
+         tabLayout = named "tab" $ tabbed shrinkText defaultTheme'
+
          -- treat buddy list dock-like
          pidgin l = withIM (1%8) (Role "buddy_list") l
          -- take care of terminal size
@@ -464,9 +468,9 @@ instance UrgencyHook LibNotifyUrgencyHook where
     safeSpawn "notify-send" [show nam, "workspace " ++ idx]
 
 urgencyHook' :: LayoutClass l Window => XConfig l -> XConfig l
-urgencyHook' = withUrgencyHookC LibNotifyUrgencyHook 
+urgencyHook' = withUrgencyHookC LibNotifyUrgencyHook
                $ urgencyConfig { suppressWhen = Focused }
-               
+
 eventHook' :: Event -> X All
 eventHook' = minimizeEventHook
 
@@ -478,11 +482,11 @@ startupHook' = do
   "net-wait && firefox" `runIfNot` (className =? "Firefox")
   setWMName "LG3D"
   setDefaultCursor xC_left_ptr
-  
-  
+
+
 runIfNot :: String -> Query Bool -> X ()
 runIfNot command qry = ifWindow qry idHook $ spawn command
-  
+
 -----------------------------------------------------
 -- Now run xmonad with all the defaults we set up. --
 -----------------------------------------------------
