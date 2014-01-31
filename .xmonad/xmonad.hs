@@ -10,7 +10,8 @@ import Data.Ratio ((%))
 import XMonad
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
-
+import qualified Network.MPD as MPD
+import qualified Network.MPD.Commands.Extensions as MPD
 -- actions
 import XMonad.Actions.CycleWS
 import qualified XMonad.Actions.ConstrainedResize as Sqr
@@ -59,6 +60,7 @@ import XMonad.Util.Scratchpad
 import XMonad.Util.XSelection
 import XMonad.Util.NamedWindows
 import XMonad.Util.Cursor
+import XMonad.Util.MPD
 
 -- extra
 import Graphics.X11.ExtraTypes.XF86
@@ -119,8 +121,6 @@ dmenuOpts' = "-b -i -fn '"++font'++"' -nb '#000000' -nf '#FFFFFF' -sb '"++focuse
 dmenu' :: String
 dmenu' = "dmenu "++dmenuOpts'
 
-dmenuPath' :: String
-dmenuPath' = "dmenu_run "++dmenuOpts'
 dmenuQuick' :: String
 dmenuQuick' = "exe= `cat $HOME/.programs | "++dmenu'++"` && eval \"exec $exe\""
 
@@ -142,10 +142,10 @@ defaultXPConfig' = defaultXPConfig
 defaultTheme' :: Theme
 defaultTheme' = defaultTheme
                 { activeColor         = focusedBorderColor'
-                , inactiveColor       = "#196D9C"
+                , inactiveColor       = "#111111"
                 , urgentColor         = focusedBorderColor'
                 , activeBorderColor   = focusedBorderColor'
-                , inactiveBorderColor = "#BBBBBB"
+                , inactiveBorderColor = "#111111"
                 , urgentBorderColor   = "#00FF00"
                 , activeTextColor     = "#FFFFFF"
                 , inactiveTextColor   = "#BFBFBF"
@@ -172,7 +172,7 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_a ), runOrRaise "anki" (className =? "Anki"))
     -- launch dmenu
     , ((modm, xK_e ), spawn dmenuQuick')
-    , ((modm, xK_o ), spawn dmenuPath')
+    , ((modm, xK_o ), spawn "gmrun")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c ), kill)
@@ -259,9 +259,9 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioMute ), spawn "amixer -q set Master toggle")
 
    -- ncmpcpp (mpd) controls
-    , ((0, xF86XK_AudioPlay), spawn "ncmpcpp toggle")
-    , ((0, xF86XK_AudioNext), spawn "ncmpcpp next")
-    , ((0, xF86XK_AudioPrev), spawn "ncmpcpp prev")
+    , ((0, xF86XK_AudioPlay), withMPD MPD.toggle)
+    , ((0, xF86XK_AudioNext), withMPD MPD.next)
+    , ((0, xF86XK_AudioPrev), withMPD MPD.previous)
     , ((modm, xK_x), spawn ("date>>"++lg) >> appendFilePrompt defaultXPConfig' lg)
     ]
     ++
@@ -487,27 +487,28 @@ runIfNot command qry = ifWindow qry idHook $ spawn command
 -- Now run xmonad with all the defaults we set up. --
 -----------------------------------------------------
 main :: IO()
-main = xmonad $ ewmh $ urgencyHook' $ defaultConfig {
+main = do
+  xmonad $ ewmh $ urgencyHook' $ defaultConfig {
             -- simple stuff
-            terminal           = terminal',
-            focusFollowsMouse  = focusFollowsMouse',
-            borderWidth        = borderWidth',
-            modMask            = modMask',
-            workspaces         = workspaces',
-            normalBorderColor  = normalBorderColor',
-            focusedBorderColor = focusedBorderColor',
+    terminal           = terminal',
+    focusFollowsMouse  = focusFollowsMouse',
+    borderWidth        = borderWidth',
+    modMask            = modMask',
+    workspaces         = workspaces',
+    normalBorderColor  = normalBorderColor',
+    focusedBorderColor = focusedBorderColor',
 
-            -- key bindings
-            keys               = keys',
-            mouseBindings      = mouseBindings',
+    -- key bindings
+    keys               = keys',
+    mouseBindings      = mouseBindings',
 
-            -- hooks, layouts
-            layoutHook         = layout',
-            manageHook         = manageHook',
-            handleEventHook    = eventHook' <+> fullscreenEventHook,
-            startupHook        = startupHook', --matlab hack hope it works
-            logHook            = logHook'
-            }
+    -- hooks, layouts
+    layoutHook         = layout',
+    manageHook         = manageHook',
+    handleEventHook    = eventHook' <+> fullscreenEventHook,
+    startupHook        = startupHook', --matlab hack hope it works
+    logHook            = logHook'
+    }
 
 ------------------------
 --- Custom Functions ---
