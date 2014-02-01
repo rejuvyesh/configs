@@ -9,8 +9,8 @@ import           Data.List
 import qualified Data.Map                            as M
 import           Data.Monoid
 import           Data.Ratio                          ((%))
-import qualified Network.MPD                         as MPD
-import qualified Network.MPD.Commands.Extensions     as MPD
+import qualified Network.MPD                         as MPD (next, previous)
+import qualified Network.MPD.Commands.Extensions     as MPD (toggle)
 import           XMonad
 import qualified XMonad.StackSet                     as W
 -- actions
@@ -24,49 +24,60 @@ import           XMonad.Actions.WindowGo             (ifWindow, runOrRaise)
 
 -- hooks
 import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.EwmhDesktops
+import           XMonad.Hooks.EwmhDesktops           (ewmh, fullscreenEventHook)
 import           XMonad.Hooks.ManageDocks
-import           XMonad.Hooks.ManageHelpers
-import           XMonad.Hooks.Minimize
-import           XMonad.Hooks.SetWMName
+import           XMonad.Hooks.ManageHelpers          (doCenterFloat,
+                                                      doFullFloat, isDialog,
+                                                      isFullscreen)
+import           XMonad.Hooks.Minimize               (minimizeEventHook)
+import           XMonad.Hooks.SetWMName              (setWMName)
 import           XMonad.Hooks.UrgencyHook
 
 -- layouts
-import           XMonad.Layout.Cross
+import           XMonad.Layout.Cross                 (Cross (Cross))
 import           XMonad.Layout.GridVariants          hiding (L, R)
-import           XMonad.Layout.IM
-import           XMonad.Layout.LayoutHints
+import           XMonad.Layout.IM                    (Property (Role), withIM)
+import           XMonad.Layout.LayoutHints           (layoutHintsWithPlacement)
 import           XMonad.Layout.Minimize
-import           XMonad.Layout.MultiToggle
+import           XMonad.Layout.MultiToggle           (mkToggle1)
 import           XMonad.Layout.MultiToggle.Instances
-import           XMonad.Layout.Named
-import           XMonad.Layout.NoBorders
-import           XMonad.Layout.PerWorkspace
+import           XMonad.Layout.Named                 (named)
+import           XMonad.Layout.NoBorders             (smartBorders)
+import           XMonad.Layout.PerWorkspace          (onWorkspace)
 import           XMonad.Layout.Reflect
 import           XMonad.Layout.Renamed
 import           XMonad.Layout.ResizableTile
 import           XMonad.Layout.Tabbed
-import           XMonad.Layout.ThreeColumns
-import           XMonad.Layout.WindowNavigation
-
+import           XMonad.Layout.ThreeColumns          (ThreeCol (ThreeColMid))
+import           XMonad.Layout.WindowNavigation      (Navigate (Go, Swap),
+                                                      windowNavigation)
 
 -- prompt
 import           XMonad.Prompt
-import           XMonad.Prompt.AppendFile
-import           XMonad.Prompt.Input
+import           XMonad.Prompt.AppendFile            (appendFilePrompt)
+import           XMonad.Prompt.Input                 (inputPrompt, (?+))
 
 -- utils
-import           XMonad.Util.Cursor
-import           XMonad.Util.MPD
+import           XMonad.Util.Cursor                  (setDefaultCursor)
+import           XMonad.Util.MPD                     (withMPD)
 import           XMonad.Util.NamedScratchpad
-import           XMonad.Util.NamedWindows
-import           XMonad.Util.Run
-import           XMonad.Util.Scratchpad
+import           XMonad.Util.NamedWindows            (getName)
+import           XMonad.Util.Run                     (runProcessWithInput,
+                                                      safeSpawn)
+import           XMonad.Util.Scratchpad              (scratchpadFilterOutWorkspace,
+                                                      scratchpadManageHook, scratchpadSpawnActionCustom)
 import           XMonad.Util.WorkspaceCompare        (getSortByIndex)
 import           XMonad.Util.XSelection
 
 -- extra
-import           Graphics.X11.ExtraTypes.XF86
+import           Graphics.X11.ExtraTypes.XF86        (xF86XK_AudioLowerVolume,
+                                                      xF86XK_AudioMute,
+                                                      xF86XK_AudioNext,
+                                                      xF86XK_AudioPlay,
+                                                      xF86XK_AudioPrev,
+                                                      xF86XK_AudioRaiseVolume,
+                                                      xF86XK_MonBrightnessDown,
+                                                      xF86XK_MonBrightnessUp)
 import           System.Posix.Process                (createSession,
                                                       executeFile, forkProcess)
 
@@ -384,16 +395,18 @@ manageHook' = composeAll (
         , className =? "Zathura"    --> doShift (findWS "doc")
         , className =? "FBReader"   --> doShift (findWS "doc")
         , className =? "Xmessage"   --> doResizeFloat
-        , className =? "Gxmessage"  --> doFloat
+
         ]
         ++
         [ appName   =? "mutt"       --> doShift (findWS "mail")
         , appName   =? "music"      --> doShift (findWS "music")
         , appName   =? "irssi"      --> doShift (findWS "irc")
+        , appName   =? "Toplevel"   --> doFloat
         ]
         ++
-        [ className =? "mpv" --> doFloat
+        [ className =? "mpv"            --> doFloat
         , className =? "Wicd-client.py" --> doFloat
+        , className =? "Gxmessage"      --> doFloat
         ]
         ++
         [ className =? "com-mathworks-util-PostVMInit" --> doShift (findWS "work")
@@ -476,7 +489,7 @@ eventHook' = minimizeEventHook
 
 startupHook' :: X()
 startupHook' = do
-  spawn "killall firewall; net-wait && firewall"
+  spawn "killall firewall; firewall"
   spawn "killall ruby; mpd_notify -d"
   spawn "killall arbtt-capture; arbtt-capture"
   "net-wait && firefox" `runIfNot` (className =? "Firefox")
