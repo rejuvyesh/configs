@@ -21,7 +21,6 @@ import           XMonad.Actions.Search               (google, promptSearch,
                                                       scholar, selectSearch,
                                                       wiktionary)
 import           XMonad.Actions.WindowGo             (ifWindow, runOrRaise)
-
 -- hooks
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops           (ewmh, fullscreenEventHook)
@@ -402,6 +401,7 @@ manageHook' = composeAll (
         , appName   =? "music"      --> doShift (findWS "music")
         , appName   =? "irssi"      --> doShift (findWS "irc")
         , appName   =? "Toplevel"   --> doFloat
+        , appName   =? "DTA"        --> doFloat
         ]
         ++
         [ className =? "mpv"            --> doFloat
@@ -411,6 +411,7 @@ manageHook' = composeAll (
         ++
         [ className =? "com-mathworks-util-PostVMInit" --> doShift (findWS "work")
                        -- java is shit
+        , className =? "Xfce4-notifyd" --> doIgnore
         ]
         ++
         [ isFullscreen --> doFullFloat
