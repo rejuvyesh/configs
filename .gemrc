@@ -1,1 +1,2 @@
-install: --document=rdoc,ri
+:update_sources: true
+:verbose: true
