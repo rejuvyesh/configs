@@ -4,7 +4,6 @@
 alias t="noglob todo.sh -d ~/.todo.cfg"
 alias ta="t add"
 alias td="t do"
-alias tl="t ls"
 alias trm="t rm"
 
 # only what is relevant today

@@ -37,7 +37,7 @@ function ff() { firefox $* >/dev/null 2>/dev/null &! }
 function za() { zathura $* >/dev/null 2>/dev/null &! }
 function ok() { okular $* >/dev/null 2>/dev/null &! }
 function mat() {
-    matlab -nosplash >/dev/null 2>/dev/null &!
+    wmname LG3D; matlab -nosplash >/dev/null 2>/dev/null &!
 }
 ################################################################################# arch-linux aliases 
 
@@ -231,3 +231,8 @@ alias w="watch.rb"
 function wi() {
     watch.rb --changes . $*
 }
+
+# trash instead of rm
+alias te=trash-empty
+alias tp=trash-put
+alias tl=trash-list
