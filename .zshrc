@@ -64,6 +64,10 @@ eval $(keychain --eval -Q --agents ssh --quiet id_rsa)
 # make spaces saner
 export IFS=$'\t'$'\n'$'\0'
 
+for sd_cmd in systemctl systemd-analyze systemd-run; do
+    alias $sd_cmd='DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/dbus/user_bus_socket" '$sd_cmd
+done
+
 # added by travis gem
 [ -f /home/rejuvyesh/.travis/travis.sh ] && source /home/rejuvyesh/.travis/travis.sh
 
