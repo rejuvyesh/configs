@@ -44,6 +44,7 @@ gem "mechanize"
 gem "epitools"
 gem "ruby-mpd"
 gem "libnotify"
+gem "moneta"
 
 # muflax
 gem "muflax"
