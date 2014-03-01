@@ -23,7 +23,7 @@ URxvt.skipScroll        : true
 
 
 URxvt.perl-lib        : /usr/lib/urxvt/perl/
-URxvt.perl-ext-common : default,matcher,clipboard
+URxvt.perl-ext-common : default,matcher,clipboard,font-size
 URxvt.url-launcher    : /usr/bin/firefox
 URxvt.matcher.button  : 1
 URxvt.saveLines       : 100000
@@ -31,8 +31,8 @@ URxvt.keysym.M-c      : perl:clipboard:copy
 URxvt.keysym.M-v      : perl:clipboard:paste
 URxvt.keysym.M-C-v    : perl:clipboard:paste_escaped
 URxvt.depth           :             32
-URxvt*keysym.Control-Down : perl:fontsize:d
-URxvt*keysym.Control-Up   : perl:fontsize:i
+URxvt.keysym.M-Down : perl:font-size:decrease
+URxvt.keysym.M-Up   : perl:font-size:increase
 
 URxvt*font:           -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*,xft:DejaVu Sans Mono:pixelsize=14,xft:Sazanami Gothic:pixelsize=14
 URxvt*boldFont:       -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-*-*
