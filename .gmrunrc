@@ -5,7 +5,7 @@
 # Set terminal
 Terminal = urxvt
 TermExec = ${Terminal} -e
-AlwaysInTerm = ssh telnet ftp lynx mc vi vim pine centericq perldoc man mk mg elinks ncmpcpp irssi
+AlwaysInTerm = ssh telnet ftp lynx mc vi vim pine centericq perldoc man mk mg elinks ncmpcpp irssi weechat tm tmux
 
 # Set window geometry (except height)
 Width = 400

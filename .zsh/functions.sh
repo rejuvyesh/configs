@@ -227,4 +227,4 @@ function usage() {
 }
 
 # scan dir for thumbs
-function sx() { sxiv -trq "$@" 2>/dev/null ;}
+function sx() { sxiv -trq "$@" 2>/dev/null &!}
