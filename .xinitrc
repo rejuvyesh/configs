@@ -52,5 +52,8 @@ redshift-gtk -l 26.4583:80.3173 -t 6500:4500 & >/dev/null
 # fancy window fading
 compton -f -I 0.10 -O 0.10 -D 5 -b
 
+# restore current-reads
+restore zathura &
+
 WM="start_xmonad.sh"
 exec dbus-launch --auto-syntax --exit-with-session $WM
