@@ -32,7 +32,27 @@ source ~/.zsh/zsh_env
 source ~/.zsh/functions.sh
 source ~/.zsh/syntax.sh
 
+function start_ssh_agent() {
+    local ssh_env="$XDG_CACHE_HOME/ssh-env"
+
+    if pgrep "ssh-agent" >/dev/null; then
+        source "$ssh_env"
+    else
+        ssh-agent | command grep -Fv 'echo' > "$ssh_env"
+        source "$ssh_env"
+        ssh-add
+    fi
+}
+
+export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_DATA_HOME="$HOME"/.local/share
+
+start_ssh_agent
+
 [[ -s ~/.zsh/local.sh ]] && source ~/.zsh/local.sh
 
-# keychain
-eval $(keychain --eval -Q --agents ssh --quiet id_rsa cse)
+# startx
+if [[ $(tty) = /dev/tty1 ]] && [[ -z "$DISPLAY" ]]; then
+    startx 2>! "$XDG_RUNTIME_DIR"/xsession-errors
+fi
