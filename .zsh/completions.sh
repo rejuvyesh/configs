@@ -37,4 +37,7 @@ zstyle ':completion:*:manuals.*' insert-sections true
 # always rehash not found commands
 zstyle ':acceptline:*' rehash true
 
+# sudo completion
+zstyle ':completion:*:sudo:*' command-path $path
+
 fpath=(~/.zsh/completion $fpath) 
