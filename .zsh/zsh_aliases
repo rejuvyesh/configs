@@ -30,7 +30,6 @@ alias -s mkv=mpv
 alias -s avi=mpv
 
 alias reload!='. ~/.zshrc'
-alias startx='startx &> ~/.xlog'
 
 function li() { libreoffice $* >/dev/null 2>/dev/null &! }
 function ff() { firefox $* >/dev/null 2>/dev/null &! }
@@ -85,7 +84,7 @@ alias f="try firewall"
 # youtube download
 function y() {
   echo "Paste links, ^D start to download."
-  youtube-dl --ignore-errors --continue --rate-limit 2.5m -o "$HOME/youtube/%(title)s-%(id)s.%(ext)s" -a-
+  youtube-dl --proxy "jayeshkg:$password@nknproxy.iitk.ac.in:3128" --ignore-errors --continue --rate-limit 2.5m -o "$HOME/youtube/%(title)s-%(id)s.%(ext)s" -a-
 }
 function yw() {
   echo "Paste link, ^D start to watch."
@@ -93,7 +92,7 @@ function yw() {
 }
 function ya() {
   echo "Paste link, ^D start downloading with aria2"
-  youtube-dl-aria -a-
+  youtube-dl-aria --proxy "jayeshkg:$password@nknproxy.iitk.ac.in:3128" -a-
 }
 
 # move target to location and create symbolic link
