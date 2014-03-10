@@ -157,3 +157,4 @@
 !.kde4/share/apps/dolphin
 !.kde4/share/apps/okular
 !.kde4/share/config/okularpartrc
+.zsh/local.sh
