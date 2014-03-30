@@ -1,0 +1,8 @@
+my_hdr X-URL: http://rejuvyesh.com
+my_hdr X-Alignment: Chaotic Neutral
+my_hdr Cc: Jayesh Kumar Gupta <mail@rejuvyesh.com> # :X
+
+set realname = "Jayesh Kumar Gupta"
+set from = "mail@rejuvyesh.com"
+
+set postponed = "+rejuvyesh/[Gmail].Drafts/"

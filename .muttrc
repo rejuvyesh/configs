@@ -1,0 +1,108 @@
+# Account {{{
+
+set envelope_from
+folder-hook rejuvyesh source ~/.mutt/accounts/rejuvyesh.com.rc
+folder-hook iitk source ~/.mutt/accounts/iitk.ac.in.rc
+
+# }}}
+# Incoming Mail - OfflineIMAP {{{
+
+set mbox_type = Maildir
+set folder = $HOME/mail/
+set check_new
+
+set spoolfile = "+rejuvyesh/inbox"
+
+mailboxes +rejuvyesh/inbox
+mailboxes +iitk/inbox
+
+# }}}
+# Outgoing Mail - MSMTP {{{
+
+set sendmail = msmtp
+unset record
+
+set hostname="gmail.com" # Everyone seems to use it. It's a bit sad.
+set use_domain=yes
+set signature="~/.signature"
+set attribution=""
+
+source ~/.mutt/gpg.rc
+
+# }}}
+# Index View {{{
+
+set sort = threads
+set sort_aux=reverse-date-received
+set index_format = "%04C %-31.30u %s%* %Z"
+set date_format = "%Y-%m-%d"
+
+lists navya@googlegroups.com
+
+set nomark_old
+set fast_reply
+set abort_nosubject=no
+
+# }}}
+# Pager View {{{
+
+set pager = "builtin"
+set pager_index_lines = 0
+set pager_context = 5
+set pager_format=%s
+unset markers
+auto_view text/html
+ignore *
+unignore To From Cc Date X-RSS-URL Subject
+unignore X-Alignment # Let's see if this catches on.
+
+alternative_order text/plain text/html
+
+# }}}
+# File/Alias View {{{
+
+set sort_browser = reverse-date
+set folder_format = "%3C| [%N] %f"
+set alias_format = "%4n %t %-20a %r"
+
+# }}}
+# Status Bar {{{
+
+set status_format = "%f(%n)%> %?p?drafts(%p)?"
+
+
+# }}}
+# Editor {{{
+
+set tmpdir = $HOME/.mutt/tmp
+set editor = "emacsclient -a \"\" -t"
+set edit_headers=no
+set include
+
+# }}}
+
+# Colour {{{
+
+source ~/.mutt/colours/color.mutt
+
+# }}}
+
+# Notifications {{{
+
+set beep_new
+
+# }}}
+# People {{{
+
+set alias_file = ~/.mutt/aliases
+source $alias_file
+
+# }}}
+# Misc {{{
+
+set mailcap_path = ~/.mutt/mailcap
+set display_filter=$HOME/dev/scripts/createalias.sh # filters new messages through a shell script that automatically generates a mutt alias for new senders
+
+macro index ii "<change-folder>~/mail/iitk/inbox<enter>" "iitk mailbox"
+macro index ig "<change-folder>~/mail/rejuvyesh/inbox<enter>" "gmail mailbox"
+# }}}
