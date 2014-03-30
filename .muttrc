@@ -34,7 +34,7 @@ source ~/.mutt/gpg.rc
 
 set sort = threads
 set sort_aux=reverse-date-received
-set index_format = "%04C %-31.30u %s%* %Z"
+set index_format = "%04C %-31.30u %s%* %{%b %d} %Z"
 set date_format = "%Y-%m-%d"
 
 lists navya@googlegroups.com
@@ -105,4 +105,11 @@ set display_filter=$HOME/dev/scripts/createalias.sh # filters new messages throu
 
 macro index ii "<change-folder>~/mail/iitk/inbox<enter>" "iitk mailbox"
 macro index ig "<change-folder>~/mail/rejuvyesh/inbox<enter>" "gmail mailbox"
+
+# Mu
+macro index <F8> "<shell-escape>mu find --clearlinks --format=links --linksdir=~/mail/search " \
+                  "mu find"
+macro index <F9> "<change-folder-readonly>~/mail/search<return>" \
+                  "mu find results"
+
 # }}}
