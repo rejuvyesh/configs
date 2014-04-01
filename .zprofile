@@ -40,7 +40,9 @@ function start_ssh_agent() {
     else
         ssh-agent | command grep -Fv 'echo' > "$ssh_env"
         source "$ssh_env"
-        ssh-add
+        for key in $HOME/.ssh/*.pub; do
+            ssh-add ${key:r}
+        done
     fi
 }
 
