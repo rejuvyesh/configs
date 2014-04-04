@@ -3,6 +3,7 @@
 set envelope_from
 folder-hook rejuvyesh source ~/.mutt/accounts/rejuvyesh.com.rc
 folder-hook iitk source ~/.mutt/accounts/iitk.ac.in.rc
+folder-hook cse source ~/.mutt/accounts/cse.iitk.ac.in.rc
 
 # }}}
 # Incoming Mail - OfflineIMAP {{{
@@ -11,7 +12,7 @@ set mbox_type = Maildir
 set folder = $HOME/mail/
 set check_new
 
-set spoolfile = "+rejuvyesh/inbox"
+set spoolfile = "+iitk/inbox"
 
 mailboxes +rejuvyesh/inbox
 mailboxes +iitk/inbox
