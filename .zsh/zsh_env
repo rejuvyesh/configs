@@ -70,7 +70,8 @@ fi
 PATH="$HOME/.cabal/bin":${PATH}
 
 # go
-export GOPATH=$HOME/dev/go
+export GOPATH=$HOME/local/go
+export PATH=$GOPATH/bin:$PATH
 
 SCRIPTS="$HOME/dev/scripts"
 # adding scripts and all subdirs to PATH
