@@ -237,3 +237,6 @@ function wi() {
 alias te=trash-empty
 alias tp=trash-put
 alias tl=trash-list
+
+# wsend
+alias -g wsend='/home/rejuvyesh/.wsend/wsend'
