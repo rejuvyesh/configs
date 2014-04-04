@@ -39,7 +39,6 @@ set recolor "true"
 set recolor-keephue "true"
 
 # basename titles
-set status-title-basename false
 set window-title-basename true
 
 map <F1> set "pages-per-row 1"
