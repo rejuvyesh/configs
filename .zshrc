@@ -58,17 +58,10 @@ setopt pushdminus
 setopt pushdsilent
 setopt pushdtohome
 
-# keychain
-eval $(keychain --eval -Q --agents ssh --quiet id_rsa)
-
 # make spaces saner
 export IFS=$'\t'$'\n'$'\0'
 
 # added by travis gem
 [ -f /home/rejuvyesh/.travis/travis.sh ] && source /home/rejuvyesh/.travis/travis.sh
 
-# startx
-if [[ $(tty) = /dev/tty1 ]] && [[ -z "$DISPLAY" ]]; then
-    startx
-fi
 
