@@ -67,7 +67,8 @@ if [[ -s ~/.rbenv ]]; then
 fi
 
 # cabal
-PATH="$HOME/.cabal/bin":${PATH}
+CABAL_BIN="$HOME/.cabal/bin"
+[ -d $CABAL_BIN ] && PATH=${CABAL_BIN}:${PATH}
 
 # go
 export GOPATH=$HOME/local/go
