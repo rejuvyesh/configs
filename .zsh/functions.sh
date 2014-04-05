@@ -156,3 +156,8 @@ function bu() {
 
 # scan dir for thumbs
 function sx() { sxiv -trq "$@" 2>/dev/null &!}
+
+# mirror
+function mirror() {
+  wget --mirror --no-parent --adjust-extension --restrict-file-names=windows --convert-links -p -w 15 -P ~/archive/www/ "$@"
+}
