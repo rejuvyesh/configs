@@ -10,7 +10,7 @@ fi
 # load for terminal
 xrdb merge /home/rejuvyesh/.Xresources
 
-setxkbmap -option 'ctrl:nocaps,compose:ralt'
+setxkbmap -option 'ctrl:nocaps,compose:menu'
 
 # add terminus font
 xset +fp /usr/share/fonts/local
@@ -21,7 +21,7 @@ xset b 100 5000 50
 /usr/bin/mpd --no-daemon &
 
 # emacs
-/usr/bin/emacs --daemon
+#/usr/bin/emacs --daemon
 
 # wallpaper
 wallpaper.sh &
