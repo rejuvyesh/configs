@@ -1,0 +1,19 @@
+# Default haskell packages
+
+# Cabal
+cabal-install
+cabal-bounds
+
+# Useful
+pandoc
+hakyll
+stylish-haskell
+arbtt
+
+# Scripts
+cassava
+stringsearch
+
+# mine
+hserv
+hwall-auth-iitk :path => File.expand_path('~/dev/haskell/hwall-auth-iitk')
