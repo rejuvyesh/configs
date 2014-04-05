@@ -74,6 +74,10 @@ CABAL_BIN="$HOME/.cabal/bin"
 export GOPATH=$HOME/local/go
 export PATH=$GOPATH/bin:$PATH
 
+# nix
+NIX_SETUP="$HOME/.nix-profile/etc/profile.d/nix.sh"
+[ -f "$NIX_SETUP" ] && source "$NIX_SETUP"
+
 SCRIPTS="$HOME/dev/scripts"
 # adding scripts and all subdirs to PATH
 for dir in $(find $SCRIPTS -type d -not -path "*/.git*"); do
