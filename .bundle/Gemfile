@@ -45,6 +45,7 @@ gem "epitools"
 gem "ruby-mpd"
 gem "libnotify"
 gem "moneta"
+gem "travis"
 
 # muflax
 gem "muflax"
