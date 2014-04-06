@@ -16,6 +16,7 @@ Downloads
 Anki
 opt
 texmf
-
 local/MATLAB
 local/virtualboxes
+*.pdf
+archive
