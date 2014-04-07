@@ -3,6 +3,7 @@
 # Cabal
 cabal-install
 cabal-bounds
+cabalg
 
 # Useful
 pandoc
