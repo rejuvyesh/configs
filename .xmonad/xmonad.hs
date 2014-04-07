@@ -123,20 +123,20 @@ findWS = maybe "NSP" id . flip find workspaces' . isSuffixOf
 
 -- | Pretty stuff
 font' :: String
-font'               = "-xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*"
+font' = "-xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*"
 
 normalBorderColor'  :: String
 normalBorderColor'  = "#000000"
 
-focusedBorderColor'  :: String
+focusedBorderColor' :: String
 focusedBorderColor' = "#185D8B"
 
--- | dmenu
+-- | dmenu options
 dmenuOpts' :: String
 dmenuOpts' = "-b -i -fn '"++font'++"' -nb '#000000' -nf '#FFFFFF' -sb '"++focusedBorderColor'++"'"
 
 dmenu' :: String
-dmenu' = "dmenu "++dmenuOpts'
+dmenu' = "dmenu "++ dmenuOpts'
 
 dmenuQuick' :: String
 dmenuQuick' = "exe= `cat $HOME/.programs | "++dmenu'++"` && eval \"exec $exe\""
@@ -461,6 +461,7 @@ manageScratchpads = manageTerminal <+> namedScratchpadManageHook scratchpads
 
 -- Status bars and logging
 --customPP :: PP
+customPP :: GHC.IO.Handle.Types.Handle -> PP
 customPP xmproc = defaultPP {
     ppOutput  = hPutStrLn xmproc
   , ppCurrent = xmobarColor "#A6E22E" ""
@@ -508,8 +509,6 @@ startupHook' = do
 runIfNot :: String -> Query Bool -> X ()
 runIfNot command qry = ifWindow qry idHook $ spawn command
 
-
-
 -----------------------------------------------------
 -- Now run xmonad with all the defaults we set up. --
 -----------------------------------------------------
@@ -520,7 +519,7 @@ main = do
   xmobarrc <- getDefaultXMobarRC
   xmproc <- spawnPipe $ xmobarBin +||+ xmobarrc
   xmonad $ ewmh $ urgencyHook' $ defaultConfig {
-            -- simple stuff
+    -- simple stuff
     terminal           = terminal',
     focusFollowsMouse  = focusFollowsMouse',
     borderWidth        = borderWidth',
@@ -547,6 +546,7 @@ main = do
 getPromptInput :: X (Maybe String)
 getPromptInput = inputPrompt defaultXPConfig' "Dict: "
 
+sdcv :: MonadIO m => String -> m ()
 sdcv word = do
     output <- runProcessWithInput "sdcv" ["-n", word] ""
     mySafeSpawn "notify-send" [word, trString output]

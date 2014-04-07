@@ -6,10 +6,11 @@ module XMonad.Util.Trayer
        (spawnTrayer
        ) where
 
-import XMonad
-import XMonad.Util.Run (safeSpawn)
+import           XMonad
+import           XMonad.Util.Run (safeSpawn)
 
-trayer = "trayer" :: FilePath
+trayer :: FilePath
+trayer = "trayer"
 
 spawnTrayer :: MonadIO m => m ()
 spawnTrayer = safeSpawn trayer args
@@ -18,10 +19,10 @@ spawnTrayer = safeSpawn trayer args
                , "--widthtype", "percent"
                , "--width", "5"
                , "--heighttype", "pixel"
-               , "--height", "12"
-               , "--alpha", "150"
+               , "--height", "15"
+               , "--alpha", "0"
                , "--transparent", "true"
-               , "--tint", "0x000000"
+               , "--tint", "0x12121200"
                , "--SetDockType", "true"
                , "--expand", "true"
                ]
