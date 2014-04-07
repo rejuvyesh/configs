@@ -235,7 +235,7 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_h ), windows . W.greedyView =<< findWorkspace getSortByIndexNoSP Prev HiddenNonEmptyWS 1)
 
     -- Restart xmonad
-    , ((modm .|. shiftMask, xK_q ), spawn "xmonad --recompile && xmonad --restart")
+    , ((modm .|. shiftMask, xK_q ), spawn "killall trayer; xmonad --recompile && xmonad --restart")
     , ((modm .|. controlMask, xK_q), spawn "endsession")
     , ((modm,               xK_v ), withFocused minimizeWindow)
     , ((modm .|. shiftMask, xK_v ), sendMessage RestoreNextMinimizedWin)
