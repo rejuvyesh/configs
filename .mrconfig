@@ -4,26 +4,17 @@ checkout = git clone 'https://github.com/github/gitignore.git' 'gitignore'
 [dev/backup/git-annex-utils]
 checkout = git clone 'http://git.mysteryvortex.com/repositories/git-annex-utils.git' 'git-annex-utils'
 
-[dev/scripts/get-shit-done]
-checkout = git clone 'https://github.com/leftnode/get-shit-done.git' 'get-shit-done'
-
-[dev/misc/starterkit]
-checkout = git clone 'https://github.com/kjhealy/emacs-starter-kit.git' 'starterkit'
-
 [dev/julia/julia]
 checkout = git clone 'https://github.com/JuliaLang/julia.git' 'julia'
 
 [dev/scripts]
-checkout = git clone 'https://rejuvyesh@github.com/rejuvyesh/Scripts.git' 'Scripts'
+checkout = git clone 'https://rejuvyesh@github.com/rejuvyesh/Scripts.git' 'scripts'
 
 [dev/backup/git-annex]
 checkout = git clone 'https://github.com/joeyh/git-annex.git' 'git-annex'
 
 [/home/rejuvyesh]
 checkout = git clone 'https://rejuvyesh@github.com/rejuvyesh/configs.git' 'rejuvyesh'
-
-[dev/misc/st]
-checkout = git clone 'http://git.suckless.org/st' 'st'
 
 [.zsh/zsh-syntax-highlighting]
 checkout = git clone 'git://github.com/zsh-users/zsh-syntax-highlighting.git' 'zsh-syntax-highlighting'
@@ -33,3 +24,18 @@ checkout = git clone 'https://github.com/sstephenson/rbenv.git' '.rbenv'
 
 [.rbenv/plugins/ruby-build]
 checkout = git clone 'https://github.com/sstephenson/ruby-build.git' 'ruby-build'
+
+[dev/c/zathura/zathura-vi]
+checkout = git clone 'https://github.com/fmap/zathura-vi.git' 'zathura-vi'
+
+[dev/c/zathura/zathura-cb]
+checkout = git clone 'https://github.com/pwmt/zathura-cb.git' 'zathura-cb'
+
+[dev/c/zathura/zathura-pdf-mupdf]
+checkout = git clone 'https://github.com/pwmt/zathura-pdf-mupdf.git' 'zathura-pdf-mupdf'
+
+[dev/c/zathura/zathura-djvu]
+checkout = git clone 'https://github.com/pwmt/zathura-djvu.git' 'zathura-djvu'
+
+[dev/c/zathura/zathura-ps]
+checkout = git clone 'https://github.com/pwmt/zathura-ps.git' 'zathura-ps'
