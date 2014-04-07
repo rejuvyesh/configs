@@ -10,10 +10,10 @@
 typeset -A NAMED_DIRS
 
 NAMED_DIRS=(
-    dev       ~/dev
-    scripts   ~/dev/scripts
-    mtba      ~/dev/matlab/mtba
-    com       ~/dev/www/rejuvyesh.com
+    src       ~/src
+    scripts   ~/src/scripts
+    mtba      ~/src/matlab/mtba
+    com       ~/src/www/rejuvyesh.com
     acad      ~/Documents/Academics/sem6
 )
 

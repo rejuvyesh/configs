@@ -74,7 +74,7 @@ CABAL_BIN="$HOME/.cabal/bin"
 export GOPATH=$HOME/local/go
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
-SCRIPTS="$HOME/dev/scripts"
+SCRIPTS="$HOME/src/scripts"
 # adding scripts and all subdirs to PATH
 for dir in $(find $SCRIPTS -type d -not -path "*/.git*"); do
   PATH="$dir:$PATH"
