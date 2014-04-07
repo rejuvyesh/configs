@@ -268,9 +268,9 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_f), spawn "downloadcovers.sh")
     -- screenshot
     -- screenshot screen
-    , ((modm .|. controlMask, xK_o), spawn "$HOME/dev/scripts/screenshot.sh scr")
+    , ((modm .|. controlMask, xK_o), spawn "screenshot.sh scr")
     -- screenshot window or area
-    , ((modm .|. shiftMask, xK_o), spawn "$HOME/dev/scripts/selection")
+    , ((modm .|. shiftMask, xK_o), spawn "selection")
 
     -- Brightness Control
     , ((0, xF86XK_MonBrightnessUp), spawn "light -aq 20")
