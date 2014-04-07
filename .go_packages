@@ -1,0 +1,16 @@
+# build tools
+github.com/songgao/colorgo
+code.google.com/p/go.tools/cmd/goimports
+
+# better profiling
+github.com/davecheney/profile
+
+# emacs
+github.com/nsf/gocode
+code.google.com/p/rog-go/exp/cmd/godef
+
+# gaps in stdlib
+github.com/fatih/set
+
+# regex
+github.com/moovweb/rubex
