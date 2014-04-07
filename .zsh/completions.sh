@@ -40,4 +40,5 @@ zstyle ':acceptline:*' rehash true
 # sudo completion
 zstyle ':completion:*:sudo:*' command-path $path
 
-fpath=(~/.zsh/completion $fpath) 
+fpath=(~/.zsh/pass-completion $fpath)
+fpath=(~/.zsh/gibo-completion $fpath)
