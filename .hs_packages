@@ -9,10 +9,15 @@ pandoc
 hakyll
 stylish-haskell
 arbtt
+hlint
+time
+errors
 
 # Scripts
 cassava
 stringsearch
+optparse-applicative
+configurator
 
 # mine
 hserv
