@@ -72,16 +72,12 @@ CABAL_BIN="$HOME/.cabal/bin"
 
 # go
 export GOPATH=$HOME/local/go
-export PATH=$GOPATH/bin:$PATH
-
-# nix
-NIX_SETUP="$HOME/.nix-profile/etc/profile.d/nix.sh"
-[ -f "$NIX_SETUP" ] && source "$NIX_SETUP"
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 SCRIPTS="$HOME/dev/scripts"
 # adding scripts and all subdirs to PATH
 for dir in $(find $SCRIPTS -type d -not -path "*/.git*"); do
-PATH="$dir:$PATH"
+  PATH="$dir:$PATH"
 done
 
 # R
