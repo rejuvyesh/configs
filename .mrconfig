@@ -39,3 +39,6 @@ checkout = git clone 'https://github.com/pwmt/zathura-djvu.git' 'zathura-djvu'
 
 [src/c/zathura/zathura-ps]
 checkout = git clone 'https://github.com/pwmt/zathura-ps.git' 'zathura-ps'
+
+[src/haskell/arbtt]
+checkout = git clone 'https://bitbucket.org/nomeata/arbtt.git' 'arbtt'
