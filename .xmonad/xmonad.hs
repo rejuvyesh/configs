@@ -62,11 +62,14 @@ import           XMonad.Util.MPD                     (withMPD)
 import           XMonad.Util.NamedScratchpad
 import           XMonad.Util.NamedWindows            (getName)
 import           XMonad.Util.Run                     (runProcessWithInput,
-                                                      safeSpawn)
+                                                      safeSpawn, spawnPipe)
 import           XMonad.Util.Scratchpad              (scratchpadFilterOutWorkspace,
                                                       scratchpadManageHook, scratchpadSpawnActionCustom)
 import           XMonad.Util.WorkspaceCompare        (getSortByIndex)
 import           XMonad.Util.XSelection
+
+import           XMonad.Util.Trayer
+import           XMonad.Util.XMobar
 
 -- extra
 import           Graphics.X11.ExtraTypes.XF86        (xF86XK_AudioLowerVolume,
@@ -77,9 +80,9 @@ import           Graphics.X11.ExtraTypes.XF86        (xF86XK_AudioLowerVolume,
                                                       xF86XK_AudioRaiseVolume,
                                                       xF86XK_MonBrightnessDown,
                                                       xF86XK_MonBrightnessUp)
+import           System.IO                           (hPutStrLn)
 import           System.Posix.Process                (createSession,
                                                       executeFile, forkProcess)
-
 ------------------
 -- Basic Config --
 ------------------
@@ -118,7 +121,7 @@ workspaces' = map (\(n,w) -> mconcat [show n,":",w])
 findWS :: String -> String
 findWS = maybe "NSP" id . flip find workspaces' . isSuffixOf
 
--- Pretty stuff
+-- | Pretty stuff
 font' :: String
 font'               = "-xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*"
 
@@ -128,7 +131,7 @@ normalBorderColor'  = "#000000"
 focusedBorderColor'  :: String
 focusedBorderColor' = "#185D8B"
 
--- dmenu
+-- | dmenu
 dmenuOpts' :: String
 dmenuOpts' = "-b -i -fn '"++font'++"' -nb '#000000' -nf '#FFFFFF' -sb '"++focusedBorderColor'++"'"
 
@@ -137,6 +140,10 @@ dmenu' = "dmenu "++dmenuOpts'
 
 dmenuQuick' :: String
 dmenuQuick' = "exe= `cat $HOME/.programs | "++dmenu'++"` && eval \"exec $exe\""
+
+-- | xmobar
+xmobarBin :: FilePath
+xmobarBin = "xmobar" 
 
 -- prompt
 defaultXPConfig' :: XPConfig
@@ -453,23 +460,22 @@ manageScratchpads :: ManageHook
 manageScratchpads = manageTerminal <+> namedScratchpadManageHook scratchpads
 
 -- Status bars and logging
-customPP :: PP
-customPP = defaultPP {
---              ppHidden  = \n -> wrap (" ^ca(1, xdotool key super+" ++ n ++ ")")"^ca()" n
-              ppCurrent  = dzenColor "" focusedBorderColor' . wrap " " " "
-            , ppVisible  = dzenColor "" "" . wrap "(" ")"
-            , ppUrgent   = dzenColor "" "#ff0000" . wrap "*" "*" . dzenStrip
-            -- , ppLayout   = (\x -> case x of
-            --                    "Minimize" -> "min"
-            --                    _               -> " " ++ x ++ " ")
-            , ppWsSep    = dzenColor "" "" " "
-            , ppTitle    = shorten 80
-            , ppOrder    = \(ws:l:t:_) -> [ws,l,t] -- show workspaces and layout
-            , ppSort     = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
-          }
+--customPP :: PP
+customPP xmproc = defaultPP {
+    ppOutput  = hPutStrLn xmproc
+  , ppCurrent = xmobarColor "#A6E22E" ""
+  , ppHidden = \x -> if x == "NSP" then "" else x
+  , ppVisible = xmobarColor "#D0CFD0" "" . wrap "(" ")"
+  , ppUrgent = xmobarColor "#D7005F" "" . wrap "[" "]"
+  , ppLayout = xmobarColor "#AE81FF" ""
+  , ppSep = xmobarColor "#3F3F3F" "" " | "
+  , ppTitle    = shorten 50
+  , ppOrder    = \(ws:l:t:_) -> [ws,l,t] -- show workspaces and layout
+  , ppSort     = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
+  }
 
-logHook' :: X()
-logHook' = dynamicLogWithPP customPP
+--logHook' :: X()
+logHook' pro = dynamicLogWithPP $ customPP pro
 
 -- Urgency
 data LibNotifyUrgencyHook = LibNotifyUrgencyHook deriving (Read, Show)
@@ -498,14 +504,21 @@ startupHook' = do
   setDefaultCursor xC_left_ptr
 
 
+
 runIfNot :: String -> Query Bool -> X ()
 runIfNot command qry = ifWindow qry idHook $ spawn command
+
+
 
 -----------------------------------------------------
 -- Now run xmonad with all the defaults we set up. --
 -----------------------------------------------------
+
 main :: IO()
 main = do
+  spawnTrayer
+  xmobarrc <- getDefaultXMobarRC
+  xmproc <- spawnPipe $ xmobarBin +||+ xmobarrc
   xmonad $ ewmh $ urgencyHook' $ defaultConfig {
             -- simple stuff
     terminal           = terminal',
@@ -525,7 +538,7 @@ main = do
     manageHook         = manageHook',
     handleEventHook    = eventHook' <+> fullscreenEventHook,
     startupHook        = startupHook', --matlab hack hope it works
-    logHook            = logHook'
+    logHook            = logHook' xmproc
     }
 
 ------------------------
@@ -555,3 +568,6 @@ mySafeSpawn prog arg = io $ void_ $ forkProcess $ do
     _ <- createSession
     executeFile prog True arg Nothing
         where void_ = (>> return ())
+
+(+||+) :: FilePath -> FilePath -> FilePath
+s1 +||+ s2 = s1 ++ ( ' ' : s2 )
