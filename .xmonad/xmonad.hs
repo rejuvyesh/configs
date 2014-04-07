@@ -1,9 +1,11 @@
 ----------- rejuvyesh's xmonad.hs, 2014 -----------
 {-# LANGUAGE FlexibleContexts      #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
+
 ------------
 -- Import --
 ------------
+
 -- Basic imports
 import           Data.List
 import qualified Data.Map                            as M
@@ -68,6 +70,7 @@ import           XMonad.Util.Scratchpad              (scratchpadFilterOutWorkspa
 import           XMonad.Util.WorkspaceCompare        (getSortByIndex)
 import           XMonad.Util.XSelection
 
+import           XMonad.Util.SpawnOnce
 import           XMonad.Util.Trayer
 import           XMonad.Util.XMobar
 
@@ -83,27 +86,28 @@ import           Graphics.X11.ExtraTypes.XF86        (xF86XK_AudioLowerVolume,
 import           System.IO                           (hPutStrLn)
 import           System.Posix.Process                (createSession,
                                                       executeFile, forkProcess)
+
 ------------------
 -- Basic Config --
 ------------------
 
--- The preferred terminal program.
+-- | The preferred terminal program.
 terminal' :: String
 terminal' = "urxvt"
 
--- Whether focus follows the mouse pointer.
+-- | Whether focus follows the mouse pointer.
 focusFollowsMouse' :: Bool
 focusFollowsMouse' = True
 
--- Width of the window border in pixels.
+-- | Width of the window border in pixels.
 borderWidth' :: Dimension
 borderWidth' = 1
 
--- modMask lets you specify which modkey you want to use.
+-- | modMask lets you specify which modkey you want to use.
 modMask' :: KeyMask
 modMask' = mod4Mask
 
--- Pre-defined workspaces.
+-- | Pre-defined workspaces.
 workspaces' :: [WorkspaceId]
 workspaces' = map (\(n,w) -> mconcat [show n,":",w])
               [ (1, "root" )
@@ -117,9 +121,6 @@ workspaces' = map (\(n,w) -> mconcat [show n,":",w])
               , (9, "study") -- anki
               , (0, "www")
               ]
-
-findWS :: String -> String
-findWS = maybe "NSP" id . flip find workspaces' . isSuffixOf
 
 -- | Pretty stuff
 font' :: String
@@ -143,9 +144,9 @@ dmenuQuick' = "exe= `cat $HOME/.programs | "++dmenu'++"` && eval \"exec $exe\""
 
 -- | xmobar
 xmobarBin :: FilePath
-xmobarBin = "xmobar" 
+xmobarBin = "xmobar"
 
--- prompt
+-- | prompt
 defaultXPConfig' :: XPConfig
 defaultXPConfig' = defaultXPConfig
                    { font              = font'
@@ -159,7 +160,7 @@ defaultXPConfig' = defaultXPConfig
                    , historySize       = 20
                    , defaultText       = []
                    }
-
+-- | theme
 defaultTheme' :: Theme
 defaultTheme' = defaultTheme
                 { activeColor         = focusedBorderColor'
@@ -175,9 +176,11 @@ defaultTheme' = defaultTheme
                 , decoWidth           = 200
                 , decoHeight          = 13
                 }
+
 -------------------
 -- Key bindings. --
 -------------------
+
 keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
@@ -235,7 +238,7 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_h ), windows . W.greedyView =<< findWorkspace getSortByIndexNoSP Prev HiddenNonEmptyWS 1)
 
     -- Restart xmonad
-    , ((modm .|. shiftMask, xK_q ), spawn "killall trayer; xmonad --recompile && xmonad --restart")
+    , ((modm .|. shiftMask, xK_q ), spawn "killall trayer ; xmonad --recompile && xmonad --restart")
     , ((modm .|. controlMask, xK_q), spawn "endsession")
     , ((modm,               xK_v ), withFocused minimizeWindow)
     , ((modm .|. shiftMask, xK_v ), sendMessage RestoreNextMinimizedWin)
@@ -303,9 +306,11 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
                 fmap (.scratchpadFilterOutWorkspace) getSortByIndex
          altMask = mod1Mask
          lg = "/home/rejuvyesh/Documents/2014/log.txt"
+
 -----------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events --
 -----------------------------------------------------------
+
 mouseBindings' (XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-button1, Set the window to floating mode and move by dragging
     [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
@@ -315,7 +320,6 @@ mouseBindings' (XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-button3, Resize (shift keeps the ratio constant)
     , ((modm, button3), (\w -> focus w >> FlexMouse.mouseResizeWindow w))
     , ((modm .|. shiftMask, button3), (\w -> focus w >> Sqr.mouseResizeWindow w True ))
-
     ]
 
 -------------
@@ -385,11 +389,11 @@ layout' =
          -- divided equally
          slaves = []
 
-
 -----------
 -- Hooks --
 -----------
--- Window handling
+
+--  |Window handling
 manageHook' :: Query (Endo WindowSet)
 manageHook' = composeAll (
         [ className =? "Pidgin"     --> doShift (findWS "irc")
@@ -432,14 +436,14 @@ doResizeFloat = customFloating $ W.RationalRect left top width height
         left = (/2) $ (1-) width
         top = (/2) $ (1-) height
 
--- Scratchpad terminal
+-- | Scratchpad terminal
 manageTerminal :: ManageHook
 manageTerminal = scratchpadManageHook (W.RationalRect 0.25 0.225 0.5 0.55)
 
 scratchpad :: X()
 scratchpad = scratchpadSpawnActionCustom "urxvt -name scratchpad -e zsh -l -c 'scratchpad'"
 
--- Other Scratchpads
+-- | Other Scratchpads
 scratchpads :: [NamedScratchpad]
 scratchpads = [ NS "pidgin"
                        "pidgin"
@@ -459,9 +463,8 @@ scratchpads = [ NS "pidgin"
 manageScratchpads :: ManageHook
 manageScratchpads = manageTerminal <+> namedScratchpadManageHook scratchpads
 
--- Status bars and logging
+-- | Status bars and logging
 --customPP :: PP
-customPP :: GHC.IO.Handle.Types.Handle -> PP
 customPP xmproc = defaultPP {
     ppOutput  = hPutStrLn xmproc
   , ppCurrent = xmobarColor "#A6E22E" ""
@@ -478,7 +481,7 @@ customPP xmproc = defaultPP {
 --logHook' :: X()
 logHook' pro = dynamicLogWithPP $ customPP pro
 
--- Urgency
+-- | Urgency
 data LibNotifyUrgencyHook = LibNotifyUrgencyHook deriving (Read, Show)
 
 instance UrgencyHook LibNotifyUrgencyHook where
@@ -495,19 +498,15 @@ urgencyHook' = withUrgencyHookC LibNotifyUrgencyHook
 eventHook' :: Event -> X All
 eventHook' = minimizeEventHook
 
+-- | Startup applications
 startupHook' :: X()
 startupHook' = do
-  spawn "killall firewall; firewall"
-  spawn "killall ruby; mpd_notify -d"
-  spawn "killall arbtt-capture; arbtt-capture"
+  spawnOnce "firewall"
+  spawnOnce "mpd_notify -d"
+  spawnOnce "arbtt-capture"
   "net-wait && firefox" `runIfNot` (className =? "Firefox")
   setWMName "LG3D"
   setDefaultCursor xC_left_ptr
-
-
-
-runIfNot :: String -> Query Bool -> X ()
-runIfNot command qry = ifWindow qry idHook $ spawn command
 
 -----------------------------------------------------
 -- Now run xmonad with all the defaults we set up. --
@@ -543,6 +542,7 @@ main = do
 ------------------------
 --- Custom Functions ---
 ------------------------
+
 getPromptInput :: X (Maybe String)
 getPromptInput = inputPrompt defaultXPConfig' "Dict: "
 
@@ -561,13 +561,19 @@ trChar c
     | c == '&' = "&amp;"
     | otherwise = [c]
 
---  mySafeSpawn is from XMonad.Util.Run inside copied; just removed encodeString call
+--  | mySafeSpawn is from XMonad.Util.Run inside copied; just removed encodeString call
 mySafeSpawn :: MonadIO m => FilePath -> [String] -> m ()
 mySafeSpawn prog arg = io $ void_ $ forkProcess $ do
     uninstallSignalHandlers
     _ <- createSession
     executeFile prog True arg Nothing
         where void_ = (>> return ())
+
+findWS :: String -> String
+findWS = maybe "NSP" id . flip find workspaces' . isSuffixOf
+
+runIfNot :: String -> Query Bool -> X ()
+runIfNot command qry = ifWindow qry idHook $ spawn command
 
 (+||+) :: FilePath -> FilePath -> FilePath
 s1 +||+ s2 = s1 ++ ( ' ' : s2 )
