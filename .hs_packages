@@ -8,7 +8,7 @@ cabal-bounds
 pandoc
 hakyll
 stylish-haskell
-arbtt
+arbtt :path => File.expand_path('~/src/haskell/arbtt')
 hlint
 time
 errors
@@ -21,4 +21,4 @@ configurator
 
 # mine
 hserv
-hwall-auth-iitk :path => File.expand_path('~/dev/haskell/hwall-auth-iitk')
+hwall-auth-iitk :path => File.expand_path('~/src/haskell/hwall-auth-iitk')
