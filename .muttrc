@@ -102,7 +102,7 @@ source $alias_file
 # Misc {{{
 
 set mailcap_path = ~/.mutt/mailcap
-set display_filter=$HOME/dev/scripts/createalias.sh # filters new messages through a shell script that automatically generates a mutt alias for new senders
+set display_filter=$HOME/src/scripts/createalias.sh # filters new messages through a shell script that automatically generates a mutt alias for new senders
 
 macro index ii "<change-folder>~/mail/iitk/inbox<enter>" "iitk mailbox"
 macro index ig "<change-folder>~/mail/rejuvyesh/inbox<enter>" "gmail mailbox"
