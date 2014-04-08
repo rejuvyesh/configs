@@ -63,5 +63,5 @@ start_ssh_agent
 
 # startx
 if [[ $(tty) = /dev/tty1 ]] && [[ -z "$DISPLAY" ]]; then
-    startx 2>! "$XDG_RUNTIME_DIR"/xsession-errors
+    startx 2>! "$HOME"/.xsession-errors
 fi
