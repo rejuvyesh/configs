@@ -93,7 +93,7 @@ import           System.Posix.Process                (createSession,
 
 -- | The preferred terminal program.
 terminal' :: String
-terminal' = "konsole"
+terminal' = "urxvt"
 
 -- | Whether focus follows the mouse pointer.
 focusFollowsMouse' :: Bool
@@ -445,7 +445,7 @@ manageTerminal :: ManageHook
 manageTerminal = scratchpadManageHook (W.RationalRect 0.25 0.225 0.5 0.55)
 
 scratchpad :: X()
-scratchpad = scratchpadSpawnActionCustom "konsole --name scratchpad -e zsh -l -c 'scratchpad'"
+scratchpad = scratchpadSpawnActionCustom "urxvt -name scratchpad -e zsh -l -c 'scratchpad'"
 
 -- | Other Scratchpads
 scratchpads :: [NamedScratchpad]
@@ -454,7 +454,7 @@ scratchpads = [ NS "pidgin"
                        (role =? "buddy_list")
                        defaultFloating
               , NS "rtorrent"
-                       "konsole --name rtorrent -e zsh -c 'tmux attach -t rt'"
+                       "urxvt -name rtorrent -e zsh -c 'tmux attach -t rt'"
                        (appName =? "rtorrent")
                        doResizeFloat
               , NS "anking"
