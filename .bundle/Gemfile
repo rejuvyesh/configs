@@ -53,6 +53,7 @@ gem "future_me"
 gem "t"
 
 # my own stuff
-gem "traktr", :path => File.expand_path("~/dev/ruby/traktr")
-gem "rmpv", :path => File.expand_path("~/dev/ruby/rmpv")
+gem "traktr", :path => File.expand_path("~/src/ruby/traktr")
+gem "rmpv", :path => File.expand_path("~/src/ruby/rmpv")
 gem "lolcommits-mpv"
+
