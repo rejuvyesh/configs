@@ -13,6 +13,10 @@ arbtt :path => File.expand_path('~/src/haskell/arbtt')
 hlint
 time
 errors
+c2hs
+xmobar --flags='all_extensions'
+xdg-basedir 
+archiver
 
 # Scripts
 cassava

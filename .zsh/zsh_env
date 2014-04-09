@@ -72,7 +72,7 @@ CABAL_BIN="$HOME/.cabal/bin"
 
 # go
 export GOPATH=$HOME/local/go
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 
 SCRIPTS="$HOME/src/scripts"
 # adding scripts and all subdirs to PATH

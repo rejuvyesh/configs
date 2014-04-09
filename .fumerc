@@ -2,3 +2,4 @@
 fume_dir: /home/rejuvyesh/Documents/spoiler/todo/fume
 player: mpv --really-quiet --volume=100
 notification: notify-send fume 'Done!' --icon=/home/rejuvyesh/images/smiley.png
+bar: xmobar
