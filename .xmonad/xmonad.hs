@@ -191,7 +191,7 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_p ), namedScratchpadAction scratchpads "pidgin")
     , ((modm .|. controlMask, xK_d ), namedScratchpadAction scratchpads "rtorrent")
     , ((modm, xK_a ), namedScratchpadAction scratchpads "anking")
-      -- , ((modm, xK_m), namedScratchpadAction scratchpads "ncmpcpp_")
+
     -- anki
     , ((modm .|. shiftMask, xK_a ), runOrRaise "anki" (className =? "Anki"))
     -- launch dmenu
@@ -244,6 +244,8 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_v ), sendMessage RestoreNextMinimizedWin)
     -- lock xmonad screen
     , ((modm,           xK_Escape), spawn "slock")
+    -- toggle mouse
+    , ((modm  .|. controlMask, xK_m), spawn "toggle_mouse")
 
     -- Search Engines Yay!
     , ((modm,              xK_g), promptSearch defaultXPConfig' google)
@@ -263,13 +265,15 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_j ), spawn "rotate_screen left")
     , ((modm .|. controlMask, xK_j ), spawn "rotate_screen right")
 
-    -- making my favorites playlist
+      -- making my favorites playlist
     , ((modm .|. shiftMask, xK_m), spawn "songrating.sh 5")
-    , ((modm, xK_f), spawn "downloadcovers.sh")
-    -- screenshot
-    -- screenshot screen
+
+      -- screenshot
+      -- screenshot screen
+    , ((0, xK_Print), spawn "screenshot.sh scr")
     , ((modm .|. controlMask, xK_o), spawn "screenshot.sh scr")
     -- screenshot window or area
+    , ((modm, xK_Print), spawn "selection")
     , ((modm .|. shiftMask, xK_o), spawn "selection")
 
     -- Brightness Control
