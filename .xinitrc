@@ -55,5 +55,5 @@ compton -f -I 0.10 -O 0.10 -D 5 -b
 # restore current-reads
 restore zathura &
 
-WM="start_xmonad.sh"
+WM="xmonad"
 exec dbus-launch --auto-syntax --exit-with-session $WM
