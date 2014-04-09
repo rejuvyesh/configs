@@ -17,7 +17,7 @@ spawnTrayer = safeSpawn trayer args
   where args = [ "--edge", "bottom"
                , "--align", "right"
                , "--widthtype", "percent"
-               , "--width", "5"
+               , "--width", "4"
                , "--heighttype", "pixel"
                , "--height", "15"
                , "--alpha", "0"

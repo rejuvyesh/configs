@@ -86,12 +86,11 @@ defaultXMobarRC = Config
                     [ Opt "font"  "xft:Consolas-8",
                       Opt "bgColor"  "#121212",
                       Opt "fgColor"  "#AFAF87",
-                      OptEnum "position"  "BottomW L 95",
+                      OptEnum "position"  "BottomW L 96",
                       OptEnum "lowerOnStart" $ show  True,
                       OptList "commands"  [
-                        "Run DynNetwork [\"-t\", \"<dev> <fc=#387BAB><rx>kB/s</fc> <fc=#005F87><tx>kB/s</fc>\", \"-w\", \"3\"] 15",
-                        "Run Date \"%a %m-%d %H:%M:%S \" \"date\" 10",
-                        "Run Com \"/usr/bin/cut\" [\"-d\", \" \", \"-f\", \"1-3\", \"/proc/loadavg\"] \"load\" 50",
+                        "Run DynNetwork [\"-t\", \"<dev> <fc=#387BAB>↓<rx>kB</fc> <fc=#005F87>↑<tx>kB</fc>\", \"-w\", \"3\"] 15",
+                        "Run Date \"%a %d-%m %H:%M:%S \" \"date\" 10",
                         "Run BatteryP [\"BAT0\"] [\"-t\", \"<fc=#D0CFD0><acstatus></fc><left>\", \"-S\", \"True\", \"-L\", \"30\", \"-H\", \"70\", \"-p\", \"3\", \"-l\", \"#D74083\", \"-n\", \"#FF9926\", \"-h\", \"#93FF19\", \"--\", \"-O\", \"+\", \"-o\", \"-\", \"-f\", \"BAT0/subsystem/ADP0/online\" ] 600",
                         "Run StdinReader",
                         "Run Memory [\"-p\", \"2\", \"-c\", \"0\", \"-S\", \"True\",\"-H\", \"80\", \"-h\", \"#D7005F\", \"-L\", \"50\", \"-l\", \"#87FF00\", \"-n\", \"#FF8700\", \"-t\", \"RAM: <usedratio>\"] 50",
@@ -100,7 +99,7 @@ defaultXMobarRC = Config
                         "Run Com \"fumeup\" [] \"fume\" 10"
                         ],
 
-                      Opt "template"  " %StdinReader% <fc=#3F3F3F>| <fc=#D0CFD0>%mpd%</fc></fc> }{ %fume%<fc=#3F3F3F>| </fc><fc=#3F3F3F>%dynnetwork%</fc><fc=#3F3F3F> | %memory% | %cpu% | <fc=#B973FF>%load%</fc> | %battery%</fc><fc=#3F3F3F> | </fc><fc=#D0CFD0><action=`fuzzydate.sh`>%date%</action></fc>"
+                      Opt "template"  " %StdinReader% <fc=#3F3F3F>| <fc=#D0CFD0>%mpd%</fc></fc> }{ %fume%<fc=#3F3F3F>| </fc><fc=#3F3F3F>%dynnetwork%</fc><fc=#3F3F3F> | %memory% | %cpu% | %battery%</fc><fc=#3F3F3F> | </fc><fc=#D0CFD0><action=`calendar.sh`>%date%</action></fc>"
                     ]
 
 getDefaultXMobarRC :: IO FilePath
