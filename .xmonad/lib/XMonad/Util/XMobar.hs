@@ -99,7 +99,7 @@ defaultXMobarRC = Config
                         "Run Com \"fumeup\" [] \"fume\" 10"
                         ],
 
-                      Opt "template"  " %StdinReader% <fc=#3F3F3F>| <fc=#D0CFD0>%mpd%</fc></fc> }{ %fume%<fc=#3F3F3F>| </fc><fc=#3F3F3F>%dynnetwork%</fc><fc=#3F3F3F> | %memory% | %cpu% | %battery%</fc><fc=#3F3F3F> | </fc><fc=#D0CFD0><action=`calendar.sh`>%date%</action></fc>"
+                      Opt "template"  " %StdinReader% <fc=#3F3F3F>| <fc=#D0CFD0><action=`mpc toggle`>%mpd%</action></fc></fc> }{ %fume%<fc=#3F3F3F>| </fc><fc=#3F3F3F>%dynnetwork%</fc><fc=#3F3F3F> | %memory% | %cpu% | %battery%</fc><fc=#3F3F3F> | </fc><fc=#D0CFD0><action=`calendar.sh`>%date%</action></fc>"
                     ]
 
 getDefaultXMobarRC :: IO FilePath
