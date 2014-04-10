@@ -89,7 +89,7 @@ defaultXMobarRC = Config
                       OptEnum "position"  "BottomW L 96",
                       OptEnum "lowerOnStart" $ show  True,
                       OptList "commands"  [
-                        "Run DynNetwork [\"-t\", \"<dev> <fc=#387BAB>↓<rx>kB</fc> <fc=#005F87>↑<tx>kB</fc>\", \"-w\", \"3\"] 15",
+                        "Run DynNetwork [\"-t\", \"<dev> <fc=#387BAB><icon=/home/rejuvyesh/.xmonad/icons/net_down_03.xbm/><rx>kB</fc> <fc=#005F87><icon=/home/rejuvyesh/.xmonad/icons/net_up_03.xbm/><tx>kB</fc>\", \"-M\", \"4\"] 15",
                         "Run Date \"%a %d-%m %H:%M:%S \" \"date\" 10",
                         "Run BatteryP [\"BAT0\"] [\"-t\", \"<fc=#D0CFD0><acstatus></fc><left>\", \"-S\", \"True\", \"-L\", \"30\", \"-H\", \"70\", \"-p\", \"3\", \"-l\", \"#D74083\", \"-n\", \"#FF9926\", \"-h\", \"#93FF19\", \"--\", \"-O\", \"+\", \"-o\", \"-\", \"-f\", \"BAT0/subsystem/ADP0/online\" ] 600",
                         "Run StdinReader",
