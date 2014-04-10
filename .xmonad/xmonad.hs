@@ -236,12 +236,14 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- prev / next workspace
     , ((modm, xK_h ), windows . W.greedyView =<< findWorkspace getSortByIndexNoSP Next HiddenNonEmptyWS 1)
     , ((modm .|. shiftMask, xK_h ), windows . W.greedyView =<< findWorkspace getSortByIndexNoSP Prev HiddenNonEmptyWS 1)
-
-    -- Restart xmonad
-    , ((modm .|. shiftMask, xK_q ), spawn "killall trayer ; xmonad --recompile && xmonad --restart")
-    , ((modm .|. controlMask, xK_q), spawn "endsession")
+    -- minimize window  
     , ((modm,               xK_v ), withFocused minimizeWindow)
     , ((modm .|. shiftMask, xK_v ), sendMessage RestoreNextMinimizedWin)
+
+    -- Restart xmonad
+    , ((modm .|. shiftMask, xK_q ),  spawn "killall trayer ; xmonad --recompile && xmonad --restart")
+    , ((modm .|. controlMask, xK_q), spawn "endsession")
+
     -- lock xmonad screen
     , ((modm,           xK_Escape), spawn "slock")
     -- toggle mouse
@@ -261,8 +263,8 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_c), spawn  "xclip -selection primary -o | xclip -selection clipboard -i")
 
       -- swap screens
-    , ((modm, xK_j ), spawn "rotate_screen normal")
-    , ((modm .|. shiftMask, xK_j ), spawn "rotate_screen left")
+    , ((modm, xK_j ),                 spawn "rotate_screen normal")
+    , ((modm .|. shiftMask, xK_j ),   spawn "rotate_screen left")
     , ((modm .|. controlMask, xK_j ), spawn "rotate_screen right")
 
       -- making my favorites playlist
@@ -270,14 +272,14 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
       -- screenshot
       -- screenshot screen
-    , ((0, xK_Print), spawn "screenshot.sh scr")
+    , ((0, xK_Print),                spawn "screenshot.sh scr")
     , ((modm .|. controlMask, xK_o), spawn "screenshot.sh scr")
     -- screenshot window or area
-    , ((modm, xK_Print), spawn "selection")
-    , ((modm .|. shiftMask, xK_o), spawn "selection")
+    , ((modm, xK_Print),             spawn "selection")
+    , ((modm .|. shiftMask, xK_o),   spawn "selection")
 
     -- Brightness Control
-    , ((0, xF86XK_MonBrightnessUp), spawn "light -aq 20")
+    , ((0, xF86XK_MonBrightnessUp),   spawn "light -aq 20")
     , ((0, xF86XK_MonBrightnessDown), spawn "light -sq 20")
     -- Volume control
     , ((0, xF86XK_AudioLowerVolume), -- XF86AudioLowerVolume
