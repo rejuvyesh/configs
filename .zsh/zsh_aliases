@@ -151,7 +151,8 @@ function ga-new-direct() {
 alias mrr="mr register"
 alias mup="mr -j5 update"
 
-alias e="emacsclient -nw"
+# emacs
+alias e="remacs"
 alias ee="emacs-gui"
 alias se="sudo emacs -nw"
 
@@ -233,6 +234,7 @@ alias du='du -kh'
 alias rr="tag_filename -t read"
 alias ur="tag_filename -t !read"
 alias ut="tag_filename -t !"
+alias fic="tag_filename -t fiction"
 
 # watch
 alias watch="watch -c"
