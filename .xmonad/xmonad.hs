@@ -507,7 +507,7 @@ eventHook' = minimizeEventHook
 -- | Startup applications
 startupHook' :: X()
 startupHook' = do
-  spawnOnce "firewall"
+  spawnOnce "try firewall"
   spawnOnce "mpd_notify -d"
   spawnOnce "arbtt-capture"
   "net-wait && firefox" `runIfNot` (className =? "Firefox")
