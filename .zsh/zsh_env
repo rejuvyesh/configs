@@ -1,19 +1,15 @@
 # -*- mode: sh; -*-
 
 ## Editor
-if [[ -e $(which emacs) ]]; then
-    export EDITOR="emacsclient -nw"
-    export VISUAL="emacsclient -nw"
-else
-    if [[ -e $(which vim) ]]; then
-        export EDITOR="vim"
-        export VISUAL="vim"
-    else
-        export EDITOR="vi"
-        export VISUAL="vi"
-    fi
+if [[ -e $(which emacs-gui) ]]; then
+  export EDITOR="emacs-gui-wait"
+elif [[ -e $(which emacs) ]]; then
+  export EDITOR="emacs"
+elif [[ -e $(which vim) ]]; then
+  export EDITOR="vim"
 fi
 
+export VISUAL=$EDITOR
 ## pager
 export PAGER="less -R"
 
