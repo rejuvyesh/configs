@@ -58,7 +58,7 @@ build-summary: /home/rejuvyesh/.cabal/logs/build.log
 -- build-log:
 remote-build-reporting: anonymous
 -- one-shot: False
--- jobs:
+jobs: 2
 -- username:
 -- password:
 
