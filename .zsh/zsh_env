@@ -62,8 +62,8 @@ if [[ -s ~/.rbenv ]]; then
     export PATH="$HOME/.bundle/bin:$PATH"
 fi
 
-# cabal
-CABAL_BIN="$HOME/.cabal/bin"
+# cabal / haskell
+CABAL_BIN="$HOME/local/cabal/bin"
 [ -d $CABAL_BIN ] && PATH=${CABAL_BIN}:${PATH}
 
 # go
