@@ -9,31 +9,31 @@
 
 
 remote-repo: hackage.haskell.org:http://hackage.haskell.org/packages/archive
-remote-repo-cache: /home/rejuvyesh/local/cabal/packages
+remote-repo-cache: /home/rejuvyesh/.cache/cabal/packages
 -- local-repo:
--- logs-dir:
-world-file: /home/rejuvyesh/.cabal/world
+logs-dir: /home/rejuvyesh/.cache/cabal/logs
+world-file: /home/rejuvyesh/.cache/cabal/world
 -- verbose: 1
--- compiler: ghc
+compiler: ghc
 -- with-compiler:
 -- with-hc-pkg:
 -- scratchdir:
 -- program-prefix: 
 -- program-suffix: 
 -- library-vanilla: True
--- library-profiling: False
+library-profiling: True
 -- shared: False
 -- executable-dynamic: False
 -- executable-profiling: False
--- optimization: True
--- library-for-ghci: True
+optimization: True
+library-for-ghci: True
 -- split-objs: False
--- executable-stripping: True
+executable-stripping: True
 user-install: True
 -- package-db:
 -- flags:
 -- extra-include-dirs:
--- extra-lib-dirs:
+extra-lib-dirs: /home/rejuvyesh/local/cabal/lib
 extra-prog-path: /home/rejuvyesh/local/cabal/bin
 -- tests: False
 -- library-coverage: False
@@ -54,26 +54,26 @@ extra-prog-path: /home/rejuvyesh/local/cabal/bin
 -- only-dependencies: False
 -- root-cmd:
 -- symlink-bindir:
-build-summary: /home/rejuvyesh/.cabal/logs/build.log
+build-summary: /home/rejuvyesh/.cache/cabal/logs/build.log
 -- build-log:
 remote-build-reporting: anonymous
 -- one-shot: False
-jobs: 2
+jobs: $ncpus
 -- username:
 -- password:
 
 install-dirs user
- prefix: /home/rejuvyesh/local/cabal
- bindir: $prefix/bin
- libdir: $prefix/lib
- libsubdir: $arch-$os-$compiler/$pkgid
- libexecdir: $prefix/libexec
- datadir: $prefix/share
- datasubdir: $arch-$os-$compiler/$pkgid
- docdir: $datadir/doc/$arch-$os-$compiler/$pkgid
- htmldir: $docdir/html
- haddockdir: $htmldir
- sysconfdir: $prefix/etc
+  prefix: /home/rejuvyesh/local/cabal
+  bindir: $prefix/bin
+  libdir: $prefix/lib
+  libsubdir: $arch-$os-$compiler/$pkgid
+  libexecdir: $prefix/libexec
+  datadir: $prefix/share
+  datasubdir: $arch-$os-$compiler/$pkgid
+  docdir: $datadir/doc/$arch-$os-$compiler/$pkgid
+  htmldir: $docdir/html
+  haddockdir: $htmldir
+  sysconfdir: $prefix/etc
 
 install-dirs global
   -- prefix: /usr/local
