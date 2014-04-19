@@ -25,6 +25,7 @@ source ~/.zsh/zsh_aliases
 source ~/.zsh/zsh_prompt
 source ~/.zsh/zsh_env
 source ~/.zsh/functions.sh
+source ~/.zsh/ls_colors.sh
 source ~/.zsh/key-bindings.sh
 source ~/.zsh/title.sh
 source ~/.zsh/syntax.sh
