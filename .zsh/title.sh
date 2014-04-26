@@ -28,6 +28,7 @@ function preexec() {
   case $TERM in
     screen*)
       local CMD=${1[(wr)^(*=*|sudo|-*)]}
+      CMD=$(print -Pn "%15>~>$CMD" | tr -d "\n")
       echo -ne "\ek$CMD\e\\"
       ;;
   esac
