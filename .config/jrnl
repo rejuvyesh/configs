@@ -1,0 +1,13 @@
+{
+  "timeformat": "%Y-%m-%d %H:%M",
+  "tagsymbols": "@",
+  "default_hour": 9,
+  "default_minute": 0,
+  "encrypt": false,
+  "linewrap": 79,
+  "highlight": true,
+  "editor": "emacs-gui-wait",
+  "journals": {
+    "default": "/home/rejuvyesh/Documents/spoiler/journal.txt"
+  }
+}
