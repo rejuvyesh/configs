@@ -9,13 +9,20 @@
 [color]
 	ui = auto
 [alias]
-	co = checkout
-	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	d = difftool
-	ci = commit
-	unt = ls-files --other --exclude-standard
-	pum = pull origin master
+	br    = branch
+	ci    = commit
+	co		= checkout
+	hist	= log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	lg		= log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	d			= difftool
+	df    = diff --color-words
+	ds    = diff --staged
+	dc		= diff --cached
+	ci		= commit
+	undo  = checkout --
+	pom   = push origin master
+	pum		= pull origin master
+	st    = status -s
 [diff]
 	tool = meld
 [difftool]
