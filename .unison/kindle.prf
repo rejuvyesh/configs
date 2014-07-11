@@ -1,0 +1,10 @@
+root = /home/rejuvyesh/books/reading_list/
+root = /media/Kindle/documents/
+
+ignore = Name *.apnx
+ignore = Name *.mbp
+ignore = Name *.pdr
+ignore = Name *.ea
+ignore = Name *.phl
+ignore = Name *.sa
+ignore = Name *.tan
