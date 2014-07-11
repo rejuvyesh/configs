@@ -23,6 +23,8 @@
 	pom   = push origin master
 	pum		= pull origin master
 	st    = status -s
+[apply]
+	whitespace = fix
 [diff]
 	tool = meld
 [difftool]
@@ -33,7 +35,7 @@
 [mergetool "meld3"]
 	cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $MERGED $REMOTE
 [push]
-	default = matching
+	default = simple
 [core]
 	autocrlf = input
 	safecrlf = true
