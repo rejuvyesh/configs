@@ -1,6 +1,7 @@
 [user]
 	email = mail@rejuvyesh.com
 	name = rejuvyesh
+	signingkey = CEEACD5D
 [credential]
 	helper = cache --timeout=360000
 [github]
