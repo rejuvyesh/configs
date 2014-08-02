@@ -16,12 +16,7 @@ vd-lavc-threads=2
 # correct pitch when speed is faster or slower than 1.0
 af=scaletempo
 
-# allow to seek in a file which is still downloading whilst watching it
-idx=yes
-
-joystick=no
-
-lirc=no
+input-lirc=no
 # allow to increase the maximal volume to 600%
 #softvol-max=600
 
