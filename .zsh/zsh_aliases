@@ -33,6 +33,7 @@ alias reload!='. ~/.zshrc'
 
 function li() { libreoffice $* >/dev/null 2>/dev/null &! }
 function ff() { firefox $* >/dev/null 2>/dev/null &! }
+function ffp() { firefox -private-window $* >/dev/null 2>/dev/null &! }
 function za() { zathura $* >/dev/null 2>/dev/null &! }
 function ok() { okular $* >/dev/null 2>/dev/null &! }
 function mat() {
