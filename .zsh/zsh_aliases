@@ -156,6 +156,9 @@ function ga-new-direct() {
 alias mrr="mr register"
 alias mup="mr -j5 update"
 
+# unison
+alias uk="unison -fat kindle"
+
 # emacs
 alias e="remacs"
 alias ee="emacs-gui"
