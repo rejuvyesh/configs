@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+# Created by rejuvyesh <mail@rejuvesh.com>
+
+nixnote2 --syncAndExit >/dev/null 2>/dev/null
