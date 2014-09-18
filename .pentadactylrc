@@ -2,7 +2,7 @@ set history=5000
 set guioptions=bCrs
 colorscheme lightgrey
 highlight -a Hint     font-size:10pt !important;
-loadplugins '\.(js|penta)$'
+loadplugins '\.(css|js|penta)$'
 group user
 " `mapleader` setting/option is removed!
 map , <Leader>
