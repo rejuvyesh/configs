@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+# Copyright muflax <mail@muflax.com>, 2014
+# License: GNU GPL 3 <http://www.gnu.org/copyleft/gpl.html>
+
+def main():
+
+if __name__ == "__main__":
+    main()
+# cursor: 5 del
