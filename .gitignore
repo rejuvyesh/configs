@@ -69,6 +69,7 @@
 .covers
 .thumbnails
 .matlab
+.cabal/setup-exe-cache
 
 # ignore logs
 *log
@@ -121,15 +122,11 @@
 # ignore wine
 .wine*
 
-
 # ignore rbenv
 .rbenv
 
 # ignore virtualenv
 .virtualenvs
-
-# ignore cabal
-.cabal
 
 # ignore cpan
 .cpan
@@ -178,14 +175,16 @@
 .mutt/tmp
 .elinks/bookmarks
 .fehbg
-/.Foxit/
-/.bash_logout
-/.beeminderrc
-/.mpd/mpd.db
-/.wsend/
-/.mpd/pid
-/.mpd/playlists/5.m3u
-/.mpd/state
-/.Xauthority
-/.ghc/x86_64-linux-7.6.3/
-/.pandoc/
+.Foxit/
+.bash_logout
+.beeminderrc
+.mpd/mpd.db
+.wsend/
+.mpd/pid
+.mpd/playlists/5.m3u
+.mpd/state
+.Xauthority
+.ghc/x86_64-linux-7.*
+.pandoc/
+.config/lastfm
+.xournal
