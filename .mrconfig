@@ -42,3 +42,9 @@ checkout = git clone 'https://github.com/pwmt/zathura-ps.git' 'zathura-ps'
 
 [src/haskell/arbtt]
 checkout = git clone 'https://bitbucket.org/nomeata/arbtt.git' 'arbtt'
+
+[.zsh/git-annex-zsh-completion]
+checkout = git clone 'https://github.com/Schnouki/git-annex-zsh-completion.git' 'git-annex-zsh-completion'
+
+[src/haskell/hledger]
+checkout = git clone 'https://github.com/simonmichael/hledger.git' 'hledger'
