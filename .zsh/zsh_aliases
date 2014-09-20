@@ -89,7 +89,7 @@ function y() {
     y_path="$1"
   fi
   echo "Paste links, ^D start to download."
-  youtube-dl --proxy "jayeshkg:$password@nknproxy.iitk.ac.in:3128" --ignore-errors --continue --rate-limit 2.5m -o "${y_path}/%(title)s-%(id)s.%(ext)s" -a-
+  youtube-dl --proxy "jayeshkg:$password@nknproxy.iitk.ac.in:3128" -o "${y_path}/%(title)s-%(id)s.%(ext)s" -a-
 }
 function yw() {
   echo "Paste link, ^D start to watch."
