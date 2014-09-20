@@ -36,9 +36,6 @@ unclutter -root -idle 1f &
 
 ## qt + gtk
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-# compose key
-export $GTK_IM_MODULE="xim"
-export $QT_IM_MODULE="xim"
 
 # urxvt
 urxvt -e tmux &
@@ -50,13 +47,17 @@ volti &
 wicd-client --tray & >/dev/null
 
 # redshift
-redshift-gtk -l 26.4583:80.3173 -t 6500:4500 & >/dev/null
+# redshift -l 26.4583:80.3173 -t 6500:4500 & >/dev/null
+blueshift -c ~/.config/blueshift/comprehensive  &
 
 # fancy window fading
 compton -f -I 0.10 -O 0.10 -D 5 -b
 
 # restore current-reads
 restore zathura &
+
+# filtered folders
+mount_filterfs.sh
 
 WM="xmonad"
 exec dbus-launch --auto-syntax --exit-with-session $WM
