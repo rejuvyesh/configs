@@ -1,20 +1,4 @@
-# # https://github.com/ornicar/dotfiles/blob/master/asoundrc
-ctl.equal {
-          type equal;
-        }
-
-        pcm.plugequal {
-          type equal;
-          # Modify the line below if you don't
-          # want to use sound card 0.
-          slave.pcm "plug:dmix";
-        }
-
-        # pcm.equal {
-          # Or if you want the equalizer to be your
-          # default soundcard uncomment the following
-          # line and comment the above line.
-        pcm.!default {
-          type plug;
-          slave.pcm plugequal;
-        }
+pcm.dsp {
+    type plug
+    slave.pcm "dmix"
+    }
