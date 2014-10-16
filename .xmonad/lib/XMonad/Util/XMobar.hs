@@ -18,6 +18,7 @@ import           System.Posix.Files             (getFileStatus,
                                                  modificationTime)
 import           System.Posix.Types             (EpochTime)
 
+
 -- | Locations of files on the syste
 xmobarRC :: IO FilePath -- Something like "/home/rejuvyesh/.config/xmobar/xmobarrc
 xmobarRC = do dir <- getUserConfigDir "xmobar"
@@ -73,20 +74,21 @@ instance Show Config where
     where fmt options = intercalate "\n , " $ map show options
 
 instance Show Option where
-  show (Opt key value) = concat [key, " = ", show value]
-  show (OptEnum key value) = concat [key, " = ", value]
+  show (Opt key value)      = concat [key, " = ", show value]
+  show (OptEnum key value)  = concat [key, " = ", value]
   show (OptList key values) = concat [key, " = ", fmt (length key + 12) values ]
     where fmt indent values = concat ["[ ", intercalate sep values, end]
             where space = replicate indent ' '
                   sep = concat ["\n", space, ", "]
                   end = concat ["\n", space, "]"]
 
-defaultXMobarRC :: Config
-defaultXMobarRC = Config
-                  [ Opt "font"  "xft:Consolas-8",
+
+defaultXMobarRC :: Int -> Int -> Config
+defaultXMobarRC swidth sheight = Config
+                  [ Opt "font"  "xft:Consolas:size=8,DejaVu Sans Mono:size=8,Symbola:size=8,Sazanami Gothic:size=8",
                     Opt "bgColor"  "#121212",
                     Opt "fgColor"  "#AFAF87",
-                    OptEnum "position"  "BottomW L 96",
+                    OptEnum "position" pos,
                     OptEnum "lowerOnStart" $ show  True,
                     OptList "commands"  [
                         "Run DynNetwork [\"-t\", \"<dev> <fc=#387BAB><icon=/home/rejuvyesh/.xmonad/icons/net_down_03.xbm/><rx>kB</fc> <fc=#005F87><icon=/home/rejuvyesh/.xmonad/icons/net_up_03.xbm/><tx>kB</fc>\", \"-M\", \"5\"] 15",
@@ -95,11 +97,17 @@ defaultXMobarRC = Config
                         "Run StdinReader",
                         "Run Memory [\"-p\", \"2\", \"-c\", \"0\", \"-S\", \"True\",\"-H\", \"80\", \"-h\", \"#D7005F\", \"-L\", \"50\", \"-l\", \"#87FF00\", \"-n\", \"#FF8700\", \"-t\", \"RAM: <usedratio>\"] 50",
                         "Run Cpu [\"-p\", \"2\", \"-c\", \"0\", \"-S\", \"True\", \"-H\", \"75\", \"-h\", \"#D7005F\", \"-L\", \"30\", \"-l\", \"#87FF00\", \"-n\", \"#FF8700\", \"-t\", \"CPU: <total>\"] 50",
-                        "Run MPD [\"-t\", \"<fc=#387BAB><artist><fc=#4F3F3F> <statei> </fc><title></fc>\", \"--\", \"-P\", \"-\", \"-Z\", \"//\", \"-S\", \"><\"] 50",
+                        "Run MPD [\"-t\", \"<fc=#387BAB><artist><fc=#4F3F3F> <statei> </fc><title></fc>\", \"--\", \"-P\", \"►\", \"-Z\", \"||\", \"-S\", \"◼\"] 50",
                         "Run Com \"fumeup\" [] \"fume\" 10"
                         ],
                     Opt "template"  " %StdinReader% <fc=#3F3F3F>| <fc=#D0CFD0><action=`mpc prev` button=1><action=`mpc toggle` button=2><action=`mpc next` button=3>%mpd%</action></action></action></fc></fc> }{ <fc=#D0CFD0>%fume%</fc><fc=#3F3F3F> | </fc><fc=#3F3F3F><action=`net.sh`>%dynnetwork%</action></fc><fc=#3F3F3F> | %memory% | %cpu% | %battery%</fc><fc=#3F3F3F> | </fc><fc=#D0CFD0><action=`calendar.sh` button=1><action=`fuzzydate.sh` button=3>%date%</action></action></fc>"
                     ]
+  where
+    x = show 0
+    y = show (sheight - 15)
+    w = show $ ceiling (0.96 * fromIntegral swidth)
+    h = show 15
+    pos = "Static {xpos = " ++ x ++ ", ypos = " ++ y ++ ", width = " ++ w ++ ", height = " ++ h ++ " }"
 
-getDefaultXMobarRC :: IO FilePath
-getDefaultXMobarRC = getXMobarRC defaultXMobarRC
+getDefaultXMobarRC :: Int -> Int -> IO FilePath
+getDefaultXMobarRC swidth sheight = getXMobarRC $ defaultXMobarRC swidth sheight
