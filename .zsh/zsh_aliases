@@ -74,6 +74,17 @@ upgrade() {
  }
 fi
 
+# nix
+alias nix-env="noglob nix-env"
+alias ne="nix-env"
+function nix-update() {
+  nix-channel --update
+  nix-env -u '*' --always --dry-run
+  echo "update? [RET/^C]"; read
+  nix-env -u '*' --always
+}
+alias nup="nix-update"
+
 # https://bbs.archlinux.org/viewtopic.php?id=93683
 paclist() {
   sudo pacman -Qei $(pacman -Qu|cut -d" " -f 1)|awk ' BEGIN {FS=":"}/^Name/{printf("\033[1;36m%s\033[1;37m", $2)}/^Description/{print $2}'
