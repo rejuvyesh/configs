@@ -171,7 +171,7 @@ alias mup="mr -j5 update"
 alias uk="unison -fat kindle"
 
 # emacs
-alias e="remacs"
+alias e="emacs -nw"
 alias ee="emacs-gui"
 alias se="sudo emacs -nw"
 
