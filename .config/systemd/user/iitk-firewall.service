@@ -1,0 +1,11 @@
+[Unit]
+Description=IIT-K Firwall
+
+[Service]
+Environment=DISPLAY=:0 
+Type=simple
+ExecStart=/home/rejuvyesh/local/bin/firewall
+Restart=always
+
+[Install]
+WantedBy=default.target
