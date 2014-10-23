@@ -29,7 +29,6 @@ source /usr/bin/virtualenvwrapper.sh
 # ~/local dir
 export PATH="$HOME/local/bin:$PATH"
 export MANPATH="$HOME/local/share/man:$MANPATH"
-export LD_LIBRARY_PATH="$HOME/local/lib:$LD_LIBRARY_PATH"
 
 # nix
 source "$HOME/.nix-profile/etc/profile.d/nix.sh"
