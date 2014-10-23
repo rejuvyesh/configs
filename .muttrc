@@ -76,7 +76,7 @@ set status_format = "%f(%n)%> %?p?drafts(%p)?"
 # Editor {{{
 
 set tmpdir = $HOME/.mutt/tmp
-set editor = "emacsclient -a \"\" -t"
+set editor = "emacs -nw"
 set edit_headers=no
 set include
 
