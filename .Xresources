@@ -24,7 +24,7 @@ URxvt.skipScroll        : true
 
 URxvt.perl-lib        : /usr/lib/urxvt/perl/
 URxvt.perl-ext-common : default,matcher,clipboard,font-size
-URxvt.url-launcher    : /usr/bin/firefox
+URxvt.url-launcher    : firefox
 URxvt.matcher.button  : 1
 URxvt.saveLines       : 100000
 URxvt.keysym.M-c      : perl:clipboard:copy
