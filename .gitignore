@@ -131,6 +131,10 @@
 # ignore cpan
 .cpan
 
+# ignore nix
+.nix-defexpr
+.nix-profile
+
 # ignore lol
 .lolcommits
 .rmpvrc
