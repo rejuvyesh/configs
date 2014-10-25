@@ -1,0 +1,13 @@
+directory: ~/music
+library: ~/local/share/beet/musiclibrary.bib
+
+import:
+  move: yes
+
+plugins: lyrics lastgenre fromfilename smartplaylist random mpdupdate fetchart echonest duplicates play mpdstats zero
+
+zero:
+  fields: comments
+
+echonest:
+  upload: no
