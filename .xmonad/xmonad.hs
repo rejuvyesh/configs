@@ -70,6 +70,7 @@ import           XMonad.Util.Scratchpad              (scratchpadFilterOutWorkspa
 import           XMonad.Util.WorkspaceCompare        (getSortByIndex)
 import           XMonad.Util.XSelection
 
+import           XMonad.Util.Password
 import           XMonad.Util.SpawnOnce
 import           XMonad.Util.Trayer
 import           XMonad.Util.XMobar
@@ -160,6 +161,10 @@ defaultXPConfig' = defaultXPConfig
                    , historySize       = 20
                    , defaultText       = []
                    }
+
+passwordXPConfig = defaultXPConfig'
+                   { historySize = 0
+                   }
 -- | theme
 defaultTheme' :: Theme
 defaultTheme' = defaultTheme
@@ -192,6 +197,8 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. controlMask, xK_d ), namedScratchpadAction scratchpads "rtorrent")
     , ((modm, xK_a ), namedScratchpadAction scratchpads "anking")
 
+    -- password
+    , ((modm, xK_p ), passwordPrompt passwordXPConfig)
     -- anki
     , ((modm .|. shiftMask, xK_a ), runOrRaise "anki" (className =? "Anki"))
     -- launch dmenu
@@ -451,12 +458,6 @@ scratchpad = scratchpadSpawnActionCustom "urxvt -name scratchpad -e zsh -l -c 's
 
 -- | Other Scratchpads
 scratchpads :: [NamedScratchpad]
-scratchpads = [ NS "pidgin"
-                       "pidgin"
-                       (role =? "buddy_list")
-                       defaultFloating
-              , NS "rtorrent"
-                       "urxvt -name rtorrent -e zsh -c 'tmux attach -t rt'"
                        (appName =? "rtorrent")
                        doResizeFloat
               , NS "anking"
@@ -464,7 +465,6 @@ scratchpads = [ NS "pidgin"
                        (title =? "Anking")
                        defaultFloating
               ]
-              where role = stringProperty "WM_WINDOW_ROLE"
 
 manageScratchpads :: ManageHook
 manageScratchpads = manageTerminal <+> namedScratchpadManageHook scratchpads
