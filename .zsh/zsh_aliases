@@ -123,8 +123,8 @@ alias tor="tor-browser-en"
 alias cp="cp -iv"
 alias mv="mv -iv"
 
-################################################################################# System related
-alias abschaltung="systemctl poweroff"
+################################################################################
+# System related
 alias enablebluetooth="systemctl start bluetooth.service"
 alias sc="systemctl"
 ################################################################################# git related
@@ -214,10 +214,6 @@ alias mup="mr -j5 update"
 alias bot="beeminder_org_todo.rb"
 alias bota="beeminder_org_todo.rb -a"
 
-# ros
-alias catkin_make='catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so'
-alias catkin_make_isolated='catkin_make_isolated -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so'
-
 # mpv
 alias ms="rmpv -c show"
 alias mb="rmpv -b -s 200x100"
@@ -266,9 +262,6 @@ function wi() {
 alias te=trash-empty
 alias tp=trash-put
 alias tl=trash-list
-
-# wsend
-alias -g wsend='/home/rejuvyesh/.wsend/wsend'
 
 # scan cleaner
 alias scl='scancleaner'
