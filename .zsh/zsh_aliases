@@ -219,9 +219,13 @@ alias bot="beeminder_org_todo.rb"
 alias bota="beeminder_org_todo.rb -a"
 
 # mpv
-alias ms="rmpv -c show"
-alias mb="rmpv -b -s 200x100"
-alias mm="rmpv"
+if hash "rmpv" 2> /dev/null; then
+    alias mm="rmpv"
+    alias ms="rmpv -c show"
+    alias mb="rmpv -b -s 200x100"
+else
+    alias mm="mpv"
+fi
 
 # ruby
 alias i="pry"
