@@ -40,9 +40,6 @@ unclutter -root -idle 1f &
 ## qt + gtk
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
-# urxvt
-urxvt -e tmux &
-
 # volti
 volti &
 
