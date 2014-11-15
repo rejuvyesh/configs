@@ -44,6 +44,7 @@ gem "ruby-mpd"
 gem "libnotify"
 gem "moneta"
 gem "travis"
+gem "tugboat"
 
 # muflax
 gem "muflax"
