@@ -147,7 +147,13 @@ function pack-large() {
 alias pack="pack-7z"
 
 function ppt2pdf() {
-  loimpress --headless --convert-to pdf "$@"
+  local imp;
+  if hash "simpress" 2> /dev/null; then
+      imp="simpress"
+  elif hash "loimpress" 2> /dev/null; then
+      imp="loimpress"
+  fi
+  $imp --headless --convert-to pdf "$@"
 }
 
 function bu() {
