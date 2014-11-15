@@ -76,9 +76,9 @@ cp_p()
 alias scratchpad="tm scratchpad"
 function tm() {
   if [[ $# -ge 1 ]]; then
-    tmux attach -t $1 || tmux new-session -s $1 \; set default-path "$(pwd)" \; set -g -a update-environment ' PWD'
+    tmux attach -t $1 || tmux new-session -s $1 \; bind c neww -c "$(pwd)"
   else
-    tmux new-session \; set default-path "$(pwd)" \; set -g -a update-environment ' PWD'
+    tmux new-session \; bind c neww -c "$(pwd)"
   fi
 }
 
