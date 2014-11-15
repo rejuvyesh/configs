@@ -127,7 +127,11 @@ alias mv="mv -iv"
 # System related
 alias enablebluetooth="systemctl start bluetooth.service"
 alias sc="systemctl"
-################################################################################# git related
+#################################################################################
+# git related
+if hash "hub" 2> /dev/null; then
+    alias git="hub"
+fi
 alias g="git"
 alias gst="git status"
 alias gpom="git push origin master"
