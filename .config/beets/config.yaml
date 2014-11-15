@@ -4,10 +4,31 @@ library: ~/local/share/beet/musiclibrary.bib
 import:
   move: yes
 
-plugins: lyrics lastgenre fromfilename smartplaylist random mpdupdate fetchart echonest duplicates play mpdstats zero
+plugins: lyrics lastgenre fromfilename smartplaylist random mpdupdate fetchart echonest duplicates play zero info artistcountry lastimport
 
 zero:
   fields: comments
 
+lastfm:
+  user: rejuvyesh
+
 echonest:
   upload: no
+
+smartplaylist:
+  playlist_dir: ~/music/_playlists
+  playlists:
+    - name: all.m3u
+      query: ''
+
+    - name: beatles.m3u
+      query: 'artist:Beatles'
+
+    - name: post-rock.m3u
+      query: 'genre:Post'
+
+    - name: world-end-girlfriend.m3u
+      query: 'artist:end girlfriend'
+
+    - name: more-than-20.m3u
+      query: 'play_count:20..'
