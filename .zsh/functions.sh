@@ -167,3 +167,8 @@ function sx() { sxiv -trq "$@" 2>/dev/null &!}
 function mirror() {
   wget --mirror --no-parent --adjust-extension --restrict-file-names=windows --convert-links -p -w 15 -P ~/archive/www/ "$@"
 }
+
+# https://transfer.sh/
+function transfer() {
+  curl --upload-file $1 "http://transfer.sh/${1}"
+}
