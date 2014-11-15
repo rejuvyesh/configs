@@ -507,9 +507,7 @@ eventHook' = minimizeEventHook
 -- | Startup applications
 startupHook' :: X()
 startupHook' = do
-  spawnOnce "try firewall"
   spawnOnce "mpd_notify -d"
-  spawnOnce "arbtt-capture"
   "net-wait && firefox" `runIfNot` (className =? "Firefox")
   setWMName "LG3D"
   setDefaultCursor xC_left_ptr
