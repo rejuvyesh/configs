@@ -1,5 +1,6 @@
 # completion
 
+
 # allow approximate
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
@@ -41,4 +42,6 @@ zstyle ':acceptline:*' rehash true
 zstyle ':completion:*:sudo:*' command-path $path
 
 fpath=(~/.zsh/pass-completion $fpath)
-fpath=(~/.zsh/gibo-completion $fpath)
+fpath=(~/.zsh/hub-completion/ $fpath)
+fpath=(~/.zsh/git-annex-zsh-completion/ $fpath)
+

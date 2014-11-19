@@ -130,7 +130,7 @@ alias sc="systemctl"
 #################################################################################
 # git related
 if hash "hub" 2> /dev/null; then
-    alias git="hub"
+    function git(){ hub "$@" }
 fi
 alias g="git"
 alias gst="git status"
