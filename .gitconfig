@@ -1,11 +1,9 @@
 [user]
-	email = mail@rejuvyesh.com
-	name = rejuvyesh
-	signingkey = CEEACD5D
+	email       = mail@rejuvyesh.com
+	name        = rejuvyesh
+	signingkey  = CEEACD5D
 [credential]
 	helper = cache --timeout=360000
-[github]
-	user = rejuvyesh
 [color]
 	ui = auto
 [alias]
@@ -22,11 +20,12 @@
 	undo  = checkout --
 	pom   = push origin master
 	pum		= pull origin master
+	unt   = ls-files --other --exclude-standard
 	st    = status -s
-[apply]
-	whitespace = fix
+	pur   = pull --rebase
 [diff]
 	tool = meld
+	mnemonicprefix = true
 [difftool]
 	prompt = false
 [merge]
@@ -35,8 +34,11 @@
 [mergetool "meld3"]
 	cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $MERGED $REMOTE
 [push]
-	default = simple
-[core]
-	autocrlf = input
-	safecrlf = true
-	excludesfile = /home/rejuvyesh/.global-gitignore
+	default = matching
+[core]	
+	excludesfile	= /home/rejuvyesh/.global-gitignore
+[gui]
+	encoding                = utf-8
+	spellingdictionary      = none
+[include]
+	path = .git-local
