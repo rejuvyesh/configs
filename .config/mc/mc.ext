@@ -403,7 +403,7 @@ shell/.ico
 	Include=image
 
 include/image
-	Open=if [ "$DISPLAY" = "" ]; then zgv %f; else (gqview %f &); fi
+	Open=if [ "$DISPLAY" = "" ]; then zgv %f; else (sxiv %f &); fi
 	View=%view{ascii} identify %f
 	#View=%view{ascii} asciiview %f
 
@@ -440,7 +440,7 @@ regex/\.([mM]3[uU]|[pP][lL][sS])$
     include=audio
 
 include/audio
-	Open=(mw %f)
+	Open=(rmpv -a %f)
 
 ### Video ###
 
@@ -494,7 +494,7 @@ regex/\.([wW][eE][bB][mM])$
 	Include=video
 
 include/video
-	Open=(mw %f )
+	Open=(rmpv %f )
 	#Open=(gtv %f >/dev/null 2>&1 &)
 	#Open=(xanim %f >/dev/null 2>&1 &)
 
