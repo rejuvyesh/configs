@@ -91,7 +91,6 @@ paclist() {
 }
 
 alias "sudo"="sudo " # allow sudo with aliases
-alias f="try firewall"
 
 # youtube download
 function y() {
