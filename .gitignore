@@ -10,15 +10,20 @@
 .config/mc/history
 .config/mc/panels.ini
 .local
+.unison*.log
+.unison/ar*
+.unison/fp*
+.unison/lk*
+.serverauth*
+.zsh/local.sh
 
 # ignore secure
+.authinfo
 .dropbox*
 .gem
 .git-local
 .gnupg
 .ssh
-.evernote-mode
-.emacs.d
 .wmal
 .irssi
 .password-store
@@ -29,6 +34,7 @@
 .copy
 .todo
 *.gpg
+*.aes
 .offline*
 .pki
 .pentadactyl/info
@@ -114,6 +120,8 @@
 .config/eiskaltdc++
 .config/mpd_sima
 .config/qBittorrent
+.config/deluge
+.luarocks
 
 # ignore mail, firefox and ims, oh my!
 .mozilla
@@ -127,6 +135,15 @@
 
 # ignore virtualenv
 .virtualenvs
+
+.evernote-mode
+.emacs.d
+
+.torbrowser
+
+# fbreader
+.FBReader/**/*
+!.FBReader/*.xml
 
 # ignore cpan
 .cpan
@@ -157,7 +174,6 @@
 !.kde4/share/apps/dolphin
 !.kde4/share/apps/okular
 !.kde4/share/config/okularpartrc
-.zsh/local.sh
 .urls.txt
 .wine32ie7
 .wine-ie7
@@ -192,3 +208,5 @@
 .pandoc/
 .config/lastfm
 .xournal
+
+.vagrant.d/
