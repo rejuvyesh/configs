@@ -81,7 +81,7 @@ function nix-update() {
   nix-channel --update
   nix-env -u '*' --always --dry-run
   echo "update? [RET/^C]"; read
-  nix-env -u '*' --always
+  nix-env -u '*' --always --keep-going
 }
 alias nup="nix-update"
 
