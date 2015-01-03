@@ -273,3 +273,8 @@ alias tl=trash-list
 
 # scan cleaner
 alias scl='scancleaner'
+
+# hledger
+alias h='hledger'
+alias ha='hledger add'
+alias hb='hledger balance'
