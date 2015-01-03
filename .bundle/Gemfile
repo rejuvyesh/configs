@@ -45,6 +45,7 @@ gem "libnotify"
 gem "moneta"
 gem "travis"
 gem "tugboat"
+gem "gist"
 
 # muflax
 gem "muflax"
