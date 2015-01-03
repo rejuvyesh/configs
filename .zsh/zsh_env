@@ -86,3 +86,6 @@ export GIT_SSL_CAINFO=$OPENSSL_X509_CERT_FILE
 
 # gtk themes
 export GTK_PATH="$GTK_PATH:$HOME/.nix-profile/lib/gtk-2.0"
+
+# hledger
+export LEDGER_FILE="$HOME/Documents/spoiler/.hledger.journal"
