@@ -172,3 +172,17 @@ function mirror() {
 function transfer() {
   curl --upload-file $1 "http://transfer.sh/${1}"
 }
+
+function ipt() {
+  local ipt_status=$(systemctl status iptables | grep -oP --color=never "(active|inactive)")
+  case $ipt_status in
+    inactive)
+      echo "shields up! go to red alert!"
+      sudo systemctl start iptables
+      ;;
+    active)
+      echo "lower your shields and surrender!"
+      sudo systemctl stop iptables
+      ;;
+  esac
+}
