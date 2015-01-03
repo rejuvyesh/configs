@@ -109,6 +109,7 @@ function ya() {
   echo "Paste link, ^D start downloading with aria2"
   youtube-dl-aria --proxy "jayeshkg:$password@nknproxy.iitk.ac.in:3128" -a-
 }
+alias yp="youtube-play"
 
 # move target to location and create symbolic link
 function mvln() {
