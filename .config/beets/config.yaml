@@ -24,6 +24,9 @@ smartplaylist:
     - name: beatles.m3u
       query: 'artist:Beatles'
 
+    - name: mekaal.m3u
+      query: 'artist:Mekaal'
+
     - name: post-rock.m3u
       query: 'genre:Post'
 
