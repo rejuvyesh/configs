@@ -1,48 +1,76 @@
-set history=5000
-set guioptions=bCrs
-colorscheme lightgrey
-highlight -a Hint     font-size:10pt !important;
-loadplugins '\.(css|js|penta)$'
-group user
-" `mapleader` setting/option is removed!
-map , <Leader>
-set urlseparator='\|'
-set hintkeys=HJKLASDFGYUIOPQWERTNMZXCVB
+" #======
+" # Firefox settings
+" #======
+"{{{
+" close dta when downloads are complete
+set! extensions.dta.closedta=true
+
+" don't pollute home dir
+set! browser.download.dir=/home/rejuvyesh/stuff
+" just in case
+silent cd ~/stuff
+
+" more undos
+set! browser.sessionstore.max_tabs_undo=100
 
 " Don't let the dastardly `d` key delete the last tab (and close the window)
 set! browser.tabs.closeWindowWithLastTab=false
 
-set editor='emacsclient -c --alternate-editor="" +%l %f'
-
-" clip to evernote
-
-command! clip open javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title);}})();
-nmap -builtin ,c :clip<CR>
-"{{{ Navigation
-nmap -builtin j 5j
-nmap -builtin k 5k
 "}}}
 
+" #========
+" # QuickMarks
+" #========
+"{{{
+silent qmark d http://rejuvyesh.com/dailystats
+silent qmark e https://www.evernote.com/Home.action
+silent qmark E https://www.evernote.com/pub/gwern/gwern/
+silent qmark f http://facebook.com
+silent qmark g http://www.github.com/
+silent qmark H http://news.ycombinator.com/news
+silent qmark i http://inoreader.com
+silent qmark l http://lesswrong.com
+silent qmark M https://mail.google.com/mail/
+silent qmark r http://reddit.com/
+silent qmark T http://twitter.com/home/
+silent qmark y http://youtube.com/
 
-"add user command
-command! archive open javascript:location.href='http://web.archive.org/web/*/'+document.location.href;
-nmap -builtin ,p :emenu Bookmarks.pocket<CR>
+"}}}
 
-command bookmark open javascript:location.href='org-protocol://capture://b/'+encodeURIComponent(location.href)+'/'+encodeURIComponent(document.title)+'/'+encodeURIComponent(window.getSelection())
+" #==============================
+" # Addon Commands and Bookmarklets
+" #==============================
+"{{{
 
-command! rot13 open javascript:inText=window.getSelection()+'';if(inText=='')%7Bvoid(inText=prompt('Phrase...',''))%7D;if(!inText)%7BoutText='No%20text%20selected'%7Delse%7BoutText='';for(i=0;i%3CinText.length;i++)%7Bt=inText.charCodeAt(i);if((t%3E64&&t%3C78)%7C%7C(t%3E96&&t%3C110))%7Bt+=13%7Delse%7Bif((t%3E77&&t%3C91)%7C%7C(t%3E109&&t%3C123))%7Bt-=13%7D%7DoutText+=String.fromCharCode(t)%7D%7Dalert(outText)
+command dta -description "open downthemall window" emenu Tools.DownThemAll! Tools.DownThemAll!...
+command print -description "print page" emenu File.Print…
 
-command! squirt open javascript:(function(){if(window.sq){window.sq.closed&&window.document.dispatchEvent(new%20Event('squirt.again'));}else{window.sq={};window.sq.userId='02ed971f-12d1-4cb9-b2d1-4d17f3ac112f';s=document.createElement('script');s.src='http://www.squirt.io/bm/squirt.js';s.s=window.location.search;s.idx=s.s.indexOf('sq-dev');if(s.idx!=-1){s.ampIdx=s.s.indexOf('&');s.host=s.s.substring(s.idx+7,s.ampIdx==-1?s.s.length:s.ampIdx);s.src='http://'+(s.host?s.host:'localhost')+':4000/bm/squirt.js';}document.body.appendChild(s);}})();
+"" use google to get lwn subscription link
+autocmd -javascript PageLoad 'https://lwn.net/Articles/*' <<EOF
+if (doc.title.match(/subscription/i)) {
+let title = doc.getElementsByClassName("ArticleText")[0].getElementsByTagName("a")[0].innerHTML;
+dactyl.open('google site:lwn.net/SubscriberLink "' + title + '"');
+}
+EOF
 
-command! delicious :open javascript:(function(e,t){var%20n=e.document;setTimeout(function(){function%20a(e){if(e.data==="destroy_bookmarklet"){var%20r=n.getElementById(t);if(r){n.body.removeChild(r);r=null}}}var%20t="DELI_bookmarklet_iframe",r=n.getElementById(t);if(r){return}var%20i="https://delicious.com/save?source=bookmarklet&",s=n.createElement("iframe");s.id=t;s.src=i+"url="+encodeURIComponent(e.location.href)+"&title="+encodeURIComponent(n.title)+"&note="+encodeURIComponent(""+(e.getSelection?e.getSelection():n.getSelection?n.getSelection():n.selection.createRange().text))+"&v=1.1";s.style.position="fixed";s.style.top="0";s.style.left="0";s.style.height="100%25";s.style.width="100%25";s.style.zIndex="16777270";s.style.border="none";s.style.visibility="hidden";s.onload=function(){this.style.visibility="visible"};n.body.appendChild(s);var%20o=e.addEventListener?"addEventListener":"attachEvent";var%20u=o=="attachEvent"?"onmessage":"message";e[o](u,a,false)},1)})(window)
+" bookmarklets"{{{
+command archive -description "open archive.org's version" open javascript:location.href='http://web.archive.org/web/*/'+document.location.href;
 
-command! valid :open javascript:void(location='http://validator.w3.org/check?uri='+escape(location))
+command bml-readability -description "Bookmarklet: Make webpage readable using readability" open javascript:(%28function%28%29%7Bwindow.baseUrl%3D%27http%3A//www.readability.com%27%3Bwindow.readabilityToken%3D%27%27%3Bvar%20s%3Ddocument.createElement%28%27script%27%29%3Bs.setAttribute%28%27type%27%2C%27text/javascript%27%29%3Bs.setAttribute%28%27charset%27%2C%27UTF-8%27%29%3Bs.setAttribute%28%27src%27%2CbaseUrl%2B%27/bookmarklet/read.js%27%29%3Bdocument.documentElement.appendChild%28s%29%3B%7D%29%28%29)
 
-" save file to zotero
-" :map -js z Zotero_Browser.scrapeThisPage()
+command bml-grid -description "Show Grid" open javascript:void(myDiv=document.createElement('div'));void(myBody=document.getElementsByTagName('body')%5B0%5D);void(myDiv.style.background='url(http://www.andybudd.com/images/layoutgrid.png)');void(myDiv.style.position='absolute');void(myDiv.style.width='100%');void(myDiv.style.height='100%');void(myDiv.style.top='0');void(myDiv.style.left='0');void(myBody.appendChild(myDiv));
 
-" speed read with eyercize
-command! read open javascript:(function(){_eyercize_action%20=%20'www.eyercize.com';%20__action%20=%20'www.eyercize.com';%20_eyercize_script%20=%20document.createElement('SCRIPT');_eyercize_script.type%20=%20'text/javascript';_eyercize_script.src%20=%20'http://www.eyercize.com/javascripts/bookmarklet.js';document.getElementsByTagName('head')[0].appendChild(_eyercize_script);})();
+command delicious :open javascript:(function(e,t){var%20n=e.document;setTimeout(function(){function%20a(e){if(e.data==="destroy_bookmarklet"){var%20r=n.getElementById(t);if(r){n.body.removeChild(r);r=null}}}var%20t="DELI_bookmarklet_iframe",r=n.getElementById(t);if(r){return}var%20i="https://delicious.com/save?source=bookmarklet&",s=n.createElement("iframe");s.id=t;s.src=i+"url="+encodeURIComponent(e.location.href)+"&title="+encodeURIComponent(n.title)+"&note="+encodeURIComponent(""+(e.getSelection?e.getSelection():n.getSelection?n.getSelection():n.selection.createRange().text))+"&v=1.1";s.style.position="fixed";s.style.top="0";s.style.left="0";s.style.height="100%25";s.style.width="100%25";s.style.zIndex="16777270";s.style.border="none";s.style.visibility="hidden";s.onload=function(){this.style.visibility="visible"};n.body.appendChild(s);var%20o=e.addEventListener?"addEventListener":"attachEvent";var%20u=o=="attachEvent"?"onmessage":"message";e[o](u,a,false)},1)})(window)
+
+" clip to evernote
+command clip open javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title);}})();
+
+
+command citation -description "Bookmarklet to save to citeulike" open javascript:location.href='http://www.citeulike.org/posturl?username=thegoose&bml=nopopup&url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)
+
+command rot13 open javascript:inText=window.getSelection()+'';if(inText=='')%7Bvoid(inText=prompt('Phrase...',''))%7D;if(!inText)%7BoutText='No%20text%20selected'%7Delse%7BoutText='';for(i=0;i%3CinText.length;i++)%7Bt=inText.charCodeAt(i);if((t%3E64&&t%3C78)%7C%7C(t%3E96&&t%3C110))%7Bt+=13%7Delse%7Bif((t%3E77&&t%3C91)%7C%7C(t%3E109&&t%3C123))%7Bt-=13%7D%7DoutText+=String.fromCharCode(t)%7D%7Dalert(outText)
+
+command valid open javascript:void(location='http://validator.w3.org/check?uri='+escape(location))
 
 "" smart reload
 command smartReload -js <<EOF
@@ -52,7 +80,171 @@ dactyl.execute("reload");
 dactyl.open(buffer.URL.spec);
 }
 EOF
+
+" javascript custom searches
+" http://jsfiddle.net/mdegat01/WSLak/
+" http://lifehacker.com/5973225/four-more-custom-searches-you-should-enable-in-your-browser-right-now
+command! customsearch -description "more custom search options" -nargs=1 open javascript:var url='<args>';if(!String.prototype.trim){String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,'')}}(function(u,m,h,n){var WC={'e':m[1]||n,'h':h||n,'q':(m[1]||h)?(h+' '+m[1]).trim():n,'d':window.location.hostname,'u':window.location.href,'t':document.title,'l':n};var w='[';for(var key in WC){if(WC.hasOwnProperty(key)){w+=key}}w+=']';var re=new RegExp('%((?:\\('+w+'(?:\\|\\|'+w+')+\\))|'+w+')','g');var sU=function(p){if(p){WC.l=p.coords.latitude+'%20'+p.coords.longitude}u=u.replace(re,function(match,p1,off,str){return encodeURIComponent((eval(p1.replace(new RegExp(w,'g'),'WC.$&'))||''))});switch((m[2]||'c').toLowerCase()){case'w':window.open(u,'Omnibar Window','toolbar=0,status=0,resizable=1,width=1100,height=762');break;case't':window.open(u,'_blank');break;default:window.location.href=u;break}};var lTest=/%(?:\([^)]*)?\bl\b/.test(u);if(navigator.geolocation&&lTest){navigator.geolocation.getCurrentPosition(sU)}else{if(lTest){alert('Geolocation%20is%20not%20supported%20by%20this%20browser.')}sU()}})(url,(/^(.*?)([wtc])?$/i.exec('%s')),((window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:document.selection)))));
+
+command viewgcache,vgc -description "view google cache of page" customsearch http://www.google.com/search?q=cache:%u
+
+command getdirections,gdr -description "get directions from current location with google maps" customsearch http://www.google.com/maps?saddr=%l&daddr=%q
+"}}}
+"}}}
+
+" #==============================
+" # General Pentadactyl Settings 
+" #==============================
+"{{{
+" External editor
+set editor='/home/rejuvyesh/src/scripts/emacs-gui +%l %f'
+
+" no smooth scroll
+set scs=1
+set scrolltime=0
+
+" open addons, h, extoptions, javascript, downloads, and prefs in a new tab
+set newtab=all
+" if there is a popup to be opened (not blocked), open in new tab
+set popups=tab
+" don't open external at end (this with tab-options plugin)
+au Enter * set tabopen=link:right,orphan:right,external:right
+ 
+set hintkeys=hjklasdfgyuiopqwertnmzxcvb
+
+" Search
+set noincfind
+set hlfind
+" replaces ignorecase and smartcase
+set findcase=smart
+
+" message history size
+set messages=100
+set verbose=1
+
+" items completed at :open
+" store command line history
+set history=4000
+
+" despotic.. in allowing focus change
+set strictfocus='chrome:*':laissez-faire,*:despotic
+"}}}
+
+" #==============================
+" # _Appearance
+" #==============================
+"{{{
+colorscheme lightgrey
+" only show the tab bar when there are multiple tabs
+set showtabline=multitab
+" added n for tab number (easier nav); C command line outside of status line; M messages outside status line; r right scrollbar (as a reference point); s for status bar
+set guioptions=CMrns
+
+" for command mode
+hi Normal -a font-family: Inconsolata !important; font-size: 9pt !important;
+" i.e. for -- PASS THROUGH -- and commandline typing
+hi FontFixed -a font-size:12px !important; font-family:"Inconsolata" !important;
+
+
+loadplugins '\.(css|js|penta)$'
+group user
+
+
+set urlseparator='\|'
+"}}}
+
+" #==============================
+" # Mappings/ Bindings 
+" #==============================
+"{{{
+nmap -builtin <c-w> <nop>
+" `mapleader` setting/option is removed!
+map , <leader>
+
+" Swap ; and :
+map -builtin ; :
+map -builtin : ;
+
+"swap m and M?
+" open quickmark in newtab
+nmap -builtin "'" gn
+nmap -builtin '"' go
+
+" back in browser history
+nmap -builtin h H
+" forward in browser history
+nmap -builtin H L
+
+" U list closed tabs
+nmap -builtin U :undo<Space>
+
+" pass all keys 'mode' (i.e. on reddit, 4chan, gmail, and other places with custom bindings)
+nmap -builtin l <pass-all-keys>
+
 nmap -builtin r :smartReload<CR>
+
+"{{{ Navigation
+nmap -builtin j 5j
+nmap -builtin k 5k
+"}}}
+
+"}}}
+
+" GOTOs {{{
+" by default, gn, gg, gb, gi, go, gP, gf, gh, gt, gu taken
+" gf- source F (with editor); gh homepage; gi- last used input field; gn- quickmark in newtab; gu parent directory; go jump to quickmark; gP open url from clipboard in background buffer
+" gu parent directory; gU root
+nmap -ex ge tabopen gmail.com
+nmap -ex gE open gmail.com
+"" open addons manager
+nmap -ex ga dialog addons
+" enter insert and paste
+nmap -builtin gp gi<c-v><c-v>
+nmap -builtin gc :<c-v><c-v>
+nmap -builtin gC :tabopen g <c-v><c-v>
+nmap -ex gr rehash
+nmap -ex gs pageinfo
+
+" viewsource in external editor
+nmap -ex gf viewsource
+"}}}
+
+"Leader Mappings {{{
+nmap -builtin <leader>c :clip<CR>
+"reload
+nmap -ex <leader>. source ~/.pentadactylrc
+
+nmap -builtin <leader>p :emenu Bookmarks.pocket<CR>
+
+nmap -builtin <leader>u :citation
+
+" download instead
+nmap -ex <leader>Y execute "silent !youtube-dl --restrict-filenames -o '~/youtube/%(title)s_%(width)sx%(height)s_%(upload_date)s.%(ext)s' " + buffer.URL + " &"
+" just audio
+nmap -ex <leader>A execute "silent !youtube-dl --restrict-filenames --extract-audio -o '~/youtube/%(title)s_%(width)sx%(height)s_%(upload_date)s.%(ext)s' " + buffer.URL + " &"
+
+" hide tabline
+map -ex <leader>b set showtabline!=always,never
+
+" cookie management {{{
+" export cookies with https://addons.mozilla.org/en-US/firefox/addon/export-cookies/ 
+" (using for wget)
+nmap -js <leader>c exportCookies()
+
+"}}}
+
+
+
+
+"add user command
+
+
+
+command bookmark open javascript:location.href='org-protocol://capture://b/'+encodeURIComponent(location.href)+'/'+encodeURIComponent(document.title)+'/'+encodeURIComponent(window.getSelection())
+
+
+" save file to zotero
+" :map -js z Zotero_Browser.scrapeThisPage()
 
 "" google translate
 command trans -js <<EOF
@@ -74,21 +266,7 @@ dactyl.open(getParameterByName(buffer.URL.spec, 'u'));
 EOF
 nmap -builtin ,t :trans<CR>
 
-"" use google to get lwn subscription link
-autocmd -javascript PageLoad 'https://lwn.net/Articles/*' <<EOF
-if (doc.title.match(/subscription/i)) {
-let title = doc.getElementsByClassName("ArticleText")[0].getElementsByTagName("a")[0].innerHTML;
-dactyl.open('google site:lwn.net/SubscriberLink "' + title + '"');
-}
-EOF
 
-
-"" {{{ Bookmarklet
-nmap -builtin ,b :bml-pocket
-command bml-pocket -description "Bookmarklet: Save to pocket" open javascript:(function(){var e=function(t,n,r,i,s){var o=[4541134,3353721,7563115,4049022,5855715,4120500,9451427,5127656,5580543,5231663];var i=i||0,u=0,n=n||[],r=r||0,s=s||0;var a={'a':97,'b':98,'c':99,'d':100,'e':101,'f':102,'g':103,'h':104,'i':105,'j':106,'k':107,'l':108,'m':109,'n':110,'o':111,'p':112,'q':113,'r':114,'s':115,'t':116,'u':117,'v':118,'w':119,'x':120,'y':121,'z':122,'A':65,'B':66,'C':67,'D':68,'E':69,'F':70,'G':71,'H':72,'I':73,'J':74,'K':75,'L':76,'M':77,'N':78,'O':79,'P':80,'Q':81,'R':82,'S':83,'T':84,'U':85,'V':86,'W':87,'X':88,'Y':89,'Z':90,'0':48,'1':49,'2':50,'3':51,'4':52,'5':53,'6':54,'7':55,'8':56,'9':57,'\/':47,':':58,'?':63,'=':61,'-':45,'_':95,'&':38,'$':36,'!':33,'.':46};if(!s||s==0){t=o[0]+t}for(var f=0;f<t.length;f++){var l=function(e,t){return a[e[t]]?a[e[t]]:e.charCodeAt(t)}(t,f);if(!l*1)l=3;var c=l*(o[i]+l*o[u%o.length]);n[r]=(n[r]?n[r]+c:c)+s+u;var p=c%(50*1);if(n[p]){var d=n[r];n[r]=n[p];n[p]=d}u+=c;r=r==50?0:r+1;i=i==o.length-1?0:i+1}if(s==197){var v='';for(var f=0;f<n.length;f++){v+=String.fromCharCode(n[f]%(25*1)+97)}o=function(){};return v+'0c594ab9f8'}else{return e(u+'',n,r,i,s+1)}};var t=document,n=t.location.href,r=t.title;var i=e(n);var s=t.createElement('script');s.type='text/javascript';s.src='https://getpocket.com/b/r4.js?h='+i+'&u='+encodeURIComponent(n)+'&t='+encodeURIComponent(r);e=i=function(){};var o=t.getElementsByTagName('head')[0]||t.documentElement;o.appendChild(s)})();
-
-nmap -builtin ,w :bml-whyd
-command bml-whyd -description "Bookmarklet: Save to whyd" open javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://whyd.com/js/bookmarklet.js?'+(new%20Date()).getTime();;})();
 
 " passkeys
 set passkeys+=reddit.com:JKasecCwWq<CR>
@@ -96,7 +274,7 @@ set passkeys+=github.com:<Return>
 set passkeys+=inoreader.com:jkmsvbrpdw/<CR>
 set passkeys+='plus\.google\.com':jk
 set passkeys+=twitter.com:jkrn<CR>\.\?,gh,gr
-set passkeys+=yoleoreader.com:jknp<CR>
+
 
 " Go to specific # tab, to keep in line with my tiling WM.
 map -modes=n -builtin <C-1> :buffer 1<CR>
@@ -114,17 +292,16 @@ map -modes=n -builtin ,a t http://myanimelist.net/animelist/rejuvyesh&show=0&ord
 map -modes=n -builtin ,n t https://news.ycombinator.com | http://reddit.com | https://www.inoreader.com<CR>gT
 map -modes=n -builtin ,m t https://plus.google.com/ | https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>gT
 map -modes=n -builtin ,f t https://www.facebook.com | https://twitter.com<CR>gT
-map -modes=n -builtin ,e t https://www.evernote.com/Home.action | https://www.evernote.com/pub/gwern/gwern/<CR>gT
 
-"" google docs viewer
-js <<EOF
-hints.addMode("d", "Open link using google docs", function (elem) dactyl.open("https://docs.google.com/viewer?url=" + encodeURIComponent(elem.href), dactyl.NEW_TAB), null, ["a[href*='.pdf']", "a[href*='.doc']", "a[href*='.docx']", "a[href*='.ppt']", "a[href*='.pptx']", "a[href*='.odp']"]);
-EOF
-
-
-" completion options to emulate the firefox 3 location bar
-set wildmode=list:full
 
 autocmd PageLoad youtube.com/watch* :silent !mpc pause
+
+if plugins.dactylUseragentDev
+   useragent ipad Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3
+   useragent nexus10 Mozilla/5.0 (Linux; Android 4.2.1; Nexus 10 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19
+   useragent ie9 Mozilla/5.0 (Windows; U; MSIE 9.0; WIndows NT 9.0; en-US))
+   useragent ie11 Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0;  rv:11.0) like Gecko
+   useragent chrome Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36
+endif
 
 " vim: set ft=pentadactyl:
