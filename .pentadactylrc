@@ -97,7 +97,7 @@ command getdirections,gdr -description "get directions from current location wit
 " #==============================
 "{{{
 " External editor
-set editor='/home/rejuvyesh/src/scripts/emacs-gui +%l %f'
+set editor='/home/rejuvyesh/.nix-profile/bin/emacsclient -c --alternate-editor="" +%l %f'
 
 " no smooth scroll
 set scs=1
@@ -109,8 +109,8 @@ set newtab=all
 set popups=tab
 " don't open external at end (this with tab-options plugin)
 au Enter * set tabopen=link:right,orphan:right,external:right
- 
-set hintkeys=hjklasdfgyuiopqwertnmzxcvb
+
+set hintkeys=HJKLASDFGYUIOPQWERTNMZXCVB
 
 " Search
 set noincfind
@@ -140,17 +140,15 @@ set showtabline=multitab
 " added n for tab number (easier nav); C command line outside of status line; M messages outside status line; r right scrollbar (as a reference point); s for status bar
 set guioptions=CMrns
 
+highlight -a Hint font-size:10pt !important;
 " for command mode
 hi Normal -a font-family: Inconsolata !important; font-size: 9pt !important;
 " i.e. for -- PASS THROUGH -- and commandline typing
 hi FontFixed -a font-size:12px !important; font-family:"Inconsolata" !important;
 
-
 loadplugins '\.(css|js|penta)$'
-group user
 
 
-set urlseparator='\|'
 "}}}
 
 " #==============================
@@ -266,6 +264,10 @@ dactyl.open(getParameterByName(buffer.URL.spec, 'u'));
 EOF
 nmap -builtin ,t :trans<CR>
 
+" google docs viewer {{{2
+js <<EOF
+hints.addMode("d", "Open link using google docs", function (elem) dactyl.open("https://docs.google.com/viewer?url=" + encodeURIComponent(elem.href), dactyl.NEW_TAB), null, ["a[href*='.pdf']", "a[href*='.doc']", "a[href*='.ppt']", "a[href*='.odp']"]);
+EOF
 
 
 " passkeys
@@ -287,21 +289,13 @@ map -modes=n -builtin <C-7> :buffer 7<CR>
 map -modes=n -builtin <C-8> :buffer 8<CR>
 map -modes=n -builtin <C-9> :buffer 9<CR>
 
-" Tab Groups.
-map -modes=n -builtin ,a t http://myanimelist.net/animelist/rejuvyesh&show=0&order=4 | myanimelist.net <CR>gT
-map -modes=n -builtin ,n t https://news.ycombinator.com | http://reddit.com | https://www.inoreader.com<CR>gT
-map -modes=n -builtin ,m t https://plus.google.com/ | https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>gT
-map -modes=n -builtin ,f t https://www.facebook.com | https://twitter.com<CR>gT
-
-
 autocmd PageLoad youtube.com/watch* :silent !mpc pause
 
-if plugins.dactylUseragentDev
-   useragent ipad Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3
-   useragent nexus10 Mozilla/5.0 (Linux; Android 4.2.1; Nexus 10 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19
-   useragent ie9 Mozilla/5.0 (Windows; U; MSIE 9.0; WIndows NT 9.0; en-US))
-   useragent ie11 Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0;  rv:11.0) like Gecko
-   useragent chrome Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36
-endif
+" useragent ipad Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3
+" useragent nexus10 Mozilla/5.0 (Linux; Android 4.2.1; Nexus 10 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19
+" useragent ie9 Mozilla/5.0 (Windows; U; MSIE 9.0; WIndows NT 9.0; en-US))
+" useragent ie11 Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0;  rv:11.0) like Gecko
+" useragent chrome Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36
+
 
 " vim: set ft=pentadactyl:
