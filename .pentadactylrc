@@ -244,6 +244,21 @@ nmap -ex <leader>A execute "silent !youtube-dl --restrict-filenames --extract-au
 " hide tabline
 map -ex <leader>b set showtabline!=always,never
 
+" yank short URL
+nmap <leader>y -js <<EOF
+var xhr = new XMLHttpRequest()
+var url = "http://v.gd/create.php?format=simple&url=" +
+encodeURIComponent(buffer.URL)
+
+xhr.open("GET", url, true)
+xhr.onreadystatechange = function () {
+if (xhr.readyState == 4)
+dactyl.clipboardWrite(xhr.responseText, true)
+}
+
+xhr.send(null)
+EOF 
+
 " cookie management {{{
 " export cookies with https://addons.mozilla.org/en-US/firefox/addon/export-cookies/ 
 " (using for wget)
