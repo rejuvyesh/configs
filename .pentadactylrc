@@ -223,11 +223,13 @@ nmap -ex gf viewsource
 "}}}
 
 "Leader Mappings {{{
-nmap -builtin <leader>c :clip<CR>
+
 "reload
 nmap -ex <leader>. source ~/.pentadactylrc
 
 nmap -builtin <leader>p :emenu Bookmarks.pocket<CR>
+
+nmap -builtin <leader>c :emenu Tools.Clearly<CR>
 
 nmap -builtin <leader>u :citation
 
@@ -245,7 +247,7 @@ map -ex <leader>b set showtabline!=always,never
 " cookie management {{{
 " export cookies with https://addons.mozilla.org/en-US/firefox/addon/export-cookies/ 
 " (using for wget)
-nmap -js <leader>c exportCookies()
+nmap -js <leader>ec exportCookies()
 
 "}}}
 
