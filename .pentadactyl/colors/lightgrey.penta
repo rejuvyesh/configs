@@ -7,7 +7,7 @@
 "  Modified: 10.02.2011 18:07 CET (+0100)
 " = :: =========================================================== :: =
 
-hi clear
+" hi clear
 hi Normal                                       font-size:12px; font-family: sans-serif; font-weight: normal;
 hi -l Normal Cmd
     hi -a Cmd                                   color: #000;
