@@ -1,3 +1,4 @@
+"Quite a few ideas from [Pentadactyl Configuration](https://gist.github.com/dnordstrom/81cf629886334f3500b1)"
 " #======
 " # Firefox settings
 " #======
@@ -95,6 +96,35 @@ command!
 
   dactyl.clipboardWrite(link, true)
 EOF
+
+" :yankorg, :yor
+" Yank Org link to current page
+command!
+\ -description "Yank Markdown link to current page"
+\ -nargs=0
+\ yankorg,yor
+\ -js <<EOF
+  var title = content.document.title
+  var url = content.location.href
+  var link
+
+  if (content.getSelection().toString())
+  title = content.getSelection()
+
+  link = '[[' + url + '][' + title + ']]'
+
+  dactyl.clipboardWrite(link, true)
+EOF
+
+" :later
+" Bookmark page for future action, tagged "for later". Action can be
+" specified as argument, which adds a "to <action>" tag (e.g.,
+" `:later read` adds a bookmark tagged "for later, to read")
+command!
+  \ -description "Bookmark page for future action"
+  \ -nargs=?
+  \ later,l
+  \ execute "bmark -tags='for later'" + ("<args>" ? ",'to <args>'" : "") 
 
 " javascript custom searches
 " http://jsfiddle.net/mdegat01/WSLak/
@@ -265,6 +295,25 @@ EOF
 nmap -js <leader>ec exportCookies()
 
 "}}}
+
+" Bookmark for later review and tagging
+nmap -builtin <Leader>ll :later<CR>
+
+" Bookmark for later reading
+nmap -builtin <Leader>lr :later read<CR>
+
+" Bookmark for later sharing
+nmap -builtin <Leader>ls :later share<CR>
+
+" Bookmark for later doing ("t" as in "to do")
+nmap -builtin <Leader>lt :later do<CR>
+
+" Bookmark for later watching
+nmap -builtin <Leader>lw :later watch<CR>
+
+" Bookmark for later testing ("a" as in "application")
+nmap -builtin <Leader>la :later test<CR> 
+
 
 
 
