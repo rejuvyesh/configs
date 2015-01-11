@@ -4,7 +4,7 @@ Description=IIT-K Firwall
 [Service]
 Environment=DISPLAY=:0 
 Type=simple
-ExecStart=/home/rejuvyesh/local/bin/firewall
+ExecStart=/home/rejuvyesh/.nix-profile/bin/firewall-auth
 Restart=always
 
 [Install]
