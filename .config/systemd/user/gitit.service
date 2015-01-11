@@ -1,0 +1,11 @@
+[Unit]
+Description=My personal wiki
+
+[Service]
+Type=simple
+WorkingDirectory=%h/src/www/wiki
+ExecStart=/usr/bin/zsh /home/rejuvyesh/src/www/wiki/start.sh
+Restart=no
+
+[Install]
+WantedBy=default.target
