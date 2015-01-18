@@ -274,7 +274,7 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. controlMask, xK_j ), spawn "rotate_screen right")
 
       -- making my favorites playlist
-    , ((modm .|. shiftMask, xK_m), spawn "songrating.sh 5")
+    , ((modm .|. shiftMask, xK_m), spawn "eugene rate 5")
 
       -- screenshot
       -- screenshot screen
