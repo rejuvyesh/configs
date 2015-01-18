@@ -193,7 +193,6 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch scratchpad
     , ((modm, xK_i ), scratchpad)
-    , ((modm, xK_p ), namedScratchpadAction scratchpads "pidgin")
     , ((modm .|. controlMask, xK_d ), namedScratchpadAction scratchpads "rtorrent")
     , ((modm, xK_a ), namedScratchpadAction scratchpads "anking")
 
