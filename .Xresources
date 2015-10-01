@@ -33,9 +33,9 @@ URxvt.keysym.M-C-v    : perl:clipboard:paste_escaped
 URxvt.depth           :             32
 URxvt.keysym.M-Down : perl:font-size:decrease
 URxvt.keysym.M-Up   : perl:font-size:increase
-
-URxvt*font:           -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*,xft:DejaVu Sans Mono:pixelsize=14,xft:Sazanami Gothic:pixelsize=14
-URxvt*boldFont:       -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-*-*
+URxvt.letterSpace     : -1
+URxvt*font:           xft:Fantasque Sans Mono:pixelsize=12,xft:DejaVu Sans Mono:pixelsize=14,xft:Sazanami Gothic:pixelsize=14,xft:Noto Sans:pixelsize=14
+URxvt*boldFont:       xft:Fantasque Sans Mono:bold:pixelsize=12
 URxvt*italicFont:
 URxvt*boldItalicFont:
 
