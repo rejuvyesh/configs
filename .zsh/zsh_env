@@ -38,7 +38,7 @@ if [[ -s ~/.rbenv ]]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     export PATH="$HOME/.rbenv/shims:$PATH"
     export RBENV_SHELL=zsh
-    source '$HOME/.rbenv/completions/rbenv.zsh'
+    source "$HOME/.rbenv/completions/rbenv.zsh"
     rbenv() {
         local command
         command="$1"
