@@ -1,59 +1,71 @@
 source 'https://rubygems.org'
 
 # pry
-gem "pry"
-gem "pry-doc"
-gem "pry-docmore"
-gem "pry-nav"
-gem "pry-rails"
-gem "pry-rescue"
-gem "pry-theme"
-gem "pry-vterm_aliases"
+gem 'pry'
+gem 'pry-doc'
+gem 'pry-docmore'
+gem 'pry-nav'
+gem 'pry-rails'
+gem 'pry-rescue'
+gem 'pry-theme'
+gem 'pry-vterm_aliases'
+gem 'rb-readline'
 
 # TAGS
-gem "ripper-tags"
-gem "gem-ripper-tags"
+gem 'ripper-tags'
+gem 'gem-ripper-tags'
 
 # rspec
-gem "autotest"
-gem "rspec"
+gem 'autotest'
+gem 'rspec'
 
 # lint
-gem "ruby-lint"
-gem "rubocop"
+gem 'ruby-lint'
+gem 'rubocop'
 
 # some generically useful stuff
-gem "kramdown"
-gem "nokogiri"
-gem "org-ruby"
-gem "highline"
-gem "awesome_print"
-gem "trollop"
-gem "chronic"
-gem "activesupport"
-gem "gem-release"
-gem "sqlite3"
-gem "mime-types"
-gem "rake"
-gem "rb-inotify"
-gem "httpclient"
-gem "cri"
-gem "mechanize"
-gem "epitools"
-gem "ruby-mpd"
-gem "libnotify"
-gem "moneta"
-gem "travis"
-gem "tugboat"
-gem "gist"
+gem 'kramdown'
+gem 'nokogiri'
+gem 'org-ruby'
+gem 'highline'
+gem 'awesome_print'
+gem 'trollop'
+gem 'chronic'
+gem 'activesupport'
+gem 'gem-release'
+gem 'sqlite3'
+gem 'mime-types'
+gem 'rake'
+gem 'rb-inotify'
+gem 'httpclient'
+gem 'cri'
+gem 'mechanize'
+gem 'epitools'
+gem 'ruby-mpd'
+gem 'libnotify'
+gem 'moneta'
+gem 'travis'
+gem 'tugboat'
+gem 'gist'
+gem 'ox'
 
 # muflax
-gem "muflax"
-gem "future_me"
-gem "t"
+gem 'muflax'
+gem 'future_me'
+gem 't'
+
+# web
+gem 'nanoc', '~> 4.0.0rc2'
+gem 'adsf'
+gem 'sass'
+gem 'pandoc-ruby'
+gem 'pygments.rb'
+
+# forks
+gem 'lolcommits', :path => File.expand_path('~/src/ruby/lolcommits')
 
 # my own stuff
-gem "traktr", :path => File.expand_path("~/src/ruby/traktr")
-gem "rmpv", :path => File.expand_path("~/src/ruby/rmpv")
-gem "lolcommits-mpv"
+gem 'traktr', :path => File.expand_path('~/src/ruby/traktr')
+gem 'rmpv', :path => File.expand_path('~/src/ruby/rmpv')
+
 
