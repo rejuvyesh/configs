@@ -210,3 +210,9 @@
 .xournal
 
 .vagrant.d/
+.gist
+.call-remind.json
+.aws/credentials
+
+.weechat/sec.conf
+rejuvyesh.db
