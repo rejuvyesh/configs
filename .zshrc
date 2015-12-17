@@ -4,8 +4,6 @@ SAVEHIST=100000
 
 bindkey -e
 
-autoload -U compinit zmv
-compinit -u -d ~/.zcompdump-$ZSH_VERSION
 
 # url-quote-magic
 autoload -U url-quote-magic

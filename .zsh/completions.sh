@@ -41,7 +41,7 @@ zstyle ':acceptline:*' rehash true
 # sudo completion
 zstyle ':completion:*:sudo:*' command-path $path
 
-fpath=(~/.zsh/pass-completion $fpath)
-fpath=(~/.zsh/hub-completion/ $fpath)
-fpath=(~/.zsh/git-annex-zsh-completion/ $fpath)
+fpath=(~/.zsh/completion/ $fpath)
+autoload -U compinit zmv
+compinit -u -d ~/.zcompdump-$ZSH_VERSION
 
