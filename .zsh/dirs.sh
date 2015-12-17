@@ -12,9 +12,10 @@ typeset -A NAMED_DIRS
 NAMED_DIRS=(
     src       ~/src
     scripts   ~/src/scripts
-    mtba      ~/src/matlab/mtba
     com       ~/src/www/rejuvyesh.com
-    acad      ~/Documents/Academics/sem6
+    acad      ~/Documents/Academics/
+    wiki      ~/src/www/wiki/wikidata
+    win       /mnt/Windows/Users/Jayesh
 )
 
 for key in ${(k)NAMED_DIRS}
