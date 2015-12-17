@@ -48,30 +48,19 @@ if [[ -x `which yaourt` ]]; then
         yaourt -Syua --devel
         sudo etckeeper post-install
   }
-  alias yaconf='yaourt -C' # Fix all configuration files with vimdiff
-  # Pacman - https://wiki.archlinux.org/index.php/Pacman_Tips
-  alias yaupg='yaourt -Syu' # Synchronize with repositories before upgrading packages that are out of date on the local system.
-  alias yasu='yaourt --sucre' # Same as yaupg, but without confirmation
-  alias yain='yaourt -S' # Install specific package(s) from the repositories
-  alias yains='yaourt -U' # Install specific package not from the repositories but from a file
-  alias yare='yaourt -R' # Remove the specified package(s), retaining its configuration(s) and required dependencies
-  alias yarem='yaourt -Rns' # Remove the specified package(s), its configuration(s) and unneeded dependencies
-  alias yarep='yaourt -Si' # Display information about a given package in the repositories
-  alias yareps='yaourt -Ss' # Search for package(s) in the repositories
-  alias yaloc='yaourt -Qi' # Display information about a given package in the local database
-  alias yalocs='yaourt -Qs' # Search for package(s) in the local database
+
   # Additional yaourt alias examples
   if [[ -x `which abs` ]]; then
 alias yaupd='yaourt -Sy && sudo abs' # Update and refresh the local package and ABS databases against repositories
   else
 alias yaupd='yaourt -Sy' # Update and refresh the local package and ABS databases against repositories
   fi
-alias yainsd='yaourt -S --asdeps' # Install given package(s) as dependencies of another package
+  alias yainsd='yaourt -S --asdeps' # Install given package(s) as dependencies of another package
   alias yamir='yaourt -Syy' # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
 else
-upgrade() {
-   sudo pacman -Syu
- }
+    upgrade() {
+      sudo pacman -Syu
+    }
 fi
 
 # nix
@@ -99,17 +88,13 @@ function y() {
     y_path="$1"
   fi
   echo "Paste links, ^D start to download."
-  youtube-dl --proxy "jayeshkg:$password@nknproxy.iitk.ac.in:3128" -o "${y_path}/%(title)s-%(id)s.%(ext)s" -a-
+  youtube-dl -o "${y_path}/%(title)s-%(id)s.%(ext)s" -a-
 }
-function yw() {
-  echo "Paste link, ^D start to watch."
-  youtube-play.sh -a-
-}
+
 function ya() {
   echo "Paste link, ^D start downloading with aria2"
-  youtube-dl-aria --proxy "jayeshkg:$password@nknproxy.iitk.ac.in:3128" -a-
+  youtube-dl-aria -a-
 }
-alias yp="youtube-play"
 
 # move target to location and create symbolic link
 function mvln() {
@@ -127,6 +112,7 @@ alias mv="mv -iv"
 # System related
 alias enablebluetooth="systemctl start bluetooth.service"
 alias sc="systemctl"
+alias usc="systemctl --user"
 #################################################################################
 # git related
 if hash "hub" 2> /dev/null; then
@@ -136,7 +122,6 @@ alias g="git"
 alias gst="git status"
 alias gpom="git push origin master"
 ################################################################################
-
 # git-annex
 alias ga="git-annex"
 alias gas="git-annex sync"
@@ -179,20 +164,26 @@ alias e="emacs -nw"
 alias ee="emacs-gui"
 alias se="sudo emacs -nw"
 
-alias http='python -m http.server'
+alias http='python3 -m http.server'
 
 # tmux
 alias tmuxl='tmux list-sessions'
 alias tmuxa='tmux attach-session'
 
 # ssh
-alias cse="ssh cselabs"
 
 # c
 alias co="./configure"
-alias cop="./configure --prefix=$HOME/local"
-alias tagify-c="ctags -eR ."
-alias make="colormake"
+# Isolate installs
+function cop() {
+  dest=$1; shift
+  ./configure --prefix=$HOME/local/$dest $*
+}
+
+if hash "colormake" 2> /dev/null; then
+    alias make="colormake"
+fi
+
 
 # udevil
 alias ua='devmon --unmount-all --no-gui'
@@ -200,16 +191,13 @@ alias um='udevil mount'
 alias uu='udevil umount'
 
 # shortcuts
-alias my="sudo chown rejuvyesh:rejuvyesh"
+alias my="sudo chown $USER:$USER"
 alias x="chmod +x"
-
-# Still many do use
-alias mplayer=mpv
 
 # Wine
 alias ewine="wine explorer /desktop=foo${RANDOM},1024x768"
 alias newine="nice wine explorer /desktop=foo${RANDOM},1024x768"
-alias microcap="ewine ~/.wine/drive_c/MicroCap\ v10.04/mc10.exe"
+
 
 # repo
 alias mup="mr -j5 update"
@@ -236,7 +224,7 @@ alias p3="python3"
 alias p="python3"
 
 # go
-[[ -e $(which colorgo) ]] && alias go=colorgo
+[[ -e $(which colorgo) ]] && [[ -e $(which go) ]] && alias go=colorgo
 
 # subs
 subs() { subliminal --languages=en -f -s $* }
