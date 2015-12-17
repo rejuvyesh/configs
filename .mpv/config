@@ -13,10 +13,15 @@ vd-lavc-threads=2
 # for wide screen monitors
 #vf=expand=::::1:16/9:16
 
-# correct pitch when speed is faster or slower than 1.0
-af=scaletempo
 
-input-lirc=no
+# don't allow a new window to have a size larger than 90% of the screen size
+#autofit-larger=90%x90%
+# autofit=80%x80%
+
+# correct pitch when speed is faster or slower than 1.0
+# af=scaletempo
+af=drc
+
 # allow to increase the maximal volume to 600%
 #softvol-max=600
 
