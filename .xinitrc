@@ -35,7 +35,7 @@ unclutter -root -idle 1f &
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # wifi
-wicd-client --tray & >/dev/null
+cmst -w 10 & >/dev/null
 
 # redshift
 # redshift -l 26.4583:80.3173 -t 6500:4000 >& /dev/null
@@ -43,6 +43,14 @@ wicd-client --tray & >/dev/null
 # restore current-reads
 restore zathura &
 
+# dropbox
+dropbox start &
 
-WM="xmonad"
+## Start wiki
+cd $HOME/src/www/wiki && ./start.sh &
+
+# reminders
+remind -z -k'notify-send --icon=dialog-information "Reminder" %s &' ~/Documents/spoiler/reminders.txt &
+WM="awesome"
+# WM="xmonad"
 exec dbus-launch --auto-syntax --exit-with-session $WM
