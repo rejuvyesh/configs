@@ -1,3 +1,4 @@
+
 [Midnight-Commander]
 show_backups=1
 show_dot_files=0
@@ -129,6 +130,11 @@ editor_cursor_after_inserted_block=0
 editor_ask_filename_before_edit=0
 editor_filesize_threshold=64M
 
+editor_drop_selection_on_copy=1
+editor_stop_format_chars=-+*\\,.;:&>
+
+editor_state_full_filename=0
+
 [Layout]
 message_visible=1
 keybar_visible=1
@@ -154,7 +160,7 @@ classic_progressbar=true
 
 horizontal_split=0
 vertical_equal=1
-left_panel_size=112
+left_panel_size=56
 horizontal_equal=1
 top_panel_size=68
 
@@ -170,7 +176,7 @@ display_codepage=UTF-8
 source_codepage=UTF-8
 
 timeformat_recent=%b %e %H:%M
-timeformat_old=%b %e %Y
+timeformat_old=%b %e  %Y
 autodetect_codeset=
 
 clipboard_store=
@@ -266,6 +272,8 @@ simple_swap=false
 
 show_mini_info=true
 torben_fj_mode=false
+
+select_flags=6
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print
