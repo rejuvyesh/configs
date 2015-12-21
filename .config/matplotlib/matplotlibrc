@@ -1,3 +1,4 @@
+backend: Qt4Agg
 ### LINES
 # See http://matplotlib.sourceforge.net/api/artist_api.html#module-matplotlib.lines for more
 # information on line properties.
@@ -58,7 +59,7 @@ patch.antialiased : True # render patches in antialiased (no jaggies)
 # The font.size property is the default font size for text, given in pts.
 # 12pt is the standard value.
 #
-font.family : Lato
+#font.family : Raleway
 #font.style : normal
 #font.variant : normal
 #font.weight : medium
