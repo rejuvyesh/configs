@@ -188,8 +188,10 @@ globalkeys = awful.util.table.join(
   awful.key({ modkey, "Shift"   }, "h",   awful.tag.viewprev),
 
   -- move through screens
- -- awful.key({ modkey,           }, "g", function () awful.screen.focus_relative(1) end),
- -- awful.key({ modkey, "Shift"   }, "g", function () awful.screen.focus_relative(-1) end),
+  awful.key({ modkey,               }, "o", function () awful.screen.focus_relative(1) end),
+  awful.key({ modkey, "Shift"       }, "o", function () awful.screen.focus_relative(-1) end),
+  awful.key({ modkey, "Control"     }, "o", function () awful.client.movetoscreen() end),
+  
   -- focus history
   awful.key({ modkey,           }, "Tab", awful.tag.history.restore),
   awful.key({ modkey, "Shift"   }, "Tab", function ()
