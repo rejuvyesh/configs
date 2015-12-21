@@ -300,7 +300,7 @@ globalkeys = awful.util.table.join(
   end),
   awful.key({                   }, "XF86AudioMute", function ()
               awful.util.spawn_with_shell("amixer -q set Master toggle") end),
-  -- awful.key({ modkey, "Shift"   }, "c", function () awful.util.spawn("remember_song.sh") end),
+
   awful.key({ modkey, "Control" }, "c", function ()
               awful.util.spawn_with_shell("MPD_HOST=localhost mpc del 0") end),
   awful.key({                   }, "XF86AudioPlay", function()
@@ -552,12 +552,12 @@ awful.rules.rules = {
                    "Wine",
                    "Gxmessage",
                    "anking",
-                   "Plugin-container",
+                   "Plugin-container"
                }},
     properties = { floating = true }},
 
   -- keep them on top
-  { rule_any = { class = { "mpv" }},
+  { rule_any = { class = { "mpv", "CMST" }},
     properties = { ontop  = true,
                    sticky = true,
   }},
@@ -574,20 +574,14 @@ awful.rules.rules = {
     properties = { tag = tags[1][10] }},
   { rule_any = { class = { "Anki"}},
     properties = { tag = tags[1][9] }},
+  { rule_any = { class = { "Zathura", "zathura"}},
+    properties = { tag = tags[1][2] }},
   { rule_any = {class = {"com-mathworks-util-PostVMInit"}},
     properties = { tag = tags[1][3] }},
 }
 
 -- signals
 client.connect_signal("manage", function (c, startup)
-                        -- enable mouse focus
-                        c:connect_signal("mouse::enter", function(c)
-                                           if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
-                                           and awful.client.focus.filter then
-                                             client.focus = c
-                                           end
-                        end)
-
                         if not startup then
                           -- make new windows slaves
                           if not c.size_hints.user_position and not c.size_hints.program_position then
