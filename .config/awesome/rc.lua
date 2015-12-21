@@ -122,7 +122,7 @@ redshift.init(1)
 local scratchpad_term = scratchpad({ command = terminal.." -name scratchpad -e zsh -i -c 'scratchpad'",
                                      name    = "scratchpad",
 			                               height  = 0.7,
-                                     width   = 0.6})
+                                     width   = 0.5})
 local scratchpad_anking = scratchpad({ command = "anking",
                                        name    = "anking",
                                        height  = 0.7,
@@ -274,11 +274,9 @@ globalkeys = awful.util.table.join(
   -- launch terminal
   awful.key({ modkey,           }, "u", function () awful.util.spawn(terminal) end),
 
-  -- launch music
-  awful.key({modkey, "Shift"    }, "u", function () run_or_raise(music) end),
   -- launch dmenu
   awful.key({ modkey,           }, "e", function () awful.util.spawn_with_shell(dmenu_quick) end),
-  awful.key({ modkey,           }, "o", function () awful.util.spawn(dmenu_all) end),
+  awful.key({ modkey, "Shift"   }, "e", function () awful.util.spawn(dmenu_all) end),
   
   -- rotate screen
   awful.key({ modkey,           }, "j", function () awful.util.spawn("rotate_screen normal") end),
