@@ -13,6 +13,7 @@ fi
 # load for terminal
 xrdb merge $HOME/.Xresources
 
+# Remap caps to ctrl
 setxkbmap -option 'ctrl:nocaps,compose:menu'
 
 # add terminus font
@@ -36,9 +37,6 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # wifi
 cmst -w 10 & >/dev/null
-
-# redshift
-# redshift -l 26.4583:80.3173 -t 6500:4000 >& /dev/null
 
 # restore current-reads
 restore zathura &
