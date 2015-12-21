@@ -51,7 +51,7 @@ gem 'ox'
 
 # muflax
 gem 'muflax'
-gem 'future_me'
+gem 'future_me', :path => File.expand_path('~/src/ruby/fume')
 gem 't'
 
 # web
