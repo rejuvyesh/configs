@@ -35,9 +35,12 @@ fi
 
 start_ssh_agent
 
+systemctl --user import-environment PATH
+
 [[ -s ~/.zsh/local.sh ]] && source ~/.zsh/local.sh
 
 # startx
 if [[ $(tty) = /dev/tty1 ]] && [[ -z "$DISPLAY" ]]; then
     startx 2>! "$HOME"/.xsession-errors
 fi
+
