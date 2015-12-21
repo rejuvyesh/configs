@@ -24,13 +24,14 @@ set! browser.tabs.closeWindowWithLastTab=false
 " #========
 "{{{
 silent qmark d http://rejuvyesh.com/dailystats
-silent qmark e https://www.evernote.com/Home.action
 silent qmark E https://www.evernote.com/pub/gwern/gwern/
 silent qmark f http://facebook.com
 silent qmark g http://www.github.com/
 silent qmark H http://news.ycombinator.com/news
 silent qmark i http://inoreader.com
 silent qmark l http://lesswrong.com
+silent qmark L http://last.fm/user/rejuvyesh
+silent qmark m https://webmail.stanford.edu
 silent qmark M https://mail.google.com/mail/
 silent qmark r http://reddit.com/
 silent qmark T http://twitter.com/home/
