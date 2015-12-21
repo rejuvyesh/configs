@@ -115,7 +115,7 @@ dmenu_all   = "dmenu_run "..dmenu_opts
 dmenu_quick = "eval \"exec `cat $HOME/.programs | "..dmenu.."`\""
 
 redshift.redshift = "/usr/bin/redshift"
-redshift.options = "-l 26.4583:80.3173 -t 6500:4500"
+redshift.options = "-l 37.421:-122.158 -t 6500:4000"
 redshift.init(1)
 
 -- scratchpads
