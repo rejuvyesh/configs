@@ -612,14 +612,14 @@ clock     = wibox.widget.textbox()
 clock_timer = helpers.newtimer
 clock_timer("clock", 0.9, function()
               local eu_t = chomp_read('TZ="Europe/Berlin" date "+e:%H"')
-              local us_t  = chomp_read('TZ="America/Los_Angeles" date "+u:%H"')
+              local in_t  = chomp_read('TZ="Asia/Kolkata" date "+i:%H"')
               clock:set_markup(
                 -- date
                 markup("#63c7a9", os.date("%d(%a) "))
 
                 -- other time
                   ..markup("#343639", "[")
-                  ..markup("#de5e1e", us_t)
+                  ..markup("#de5e1e", in_t)
                   ..markup("#343639", "|")
                   ..markup("#de5e1e", eu_t)
                   ..markup("#343639", "]")
