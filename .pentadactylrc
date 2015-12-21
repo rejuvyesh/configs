@@ -34,6 +34,7 @@ silent qmark L http://last.fm/user/rejuvyesh
 silent qmark m https://webmail.stanford.edu
 silent qmark M https://mail.google.com/mail/
 silent qmark r http://reddit.com/
+silent qmark w http://localhost:9500/_index
 silent qmark T http://twitter.com/home/
 silent qmark y http://youtube.com/
 
