@@ -47,13 +47,6 @@ silent qmark y http://youtube.com/
 command dta -description "open downthemall window" emenu Tools.DownThemAll! Tools.DownThemAll!...
 command print -description "print page" emenu File.Print…
 
-"" use google to get lwn subscription link
-autocmd -javascript PageLoad 'https://lwn.net/Articles/*' <<EOF
-if (doc.title.match(/subscription/i)) {
-let title = doc.getElementsByClassName("ArticleText")[0].getElementsByTagName("a")[0].innerHTML;
-dactyl.open('google site:lwn.net/SubscriberLink "' + title + '"');
-}
-EOF
 
 " bookmarklets"{{{
 command archive,ar -description "open archive.org's version" open javascript:location.href='http://web.archive.org/web/*/'+document.location.href;
@@ -100,7 +93,7 @@ EOF
 " :yankorg, :yor
 " Yank Org link to current page
 command!
-\ -description "Yank Markdown link to current page"
+\ -description "Yank Org link to current page"
 \ -nargs=0
 \ yankorg,yor
 \ -js <<EOF
@@ -116,6 +109,7 @@ command!
   dactyl.clipboardWrite(link, true)
 EOF
 
+
 " :later
 " Bookmark page for future action, tagged "for later". Action can be
 " specified as argument, which adds a "to <action>" tag (e.g.,
@@ -129,7 +123,10 @@ command!
 " javascript custom searches
 " http://jsfiddle.net/mdegat01/WSLak/
 " http://lifehacker.com/5973225/four-more-custom-searches-you-should-enable-in-your-browser-right-now
-command! customsearch -description "more custom search options" -nargs=1 open javascript:var url='<args>';if(!String.prototype.trim){String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,'')}}(function(u,m,h,n){var WC={'e':m[1]||n,'h':h||n,'q':(m[1]||h)?(h+' '+m[1]).trim():n,'d':window.location.hostname,'u':window.location.href,'t':document.title,'l':n};var w='[';for(var key in WC){if(WC.hasOwnProperty(key)){w+=key}}w+=']';var re=new RegExp('%((?:\\('+w+'(?:\\|\\|'+w+')+\\))|'+w+')','g');var sU=function(p){if(p){WC.l=p.coords.latitude+'%20'+p.coords.longitude}u=u.replace(re,function(match,p1,off,str){return encodeURIComponent((eval(p1.replace(new RegExp(w,'g'),'WC.$&'))||''))});switch((m[2]||'c').toLowerCase()){case'w':window.open(u,'Omnibar Window','toolbar=0,status=0,resizable=1,width=1100,height=762');break;case't':window.open(u,'_blank');break;default:window.location.href=u;break}};var lTest=/%(?:\([^)]*)?\bl\b/.test(u);if(navigator.geolocation&&lTest){navigator.geolocation.getCurrentPosition(sU)}else{if(lTest){alert('Geolocation%20is%20not%20supported%20by%20this%20browser.')}sU()}})(url,(/^(.*?)([wtc])?$/i.exec('%s')),((window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:document.selection)))));
+command!
+  \ -description "more custom search options"
+  \ -nargs=1
+  \ customsearch open javascript:var url='<args>';if(!String.prototype.trim){String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,'')}}(function(u,m,h,n){var WC={'e':m[1]||n,'h':h||n,'q':(m[1]||h)?(h+' '+m[1]).trim():n,'d':window.location.hostname,'u':window.location.href,'t':document.title,'l':n};var w='[';for(var key in WC){if(WC.hasOwnProperty(key)){w+=key}}w+=']';var re=new RegExp('%((?:\\('+w+'(?:\\|\\|'+w+')+\\))|'+w+')','g');var sU=function(p){if(p){WC.l=p.coords.latitude+'%20'+p.coords.longitude}u=u.replace(re,function(match,p1,off,str){return encodeURIComponent((eval(p1.replace(new RegExp(w,'g'),'WC.$&'))||''))});switch((m[2]||'c').toLowerCase()){case'w':window.open(u,'Omnibar Window','toolbar=0,status=0,resizable=1,width=1100,height=762');break;case't':window.open(u,'_blank');break;default:window.location.href=u;break}};var lTest=/%(?:\([^)]*)?\bl\b/.test(u);if(navigator.geolocation&&lTest){navigator.geolocation.getCurrentPosition(sU)}else{if(lTest){alert('Geolocation%20is%20not%20supported%20by%20this%20browser.')}sU()}})(url,(/^(.*?)([wtc])?$/i.exec('%s')),((window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:document.selection)))));
 
 command viewgcache,vgc -description "view google cache of page" customsearch http://www.google.com/search?q=cache:%u
 
@@ -138,6 +135,22 @@ command getdirections,gdr -description "get directions from current location wit
 "}}}
 
 " #==============================
+" # Auto run commands
+" #==============================
+"{{{
+"" use google to get lwn subscription link
+autocmd -javascript PageLoad 'https://lwn.net/Articles/*' <<EOF
+if (doc.title.match(/subscription/i)) {
+let title = doc.getElementsByClassName("ArticleText")[0].getElementsByTagName("a")[0].innerHTML;
+dactyl.open('google site:lwn.net/SubscriberLink "' + title + '"');
+}
+EOF
+"}}}
+
+" pause music when loading youtube video
+autocmd PageLoad youtube.com/watch* :silent !mpc pause
+
+
 " # General Pentadactyl Settings 
 " #==============================
 "{{{
@@ -274,20 +287,6 @@ nmap -ex <leader>A execute "silent !youtube-dl --restrict-filenames --extract-au
 " hide tabline
 map -ex <leader>b set showtabline!=always,never
 
-" yank short URL
-nmap <leader>y -js <<EOF
-var xhr = new XMLHttpRequest()
-var url = "http://v.gd/create.php?format=simple&url=" +
-encodeURIComponent(buffer.URL)
-
-xhr.open("GET", url, true)
-xhr.onreadystatechange = function () {
-if (xhr.readyState == 4)
-dactyl.clipboardWrite(xhr.responseText, true)
-}
-
-xhr.send(null)
-EOF 
 
 " cookie management {{{
 " export cookies with https://addons.mozilla.org/en-US/firefox/addon/export-cookies/ 
@@ -328,32 +327,6 @@ command bookmark open javascript:location.href='org-protocol://capture://b/'+enc
 " save file to zotero
 " :map -js z Zotero_Browser.scrapeThisPage()
 
-"" google translate
-command trans -js <<EOF
-let getParameterByName = function(url, name) {
-let name = name.replace(/[\[]/, '\\\[').replace(/[\]]/, '\\\]');
-let regexS = '[\\?&]' + name + '=([^&#]*)';
-let regex = new RegExp(regexS);
-let results = regex.exec(url);
-if (results == null)
-return '';
-else
-return decodeURIComponent(results[1].replace(/\+/g, ' '));
-};
-if (buffer.URL.spec.indexOf('http://translate.google.com/') !== 0) {
-dactyl.open('http://translate.google.com/translate?hl=en&sl=auto&tl=en&u=' + encodeURIComponent(buffer.URL.spec));
-} else {
-dactyl.open(getParameterByName(buffer.URL.spec, 'u'));
-}
-EOF
-nmap -builtin ,t :trans<CR>
-
-" google docs viewer {{{2
-js <<EOF
-hints.addMode("d", "Open link using google docs", function (elem) dactyl.open("https://docs.google.com/viewer?url=" + encodeURIComponent(elem.href), dactyl.NEW_TAB), null, ["a[href*='.pdf']", "a[href*='.doc']", "a[href*='.ppt']", "a[href*='.odp']"]);
-EOF
-
-
 " passkeys
 set passkeys+=reddit.com:JKasecCwWq<CR>
 set passkeys+=github.com:<Return>
@@ -372,14 +345,6 @@ map -modes=n -builtin <C-6> :buffer 6<CR>
 map -modes=n -builtin <C-7> :buffer 7<CR>
 map -modes=n -builtin <C-8> :buffer 8<CR>
 map -modes=n -builtin <C-9> :buffer 9<CR>
-
-autocmd PageLoad youtube.com/watch* :silent !mpc pause
-
-" useragent ipad Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3
-" useragent nexus10 Mozilla/5.0 (Linux; Android 4.2.1; Nexus 10 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19
-" useragent ie9 Mozilla/5.0 (Windows; U; MSIE 9.0; WIndows NT 9.0; en-US))
-" useragent ie11 Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0;  rv:11.0) like Gecko
-" useragent chrome Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36
 
 
 " vim: set ft=pentadactyl:
