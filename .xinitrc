@@ -8,7 +8,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # load relevant zsh settings
-source $HOME/.zsh/zsh_env
+. $HOME/.zsh/zsh_env
 
 # load for terminal
 xrdb merge $HOME/.Xresources
