@@ -15,34 +15,38 @@ gems = [
         "chronic",
         "json",
         "yaml",
+        "epitools"
        ]
 gems.each {|gem| load_gem gem}
 
 # awesome_print
 load_gem("awesome_print") {Pry.config.print = proc {|output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)}}
 
-# pry config
-Pry.config.color = true
-Pry.config.theme = "pry-modern"
-Pry.config.editor = "emacsclient -n -c"
-
-# wrap ANSI codes so Readline knows where the prompt ends
-def colour(name, text)
-  if Pry.color
-    "\001#{Pry::Helpers::Text.send name, '{text}'}\002".sub '{text}', "\002#{text}\001"
-  else
-    text
+module Pry::Helpers::Text
+  class << self
+    alias_method :grey, :bright_black
+    alias_method :gray, :bright_black
   end
 end
 
-# pretty prompt
-Pry.config.prompt = [
-                     proc do |object, nest_level, pry|
-                       prompt = colour :bright_black, Pry.view_clip(object)
-                       prompt += ":#{nest_level}" if nest_level > 0
-                       prompt += colour :cyan, ' » '
-                     end, proc { |object, nest_level, pry| colour :cyan, '» '  }
-                    ]
+# # pry config
+Pry.config.color = true
+# Pry.config.theme = "pry-modern"
+Pry.config.editor = "emacs-gui-wait"
+
+Pry.commands.instance_eval do
+  
+  command "lls", "List local files using 'ls'" do |*args|
+    cmd = ".ls"
+    cmd << " --color=always" if Pry.color
+    run cmd, *args
+  end
+  
+  command "pwd" do
+    puts Dir.pwd.split("/").map{|s| text.bright_green s}.join(text.grey "/")
+  end
+
+end
 
 # some aliases
 Pry.config.commands.alias_command "ee", "edit"
