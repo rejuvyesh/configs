@@ -81,7 +81,7 @@ CABAL_BIN="$HOME/local/cabal/bin"
 [ -d $CABAL_BIN ] && PATH=${CABAL_BIN}:${PATH}
 
 # go
-if [[ $(which go) ]]; then
+if [[ -e $(which go) ]]; then
    export GOROOT=$(go env GOROOT)
    export PATH=$GOROOT/bin:$PATH
    export GOPATH=$HOME/local/go
