@@ -23,7 +23,7 @@ set! browser.tabs.closeWindowWithLastTab=false
 " # QuickMarks
 " #========
 "{{{
-silent qmark d http://rejuvyesh.com/dailystats
+silent qmark d http://localhost:9999
 silent qmark E https://www.evernote.com/pub/gwern/gwern/
 silent qmark f http://facebook.com
 silent qmark g http://www.github.com/
