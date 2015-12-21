@@ -12,10 +12,10 @@ set mbox_type = Maildir
 set folder = $HOME/mail/
 set check_new
 
-set spoolfile = "+iitk/inbox"
+set spoolfile = "+stanford/inbox"
 
 mailboxes +rejuvyesh/inbox
-mailboxes +iitk/inbox
+mailboxes +stanford/inbox
 
 # }}}
 # Outgoing Mail - MSMTP {{{
@@ -104,7 +104,7 @@ source $alias_file
 set mailcap_path = ~/.mutt/mailcap
 set display_filter=$HOME/src/scripts/createalias.sh # filters new messages through a shell script that automatically generates a mutt alias for new senders
 
-macro index ii "<change-folder>~/mail/iitk/inbox<enter>" "iitk mailbox"
+macro index is "<change-folder>~/mail/stanford/inbox<enter>" "stanford mailbox"
 macro index ig "<change-folder>~/mail/rejuvyesh/inbox<enter>" "gmail mailbox"
 
 # Mu
