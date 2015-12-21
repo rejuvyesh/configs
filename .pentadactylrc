@@ -151,11 +151,12 @@ EOF
 autocmd PageLoad youtube.com/watch* :silent !mpc pause
 
 
+" #==============================
 " # General Pentadactyl Settings 
 " #==============================
 "{{{
 " External editor
-set editor='/home/rejuvyesh/.nix-profile/bin/emacsclient -c --alternate-editor="" +%l %f'
+set editor='emacs-gui-wait'
 
 " no smooth scroll
 set scs=1
@@ -168,7 +169,7 @@ set popups=tab
 " don't open external at end (this with tab-options plugin)
 au Enter * set tabopen=link:right,orphan:right,external:right
 
-set hintkeys=HJKLASDFGYUIOPQWERTNMZXCVB
+set hintkeys=hjklasdfgyuiopqwertnmzxcvb
 
 " Search
 set noincfind
@@ -193,8 +194,8 @@ set strictfocus='chrome:*':laissez-faire,*:despotic
 " #==============================
 "{{{
 colorscheme lightgrey
-" only show the tab bar when there are multiple tabs
-set showtabline=multitab
+" don't show tabline because `buftabs`
+set showtabline=never
 " added n for tab number (easier nav); C command line outside of status line; M messages outside status line; r right scrollbar (as a reference point); s for status bar
 set guioptions=CMrns
 
@@ -214,8 +215,8 @@ loadplugins '\.(css|js|penta)$'
 " #==============================
 "{{{
 nmap -builtin <c-w> <nop>
-" `mapleader` setting/option is removed!
-map , <leader>
+" `mapLeader` setting/option is removed!
+map , <Leader>
 
 " Swap ; and :
 map -builtin ; :
@@ -268,31 +269,24 @@ nmap -ex gf viewsource
 "Leader Mappings {{{
 
 "reload
-nmap -ex <leader>. source ~/.pentadactylrc
+nmap -ex <Leader>. source ~/.pentadactylrc
 
-nmap -builtin <leader>p :emenu Bookmarks.pocket<CR>
+nmap -builtin <Leader>p :emenu Bookmarks.pocket<CR>
 
-nmap -builtin <leader>c :emenu Tools.Clearly<CR>
-
-nmap -builtin <leader>u :citation
-
-" yank markdown link
-nmap <leader>y :yankmarkdown<CR> 
+nmap -builtin <Leader>c :emenu Tools.Clearly<CR>
 
 " download instead
-nmap -ex <leader>Y execute "silent !youtube-dl --restrict-filenames -o '~/youtube/%(title)s_%(width)sx%(height)s_%(upload_date)s.%(ext)s' " + buffer.URL + " &"
+nmap -ex <Leader>Y execute "silent !youtube-dl --restrict-filenames -o '~/youtube/%(title)s_%(width)sx%(height)s_%(upload_date)s.%(ext)s' " + buffer.URL + " &"
 " just audio
-nmap -ex <leader>A execute "silent !youtube-dl --restrict-filenames --extract-audio -o '~/youtube/%(title)s_%(width)sx%(height)s_%(upload_date)s.%(ext)s' " + buffer.URL + " &"
+nmap -ex <Leader>A execute "silent !youtube-dl --restrict-filenames --extract-audio -o '~/youtube/%(title)s_%(width)sx%(height)s_%(upload_date)s.%(ext)s' " + buffer.URL + " &"
 
 " hide tabline
-map -ex <leader>b set showtabline!=always,never
-
+map -ex <Leader>b set showtabline!=always,never
 
 " cookie management {{{
 " export cookies with https://addons.mozilla.org/en-US/firefox/addon/export-cookies/ 
 " (using for wget)
-nmap -js <leader>ec exportCookies()
-
+nmap -js <Leader>e exportCookies()
 "}}}
 
 " Bookmark for later review and tagging
@@ -312,6 +306,7 @@ nmap -builtin <Leader>lw :later watch<CR>
 
 " Bookmark for later testing ("a" as in "application")
 nmap -builtin <Leader>la :later test<CR> 
+
 
 
 
@@ -346,5 +341,7 @@ map -modes=n -builtin <C-7> :buffer 7<CR>
 map -modes=n -builtin <C-8> :buffer 8<CR>
 map -modes=n -builtin <C-9> :buffer 9<CR>
 
+" Fix for ublock
+style -name ublick * #nav-bar * { visibility: visible; }
 
 " vim: set ft=pentadactyl:
