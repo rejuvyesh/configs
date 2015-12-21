@@ -44,11 +44,15 @@ restore zathura &
 # dropbox
 dropbox start &
 
-## Start wiki
+# Start wiki
 cd $HOME/src/www/wiki && ./start.sh &
+
+# Start arbtt-graph
+cd $HOME/src/www/arbtt-graph/ && ./arbtt-serve.py &
 
 # reminders
 remind -z -k'notify-send --icon=dialog-information "Reminder" %s &' ~/Documents/spoiler/reminders.txt &
+
 WM="awesome"
 # WM="xmonad"
 exec dbus-launch --auto-syntax --exit-with-session $WM
