@@ -150,6 +150,7 @@ EOF
 
 " pause music when loading youtube video
 autocmd PageLoad youtube.com/watch* :silent !mpc pause
+autocmd PageLoad youtube.com/watch* :silent !spotify-ctl pause
 
 
 " #==============================
