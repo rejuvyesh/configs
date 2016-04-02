@@ -265,3 +265,7 @@ alias scl='scancleaner'
 alias h='hledger'
 alias ha='hledger add'
 alias hb='hledger balance'
+
+# apt
+alias agi='sudo aptitude install'
+alias agui='sudo aptitude remove'
