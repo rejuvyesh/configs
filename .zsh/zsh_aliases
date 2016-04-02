@@ -4,7 +4,7 @@
 
 # normal aliases
 alias cgrep="grep --color=always"
-alias diff="colordiff"
+[[ -e $(which colordiff) ]] && alias diff="colordiff"
 alias grep="grep --color=auto -P"
 alias less="less -iF"
 alias ls="ls --color=always --group-directories-first -v"
