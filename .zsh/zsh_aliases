@@ -202,10 +202,6 @@ alias newine="nice wine explorer /desktop=foo${RANDOM},1024x768"
 # repo
 alias mup="mr -j5 update"
 
-# beeminder
-alias bot="beeminder_org_todo.rb"
-alias bota="beeminder_org_todo.rb -a"
-
 # mpv
 if hash "rmpv" 2> /dev/null; then
     alias mm="rmpv"
