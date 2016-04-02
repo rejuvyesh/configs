@@ -222,3 +222,39 @@ function ipt() {
       ;;
   esac
 }
+
+function clean_old_kernels() {
+  sudo aptitude purge $(dpkg -l linux-{image,headers}-"[0-9]*" | awk '/ii/{print $2}' | grep -ve "$(uname -r | sed -r 's/-[a-z]+//')")
+}
+
+
+# List packages by size
+function apt-list-packages {
+  dpkg-query -W --showformat='${Installed-Size} ${Package} ${Status}\n' | \
+      grep -v deinstall | \
+      sort -n | \
+      awk '{ if ($1 > 1024*1024*1024)
+              printf("% 6.1fT %s\n", $1/(1024*1024*1024), $2);
+           else if ($1 > 1024*1024)
+              printf("% 6.1fG %s\n", $1/(1024*1024), $2);
+           else if ($1 > 1024)
+              printf("% 6.1fM %s\n", $1/1024, $2);
+           else
+              printf("% 6.1ik %s\n", $1, $2); }'
+}
+
+# create a simple script that can be used to 'duplicate' a system
+apt-copy() {
+  print '#!/bin/sh'"\n" > apt-copy.sh
+
+  cmd='aptitude install'
+
+  for p in ${(f)"$(aptitude search -F "%p" --disable-columns \~i)"}; {
+    cmd="${cmd} ${p}"
+  }
+
+           print $cmd "\n" >> apt-copy.sh
+
+           chmod +x apt-copy.sh
+}
+
