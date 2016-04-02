@@ -1,0 +1,11 @@
+[Unit]
+Description=Jupyter Notebook Server
+
+[Service]
+Type=simple
+PIDFile=/var/run/jupyter-notebook.pid
+ExecStart=/home/rejuvyesh/local/bin/jupyter notebook --no-browser --port 8558
+WorkingDirectory=/home/rejuvyesh/src
+
+[Install]
+WantedBy=multi-user.target
