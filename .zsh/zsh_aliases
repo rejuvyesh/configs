@@ -47,23 +47,34 @@ function mat() {
 # Look for yaourt, and add some useful functions if we have it.
 if [[ -x `which yaourt` ]]; then
     upgrade () {
-        sudo etckeeper pre-install
-        yaourt -Syua --devel
-        sudo etckeeper post-install
-  }
-
-  # Additional yaourt alias examples
-  if [[ -x `which abs` ]]; then
-alias yaupd='yaourt -Sy && sudo abs' # Update and refresh the local package and ABS databases against repositories
-  else
-alias yaupd='yaourt -Sy' # Update and refresh the local package and ABS databases against repositories
-  fi
-  alias yainsd='yaourt -S --asdeps' # Install given package(s) as dependencies of another package
-  alias yamir='yaourt -Syy' # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
-else
+      sudo etckeeper pre-install
+      yaourt -Syua --devel
+      sudo etckeeper post-install
+    }
+    # Additional yaourt alias examples
+    if [[ -x `which abs` ]]; then
+        alias yaupd='yaourt -Sy && sudo abs' # Update and refresh the local package and ABS databases against repositories
+    else
+        alias yaupd='yaourt -Sy' # Update and refresh the local package and ABS databases against repositories
+    fi
+    alias yainsd='yaourt -S --asdeps' # Install given package(s) as dependencies of another package
+    alias yamir='yaourt -Syy' # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+elif [[ -x `which pacman` ]]; then
     upgrade() {
       sudo pacman -Syu
     }
+elif [[ -x `which aptitude` ]]; then
+    upgrade() {
+      sudo aptitude update
+      sudo aptitude safe-upgrade
+    }
+elif [[ -x `which apt-get` ]]; then
+    upgrade() {
+      sudo apt-get update
+      sudo apt-get dist-upgrade
+    }
+else
+    echo "Not sure where we are."
 fi
 
 # nix
