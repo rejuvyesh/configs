@@ -326,9 +326,9 @@ globalkeys = awful.util.table.join(
   
   -- backlights
   awful.key({                   }, "XF86MonBrightnessDown", function ()
-              awful.util.spawn_with_shell("light -sq 20") end),
+              awful.util.spawn_with_shell("light -U 10") end),
   awful.key({                   }, "XF86MonBrightnessUp", function ()
-              awful.util.spawn_with_shell("light -aq 20") end),
+              awful.util.spawn_with_shell("light -A 10") end),
   -- -- prompt
   -- awful.key({ modkey }, "r", function () promptbox[mouse.screen]:run() end),
 
