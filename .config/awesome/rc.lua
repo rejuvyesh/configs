@@ -568,6 +568,7 @@ awful.rules.rules = {
     properties = { tag = tags[1][2] }},
   { rule_any = {class = {"com-mathworks-util-PostVMInit"}},
     properties = { tag = tags[1][3] }},
+  { rule_any = { name  = {"Figure [0-9].*"}}, properties = {floating = true }},
 }
 
 -- signals
