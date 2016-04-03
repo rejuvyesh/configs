@@ -121,7 +121,7 @@ redshift.init(1)
 -- scratchpads
 local scratchpad_term = scratchpad({ command = terminal.." -name scratchpad -e zsh -i -c 'scratchpad'",
                                      name    = "scratchpad",
-			                               height  = 0.7,
+                                     height  = 0.7,
                                      width   = 0.5})
 local scratchpad_anking = scratchpad({ command = "anking",
                                        name    = "anking",
@@ -138,9 +138,9 @@ end
 -- run the command if it not exists, otherwise raise/kill it (and rely on tool itself to tray)
 function run_or_raise(command, rule, active_hide)
   active_hide = active_hide or false
-  
-  local matcher = function (c)                             
-    return awful.rules.match(c, rule) 
+
+  local matcher = function (c)
+    return awful.rules.match(c, rule)
   end
 
   local kill_or_hide = function (c)
@@ -161,7 +161,7 @@ function run_or_raise(command, rule, active_hide)
     return nil
   end
 
-  
+
   if client.focus and matcher(client.focus) then
     kill_or_hide(client.focus)
   else
@@ -196,7 +196,7 @@ globalkeys = awful.util.table.join(
   awful.key({ modkey,               }, "o", function () awful.screen.focus_relative(1) end),
   awful.key({ modkey, "Shift"       }, "o", function () awful.screen.focus_relative(-1) end),
   awful.key({ modkey, "Control"     }, "o", function () awful.client.movetoscreen() end),
-  
+
   -- focus history
   awful.key({ modkey,           }, "Tab", awful.tag.history.restore),
   awful.key({ modkey, "Shift"   }, "Tab", function ()
@@ -244,7 +244,7 @@ globalkeys = awful.util.table.join(
                 end
               end
   end ),
-  
+
   -- move clients around
   awful.key({ modkey, "Shift"   }, "n", function () awful.client.swap.byidx(-1) end),
   awful.key({ modkey, "Shift"   }, "r", function () awful.client.swap.byidx(1) end),
@@ -254,11 +254,11 @@ globalkeys = awful.util.table.join(
   awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
   -- fast toggling of layouts
-  awful.key({ modkey,           }, "m", toggleVerticalTiling), 
-  awful.key({ modkey, "Shift"   }, "m", toggleHorizontalTiling), 
+  awful.key({ modkey,           }, "m", toggleVerticalTiling),
+  awful.key({ modkey, "Shift"   }, "m", toggleHorizontalTiling),
   awful.key({ modkey, "Control" }, "m", toggleGridTiling),
   awful.key({ modkey,           }, "f", toggleFullScreenTiling),
-  awful.key({ modkey, "Shift"   }, "f", toggleCenterFair), 
+  awful.key({ modkey, "Shift"   }, "f", toggleCenterFair),
 
   -- resize winodws
   awful.key({ modkey,           }, "d", function () awful.tag.incnmaster( 1) end),
@@ -282,7 +282,7 @@ globalkeys = awful.util.table.join(
   -- launch dmenu
   awful.key({ modkey,           }, "e", function () awful.util.spawn_with_shell(dmenu_quick) end),
   awful.key({ modkey, "Shift"   }, "e", function () awful.util.spawn(dmenu_all) end),
-  
+
   -- rotate screen
   awful.key({ modkey,           }, "j", function () awful.util.spawn("rotate_screen normal") end),
   awful.key({ modkey, "Shift"   }, "j", function () awful.util.spawn("rotate_screen left") end),
@@ -330,9 +330,9 @@ globalkeys = awful.util.table.join(
               awful.util.spawn("screenshot.sh win") end),
 
   -- toggle redshift
-  awful.key({ modkey           }, "XF86MonBrightnessUp", redshift.toggle), 
-  
-  
+  awful.key({ modkey           }, "XF86MonBrightnessUp", redshift.toggle),
+
+
   -- backlights
   awful.key({                   }, "XF86MonBrightnessDown", function ()
               awful.util.spawn_with_shell("light -U 10") end),
@@ -354,10 +354,10 @@ globalkeys = awful.util.table.join(
                                 local f = io.popen("xclip -o")
                                 local input = f:read("*a")
                                 f:close()
-                                
+
                                 search_web("g "..input)
   end),
-  
+
   -- sdcv dict
   awful.key({ modkey        }, "z", function ()
     local f = io.popen("xsel -o")
@@ -381,7 +381,7 @@ globalkeys = awful.util.table.join(
     f:close()
     frame = naughty.notify({title = new_word, text = fc, timeout = 30, width = 500 })
   end),
-  
+
   awful.key({ modkey, "Shift" }, "z", function ()
     awful.prompt.run({prompt = "Dict: "}, promptbox[mouse.screen].widget, function(cin_word)
         naughty.destroy(frame)
@@ -398,7 +398,7 @@ globalkeys = awful.util.table.join(
         frame = naughty.notify({ title = new_word, text = fc, timeout = 30, width = 500 })
     end, nil, awful.util.getdir("cache").."/dict")
   end),
-  
+
   -- restart awesome
   awful.key({ modkey, "Shift"   }, "q", awesome.restart)
 )
@@ -415,7 +415,7 @@ clientkeys = awful.util.table.join(
 
   -- minimize window
   awful.key({ modkey,           }, "v", function (c) c.minimized = true end),
-  
+
   -- mark client
   awful.key({ modkey,           }, "l", function (c) awful.client.togglemarked(c) end),
 
@@ -489,15 +489,15 @@ local default_ncol    = 1
 -- tags
 tags = {}
 tag_names = {
-  "1",  
-  "📚",  
-  "code",  
-  "4",  
-  "5",  
-  "6",  
-  "📺",  
-  "♬",  
-  "study", 
+  "1",
+  "📚",
+  "code",
+  "4",
+  "5",
+  "6",
+  "📺",
+  "♬",
+  "study",
   "web",
 }
 for s = 1, screen.count() do
@@ -538,7 +538,7 @@ awful.rules.rules = {
   -- ignore that stupid urxvt gap
   { rule_any = { class = { "URxvt", "Emacs" } },
     properties = { size_hints_honor = false }},
-  
+
   -- float these by default
   { rule_any = { class = {
                    "mpv",
@@ -651,7 +651,7 @@ bat = lain.widgets.bat({ battery = local_battery,
                            elseif bat_now.status == "Discharging" then
                              status = "-"
                            end
-                           
+
                            widget:set_text(status..bat_now.perc)
                          end
 })
@@ -769,7 +769,7 @@ for s = 1, screen.count() do
   layoutbox[s]:buttons(awful.util.table.join(
                          awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
                          awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end)))
-  
+
   taglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist.buttons)
 
   -- TODO make it more elaborate, maybe by splitting off minimized tasks?
