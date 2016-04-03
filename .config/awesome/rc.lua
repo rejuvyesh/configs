@@ -833,7 +833,7 @@ function run_once(prg, args)
 end
 
 run_once("urxvt -name scratchpad -e zsh -i -c 'scratchpad")
-run_once("arbtt-capture")
+
 
 -- disable startup-notification globally
 -- http://awesome.naquadah.org/wiki/Disable_startup-notification_globally
