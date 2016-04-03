@@ -555,7 +555,7 @@ awful.rules.rules = {
     properties = { ontop  = true,
                    sticky = true,
   }},
-  
+
   -- floating and sticky
   { rule_any = { role = {"buddy_list","Manager"} },
     properties = { floating = true, sticky = true }},
@@ -564,7 +564,7 @@ awful.rules.rules = {
   { rule_any = { class = { "Pidgin",
                            "Firefox",
                            "Chromium-browser",
-                           "Google-chrome"}},
+                           "google-chrome"}},
     properties = { tag = tags[1][10] }},
   { rule_any = { class = { "Anki"}},
     properties = { tag = tags[1][9] }},
