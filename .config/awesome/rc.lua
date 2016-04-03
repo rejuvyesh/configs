@@ -180,6 +180,11 @@ function run_or_raise(command, rule, active_hide)
   end
 end
 
+-- search
+function search_web(command)
+  awful.util.spawn("firefox 'http://yubnub.org/parser/parse?command="..command.."'", false)
+end
+
 -- keybindings
 modkey = "Mod4"
 globalkeys = awful.util.table.join(
@@ -334,34 +339,19 @@ globalkeys = awful.util.table.join(
 
   -- search
   awful.key({modkey }, "g", function()
-               awful.prompt.run({ prompt = "<span foreground='#7f9f7f'>Google Search:</span> "},
+               awful.prompt.run({ prompt = "<span foreground='#7f9f7f'>Web Search:</span> "},
                                 promptbox[mouse.screen].widget,
                                 function(input)
-                                   awful.util.spawn_with_shell("searchgoogle.sh " .. input)
+                                  search_web("g "..input)
                                 end, nil
                )
   end),
-  awful.key({modkey }, "s", function()
-     awful.prompt.run({ prompt = "<span foreground='#7f9f7f'>Scholar Search:</span> "},
-                      promptbox[mouse.screen].widget,
-                      function(input)
-                         awful.util.spawn_with_shell("searchscholar.sh " .. input)
-                      end, nil
-     )
-  end),
   awful.key({modkey, "Shift" }, "g", function()
-                                local f = io.popen("xsel -o")
+                                local f = io.popen("xclip -o")
                                 local input = f:read("*a")
                                 f:close()
                                 
-                                awful.util.spawn_with_shell("searchgoogle.sh " .. input)
-  end),
-  awful.key({modkey, "Shift" }, "s", function()
-                                local f = io.popen("xsel -o")
-                                local input = f:read("*a")
-                                f:close()
-                                
-                                awful.util.spawn_with_shell("searchscholar.sh " .. input)
+                                search_web("g "..input)
   end),
   
   -- sdcv dict
