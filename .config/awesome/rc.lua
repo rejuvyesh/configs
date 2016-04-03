@@ -315,6 +315,10 @@ globalkeys = awful.util.table.join(
   awful.key({                   }, "XF86AudioPrev", function()
                awful.util.spawn_with_shell("MPD_HOST=localhost mpc prev") mpdwidget.update() end),
 
+  awful.key({}, "XF86Display", function ()
+      awful.util.spawn("arandr")
+  end),
+
   -- Copy to clipboard
   awful.key({ modkey }, "c", function () os.execute("xclip -selection primary -o | xclip -selection clipboard -i") end),
 
