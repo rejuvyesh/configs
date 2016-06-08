@@ -720,6 +720,23 @@ mpdwidget = lain.widgets.mpd({
 })
 
 
+-- fume
+fumewidget = lain.widgets.abase({ cmd = "ti display --start 'today 0:00' -f status",
+                                  settings = function()
+                                    local color = "#ff4e4e"
+                                    local words = {}
+                                    for w in output:gmatch("%S+") do table.insert(words, w) end
+
+                                    if string.find(output, "unbound") then
+                                      color = "#0079c5"
+                                      widget:set_markup(markup(color, words[1]) .. ": " .. markup("#ababab", words[#words]))
+                                    else
+                                      widget:set_markup(markup(color, words[2]) .. ": " .. markup("#ababab", words[#words]))
+                                    end
+
+                                  end,
+                                  timeout = 60
+})
 
 spacer = wibox.widget.textbox(" ")
 
@@ -789,6 +806,8 @@ for s = 1, screen.count() do
   local right_layout = wibox.layout.fixed.horizontal()
   -- right_layout:add(fume) -- TODO
   right_layout:add(wibox.widget.systray())
+  right_layout:add(spacer)
+  right_layout:add(fumewidget)
   right_layout:add(spacer)
   right_layout:add(baticon)
   right_layout:add(bat)
