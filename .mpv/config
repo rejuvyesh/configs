@@ -17,13 +17,23 @@ vd-lavc-threads=2
 # don't allow a new window to have a size larger than 90% of the screen size
 #autofit-larger=90%x90%
 # autofit=80%x80%
+stop-screensaver="yes"
 
 # correct pitch when speed is faster or slower than 1.0
 # af=scaletempo
 af=drc
 
 # allow to increase the maximal volume to 600%
-#softvol-max=600
+softvol-max=600
+
+# don't show images for audio
+audio-display="no"
+
+# reset color
+brightness=0
+contrast=0
+hue=0
+saturation=0
 
 # # skip displaying some frames to maintain A/V sync on slow systems
 # framedrop=yes
@@ -36,3 +46,5 @@ af=drc
 #
 # Prefill 50% of the cache before restarting playback after the cache emptied.
 #cache-seek-min = 50
+
+sub-auto=fuzzy
