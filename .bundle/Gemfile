@@ -48,11 +48,10 @@ gem 'travis'
 gem 'tugboat'
 gem 'gist'
 gem 'ox'
+gem 'pdf-extract'
 
 # muflax
-gem 'muflax'
 gem 'future_me', :path => File.expand_path('~/src/ruby/fume')
-gem 't'
 
 # web
 gem 'nanoc', '~> 4.0.0rc2'
