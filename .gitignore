@@ -223,3 +223,6 @@ rejuvyesh.db
 .dmrc
 .config/google-chrome
 .config/nautilus
+.aria2/dht.dat
+.rclone.conf
+/home/rejuvyesh/.multirust

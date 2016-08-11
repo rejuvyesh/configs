@@ -35,6 +35,11 @@ contrast=0
 hue=0
 saturation=0
 
+# a profile that can be enabled with --profile=big-cache
+[big-cache]
+cache=123400
+demuxer-readahead-secs=20
+
 # # skip displaying some frames to maintain A/V sync on slow systems
 # framedrop=yes
 

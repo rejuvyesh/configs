@@ -1,17 +1,11 @@
 [src/misc/gitignore]
 checkout = git clone 'https://github.com/github/gitignore.git' 'gitignore'
 
-[src/backup/git-annex-utils]
-checkout = git clone 'http://git.mysteryvortex.com/repositories/git-annex-utils.git' 'git-annex-utils'
-
 [src/julia/julia]
 checkout = git clone 'https://github.com/JuliaLang/julia.git' 'julia'
 
 [src/scripts]
 checkout = git clone 'https://rejuvyesh@github.com/rejuvyesh/Scripts.git' 'scripts'
-
-[src/backup/git-annex]
-checkout = git clone 'https://github.com/joeyh/git-annex.git' 'git-annex'
 
 [/home/rejuvyesh]
 checkout = git clone 'https://rejuvyesh@github.com/rejuvyesh/configs.git' 'rejuvyesh'
@@ -24,27 +18,3 @@ checkout = git clone 'https://github.com/sstephenson/rbenv.git' '.rbenv'
 
 [.rbenv/plugins/ruby-build]
 checkout = git clone 'https://github.com/sstephenson/ruby-build.git' 'ruby-build'
-
-[src/c/zathura/zathura-vi]
-checkout = git clone 'https://github.com/fmap/zathura-vi.git' 'zathura-vi'
-
-[src/c/zathura/zathura-cb]
-checkout = git clone 'https://github.com/pwmt/zathura-cb.git' 'zathura-cb'
-
-[src/c/zathura/zathura-pdf-mupdf]
-checkout = git clone 'https://github.com/pwmt/zathura-pdf-mupdf.git' 'zathura-pdf-mupdf'
-
-[src/c/zathura/zathura-djvu]
-checkout = git clone 'https://github.com/pwmt/zathura-djvu.git' 'zathura-djvu'
-
-[src/c/zathura/zathura-ps]
-checkout = git clone 'https://github.com/pwmt/zathura-ps.git' 'zathura-ps'
-
-[src/haskell/arbtt]
-checkout = git clone 'https://bitbucket.org/nomeata/arbtt.git' 'arbtt'
-
-[.zsh/git-annex-zsh-completion]
-checkout = git clone 'https://github.com/Schnouki/git-annex-zsh-completion.git' 'git-annex-zsh-completion'
-
-[src/haskell/hledger]
-checkout = git clone 'https://github.com/simonmichael/hledger.git' 'hledger'

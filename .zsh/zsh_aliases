@@ -36,6 +36,7 @@ function ff() { firefox $* >/dev/null 2>/dev/null &! }
 function ffp() { firefox -private-window $* >/dev/null 2>/dev/null &! }
 function za() { zathura $* >/dev/null 2>/dev/null &! }
 function ok() { okular $* >/dev/null 2>/dev/null &! }
+function ev() { evince $* >/dev/null 2>/dev/null &! }
 function no() { nomacs $* >/dev/null 2>/dev/null &! }
 function en() { emacs $* >/dev/null 2>/dev/null &! }
 
@@ -233,6 +234,9 @@ alias i="pry"
 alias p2="python2"
 alias p3="python3"
 alias p="python3"
+
+# julia
+alias j="julia"
 
 # go
 [[ -e $(which colorgo) ]] && [[ -e $(which go) ]] && alias go=colorgo
