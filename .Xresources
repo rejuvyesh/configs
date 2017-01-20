@@ -2,9 +2,9 @@ Xcursor.theme: Neutral
 
 Xft.antialias:  1
 Xft.autohint:   0
-Xft.dpi:        96
+Xft.dpi:        210
 Xft.hinting:    1
-Xft.hintstyle:  hintfull
+Xft.hintstyle:  hintslight
 Xft.lcdfilter:  lcddefault
 Xft.rgba:       rgb
 
@@ -34,8 +34,8 @@ URxvt.depth           :             32
 URxvt.keysym.M-Down : perl:font-size:decrease
 URxvt.keysym.M-Up   : perl:font-size:increase
 URxvt.letterSpace     : -1
-URxvt*font:           xft:Fantasque Sans Mono:pixelsize=12,xft:DejaVu Sans Mono:pixelsize=14,xft:Sazanami Gothic:pixelsize=14,xft:Noto Sans:pixelsize=14
-URxvt*boldFont:       xft:Fantasque Sans Mono:bold:pixelsize=12
+URxvt*font:           xft:Fantasque Sans Mono:pixelsize=20,xft:DejaVu Sans Mono:pixelsize=20,xft:Sazanami Gothic:pixelsize=20,xft:Noto Sans:pixelsize=20
+URxvt*boldFont:       xft:Fantasque Sans Mono:bold:pixelsize=20
 URxvt*italicFont:
 URxvt*boldItalicFont:
 
