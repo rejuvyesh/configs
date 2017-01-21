@@ -12,7 +12,7 @@ theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/the
 theme.lain_icons                    = os.getenv("HOME") .. "/.config/awesome/lain/icons/layout/zenburn/"
 theme.wallpaper                     = theme.confdir .. "/wall.png"
 
-theme.font                          = "Terminus 8"
+theme.font                          = "Fantasque Sans Mono 14"
 --theme.taglist_font                =
 theme.menu_bg_normal                = "#000000"
 theme.menu_bg_focus                 = "#000000"
@@ -37,7 +37,7 @@ theme.border_width                  = "1"
 theme.border_normal                 = "#1c2022"
 theme.border_focus                  = "#606060"
 theme.border_marked                 = "#3ca4d8"
-theme.menu_width                    = "110"
+theme.menu_width                    = "140"
 theme.menu_border_width             = "0"
 theme.menu_fg_normal                = "#aaaaaa"
 theme.menu_fg_focus                 = "#ff8c00"

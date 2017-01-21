@@ -50,7 +50,8 @@ function chomp_read(command)
   return awful.util.pread(command):gsub("\n$", "")
 end
 
-
+-- local fume = chomp_read("ti display --start 'today 0:00' -f status")
+local fume = chomp_read("ti now")
 -- localization
 os.setlocale(os.getenv("LANG"))
 
@@ -104,7 +105,7 @@ function toggleFullScreenTiling()
 end
 
 -- default apps
-terminal = "urxvt"
+terminal = "konsole"
 editor   = "emacs-gui"
 browser  = "firefox"
 
@@ -119,7 +120,7 @@ redshift.options = "-l 37.421:-122.158 -t 6500:4000"
 redshift.init(1)
 
 -- scratchpads
-local scratchpad_term = scratchpad({ command = terminal.." -name scratchpad -e zsh -i -c 'scratchpad'",
+local scratchpad_term = scratchpad({ command = terminal.." --name scratchpad -e zsh -i -c 'scratchpad'",
                                      name    = "scratchpad",
                                      height  = 0.7,
                                      width   = 0.5})
@@ -304,7 +305,7 @@ globalkeys = awful.util.table.join(
               volume:update()
   end),
   awful.key({                   }, "XF86AudioMute", function ()
-              awful.util.spawn_with_shell("amixer -q set Master toggle") end),
+              awful.util.spawn_with_shell("pactl set-sink-mute 0 toggle") end),
 
   awful.key({ modkey, "Control" }, "c", function ()
               awful.util.spawn_with_shell("MPD_HOST=localhost mpc del 0") end),
@@ -563,15 +564,17 @@ awful.rules.rules = {
     -- default tags
   { rule_any = { class = { "Pidgin",
                            "Firefox",
-                           "Chromium-browser",
-                           "google-chrome"}},
+                           "Chromium-browser"
+                          }},
     properties = { tag = tags[1][10] }},
   { rule_any = { class = { "Anki"}},
     properties = { tag = tags[1][9] }},
   { rule_any = { class = { "Zathura", "zathura"}},
     properties = { tag = tags[1][2] }},
-  { rule_any = {class = {"com-mathworks-util-PostVMInit"}},
+  { rule_any = { class = {"com-mathworks-util-PostVMInit"}},
     properties = { tag = tags[1][3] }},
+  { rule_any = { class = {"Spotify"}},
+    properties = { tag = tags[1][8] }},
   { rule_any = { name  = {"Figure [0-9].*"}}, properties = {floating = true }},
 }
 
@@ -592,7 +595,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- menu / launcher
 awesome_menu = awful.menu({items = {
                             { "open terminal", terminal },
-                            { "spacefm", function() awful.util.spawn("spacefm") end },
+                            { "thunar", function() awful.util.spawn("thunar") end },
                             { "edit config", editor .. " " .. awesome.conffile },
                             { "restart", awesome.restart }}})
 
@@ -622,7 +625,7 @@ clock_timer("clock", 0.9, function()
                 -- local time
                   ..markup("#de5e1e", os.date("%H:%M:%S")))
 end)
-lain.widgets.calendar:attach(clock, {font_size = 10, position= "bottom_right"})
+lain.widgets.calendar:attach(clock, {font_size = 16, position= "bottom_right"})
 
 -- CPU
 cpuicon   = wibox.widget.imagebox()
@@ -635,12 +638,12 @@ cpu = lain.widgets.cpu({
 
 -- Battery
 baticon = wibox.widget.imagebox(beautiful.widget_batt)
-local local_battery = "BAT0"
-
-bat = lain.widgets.bat({ battery = local_battery,
+bat = lain.widgets.bat({ battery = "BAT0",
                          settings = function()
                            if bat_now.status == "Unknown" then
-                             bat_now.perc = "AC "
+                             bat_now.perc = "⌁ "
+                           elseif bat_now.status == "Full" then
+                             bat_now.perc = "↯"
                            else
                              bat_now.perc = bat_now.perc .. "% "
                            end
@@ -655,6 +658,28 @@ bat = lain.widgets.bat({ battery = local_battery,
                            widget:set_text(status..bat_now.perc)
                          end
 })
+if hostname == 'kusanagi' then
+  bat_1 = lain.widgets.bat({ battery = "BAT1",
+                           settings = function()
+                             if bat_now.status == "Unknown" then
+                               bat_now.perc = "⌁ "
+                             elseif bat_now.status == "Full" then
+                               bat_now.perc = "↯"
+                             else
+                               bat_now.perc = bat_now.perc .. "% "
+                             end
+
+                             local status = ""
+                             if bat_now.status == "Charging" then
+                               status = "+"
+                             elseif bat_now.status == "Discharging" then
+                               status = "-"
+                             end
+
+                             widget:set_text(status..bat_now.perc)
+                           end
+  })
+end
 
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
@@ -718,7 +743,6 @@ mpdwidget = lain.widgets.mpd({
                                    widget:set_markup(markup("#e54c62", artist) .. markup("#b2b2b2", title))
                                 end
 })
-
 
 -- fume
 fumewidget = lain.widgets.abase({ cmd = "ti display --start 'today 0:00' -f status",
@@ -811,6 +835,9 @@ for s = 1, screen.count() do
   right_layout:add(spacer)
   right_layout:add(baticon)
   right_layout:add(bat)
+  if hostname == 'kusanagi' then
+    right_layout:add(bat_1)
+  end
   right_layout:add(cpuicon)
   right_layout:add(cpu)
   right_layout:add(memicon)
@@ -846,7 +873,7 @@ function run_once(prg, args)
   awful.util.spawn_with_shell('pgrep -f -u $USER -x ' .. prg .. ' || (' .. prg .. ' ' .. args ..')')
 end
 
-run_once("urxvt -name scratchpad -e zsh -i -c 'scratchpad")
+run_once("konsole --name scratchpad -e zsh -i -c 'scratchpad")
 
 
 -- disable startup-notification globally
