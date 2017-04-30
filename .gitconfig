@@ -42,3 +42,6 @@
 	spellingdictionary      = none
 [include]
 	path = .git-local
+[github]
+	user = rejuvyesh
+	oauth-token = e571130d3cc56b8b65bb46216286dd9249e64bc3

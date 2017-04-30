@@ -1,23 +1,23 @@
 source 'https://rubygems.org'
 
 # pry
-gem 'pry'
-gem 'pry-doc'
-gem 'pry-docmore'
-gem 'pry-nav'
-gem 'pry-rails'
-gem 'pry-rescue'
-gem 'pry-theme'
-gem 'pry-vterm_aliases'
-gem 'rb-readline'
+#gem 'pry'
+#gem 'pry-doc'
+#gem 'pry-docmore'
+#gem 'pry-nav'
+#gem 'pry-rails'
+#gem 'pry-rescue'
+#gem 'pry-theme'
+#gem 'pry-vterm_aliases'
+#gem 'rb-readline'
 
 # TAGS
-gem 'ripper-tags'
-gem 'gem-ripper-tags'
+#gem 'ripper-tags'
+#gem 'gem-ripper-tags'
 
 # rspec
-gem 'autotest'
-gem 'rspec'
+#gem 'autotest'
+#gem 'rspec'
 
 # lint
 gem 'ruby-lint'
@@ -32,7 +32,7 @@ gem 'awesome_print'
 gem 'trollop'
 gem 'chronic'
 gem 'activesupport'
-gem 'gem-release'
+#gem 'gem-release'
 gem 'sqlite3'
 gem 'mime-types'
 gem 'rake'
@@ -45,7 +45,7 @@ gem 'ruby-mpd'
 gem 'libnotify'
 gem 'moneta'
 gem 'travis'
-gem 'tugboat'
+#gem 'tugboat'
 gem 'gist'
 gem 'ox'
 gem 'pdf-extract'
@@ -54,17 +54,17 @@ gem 'pdf-extract'
 gem 'future_me', :path => File.expand_path('~/src/ruby/fume')
 
 # web
-gem 'nanoc', '~> 4.0.0rc2'
-gem 'adsf'
-gem 'sass'
-gem 'pandoc-ruby'
-gem 'pygments.rb'
+#gem 'nanoc', '~> 4.0.0rc2'
+#gem 'adsf'
+#gem 'sass'
+#gem 'pandoc-ruby'
+#gem 'pygments.rb'
 
 # forks
-gem 'lolcommits', :path => File.expand_path('~/src/ruby/lolcommits')
+#gem 'lolcommits', :path => File.expand_path('~/src/ruby/lolcommits')
 
 # my own stuff
-gem 'traktr', :path => File.expand_path('~/src/ruby/traktr')
-gem 'rmpv', :path => File.expand_path('~/src/ruby/rmpv')
+#gem 'traktr', :path => File.expand_path('~/src/ruby/traktr')
+#gem 'rmpv', :path => File.expand_path('~/src/ruby/rmpv')
 
 

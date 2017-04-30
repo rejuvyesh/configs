@@ -625,7 +625,7 @@ clock_timer("clock", 0.9, function()
                 -- local time
                   ..markup("#de5e1e", os.date("%H:%M:%S")))
 end)
-lain.widgets.calendar:attach(clock, {font_size = 16, position= "bottom_right"})
+--lain.widgets.calendar:attach(clock, {font_size = 16, position= "bottom_right"})
 
 -- CPU
 cpuicon   = wibox.widget.imagebox()
@@ -834,7 +834,9 @@ for s = 1, screen.count() do
   right_layout:add(fumewidget)
   right_layout:add(spacer)
   right_layout:add(baticon)
-  right_layout:add(bat)
+  if hostname ~= 'lexington' then
+    right_layout:add(bat)
+  end
   if hostname == 'kusanagi' then
     right_layout:add(bat_1)
   end
