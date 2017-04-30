@@ -49,6 +49,18 @@ if [[ -s $HOME/.cargo ]]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+# julia
+if [[ -s $HOME/local/julia ]]; then
+    export PATH="$HOME/local/julia/bin:$PATH"
+fi
+
+# npm
+if [[ -s $HOME/local/npm ]]; then
+    NPM_PACKAGES="$HOME/local/npm"
+    export PATH="$NPM_PACKAGES/bin:$PATH"
+    export MANPATH="$NPM_PACKAGES/share/man:$MANPATH"
+fi
+
 ## Latex
 if [[ -s "$HOME/opt/texlive/2013/bin/x86_64-linux/" ]]; then
     PATH="$HOME/opt/texlive/2013/bin/x86_64-linux/":${PATH}

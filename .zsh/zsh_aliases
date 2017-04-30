@@ -36,7 +36,7 @@ function ff() { firefox $* >/dev/null 2>/dev/null &! }
 function ffp() { firefox -private-window $* >/dev/null 2>/dev/null &! }
 function za() { zathura $* >/dev/null 2>/dev/null &! }
 function ok() { okular $* >/dev/null 2>/dev/null &! }
-function ev() { evince $* >/dev/null 2>/dev/null &! }
+function ev() { ebook-viewer $* >/dev/null 2>/dev/null &! }
 function no() { nomacs $* >/dev/null 2>/dev/null &! }
 function en() { emacs $* >/dev/null 2>/dev/null &! }
 
@@ -242,7 +242,7 @@ alias j="julia"
 [[ -e $(which colorgo) ]] && [[ -e $(which go) ]] && alias go=colorgo
 
 # subs
-subs() { subliminal --languages=en -f -s $* }
+subs() { subliminal download --language=en -f -s $* }
 
 # rsync
 _rsync_cmd='rsync --verbose --progress --human-readable --archive --hard-links --one-file-system'
@@ -285,3 +285,6 @@ alias hb='hledger balance'
 # apt
 alias agi='sudo aptitude install'
 alias agui='sudo aptitude remove'
+
+# irc
+alias irc='mosh lexington -- tmux attach -t irc'
