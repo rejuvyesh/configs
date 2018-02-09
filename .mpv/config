@@ -4,7 +4,7 @@
 [default]
 
 # vdpau is unstable, don't use it
-vo=opengl-hq,opengl,xv
+#vo=opengl-hq,opengl,xv
 
 # multithreaded decoding of H264/MPEG-1/2 (valid: 0-16)
 vd-lavc-threads=2
@@ -21,10 +21,10 @@ stop-screensaver="yes"
 
 # correct pitch when speed is faster or slower than 1.0
 # af=scaletempo
-af=drc
+af=lavfi=[acompressor]
 
 # allow to increase the maximal volume to 600%
-softvol-max=600
+volume-max=600
 
 # don't show images for audio
 audio-display="no"
