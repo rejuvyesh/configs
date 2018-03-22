@@ -105,7 +105,7 @@ function toggleFullScreenTiling()
 end
 
 -- default apps
-terminal = "konsole"
+terminal = "alacritty"
 editor   = "emacs-gui"
 browser  = "firefox"
 
@@ -834,7 +834,7 @@ for s = 1, screen.count() do
   right_layout:add(fumewidget)
   right_layout:add(spacer)
   right_layout:add(baticon)
-  if hostname ~= 'lexington' then
+  if hostname ~= 'lexington' and hostname ~= 'somerset' then
     right_layout:add(bat)
   end
   if hostname == 'kusanagi' then
@@ -875,7 +875,7 @@ function run_once(prg, args)
   awful.util.spawn_with_shell('pgrep -f -u $USER -x ' .. prg .. ' || (' .. prg .. ' ' .. args ..')')
 end
 
-run_once("konsole --name scratchpad -e zsh -i -c 'scratchpad")
+run_once("alacritty --title scratchpad -e zsh -i -c 'scratchpad'")
 
 
 -- disable startup-notification globally
