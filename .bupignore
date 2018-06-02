@@ -22,7 +22,6 @@ texmf
 local/MATLAB
 local/virtualboxes
 papers/
-*.pdf
 *.log
 *.mp3
 *.png
@@ -30,3 +29,4 @@ archive
 src/haskell/
 src/misc/
 music
+stuff/peer
