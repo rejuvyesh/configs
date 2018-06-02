@@ -287,4 +287,4 @@ alias agi='sudo aptitude install'
 alias agui='sudo aptitude remove'
 
 # irc
-alias irc='mosh lexington -- tmux attach -t irc'
+alias irc='mosh somerset -- tmux attach -t irc'

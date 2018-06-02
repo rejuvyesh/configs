@@ -53,3 +53,9 @@ demuxer-readahead-secs=20
 #cache-seek-min = 50
 
 sub-auto=fuzzy
+sub-color="#FFFFFFFF"
+sub-border-color="#FF262626"
+sub-border-size=1.8
+sub-shadow-offset=3
+sub-shadow-color="#77000000"
+sub-spacing=0.5
