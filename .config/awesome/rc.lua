@@ -129,6 +129,10 @@ local scratchpad_anking = scratchpad({ command = "anking",
                                        height  = 0.7,
                                        width   = 0.5})
 
+local scratchpad_slack = scratchpad({ command = "slack", 
+                                      name    = "slack",
+                                      height  = 0.7, width = 0.5})
+
 -- disable mouse
 function mouse_toggle()
   awful.util.spawn("toggle_mouse.rb")
@@ -269,6 +273,8 @@ globalkeys = awful.util.table.join(
 
   -- launch scratchpad
   awful.key({ modkey,           }, "i", function () scratchpad_term:toggle() end),
+  
+  awful.key({ modkey,           }, "s", function () scratchpad_slack:toggle() end),
 
   -- anking / anki
   awful.key({ modkey,           }, "a", function () scratchpad_anking:toggle() end),
