@@ -64,7 +64,7 @@ function Scratchpad:display()
 
   if not client then
     -- The client does not exist, so we spawn it.
-    awful.util.spawn(self.command, false, self.screen)
+    awful.spawn.with_shell(self.command, false, self.screen)
     return
   end
 

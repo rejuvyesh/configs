@@ -363,8 +363,10 @@ function theme.at_screen_connect(s)
     right_layout:add(theme.weather.widget)
     right_layout:add(tempicon)
     right_layout:add(temp.widget)
-    right_layout:add(baticon)
-    right_layout:add(bat.widget)
+    -- if hostname ~= 'somerset' then
+    --   right_layout:add(baticon)
+    --   right_layout:add(bat.widget)
+    -- end
     if hostname == 'kusanagi' then
       right_layout:add(bat_1.widget)
     end

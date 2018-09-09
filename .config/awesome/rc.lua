@@ -63,11 +63,29 @@ local hostname = chomp_read("hostname")
 -- {{{ Autostart windowless processes
 
 -- This function will run once every time Awesome is started
-local function run_once(cmd_arr)
-    for _, cmd in ipairs(cmd_arr) do
-        awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
-    end
+-- local function run_once(cmd_arr)
+--     for _, cmd in ipairs(cmd_arr) do
+--         awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
+--     end
+-- end
+function run_once(prg, arg_string, pname, screen)
+  if not prg then
+    do return nil end
+  end
+
+  if not pname then
+    pname = prg
+  end
+
+  if not arg_string or not not tostring(arg_string):find("^%s*$") then 
+    arg_string = ""
+  else
+    arg_string = " " .. arg_string 
+  end
+
+  awful.spawn.with_shell("pgrep -u $USER -x '" .. pname .. arg_string .. "' || (" .. prg .. arg_string .. ")", screen)
 end
+
 
 -- disable mouse
 function mouse_toggle()
@@ -146,26 +164,19 @@ awful.spawn.with_shell(
 local theme = "multicolor"
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "alacritty"
+local terminal     = "kitty"
 local editor       = "emacs-gui"
 local browser      = "firefox"
 local scrlocker    = "slock"
 
 -- scratchpads
-local scratchpad_term = scratchpad({ command = terminal.." --title scratchpad -e zsh -i -c 'scratchpad'",
+local scratchpad_term = scratchpad({ command = terminal.." --name scratchpad -e zsh -i -c 'scratchpad'",
                                      name    = "scratchpad",
                                      height  = 0.7,
                                      width   = 0.5})
 local scratchpad_slack = scratchpad({ command = "slack", 
                                       name    = "slack",
                                       height  = 0.7, width = 0.5})
-
--- dmenu_font  = "-xos4-terminus-medium-*-*-*-12-*-*-*-*-*-*-*"
--- dmenu_opts  = "-b -i -fn '"..dmenu_font.."' -nb '#000000' -nf '#FFFFFF' -sb '"..beautiful.bg_focus.."'"
--- dmenu       = "dmenu "..dmenu_opts
--- dmenu_all   = "dmenu_run "..dmenu_opts
--- dmenu_quick = "eval \"exec `cat $HOME/.programs | "..dmenu.."`\""
-
 
 awful.util.terminal = terminal
 awful.util.tagnames = {
@@ -967,6 +978,7 @@ awful.rules.rules = {
     -- default tags
     { rule_any = { class = { "Pidgin",
                              "Firefox",
+                             "Nightly",
                              "Chromium-browser"
                  }},
       properties = { tag = awful.util.tagnames[10] }},
@@ -1017,6 +1029,5 @@ end
 
 client.connect_signal("property::maximized", border_adjust)
 
--- client.connect_signal("focus", border_adjust)
--- client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+run_once(terminal, " --name scratchpad -e zsh -i -c 'scratchpad'")
 -- }}}
