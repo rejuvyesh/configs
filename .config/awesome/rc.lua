@@ -774,8 +774,11 @@ globalkeys = my_table.join(
   awful.key({                   }, "XF86AudioMute", function ()
       awful.util.spawn_with_shell("pactl set-sink-mute 0 toggle") end),
   
-  awful.key({ modkey }, ".", function()
+  awful.key({ modkey }, "/", function()
       awful.util.spawn_with_shell("sp play") end),
+  
+  awful.key({ modkey }, ".", function()
+      awful.util.spawn_with_shell("sp next") end),
   
   -- Copy to clipboard
   awful.key({ modkey }, "c", function () os.execute("xclip -selection primary -o | xclip -selection clipboard -i") end),

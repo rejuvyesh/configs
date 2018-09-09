@@ -32,3 +32,5 @@ function lsdirs () {
         printf "%15s --> %s\n" $key ${NAMED_DIRS[$key]}
     done | sort -b
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

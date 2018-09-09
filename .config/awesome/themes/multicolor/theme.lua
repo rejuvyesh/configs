@@ -15,6 +15,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
+theme.lain_icons                                = os.getenv("HOME") .. "/.config/awesome/lain/icons/layout/zenburn/"
 theme.wallpaper                                 = theme.confdir .. "/wall.png"
 theme.font                                      = "Fantasque Sans Mono 8"
 theme.menu_bg_normal                            = "#000000"
@@ -89,6 +90,9 @@ theme.titlebar_maximized_button_normal_inactive = theme.confdir .. "/icons/title
 theme.titlebar_maximized_button_focus_inactive  = theme.confdir .. "/icons/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_active   = theme.confdir .. "/icons/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active    = theme.confdir .. "/icons/titlebar/maximized_focus_active.png"
+theme.layout_centerfair             = theme.lain_icons .. "centerfair.png"
+theme.layout_centerwork             = theme.lain_icons .. "centerwork.png"
+theme.layout_termfair               = theme.lain_icons .. "termfair.png"
 
 local markup = lain.util.markup
 
@@ -111,7 +115,7 @@ theme.cal = lain.widget.calendar({
 -- Weather
 local weathericon = wibox.widget.imagebox(theme.widget_weather)
 theme.weather = lain.widget.weather({
-    city_id = 2643743, -- placeholder (London)
+    city_id = 5680222, -- placeholder (London)
     notification_preset = { font = "Fantasque Sans Mono 10", fg = theme.fg_normal },
     weather_na_markup = markup.fontfg(theme.font, "#eca4c4", "N/A "),
     settings = function()

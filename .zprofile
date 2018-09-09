@@ -32,6 +32,7 @@ if test -z "${XDG_RUNTIME_DIR}"; then
         chmod 0700 "${XDG_RUNTIME_DIR}"
     fi
 fi
+export NO_AT_BRIDGE=1
 
 systemctl --user import-environment PATH
 
